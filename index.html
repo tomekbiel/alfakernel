@@ -4,65 +4,86 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fintech Data Analytics Dashboard</title>
-
-    <!-- Link to Google Fonts for Roboto Mono -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file for styles -->
-    
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&family=Montserrat:wght@400;600;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Fintech Data Analytics Dashboard</h1>
+    <header>
+        <div class="container">
+            <h1><i class="fas fa-chart-line"></i> Fintech Data Analytics Dashboard</h1>
+            <p class="subtitle">Powerful insights for financial decision making</p>
+        </div>
+    </header>
 
-    <h2>Project Overview</h2>
-    <p>
-        This project is a comprehensive data analytics dashboard aimed at providing insights into financial data for analytics and decision-making purposes. Utilizing both R and Python, this dashboard enables users to visualize trends, assess risks, and drive strategic investment decisions.
-    </p>
+    <main class="container">
+        <section class="card">
+            <h2><i class="fas fa-project-diagram"></i> Project Overview</h2>
+            <p>This project is a comprehensive data analytics dashboard aimed at providing insights into financial data for analytics and decision-making purposes. Utilizing both R and Python, this dashboard enables users to visualize trends, assess risks, and drive strategic investment decisions.</p>
+        </section>
 
-    <h2>Purpose</h2>
-    <p>
-        In the fast-paced world of fintech, having accurate and actionable insights is vital. This project analyzes financial datasets to uncover trends, monitor market movements, and predict future risks, assisting investors and financial analysts in making informed decisions.
-    </p>
+        <section class="card">
+            <h2><i class="fas fa-bullseye"></i> Purpose</h2>
+            <p>In the fast-paced world of fintech, having accurate and actionable insights is vital. This project analyzes financial datasets to uncover trends, monitor market movements, and predict future risks, assisting investors and financial analysts in making informed decisions.</p>
+        </section>
 
-    <h2>Technologies Used</h2>
-    <ul>
-        <li><strong>Languages:</strong> R, Python</li>
-        <li><strong>Libraries:</strong> Pandas, NumPy, Matplotlib, ggplot2, Streamlit</li>
-        <li><strong>Tools:</strong> GitHub Pages for hosting, Jupyter Notebooks for Python scripts, R Markdown for R analyses</li>
-    </ul>
+        <section class="card">
+            <h2><i class="fas fa-code"></i> Technologies Used</h2>
+            <ul>
+                <li><i class="fas fa-laptop-code tech-icon"></i><strong>Languages:</strong> R, Python</li>
+                <li><i class="fas fa-cubes tech-icon"></i><strong>Libraries:</strong> Pandas, NumPy, Matplotlib, ggplot2, Streamlit</li>
+                <li><i class="fas fa-tools tech-icon"></i><strong>Tools:</strong> GitHub Pages for hosting, Jupyter Notebooks for Python scripts, R Markdown for R analyses</li>
+            </ul>
+        </section>
 
-    <h2>Key Features</h2>
-    <ul>
-        <li>Interactive data visualizations for key financial metrics.</li>
-        <li>Risk assessment models for portfolio management.</li>
-        <li>Historical data analysis for trend identification.</li>
-        <li>User-friendly interface for real-time data exploration.</li>
-    </ul>
+        <section class="card">
+            <h2><i class="fas fa-star"></i> Key Features</h2>
+            <ul>
+                <li>Interactive data visualizations for key financial metrics.</li>
+                <li>Risk assessment models for portfolio management.</li>
+                <li>Historical data analysis for trend identification.</li>
+                <li>User-friendly interface for real-time data exploration.</li>
+            </ul>
+        </section>
 
-    <h2>Target Audience</h2>
-    <p>
-        This project is designed for financial analysts, data scientists, and investors who seek to leverage data to inform their financial strategies.
-    </p>
+        <section class="card">
+            <h2><i class="fas fa-users"></i> Target Audience</h2>
+            <p>This project is designed for financial analysts, data scientists, and investors who seek to leverage data to inform their financial strategies.</p>
+        </section>
 
-    <h2>How to Use</h2>
-    <p>
-        To explore the dashboard, simply clone this repository and open the relevant Jupyter Notebook or R Markdown file. Ensure you have the necessary libraries installed, and follow the instructions in the README for setup.
-    </p>
+        <section class="card">
+            <h2><i class="fas fa-question-circle"></i> How to Use</h2>
+            <p>To explore the dashboard, simply clone this repository and open the relevant Jupyter Notebook or R Markdown file. Ensure you have the necessary libraries installed, and follow the instructions in the README for setup.</p>
+        </section>
 
-    <h2>Contributions</h2>
-    <p>
-        Contributions are welcome! Feel free to submit issues or pull requests.
-    </p>
+        <section class="card">
+            <h2><i class="fas fa-hands-helping"></i> Contributions</h2>
+            <p>Contributions are welcome! Feel free to submit issues or pull requests.</p>
+        </section>
 
-    <h2>Contact</h2>
-    <p>
-        For inquiries, contact me at <a href="mailto:tomekbiel.office@gmail.com">tomekbiel.office@gmail.com</a>.
-    </p>
+        <section class="card">
+            <h2><i class="fas fa-envelope"></i> Contact</h2>
+            <p>For inquiries, contact me at <a href="mailto:tomekbiel.office@gmail.com">tomekbiel.office@gmail.com</a>.</p>
+        </section>
 
-    <h2>Additional Links</h2>
-    <a href="https://tomekbiel.github.io/tomekbiel/contact.html">Contact Us</a><br>
-    <a href="https://tomasz.shinyapps.io/shiny-1/" target="_blank">Visit My Shiny App</a>
-    <a href="https://tomekbiel.github.io/tomekbiel/app_description.html">View App Description</a>
+        <section class="links-section">
+            <h2><i class="fas fa-link"></i> Additional Links</h2>
+            <div class="links-container">
+                <a href="https://tomekbiel.github.io/tomekbiel/contact.html" class="btn"><i class="fas fa-address-card"></i> Contact Us</a>
+                <a href="https://tomasz.shinyapps.io/shiny-1/" target="_blank" class="btn"><i class="fas fa-external-link-alt"></i> Visit My Shiny App</a>
+                <a href="https://tomekbiel.github.io/tomekbiel/app_description.html" class="btn"><i class="fas fa-info-circle"></i> View App Description</a>
+            </div>
+        </section>
+    </main>
 
-    <em>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</em> <!-- Optionally include example text -->
+    <footer>
+        <div class="container">
+            <p>© <span id="year"></span> Fintech Data Analytics Dashboard | All Rights Reserved</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
 </body>
 </html>
