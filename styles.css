@@ -4,7 +4,7 @@
     --dark-color: #263238;
     --light-color: #eceff1;
     --accent-color: #ff6d00;
-    --background-color: #f5f7fa;
+    --background-color: #ffffff; /* Białe tło */
     --card-color: #ffffff;
 }
 
@@ -12,7 +12,7 @@ body {
     font-family: 'Montserrat', sans-serif;
     line-height: 1.6;
     color: var(--dark-color);
-    background-color: var(--background-color);
+    background-color: var(--background-color) !important; /* Wymusza białe tło */
     margin: 0;
     padding: 0;
 }
