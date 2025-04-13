@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Market Data</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&family=Montserrat:wght@400;600;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><i class="fas fa-database"></i> Financial Market Data</h1>
+            <p class="subtitle">Download historical market data for analysis</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="card">
+            <h2><i class="fas fa-file-csv"></i> Available Datasets</h2>
+            
+            <div class="data-grid">
+                <!-- Indeksy amerykańskie -->
+                <div class="data-category">
+                    <h3><i class="fas fa-chart-line"></i> US Indices</h3>
+                    <ul>
+                        <li><a href="data/US100.csv" download><i class="fas fa-download"></i> US.100 (NASDAQ)</a></li>
+                        <li><a href="data/US500.csv" download><i class="fas fa-download"></i> US.500 (S&P 500)</a></li>
+                        <li><a href="data/US30.csv" download><i class="fas fa-download"></i> US.30 (Dow Jones)</a></li>
+                        <li><a href="data/VIX.csv" download><i class="fas fa-download"></i> VIX (Volatility Index)</a></li>
+                    </ul>
+                </div>
+
+                <!-- Forex -->
+                <div class="data-category">
+                    <h3><i class="fas fa-dollar-sign"></i> Forex</h3>
+                    <ul>
+                        <li><a href="data/EURUSD.csv" download><i class="fas fa-download"></i> EUR/USD</a></li>
+                        <li><a href="data/USDJPY.csv" download><i class="fas fa-download"></i> USD/JPY</a></li>
+                        <li><a href="data/EURPLN.csv" download><i class="fas fa-download"></i> EUR/PLN</a></li>
+                    </ul>
+                </div>
+
+                <!-- Towary -->
+                <div class="data-category">
+                    <h3><i class="fas fa-oil-can"></i> Commodities</h3>
+                    <ul>
+                        <li><a href="data/GOLD.csv" download><i class="fas fa-download"></i> Gold</a></li>
+                        <li><a href="data/OIL_WTI.csv" download><i class="fas fa-download"></i> WTI Crude Oil</a></li>
+                        <li><a href="data/OIL_BRENT.csv" download><i class="fas fa-download"></i> Brent Crude Oil</a></li>
+                    </ul>
+                </div>
+
+                <!-- Inne indeksy -->
+                <div class="data-category">
+                    <h3><i class="fas fa-globe-europe"></i> Global Indices</h3>
+                    <ul>
+                        <li><a href="data/DE30.csv" download><i class="fas fa-download"></i> DE.30 (DAX)</a></li>
+                        <li><a href="data/UK100.csv" download><i class="fas fa-download"></i> UK.100 (FTSE)</a></li>
+                        <li><a href="data/JAP225.csv" download><i class="fas fa-download"></i> JAP.225 (Nikkei)</a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2><i class="fas fa-info-circle"></i> Data Information</h2>
+            <p>All data is collected from MetaTrader 4 platform and updated regularly. Data format:</p>
+            <ul>
+                <li><strong>Timeframe:</strong> Daily (D1)</li>
+                <li><strong>Columns:</strong> Date, Open, High, Low, Close, Volume</li>
+                <li><strong>Format:</strong> CSV (Comma Separated Values)</li>
+                <li><strong>Last update:</strong> <span id="update-date"></span></li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© <span id="year"></span> Financial Market Data | All Rights Reserved</p>
+            <a href="index.html" class="btn"><i class="fas fa-arrow-left"></i> Back to Dashboard</a>
+        </div>
+    </footer>
+
+    <script>
+        // Automatyczna aktualizacja roku i daty
+        document.getElementById('year').textContent = new Date().getFullYear();
+        document.getElementById('update-date').textContent = new Date().toLocaleDateString();
+    </script>
+</body>
+</html>
