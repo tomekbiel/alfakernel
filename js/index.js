@@ -1,18 +1,22 @@
-// index.js
+// 📓 index.js — obsługuje kartkowanie zakładek
 
-function showTab(tabName) {
-    document.querySelectorAll('section').forEach(section => {
-      section.classList.add('hidden');
-    });
-    document.getElementById(tabName).classList.remove('hidden');
-  }
+document.addEventListener('DOMContentLoaded', function() {
+    const tabs = document.querySelectorAll('.tab');
+    const sections = document.querySelectorAll('.tab-section');
   
-  function toggleLogin() {
-    const loginForm = document.getElementById('login-form');
-    if (loginForm.style.display === 'block') {
-      loginForm.style.display = 'none';
-    } else {
-      loginForm.style.display = 'block';
-    }
-  }
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        // Dezaktywuj wszystkie zakładki i sekcje
+        tabs.forEach(t => t.classList.remove('active'));
+        sections.forEach(s => s.classList.remove('visible'));
+  
+        // Aktywuj klikniętą zakładkę
+        tab.classList.add('active');
+        
+        // Pokaż odpowiednią sekcję
+        const target = tab.getAttribute('data-target');
+        document.getElementById(target).classList.add('visible');
+      });
+    });
+  });
   
