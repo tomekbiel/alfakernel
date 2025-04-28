@@ -3,67 +3,75 @@
 <head>
   <meta charset="UTF-8">
   <title>AlphaKernel | The Core of Quantitative Finance</title>
-  <link rel="stylesheet" href="../css/modern-style.css">
+  <link rel="stylesheet" href="css/modern-style.css">
 </head>
 <body>
 
   <header class="main-header">
-    <div class="logo">
-      <h1>AlphaKernel</h1>
-      <p class="motto">The Core of Quantitative Finance</p>
-    </div>
-    <div class="login-button">
-      <a href="#" class="login-link">Sign In 🔒</a>
-    </div>
+    <div class="logo">AlphaKernel</div>
+    <div class="subtitle">The Core of Quantitative Finance</div>
+    <div class="login-button" onclick="toggleLogin()">🔒 Sign In</div>
   </header>
 
-  <div class="main-container">
-    <aside class="sidebar">
-      <ul class="tab-menu">
-        <li class="tab-item" data-tab="projects">Projects</li>
-        <li class="tab-item" data-tab="research-lab">Research Lab</li>
-        <li class="tab-item" data-tab="market-data">Market Data</li>
-      </ul>
-    </aside>
+  <div id="login-popup" class="login-popup">
+    <form>
+      <h3>Sign In</h3>
+      <input type="email" placeholder="Email">
+      <input type="password" placeholder="Password">
+      <button type="submit">Login</button>
+    </form>
+  </div>
 
-    <section class="main-content">
-      <div class="welcome-text">
+  <div class="main-layout">
+    <nav class="sidebar">
+      <ul>
+        <li onmouseover="showTab('projects')">Projects</li>
+        <li onmouseover="showTab('research')">Research Lab</li>
+        <li onmouseover="showTab('market')">Market Data</li>
+      </ul>
+    </nav>
+
+    <main class="content">
+      <section id="home-section">
         <h2>Welcome to AlphaKernel</h2>
         <p>
-          This site presents a comprehensive journey through advanced financial research, data science, algorithmic trading systems, and quantitative market analysis.
+          This site presents a comprehensive journey through advanced financial research, data science,
+          algorithmic trading systems, and quantitative market analysis.
         </p>
         <p>
           Explore live data, backtesting results, trading algorithm prototypes, Python and R research, and much more.
         </p>
-      </div>
-
-      <div class="tab-content" id="projects">
-        <h3>Projects Overview</h3>
+        <h3>Mission Statement</h3>
         <p>
-          Discover practical applications of quantitative finance: automated trading systems, predictive models, and fintech development using Python and R.
+          To integrate market data, statistical models, and financial analytics into actionable tools
+          and educational resources, bridging research and trading realities.
         </p>
-      </div>
+      </section>
 
-      <div class="tab-content" id="research-lab">
-        <h3>Research Lab</h3>
-        <p>
-          Dive deep into data-driven finance with innovative methodologies in machine learning, time series forecasting, econometrics, and algorithmic trading experiments.
-        </p>
-      </div>
+      <section id="projects-tab" class="tab hidden">
+        <h2>Projects</h2>
+        <p>Explore various Python, R, and fintech projects focused on algorithmic trading, predictive modeling, and financial analytics.</p>
+      </section>
 
-      <div class="tab-content" id="market-data">
-        <h3>Market Data Center</h3>
-        <p>
-          Access live and historical market datasets, curated for high-frequency analysis, statistical research, and backtesting purposes.
-        </p>
-      </div>
-    </section>
+      <section id="research-tab" class="tab hidden">
+        <h2>Research Lab</h2>
+        <p>Dive into advanced quantitative analysis, data science experiments, and collaborative financial research initiatives.</p>
+      </section>
+
+      <section id="market-tab" class="tab hidden">
+        <h2>Market Data</h2>
+        <p>Access live and historical market datasets, high-frequency trading data, and curated financial statistics for research and development.</p>
+      </section>
+
+    </main>
   </div>
 
   <footer class="footer">
-    <p>&copy; 2025 AlphaKernel | Fintech Research Hub</p>
+    <p>Contact: <a href="mailto:tomekbiel.office@gmail.com">tomekbiel.office@gmail.com</a></p>
+    <p>LinkedIn: <a href="https://www.linkedin.com/in/tomasz-b-1321a5166/" target="_blank">Tomasz Biel</a></p>
+    <p>&copy; 2025 AlphaKernel</p>
   </footer>
 
-  <script src="../js/index.js"></script>
+  <script src="js/index.js"></script>
 </body>
 </html>

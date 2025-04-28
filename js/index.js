@@ -1,21 +1,31 @@
-// 📓 index.js — obsługuje kartkowanie zakładek
-
-document.addEventListener('DOMContentLoaded', function() {
+// === Toggle Login Popup ===
+document.addEventListener('DOMContentLoaded', function () {
+    const loginButton = document.getElementById('loginBtn');
+    const loginPopup = document.getElementById('loginPopup');
+  
+    loginButton.addEventListener('click', function () {
+      if (loginPopup.style.display === "block") {
+        loginPopup.style.display = "none";
+      } else {
+        loginPopup.style.display = "block";
+      }
+    });
+  
+    // Hide login popup when clicking outside
+    document.addEventListener('click', function (event) {
+      if (!loginPopup.contains(event.target) && event.target !== loginButton) {
+        loginPopup.style.display = "none";
+      }
+    });
+  
+    // === Tabs functionality ===
     const tabs = document.querySelectorAll('.tab');
-    const sections = document.querySelectorAll('.tab-section');
+    const sidebarLinks = document.querySelectorAll('.sidebar ul li');
   
-    tabs.forEach(tab => {
-      tab.addEventListener('click', () => {
-        // Dezaktywuj wszystkie zakładki i sekcje
-        tabs.forEach(t => t.classList.remove('active'));
-        sections.forEach(s => s.classList.remove('visible'));
-  
-        // Aktywuj klikniętą zakładkę
-        tab.classList.add('active');
-        
-        // Pokaż odpowiednią sekcję
-        const target = tab.getAttribute('data-target');
-        document.getElementById(target).classList.add('visible');
+    sidebarLinks.forEach((link, index) => {
+      link.addEventListener('mouseenter', function () {
+        tabs.forEach(tab => tab.classList.add('hidden'));
+        tabs[index].classList.remove('hidden');
       });
     });
   });
