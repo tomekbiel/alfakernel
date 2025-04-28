@@ -3,61 +3,67 @@
 <head>
   <meta charset="UTF-8">
   <title>AlphaKernel | The Core of Quantitative Finance</title>
-  <link rel="stylesheet" href="css/modern-style.css">
+  <link rel="stylesheet" href="../css/modern-style.css">
 </head>
 <body>
 
-  <nav class="sidebar">
+  <header class="main-header">
     <div class="logo">
       <h1>AlphaKernel</h1>
-      <p>The Core of Quantitative Finance</p>
+      <p class="motto">The Core of Quantitative Finance</p>
     </div>
-    <ul>
-      <li><a href="index.html" class="active">Home</a></li>
-      <li><a href="projects.html">Projects</a></li>
-      <li><a href="research-lab.html">Research Lab</a></li>
-      <li><a href="market-data.html">Market Data</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-  </nav>
+    <div class="login-button">
+      <a href="#" class="login-link">Sign In 🔒</a>
+    </div>
+  </header>
 
-  <main class="content">
-    <section class="welcome">
-      <h2>Welcome to AlphaKernel</h2>
-      <p>
-        This site presents a comprehensive journey through advanced financial research, data science, algorithmic trading systems, and quantitative market analysis.
-      </p>
-      <p>
-        Explore live data, backtesting results, trading algorithm prototypes, Python and R research, and much more.
-      </p>
-    </section>
-
-    <section class="mission">
-      <h3>Mission Statement</h3>
-      <p>
-        To integrate market data, statistical models, and financial analytics into actionable tools and educational resources, bridging research and trading realities.
-      </p>
-    </section>
-
-    <section class="focus">
-      <h3>Current Focus Areas</h3>
-      <ul>
-        <li>Building MT4 and XTB Python bridges</li>
-        <li>Live and historical data pipelines</li>
-        <li>Financial data cleaning and mining</li>
-        <li>Predictive modeling (ARIMA, Prophet, GARCH, Machine Learning)</li>
-        <li>Backtesting trading strategies</li>
-        <li>Interactive research dashboards (Shiny, Plotly, Power BI)</li>
+  <div class="main-container">
+    <aside class="sidebar">
+      <ul class="tab-menu">
+        <li class="tab-item" data-tab="projects">Projects</li>
+        <li class="tab-item" data-tab="research-lab">Research Lab</li>
+        <li class="tab-item" data-tab="market-data">Market Data</li>
       </ul>
-    </section>
+    </aside>
 
-    <footer class="footer">
-      <p>Contact: <a href="mailto:tomekbiel.office@gmail.com">tomekbiel.office@gmail.com</a></p>
-      <p>LinkedIn: <a href="https://www.linkedin.com/in/tomasz-b-1321a5166/" target="_blank">Tomasz Biel</a></p>
-      <p>&copy; 2025 AlphaKernel</p>
-    </footer>
-  </main>
-  <script src="js/index.js"></script>
+    <section class="main-content">
+      <div class="welcome-text">
+        <h2>Welcome to AlphaKernel</h2>
+        <p>
+          This site presents a comprehensive journey through advanced financial research, data science, algorithmic trading systems, and quantitative market analysis.
+        </p>
+        <p>
+          Explore live data, backtesting results, trading algorithm prototypes, Python and R research, and much more.
+        </p>
+      </div>
+
+      <div class="tab-content" id="projects">
+        <h3>Projects Overview</h3>
+        <p>
+          Discover practical applications of quantitative finance: automated trading systems, predictive models, and fintech development using Python and R.
+        </p>
+      </div>
+
+      <div class="tab-content" id="research-lab">
+        <h3>Research Lab</h3>
+        <p>
+          Dive deep into data-driven finance with innovative methodologies in machine learning, time series forecasting, econometrics, and algorithmic trading experiments.
+        </p>
+      </div>
+
+      <div class="tab-content" id="market-data">
+        <h3>Market Data Center</h3>
+        <p>
+          Access live and historical market datasets, curated for high-frequency analysis, statistical research, and backtesting purposes.
+        </p>
+      </div>
+    </section>
+  </div>
+
+  <footer class="footer">
+    <p>&copy; 2025 AlphaKernel | Fintech Research Hub</p>
+  </footer>
+
+  <script src="../js/index.js"></script>
 </body>
 </html>
