@@ -1,57 +1,85 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Elements
+    // Elementy DOM
     const signInBtn = document.getElementById('signInBtn');
     const signInPopup = document.getElementById('signInPopup');
     const tabItems = document.querySelectorAll('.sidebar li');
     const tabContents = document.querySelectorAll('.tab-content');
     const homeSection = document.getElementById('home');
-
-    // Show/hide login popup
+    const header = document.querySelector('.header');
+    const backToHomeButtons = document.querySelectorAll('.back-to-home');
+  
+    // Pokaz/ukryj popup logowania
     signInBtn.addEventListener('click', function(e) {
-        e.stopPropagation();
-        signInPopup.classList.toggle('hidden');
+      e.stopPropagation();
+      signInPopup.classList.toggle('hidden');
     });
-
-    // Close popup when clicking outside
+  
+    // Zamknij popup przy kliknięciu gdzie indziej
     document.addEventListener('click', function() {
-        signInPopup.classList.add('hidden');
+      signInPopup.classList.add('hidden');
     });
-
-    // Prevent popup from closing when clicking inside
+  
+    // Zapobiegaj zamykaniu popupa przy kliknięciu w nim
     signInPopup.addEventListener('click', function(e) {
-        e.stopPropagation();
+      e.stopPropagation();
     });
-
-    // Tab switching functionality
+  
+    // Obsługa zakładek
     tabItems.forEach(item => {
-        item.addEventListener('click', function() {
-            // Remove active class from all tabs
-            tabItems.forEach(tab => tab.classList.remove('active'));
-            
-            // Add active class to clicked tab
-            this.classList.add('active');
-            
-            // Hide all tab contents and home section
-            tabContents.forEach(content => content.classList.remove('active'));
-            homeSection.style.display = 'none';
-            
-            // Show selected tab content
-            const tabId = this.getAttribute('data-tab');
-            const activeContent = document.getElementById(tabId);
-            if (activeContent) {
-                activeContent.classList.add('active');
-            }
-        });
-    });
-
-    // Initialize first tab as active
-    if (tabItems.length > 0) {
-        tabItems[0].classList.add('active');
-        const firstTabId = tabItems[0].getAttribute('data-tab');
-        const firstTabContent = document.getElementById(firstTabId);
-        if (firstTabContent) {
-            homeSection.style.display = 'none';
-            firstTabContent.classList.add('active');
+      item.addEventListener('click', function() {
+        // Usuń aktywną klasę ze wszystkich zakładek
+        tabItems.forEach(tab => tab.classList.remove('active'));
+        
+        // Dodaj aktywną klasę do klikniętej zakładki
+        this.classList.add('active');
+        
+        // Ukryj wszystkie sekcje zawartości
+        tabContents.forEach(content => content.classList.remove('active'));
+        
+        // Ukryj sekcję home
+        homeSection.style.display = 'none';
+        
+        // Pokaż odpowiednią sekcję zawartości
+        const tabId = this.getAttribute('data-tab');
+        const activeContent = document.getElementById(tabId);
+        if (activeContent) {
+          activeContent.classList.add('active');
         }
+      });
+    });
+  
+    // Powrót do strony głównej przy kliknięciu w nagłówek
+    header.addEventListener('click', function() {
+      resetToHome();
+    });
+  
+    // Powrót do strony głównej przy kliknięciu przycisku "Back to Home"
+    backToHomeButtons.forEach(button => {
+      button.addEventListener('click', function(e) {
+        e.preventDefault();
+        resetToHome();
+      });
+    });
+  
+    // Funkcja resetująca do strony głównej
+    function resetToHome() {
+      tabItems.forEach(tab => tab.classList.remove('active'));
+      tabContents.forEach(content => content.classList.remove('active'));
+      homeSection.style.display = 'block';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
-});
+  
+    // Inicjalizacja - pokaż stronę główną na starcie
+    resetToHome();
+  
+    // Obsługa formularza logowania
+    const loginForm = signInPopup.querySelector('form');
+    if (loginForm) {
+      loginForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        // Tutaj możesz dodać logikę logowania
+        alert('Login functionality will be implemented here');
+        signInPopup.classList.add('hidden');
+      });
+    }
+  });
