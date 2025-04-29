@@ -1,61 +1,190 @@
-:root {
-    --primary-color: #007acc;
-    --dark-bg: #1e1e1e;
-    --medium-bg: #252526;
-    --light-bg: #2c2c2c;
-    --text-color: #d4d4d4;
-    --border-color: #333;
-  }
-  
-  /* Reset i podstawowe style */
-  * {
+/* === Reset === */
+* {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
   }
   
+  /* === Kolory w stylu PyCharm Dark === */
+  :root {
+    --bg-main: #1e1e1e;
+    --bg-section: #2a2a2a;
+    --accent: #007acc;
+    --text-light: #d4d4d4;
+    --text-muted: #aaaaaa;
+    --border: #333;
+  }
+  
+  /* === Ogólne === */
   body {
     font-family: 'Roboto Mono', monospace;
-    background-color: var(--dark-bg);
-    color: var(--text-color);
-    line-height: 1.6;
-    min-height: 100vh;
+    background-color: var(--bg-main);
+    color: var(--text-light);
     display: flex;
     flex-direction: column;
+    min-height: 100vh;
   }
   
-  /* Nagłówek */
+  /* === Nagłówek === */
   .header {
-    background-color: var(--medium-bg);
-    padding: 1.5rem 2rem;
+    background-color: var(--bg-main);
+    padding: 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border);
     position: sticky;
     top: 0;
     z-index: 100;
   }
   
-  .branding h1 {
-    color: var(--primary-color);
-    font-size: 2rem;
-    margin-bottom: 0.3rem;
+  /* 🔤 Inicjały TB */
+  .initials {
+    font-family: 'MonteCarlo', cursive;
+    font-size: 28px;
+    color: var(--accent);
+    margin-right: 20px;
   }
   
-  .branding p {
-    color: #aaa;
-    font-size: 0.9rem;
+  /* 🔠 Tytuł i podtytuł */
+  .site-title h1 {
+    font-size: 32px;
+    font-weight: bold;
+    color: white;
   }
   
-  /* Formularz logowania */
-  .signin-button {
-    background-color: var(--primary-color);
+  .site-title .subtitle {
+    font-size: 18px;
+    color: var(--text-muted);
+  }
+  
+  /* === Login === */
+  .login-container {
+    position: relative;
+  }
+  
+  #login-btn {
+    background-color: var(--accent);
     color: white;
     border: none;
-    padding: 0.5rem 1.5rem;
+    padding: 6px 12px;
     border-radius: 4px;
     cursor: pointer;
-    font-family: inherit;
-    font-size: 1
   }
+  
+  .login-form {
+    position: absolute;
+    right: 0;
+    top: 38px;
+    background: var(--bg-section);
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    z-index: 100;
+  }
+  
+  .login-form input {
+    margin-bottom: 8px;
+    padding: 6px;
+    background: #1a1a1a;
+    border: 1px solid var(--border);
+    color: var(--text-light);
+  }
+  
+  .login-form.hidden {
+    display: none;
+  }
+  
+  /* === Sidebar === */
+  .sidebar {
+    position: fixed;
+    top: 80px;
+    left: 0;
+    width: 160px;
+    background-color: var(--bg-main);
+    height: calc(100vh - 80px);
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid var(--border);
+  }
+  
+  .tab {
+    padding: 16px;
+    cursor: pointer;
+    border-bottom: 1px solid var(--border);
+    transition: background-color 0.2s;
+  }
+  
+  .tab:hover {
+    background-color: #2c2c2c;
+  }
+  
+  .tab.active {
+    background-color: var(--bg-section);
+    color: var(--accent);
+  }
+  
+  /* === Zawartość główna === */
+  .main-content {
+    margin-left: 160px;
+    padding: 40px;
+    flex-grow: 1;
+    background-color: var(--bg-main);
+  }
+  
+  .tab-content {
+    display: none;
+    animation: fadeIn 0.3s ease-in-out;
+  }
+  
+  .tab-content.active {
+    display: block;
+  }
+  
+  /* 🔄 Animacja */
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  /* === Stopka === */
+  .footer {
+    margin-top: auto;
+    padding: 20px;
+    background-color: var(--bg-main);
+    color: var(--text-muted);
+    border-top: 1px solid var(--border);
+  }
+  
+  .footer-row {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 5px 0;
+  }
+  
+  .footer-col {
+    flex: 1;
+    min-width: 120px;
+    text-align: center;
+    font-size: 14px;
+  }
+  
+  .footer a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+  
+  .footer a:hover {
+    text-decoration: underline;
+  }
+  
+  .footer-row.copyright {
+    margin-top: 10px;
+    font-size: 12px;
+    text-align: center;
+    color: var(--text-muted);
+  }
+  
