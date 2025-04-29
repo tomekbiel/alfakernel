@@ -1,95 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>AlphaKernel | The Core of Quantitative Finance</title>
-
-  <!-- 🎨 Główne style -->
-  <link rel="stylesheet" href="css/modern-style.css">
-
-  <!-- 🧠 Interakcje (zakładki, login) -->
-  <script defer src="js/index.js"></script>
-
-  <!-- ✍️ Font MonteCarlo do inicjałów TB -->
-  <link href="https://fonts.googleapis.com/css2?family=MonteCarlo&display=swap" rel="stylesheet">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>AlphaKernel | The Core of Quantitative Finance</title>
+    <link rel="stylesheet" href="css/modern-style.css">
+    <script defer src="js/index.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=MonteCarlo&display=swap" rel="stylesheet">
 </head>
 
-<body>
-  <!-- 📌 Sticky header -->
-  <header class="header">
-    <div class="header-left">
-      <!-- Inicjały z fontem MonteCarlo (nadpisz w CSS .initials) -->
-      <div class="initials">TB</div>
-      <div class="site-title">
-        <h1>AlphaKernel</h1>
-        <p class="subtitle">The Core of Quantitative Finance</p>
-      </div>
-    </div>
+<body class="home-bg">
+    <!-- Nagłówek -->
+    <header class="header">
+        <div class="header-left">
+            <div class="initials">TB</div>
+            <div class="site-title">
+                <h1>AlphaKernel</h1>
+                <p class="subtitle">The Core of Quantitative Finance</p>
+            </div>
+        </div>
+    </header>
 
-    <!-- 🔒 Login -->
-    <div class="login-container">
-      <button id="login-btn">🔒 Sign In</button>
-      <div id="login-form" class="login-form hidden">
-        <input type="email" placeholder="Email" />
-        <input type="password" placeholder="Password" />
-        <button>Log In</button>
-      </div>
-    </div>
-  </header>
+    <!-- Menu boczne -->
+    <aside class="sidebar">
+        <div class="tab" data-tab="home">Home</div>
+        <div class="tab" data-tab="projects">Projects</div>
+        <div class="tab" data-tab="research">Research Lab</div>
+        <div class="tab" data-tab="data">Market Data</div>
+    </aside>
 
-  <!-- 📎 Sidebar z zakładkami -->
-  <aside class="sidebar">
-    <div class="tab" data-tab="home">Home</div>
-    <div class="tab" data-tab="projects">Projects</div>
-    <div class="tab" data-tab="research">Research Lab</div>
-    <div class="tab" data-tab="data">Market Data</div>
-  </aside>
+    <!-- Główna zawartość -->
+    <main class="main-content">
+        <section id="home" class="tab-content active">
+            <h2>Welcome to AlphaKernel</h2>
+            <p>This site presents a comprehensive journey through advanced financial research, data science, algorithmic trading systems, and quantitative market analysis.</p>
+            <p>Explore live data, backtesting results, trading algorithm prototypes, Python and R research, and much more.</p>
+            <h3>Mission Statement</h3>
+            <p>To integrate market data, statistical models, and financial analytics into actionable tools and educational resources, bridging research and trading realities.</p>
+        </section>
 
-  <!-- 📑 Sekcje (pokaże się tylko aktywna) -->
-  <main class="main-content">
-    <section id="home" class="tab-content active">
-      <h2>Welcome to AlphaKernel</h2>
-      <p>This site presents a comprehensive journey through advanced financial research, data science, algorithmic trading systems, and quantitative market analysis.</p>
-      <p>Explore live data, backtesting results, trading algorithm prototypes, Python and R research, and much more.</p>
-      <h3>Mission Statement</h3>
-      <p>To integrate market data, statistical models, and financial analytics into actionable tools and educational resources, bridging research and trading realities.</p>
-    </section>
+        <section id="projects" class="tab-content">
+            <h3>Projects Overview</h3>
+            <p>Explore algorithmic strategies, trading engines, and quant research. Built in Python and R. Designed for performance, insight, and clarity.</p>
+            <div class="section-footer">
+                <button class="back-btn">← Back to Home</button>
+                <a href="projects.html" class="nav-link">Go to Projects →</a>
+            </div>
+        </section>
 
-    <section id="projects" class="tab-content hidden">
-      <h3>Projects Overview</h3>
-      <p>Explore algorithmic strategies, trading engines, and quant research. Built in Python and R. Designed for performance, insight, and clarity.</p>
-    </section>
+        <section id="research" class="tab-content">
+            <h3>Research Lab</h3>
+            <p>Investigate statistical learning, forecasting, signal detection, optimization and AI with live and historical market datasets.</p>
+            <div class="section-footer">
+                <button class="back-btn">← Back to Home</button>
+                <a href="research.html" class="nav-link">Go to Research →</a>
+            </div>
+        </section>
 
-    <section id="research" class="tab-content hidden">
-      <h3>Research Lab</h3>
-      <p>Investigate statistical learning, forecasting, signal detection, optimization and AI with live and historical market datasets.</p>
-    </section>
+        <section id="data" class="tab-content">
+            <h3>Market Data Center</h3>
+            <p>Access structured financial data for modeling, analytics, and dashboard integrations. Including high-frequency trading (HFT) streams and macroeconomic series.</p>
+            <div class="section-footer">
+                <button class="back-btn">← Back to Home</button>
+                <a href="data.html" class="nav-link">Go to Market Data →</a>
+            </div>
+        </section>
+    </main>
 
-    <section id="data" class="tab-content hidden">
-      <h3>Market Data Center</h3>
-      <p>Access structured financial data for modeling, analytics, and dashboard integrations. Including high-frequency trading (HFT) streams and macroeconomic series.</p>
-    </section>
-  </main>
-
-  <!-- 📥 Footer 3-liniowy -->
-  <footer class="footer">
-    <div class="footer-row">
-      <div class="footer-col">Contact:</div>
-      <div class="footer-col">LinkedIn:</div>
-      <div class="footer-col">GitHub:</div>
-      <div class="footer-col">About:</div>
-    </div>
-    <div class="footer-row">
-      <div class="footer-col"><a href="mailto:tomekbiel.office@gmail.com">tomekbiel.office@gmail.com</a></div>
-      <div class="footer-col"><a href="https://www.linkedin.com/in/tomasz-b-1321a5166/" target="_blank">Tomasz Biel</a></div>
-      <div class="footer-col"><a href="https://github.com/tomekbiel/MT4_Trading_System" target="_blank">GitHub Profile</a></div>
-      <div class="footer-col"><a href="about.html">Learn more</a></div>
-    </div>
-    <div class="footer-row copyright">
-      <p>&copy; 2025 AlphaKernel | All rights reserved | Author: Tomasz Biel</p>
-    </div>
-  </footer>
-  <script defer src="js/index.js"></script>
+    <!-- Stopka -->
+    <footer class="footer">
+        <div class="footer-row">
+            <div class="footer-col">Contact:</div>
+            <div class="footer-col">LinkedIn:</div>
+            <div class="footer-col">GitHub:</div>
+            <div class="footer-col">About:</div>
+        </div>
+        <div class="footer-row">
+            <div class="footer-col"><a href="mailto:tomekbiel.office@gmail.com">tomekbiel.office@gmail.com</a></div>
+            <div class="footer-col"><a href="https://www.linkedin.com/in/tomasz-b-1321a5166/" target="_blank">Tomasz Biel</a></div>
+            <div class="footer-col"><a href="https://github.com/tomekbiel/MT4_Trading_System" target="_blank">GitHub Profile</a></div>
+            <div class="footer-col"><a href="about.html">Learn more</a></div>
+        </div>
+        <div class="footer-row copyright">
+            <p>&copy; 2025 AlphaKernel | All rights reserved | Author: Tomasz Biel</p>
+        </div>
+    </footer>
 </body>
 </html>

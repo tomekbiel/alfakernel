@@ -1,44 +1,52 @@
 // === Obsługa przełączania zakładek ===
 function switchTab(tabId) {
-    // Ukryj wszystkie sekcje tabów
-    const allTabs = document.querySelectorAll('.tab-content');
-    allTabs.forEach(tab => tab.classList.remove('active'));
-  
+    // Ukryj wszystkie sekcje
+    document.querySelectorAll('.tab-content').forEach(tab => {
+        tab.classList.remove('active');
+    });
+    
     // Usuń aktywność z przycisków bocznych
-    const allTabButtons = document.querySelectorAll('.tab');
-    allTabButtons.forEach(btn => btn.classList.remove('active'));
-  
+    document.querySelectorAll('.tab').forEach(tab => {
+        tab.classList.remove('active');
+    });
+    
     // Aktywuj właściwą sekcję i zakładkę
     const activeTab = document.getElementById(tabId);
     const activeBtn = document.querySelector(`.tab[data-tab="${tabId}"]`);
-  
+    
     if (activeTab && activeBtn) {
-      activeTab.classList.add('active');
-      activeBtn.classList.add('active');
+        activeTab.classList.add('active');
+        activeBtn.classList.add('active');
+        
+        // Zmiana tła strony
+        document.body.className = tabId + '-bg';
     }
-  }
-  
-  // === Obsługa formularza logowania ===
-  function toggleLoginForm() {
-    const form = document.getElementById("login-form");
-    form.classList.toggle("hidden");
-  }
-  
-  // === Nasłuchiwanie kliknięć zakładek bocznych ===
-  document.addEventListener('DOMContentLoaded', () => {
-    const tabs = document.querySelectorAll('.tab');
-  
-    tabs.forEach(tab => {
-      tab.addEventListener('click', () => {
-        const tabId = tab.getAttribute('data-tab');
-        switchTab(tabId);
-      });
+}
+
+// === Obsługa przycisku powrotu ===
+function handleBackClick() {
+    switchTab('home');
+}
+
+// === Inicjalizacja ===
+document.addEventListener('DOMContentLoaded', () => {
+    // Domyślnie ustaw stronę główną
+    switchTab('home');
+    
+    // Nasłuchiwanie kliknięć zakładek bocznych
+    document.querySelectorAll('.tab').forEach(tab => {
+        tab.addEventListener('click', () => {
+            const tabId = tab.getAttribute('data-tab');
+            switchTab(tabId);
+        });
     });
-  
-    // Nasłuchiwanie kliknięcia logowania
-    const loginButton = document.getElementById('login-btn');
-    if (loginButton) {
-      loginButton.addEventListener('click', toggleLoginForm);
-    }
-  });
-  
+    
+    // Nasłuchiwanie przycisków powrotu
+    document.querySelectorAll('.back-btn').forEach(btn => {
+        btn.addEventListener('click', handleBackClick);
+    });
+    
+    // Nasłuchiwanie kliknięcia w header/footer
+    document.querySelector('.header').addEventListener('click', handleBackClick);
+    document.querySelector('.footer').addEventListener('click', handleBackClick);
+});

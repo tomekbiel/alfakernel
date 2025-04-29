@@ -3,30 +3,38 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-  }
-  
-  /* === Kolory w stylu PyCharm Dark === */
-  :root {
+}
+
+/* === Kolory w stylu PyCharm Dark === */
+:root {
     --bg-main: #1e1e1e;
     --bg-section: #2a2a2a;
+    --bg-research: #2e2e2e;
+    --bg-data: #333333;
     --accent: #007acc;
     --text-light: #d4d4d4;
     --text-muted: #aaaaaa;
     --border: #333;
-  }
-  
-  /* === Ogólne === */
-  body {
+}
+
+/* === Ogólne === */
+body {
     font-family: 'Roboto Mono', monospace;
     background-color: var(--bg-main);
     color: var(--text-light);
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-  }
-  
-  /* === Nagłówek === */
-  .header {
+    transition: background-color 0.3s ease;
+}
+
+body.home-bg { background-color: var(--bg-main); }
+body.projects-bg { background-color: var(--bg-section); }
+body.research-bg { background-color: var(--bg-research); }
+body.data-bg { background-color: var(--bg-data); }
+
+/* === Nagłówek === */
+.header {
     background-color: var(--bg-main);
     padding: 20px;
     display: flex;
@@ -36,155 +44,156 @@
     position: sticky;
     top: 0;
     z-index: 100;
-  }
-  
-  /* 🔤 Inicjały TB */
-  .initials {
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+}
+
+/* Inicjały TB */
+.initials {
     font-family: 'MonteCarlo', cursive;
     font-size: 28px;
     color: var(--accent);
     margin-right: 20px;
-  }
-  
-  /* 🔠 Tytuł i podtytuł */
-  .site-title h1 {
+}
+
+/* Tytuł i podtytuł */
+.site-title h1 {
     font-size: 32px;
     font-weight: bold;
     color: white;
-  }
-  
-  .site-title .subtitle {
+}
+
+.site-title .subtitle {
     font-size: 18px;
     color: var(--text-muted);
-  }
-  
-  /* === Login === */
-  .login-container {
-    position: relative;
-  }
-  
-  #login-btn {
-    background-color: var(--accent);
-    color: white;
-    border: none;
-    padding: 6px 12px;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  .login-form {
-    position: absolute;
-    right: 0;
-    top: 38px;
-    background: var(--bg-section);
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    z-index: 100;
-  }
-  
-  .login-form input {
-    margin-bottom: 8px;
-    padding: 6px;
-    background: #1a1a1a;
-    border: 1px solid var(--border);
-    color: var(--text-light);
-  }
-  
-  .login-form.hidden {
-    display: none;
-  }
-  
-  /* === Sidebar === */
-  .sidebar {
+}
+
+/* === Sidebar === */
+.sidebar {
     position: fixed;
     top: 80px;
     left: 0;
     width: 160px;
-    background-color: var(--bg-main);
     height: calc(100vh - 80px);
     display: flex;
     flex-direction: column;
     border-right: 1px solid var(--border);
-  }
-  
-  .tab {
+    background: linear-gradient(to bottom, 
+        var(--bg-main) 0%, 
+        var(--bg-section) 33%, 
+        var(--bg-research) 66%, 
+        var(--bg-data) 100%);
+}
+
+.tab {
     padding: 16px;
     cursor: pointer;
     border-bottom: 1px solid var(--border);
-    transition: background-color 0.2s;
-  }
-  
-  .tab:hover {
-    background-color: #2c2c2c;
-  }
-  
-  .tab.active {
-    background-color: var(--bg-section);
+    transition: all 0.3s ease;
+    color: var(--text-muted);
+}
+
+.tab:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    color: var(--text-light);
+}
+
+.tab.active {
+    background-color: rgba(0, 122, 204, 0.2);
     color: var(--accent);
-  }
-  
-  /* === Zawartość główna === */
-  .main-content {
+    border-left: 3px solid var(--accent);
+}
+
+/* === Zawartość główna === */
+.main-content {
     margin-left: 160px;
     padding: 40px;
     flex-grow: 1;
-    background-color: var(--bg-main);
-  }
-  
-  /* Wprowadź to: */
-  .tab-content.hidden {
+    position: relative;
+}
+
+.tab-content {
     display: none;
     animation: fadeIn 0.3s ease-in-out;
-  }
-  
-  .tab-content:not(.hidden) {
+}
+
+.tab-content.active {
     display: block;
-  }
-  /* 🔄 Animacja */
-  @keyframes fadeIn {
+}
+
+.section-footer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+}
+
+.back-btn, .nav-link {
+    background: none;
+    border: none;
+    color: var(--accent);
+    cursor: pointer;
+    font-size: 16px;
+    text-decoration: none;
+}
+
+.back-btn:hover, .nav-link:hover {
+    text-decoration: underline;
+}
+
+/* Animacja */
+@keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
-  }
-  
-  /* === Stopka === */
-  .footer {
-    margin-top: auto;
-    padding: 20px;
+}
+
+/* === Stopka === */
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 80%;
+    left: 10%;
+    padding: 15px;
     background-color: var(--bg-main);
     color: var(--text-muted);
     border-top: 1px solid var(--border);
-  }
-  
-  .footer-row {
+    border-radius: 10px 10px 0 0;
+    z-index: 10;
+}
+
+.footer-row {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
     padding: 5px 0;
-  }
-  
-  .footer-col {
+}
+
+.footer-col {
     flex: 1;
     min-width: 120px;
     text-align: center;
     font-size: 14px;
-  }
-  
-  .footer a {
+}
+
+.footer a {
     color: var(--accent);
     text-decoration: none;
-  }
-  
-  .footer a:hover {
+}
+
+.footer a:hover {
     text-decoration: underline;
-  }
-  
-  .footer-row.copyright {
+}
+
+.footer-row.copyright {
     margin-top: 10px;
     font-size: 12px;
     text-align: center;
     color: var(--text-muted);
-  }
-  
+}
