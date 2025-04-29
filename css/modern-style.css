@@ -134,15 +134,15 @@
     background-color: var(--bg-main);
   }
   
-  .tab-content {
+  /* Wprowadź to: */
+  .tab-content.hidden {
     display: none;
     animation: fadeIn 0.3s ease-in-out;
   }
   
-  .tab-content.active {
+  .tab-content:not(.hidden) {
     display: block;
   }
-  
   /* 🔄 Animacja */
   @keyframes fadeIn {
     from { opacity: 0; }
