@@ -1,37 +1,57 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const tabs = document.querySelectorAll(".tab");
-    const sections = document.querySelectorAll(".tab-content");
-    const loginToggle = document.getElementById("login-toggle");
-    const loginBox = document.getElementById("login-box");
+document.addEventListener('DOMContentLoaded', function() {
+    // Elements
+    const signInBtn = document.getElementById('signInBtn');
+    const signInPopup = document.getElementById('signInPopup');
+    const tabItems = document.querySelectorAll('.sidebar li');
+    const tabContents = document.querySelectorAll('.tab-content');
+    const homeSection = document.getElementById('home');
 
-    // Tabs interaction
-    tabs.forEach(tab => {
-        tab.addEventListener("click", function () {
-            // Hide all sections
-            sections.forEach(section => section.classList.remove("active"));
+    // Show/hide login popup
+    signInBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        signInPopup.classList.toggle('hidden');
+    });
+
+    // Close popup when clicking outside
+    document.addEventListener('click', function() {
+        signInPopup.classList.add('hidden');
+    });
+
+    // Prevent popup from closing when clicking inside
+    signInPopup.addEventListener('click', function(e) {
+        e.stopPropagation();
+    });
+
+    // Tab switching functionality
+    tabItems.forEach(item => {
+        item.addEventListener('click', function() {
             // Remove active class from all tabs
-            tabs.forEach(t => t.classList.remove("active"));
+            tabItems.forEach(tab => tab.classList.remove('active'));
             
-            // Show the selected section
-            const target = document.getElementById(tab.dataset.target);
-            if (target) target.classList.add("active");
-            tab.classList.add("active");
+            // Add active class to clicked tab
+            this.classList.add('active');
+            
+            // Hide all tab contents and home section
+            tabContents.forEach(content => content.classList.remove('active'));
+            homeSection.style.display = 'none';
+            
+            // Show selected tab content
+            const tabId = this.getAttribute('data-tab');
+            const activeContent = document.getElementById(tabId);
+            if (activeContent) {
+                activeContent.classList.add('active');
+            }
         });
     });
 
-    // Login toggle
-    loginToggle?.addEventListener("click", function (e) {
-        e.stopPropagation();
-        loginBox.style.display = loginBox.style.display === "block" ? "none" : "block";
-    });
-
-    // Close login box when clicking elsewhere
-    document.addEventListener("click", function () {
-        loginBox.style.display = "none";
-    });
-
-    // Prevent login box from closing when clicking inside it
-    loginBox?.addEventListener("click", function (e) {
-        e.stopPropagation();
-    });
+    // Initialize first tab as active
+    if (tabItems.length > 0) {
+        tabItems[0].classList.add('active');
+        const firstTabId = tabItems[0].getAttribute('data-tab');
+        const firstTabContent = document.getElementById(firstTabId);
+        if (firstTabContent) {
+            homeSection.style.display = 'none';
+            firstTabContent.classList.add('active');
+        }
+    }
 });
