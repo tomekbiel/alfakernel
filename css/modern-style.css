@@ -3,9 +3,9 @@ body {
     background-color: #1e1e1e;
     color: #d4d4d4;
     font-family: 'Roboto Mono', monospace;
-  }
-  
-  .sidebar {
+}
+
+.sidebar {
     position: fixed;
     left: 0;
     top: 0;
@@ -14,38 +14,9 @@ body {
     background-color: #1e1e1e;
     border-right: 1px solid #333;
     padding: 1rem;
-  }
-  
-  .sidebar h1 {
-    color: #fff;
-    font-size: 28px;
-    font-weight: bold;
-    margin-bottom: 2rem;
-    text-align: center;
-  }
-  
-  .sidebar ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  .sidebar li {
-    margin: 1rem 0;
-  }
-  
-  .sidebar a {
-    color: #ccc;
-    text-decoration: none;
-    font-size: 16px;
-  }
-  
-  .sidebar a:hover,
-  .sidebar .active {
-    color: #007acc;
-    font-weight: bold;
-  }
-  
-  .tab {
+}
+
+.tab {
     display: block;
     padding: 1rem;
     background-color: #252526;
@@ -53,41 +24,50 @@ body {
     border-bottom: 1px solid #333;
     cursor: pointer;
     transition: background-color 0.3s ease;
-  }
-  
-  .tab:hover,
-  .tab.active {
+    color: #ccc;
+    margin-bottom: 0.5rem;
+    border-radius: 4px;
+}
+
+.tab:hover,
+.tab.active {
     background-color: #2c2c2c;
-    color: #fff;
-  }
-  
-  .tab-content {
+    color: #007acc;
+    font-weight: bold;
+}
+
+.tab-content {
     display: none;
     background-color: #1e1e1e;
     padding: 2rem;
     margin-left: 220px;
     border-top: 2px solid #007acc;
-  }
-  
-  header {
+}
+
+.tab-content.active {
+    display: block;
+}
+
+header {
     text-align: center;
     padding: 2rem;
     font-size: 20px;
     background-color: #1e1e1e;
     color: #fff;
-  }
-  
-  header h1 {
+    position: relative;
+}
+
+header h1 {
     font-size: 32px;
     margin-bottom: 0.2em;
-  }
-  
-  header p {
+}
+
+header p {
     font-size: 16px;
     color: #aaa;
-  }
-  
-  .login-box {
+}
+
+.login-box {
     display: none;
     position: absolute;
     right: 1rem;
@@ -97,31 +77,49 @@ body {
     border: 1px solid #007acc;
     border-radius: 8px;
     z-index: 999;
-  }
-  
-  #login-toggle {
+}
+
+.login-box input {
+    margin-bottom: 0.5rem;
+    background: #1e1e1e;
+    border: 1px solid #333;
+    color: #fff;
+    padding: 0.3rem;
+}
+
+#login-toggle {
     position: absolute;
     right: 1rem;
     top: 1rem;
-    color: #007acc;
+    background: #007acc;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
     cursor: pointer;
-  }
-  
-  footer {
+}
+
+footer {
     margin-left: 220px;
     padding: 1.5rem;
     font-size: 14px;
     background-color: #1e1e1e;
     border-top: 1px solid #333;
     color: #888;
-  }
-  
-  footer p {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+}
+
+footer p {
     margin: 0.3rem 0;
-  }
-  
-  footer a {
+}
+
+footer a {
     color: #007acc;
     text-decoration: none;
-  }
-  
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
