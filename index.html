@@ -4,70 +4,49 @@
   <meta charset="UTF-8">
   <title>AlphaKernel | The Core of Quantitative Finance</title>
   <link rel="stylesheet" href="css/modern-style.css">
+  <script defer src="js/index.js"></script>
 </head>
 <body>
 
-<header class="header">
-  <div class="branding">
+  <header class="topbar">
     <h1>AlphaKernel</h1>
     <p>The Core of Quantitative Finance</p>
-  </div>
-  <button id="signInBtn" class="signin-button">🔒 Sign In</button>
-</header>
+    <button id="login-toggle">🔒 Sign In</button>
+    <div id="login-box" class="login-box">
+      <label>Email:</label><input type="text" placeholder="Email"><br>
+      <label>Password:</label><input type="password" placeholder="Password"><br>
+      <button>Log In</button>
+    </div>
+  </header>
 
-<div id="signInPopup" class="popup hidden">
-  <form>
-    <input type="email" placeholder="Email" required><br>
-    <input type="password" placeholder="Password" required><br>
-    <button type="submit">Log In</button>
-  </form>
-</div>
-
-<div class="main-container">
-  <aside class="sidebar">
-    <ul>
-      <li data-tab="projects">Projects</li>
-      <li data-tab="research">Research Lab</li>
-      <li data-tab="marketdata">Market Data</li>
-    </ul>
-  </aside>
+  <nav class="sidebar">
+    <div class="tab" data-target="projects">Projects</div>
+    <div class="tab" data-target="research">Research Lab</div>
+    <div class="tab" data-target="market">Market Data</div>
+  </nav>
 
   <main class="content">
-    <section id="home">
-      <h2>Welcome to AlphaKernel</h2>
-      <p>This site presents a comprehensive journey through advanced financial research, data science, algorithmic trading systems, and quantitative market analysis.</p>
-      <p>Explore live data, backtesting results, trading algorithm prototypes, Python and R research, and much more.</p>
-
-      <h3>Mission Statement</h3>
-      <p>To integrate market data, statistical models, and financial analytics into actionable tools and educational resources, bridging research and trading realities.</p>
-    </section>
-
-    <section id="projects" class="tab-content hidden">
+    <section id="projects" class="tab-content">
       <h2>Projects Overview</h2>
-      <p>Discover practical applications of quantitative finance: automated trading systems, predictive models, and fintech development using Python and R.</p>
+      <p>Explore applications of quantitative finance, algorithmic trading, machine learning models, and financial dashboards.</p>
     </section>
-
-    <section id="research" class="tab-content hidden">
+    <section id="research" class="tab-content">
       <h2>Research Lab</h2>
-      <p>Dive deep into data-driven finance with innovative methodologies in machine learning, time series forecasting, econometrics, and algorithmic trading experiments.</p>
+      <p>Dive into predictive analytics, time series modeling, financial econometrics, and deep learning experiments.</p>
     </section>
-
-    <section id="marketdata" class="tab-content hidden">
+    <section id="market" class="tab-content">
       <h2>Market Data Center</h2>
-      <p>Access live and historical market datasets, curated for high-frequency analysis, statistical research, and backtesting purposes.</p>
+      <p>Access curated historical datasets, live feeds, and HFT-ready pipelines for analysis and backtesting.</p>
     </section>
   </main>
-</div>
 
-<footer class="footer">
-  <p>Contact: <a href="mailto:tomekbiel.office@gmail.com">tomekbiel.office@gmail.com</a></p>
-  <p>LinkedIn: <a href="https://www.linkedin.com/in/tomasz-b-1321a5166/" target="_blank">Tomasz Biel</a></p>
-  <p>GitHub: <a href="https://github.com/tomekbiel" target="_blank">GitHub Profile</a></p>
-  <p>About: <a href="about.html">Learn more</a></p>
-  <p>&copy; 2025 AlphaKernel | Fintech Research Hub</p>
-</footer>
-
-<script src="js/index.js"></script>
+  <footer class="footer">
+    <p><strong>Contact:</strong><br> <a href="mailto:tomekbiel.office@gmail.com">tomekbiel.office@gmail.com</a></p>
+    <p><strong>LinkedIn:</strong><br><a href="https://www.linkedin.com/in/tomasz-b-1321a5166/" target="_blank">Tomasz Biel</a></p>
+    <p><strong>GitHub:</strong><br><a href="https://github.com/tomekbiel" target="_blank">GitHub Profile</a></p>
+    <p><strong>About:</strong><br><a href="about.html">Learn more</a></p>
+    <p>&copy; 2025 AlphaKernel | Fintech Research Hub</p>
+  </footer>
 
 </body>
 </html>
