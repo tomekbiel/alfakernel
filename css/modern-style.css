@@ -1,94 +1,86 @@
-/* === General Layout === */
+/* === GLOBAL === */
 body {
     margin: 0;
     font-family: 'Roboto Mono', monospace;
-    background-color: #f5f7fa;
-    color: #2e3a59;
+    background-color: #f5f7fb;
+    color: #1d1f21;
   }
   
-  /* === Header === */
-  .main-header {
-    background-color: #0d47a1;
-    color: #ffffff;
+  /* === HEADER === */
+  .header {
+    background-color: #0e3a71;
+    color: white;
     padding: 20px;
     text-align: center;
     position: sticky;
     top: 0;
-    z-index: 1000;
+    z-index: 10;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
   }
   
-  .main-header .logo {
+  .header h1 {
     font-size: 2.5em;
-    font-weight: bold;
-    letter-spacing: 2px;
-    margin-bottom: 10px;
+    margin: 0;
   }
   
-  .main-header .subtitle {
+  .header p {
     font-size: 1.2em;
-    opacity: 0.8;
+    margin: 5px 0 0;
   }
   
-  .login-button {
+  /* === SIGN IN === */
+  .signin-button {
     position: absolute;
-    top: 25px;
-    right: 30px;
-    background-color: #1565c0;
-    padding: 8px 14px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 0.9em;
-    transition: background-color 0.3s;
-  }
-  
-  .login-button:hover {
-    background-color: #1e88e5;
-  }
-  
-  /* === Login Popup === */
-  .login-popup {
-    display: none;
-    position: fixed;
-    top: 80px;
-    right: 30px;
-    background: white;
-    padding: 20px;
-    border: 1px solid #ccc;
-    box-shadow: 0px 5px 15px rgba(0,0,0,0.3);
-    z-index: 1100;
-  }
-  
-  .login-popup h3 {
-    margin-top: 0;
-  }
-  
-  .login-popup input {
-    display: block;
-    margin-bottom: 10px;
-    padding: 8px;
-    width: 100%;
-    box-sizing: border-box;
-  }
-  
-  .login-popup button {
-    background-color: #0d47a1;
-    color: white;
+    right: 20px;
+    top: 20px;
+    background-color: #1d65a6;
     border: none;
-    padding: 8px;
-    width: 100%;
+    color: white;
+    padding: 8px 14px;
+    font-size: 1em;
+    border-radius: 6px;
     cursor: pointer;
+    transition: background-color 0.2s;
   }
   
-  /* === Sidebar === */
-  .sidebar {
+  .signin-button:hover {
+    background-color: #3783c5;
+  }
+  
+  .popup {
     position: fixed;
-    top: 130px;
-    left: 0;
+    top: 70px;
+    right: 20px;
+    background: white;
+    border: 1px solid #ccc;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    z-index: 20;
+  }
+  
+  .popup input {
+    display: block;
+    margin: 8px 0;
+    width: 100%;
+    padding: 8px;
+  }
+  
+  .popup.hidden {
+    display: none;
+  }
+  
+  /* === LAYOUT === */
+  .main-container {
+    display: flex;
+  }
+  
+  /* === SIDEBAR === */
+  .sidebar {
     width: 180px;
-    height: calc(100% - 130px);
-    background-color: #e3f2fd;
-    padding-top: 20px;
-    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+    background-color: #dce9f9;
+    padding: 20px 0;
+    box-shadow: inset -1px 0 0 #ccc;
+    text-align: center;
   }
   
   .sidebar ul {
@@ -96,43 +88,50 @@ body {
     padding: 0;
   }
   
-  .sidebar ul li {
-    padding: 15px 10px;
+  .sidebar li {
+    padding: 12px 5px;
+    margin: 5px 0;
     cursor: pointer;
-    border-bottom: 1px solid #bbdefb;
-    text-align: center;
+    background-color: #edf3fb;
+    transition: all 0.2s;
+    border-top: 1px solid #c7d8eb;
+    border-bottom: 1px solid #c7d8eb;
   }
   
-  .sidebar ul li:hover {
-    background-color: #90caf9;
+  .sidebar li:hover {
+    background-color: #cfe1f9;
   }
   
-  /* === Content Area === */
+  /* === MAIN CONTENT === */
   .content {
-    margin-left: 200px;
-    padding: 40px;
+    padding: 30px;
+    flex: 1;
   }
   
-  /* === Tabs === */
-  .tab {
-    background-color: #ffffff;
-    margin-top: 20px;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0px 2px 8px rgba(0,0,0,0.1);
-  }
-  
-  .hidden {
+  /* === TABS === */
+  .tab-content {
     display: none;
   }
   
-  /* === Footer === */
+  .tab-content.active {
+    display: block;
+  }
+  
+  /* === FOOTER === */
   .footer {
-    margin-top: 80px;
-    padding: 20px;
-    background-color: #0d47a1;
+    background-color: #0e3a71;
     color: white;
     text-align: center;
+    padding: 20px;
     font-size: 0.9em;
+  }
+  
+  .footer a {
+    color: #a2d4ff;
+    text-decoration: none;
+  }
+  
+  .footer a:hover {
+    text-decoration: underline;
   }
   

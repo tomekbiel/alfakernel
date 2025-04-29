@@ -7,71 +7,67 @@
 </head>
 <body>
 
-  <header class="main-header">
-    <div class="logo">AlphaKernel</div>
-    <div class="subtitle">The Core of Quantitative Finance</div>
-    <div class="login-button" onclick="toggleLogin()">🔒 Sign In</div>
-  </header>
-
-  <div id="login-popup" class="login-popup">
-    <form>
-      <h3>Sign In</h3>
-      <input type="email" placeholder="Email">
-      <input type="password" placeholder="Password">
-      <button type="submit">Login</button>
-    </form>
+<header class="header">
+  <div class="branding">
+    <h1>AlphaKernel</h1>
+    <p>The Core of Quantitative Finance</p>
   </div>
+  <button id="signInBtn" class="signin-button">🔒 Sign In</button>
+</header>
 
-  <div class="main-layout">
-    <nav class="sidebar">
-      <ul>
-        <li onmouseover="showTab('projects')">Projects</li>
-        <li onmouseover="showTab('research')">Research Lab</li>
-        <li onmouseover="showTab('market')">Market Data</li>
-      </ul>
-    </nav>
+<div id="signInPopup" class="popup hidden">
+  <form>
+    <input type="email" placeholder="Email" required><br>
+    <input type="password" placeholder="Password" required><br>
+    <button type="submit">Log In</button>
+  </form>
+</div>
 
-    <main class="content">
-      <section id="home-section">
-        <h2>Welcome to AlphaKernel</h2>
-        <p>
-          This site presents a comprehensive journey through advanced financial research, data science,
-          algorithmic trading systems, and quantitative market analysis.
-        </p>
-        <p>
-          Explore live data, backtesting results, trading algorithm prototypes, Python and R research, and much more.
-        </p>
-        <h3>Mission Statement</h3>
-        <p>
-          To integrate market data, statistical models, and financial analytics into actionable tools
-          and educational resources, bridging research and trading realities.
-        </p>
-      </section>
+<div class="main-container">
+  <aside class="sidebar">
+    <ul>
+      <li data-tab="projects">Projects</li>
+      <li data-tab="research">Research Lab</li>
+      <li data-tab="marketdata">Market Data</li>
+    </ul>
+  </aside>
 
-      <section id="projects-tab" class="tab hidden">
-        <h2>Projects</h2>
-        <p>Explore various Python, R, and fintech projects focused on algorithmic trading, predictive modeling, and financial analytics.</p>
-      </section>
+  <main class="content">
+    <section id="home">
+      <h2>Welcome to AlphaKernel</h2>
+      <p>This site presents a comprehensive journey through advanced financial research, data science, algorithmic trading systems, and quantitative market analysis.</p>
+      <p>Explore live data, backtesting results, trading algorithm prototypes, Python and R research, and much more.</p>
 
-      <section id="research-tab" class="tab hidden">
-        <h2>Research Lab</h2>
-        <p>Dive into advanced quantitative analysis, data science experiments, and collaborative financial research initiatives.</p>
-      </section>
+      <h3>Mission Statement</h3>
+      <p>To integrate market data, statistical models, and financial analytics into actionable tools and educational resources, bridging research and trading realities.</p>
+    </section>
 
-      <section id="market-tab" class="tab hidden">
-        <h2>Market Data</h2>
-        <p>Access live and historical market datasets, high-frequency trading data, and curated financial statistics for research and development.</p>
-      </section>
+    <section id="projects" class="tab-content hidden">
+      <h2>Projects Overview</h2>
+      <p>Discover practical applications of quantitative finance: automated trading systems, predictive models, and fintech development using Python and R.</p>
+    </section>
 
-    </main>
-  </div>
+    <section id="research" class="tab-content hidden">
+      <h2>Research Lab</h2>
+      <p>Dive deep into data-driven finance with innovative methodologies in machine learning, time series forecasting, econometrics, and algorithmic trading experiments.</p>
+    </section>
 
-  <footer class="footer">
-    <p>Contact: <a href="mailto:tomekbiel.office@gmail.com">tomekbiel.office@gmail.com</a></p>
-    <p>LinkedIn: <a href="https://www.linkedin.com/in/tomasz-b-1321a5166/" target="_blank">Tomasz Biel</a></p>
-    <p>&copy; 2025 AlphaKernel</p>
-  </footer>
+    <section id="marketdata" class="tab-content hidden">
+      <h2>Market Data Center</h2>
+      <p>Access live and historical market datasets, curated for high-frequency analysis, statistical research, and backtesting purposes.</p>
+    </section>
+  </main>
+</div>
 
-  <script src="js/index.js"></script>
+<footer class="footer">
+  <p>Contact: <a href="mailto:tomekbiel.office@gmail.com">tomekbiel.office@gmail.com</a></p>
+  <p>LinkedIn: <a href="https://www.linkedin.com/in/tomasz-b-1321a5166/" target="_blank">Tomasz Biel</a></p>
+  <p>GitHub: <a href="https://github.com/tomekbiel" target="_blank">GitHub Profile</a></p>
+  <p>About: <a href="about.html">Learn more</a></p>
+  <p>&copy; 2025 AlphaKernel | Fintech Research Hub</p>
+</footer>
+
+<script src="js/index.js"></script>
+
 </body>
 </html>

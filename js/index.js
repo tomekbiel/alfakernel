@@ -1,32 +1,31 @@
-// === Toggle Login Popup ===
-document.addEventListener('DOMContentLoaded', function () {
-    const loginButton = document.getElementById('loginBtn');
-    const loginPopup = document.getElementById('loginPopup');
+// === OBSŁUGA ZAKŁADEK ===
+document.querySelectorAll('.sidebar li').forEach(tab => {
+    tab.addEventListener('click', () => {
+      const target = tab.getAttribute('data-tab');
   
-    loginButton.addEventListener('click', function () {
-      if (loginPopup.style.display === "block") {
-        loginPopup.style.display = "none";
-      } else {
-        loginPopup.style.display = "block";
-      }
-    });
-  
-    // Hide login popup when clicking outside
-    document.addEventListener('click', function (event) {
-      if (!loginPopup.contains(event.target) && event.target !== loginButton) {
-        loginPopup.style.display = "none";
-      }
-    });
-  
-    // === Tabs functionality ===
-    const tabs = document.querySelectorAll('.tab');
-    const sidebarLinks = document.querySelectorAll('.sidebar ul li');
-  
-    sidebarLinks.forEach((link, index) => {
-      link.addEventListener('mouseenter', function () {
-        tabs.forEach(tab => tab.classList.add('hidden'));
-        tabs[index].classList.remove('hidden');
+      // Ukryj wszystkie sekcje
+      document.querySelectorAll('.tab-content').forEach(section => {
+        section.classList.add('hidden');
+        section.classList.remove('active');
       });
+  
+      // Pokaż tylko odpowiednią
+      const activeSection = document.getElementById(target);
+      if (activeSection) {
+        activeSection.classList.remove('hidden');
+        activeSection.classList.add('active');
+      }
+  
+      // Schowaj sekcję główną
+      document.getElementById('home').classList.add('hidden');
     });
+  });
+  
+  // === SIGN IN POPUP ===
+  const signInBtn = document.getElementById('signInBtn');
+  const signInPopup = document.getElementById('signInPopup');
+  
+  signInBtn.addEventListener('click', () => {
+    signInPopup.classList.toggle('hidden');
   });
   
