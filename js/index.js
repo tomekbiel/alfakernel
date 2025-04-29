@@ -1,31 +1,26 @@
-// === OBSŁUGA ZAKŁADEK ===
-document.querySelectorAll('.sidebar li').forEach(tab => {
-    tab.addEventListener('click', () => {
-      const target = tab.getAttribute('data-tab');
+document.addEventListener("DOMContentLoaded", function () {
+    const tabs = document.querySelectorAll(".tab");
+    const sections = document.querySelectorAll(".tab-content");
+    const loginToggle = document.getElementById("login-toggle");
+    const loginBox = document.getElementById("login-box");
   
-      // Ukryj wszystkie sekcje
-      document.querySelectorAll('.tab-content').forEach(section => {
-        section.classList.add('hidden');
-        section.classList.remove('active');
+    // Tabs interaction
+    tabs.forEach(tab => {
+      tab.addEventListener("mouseenter", function () {
+        // Usuwamy aktywne sekcje
+        sections.forEach(section => section.style.display = "none");
+        tabs.forEach(t => t.classList.remove("active"));
+  
+        // Pokazujemy odpowiednią
+        const target = document.getElementById(tab.dataset.target);
+        if (target) target.style.display = "block";
+        tab.classList.add("active");
       });
-  
-      // Pokaż tylko odpowiednią
-      const activeSection = document.getElementById(target);
-      if (activeSection) {
-        activeSection.classList.remove('hidden');
-        activeSection.classList.add('active');
-      }
-  
-      // Schowaj sekcję główną
-      document.getElementById('home').classList.add('hidden');
     });
-  });
   
-  // === SIGN IN POPUP ===
-  const signInBtn = document.getElementById('signInBtn');
-  const signInPopup = document.getElementById('signInPopup');
-  
-  signInBtn.addEventListener('click', () => {
-    signInPopup.classList.toggle('hidden');
+    // Login toggle
+    loginToggle?.addEventListener("click", function () {
+      loginBox.style.display = loginBox.style.display === "block" ? "none" : "block";
+    });
   });
   

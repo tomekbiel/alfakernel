@@ -1,154 +1,127 @@
 body {
     margin: 0;
+    background-color: #1e1e1e;
+    color: #d4d4d4;
     font-family: 'Roboto Mono', monospace;
-    background-color: #1e1e1e;
-    color: #f0f0f0;
   }
   
-  header {
-    background-color: #1e1e1e;
-    padding: 20px;
-    text-align: center;
-    position: sticky;
-    top: 0;
-    z-index: 999;
-    border-bottom: 1px solid #333;
-  }
-  
-  header h1 {
-    font-size: 36px;
-    font-weight: bold;
-    color: #ffffff;
-    margin: 0;
-  }
-  
-  header h2 {
-    font-size: 16px;
-    color: #999;
-    margin-top: 5px;
-  }
-  
-  nav.sidebar {
+  .sidebar {
     position: fixed;
-    top: 100px;
     left: 0;
+    top: 0;
     width: 220px;
     height: 100%;
-    background-color: #2c2c2c;
-    padding-top: 20px;
-    border-right: 1px solid #444;
+    background-color: #1e1e1e;
+    border-right: 1px solid #333;
+    padding: 1rem;
   }
   
-  nav.sidebar ul {
+  .sidebar h1 {
+    color: #fff;
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+  
+  .sidebar ul {
     list-style-type: none;
     padding: 0;
   }
   
-  nav.sidebar li {
-    margin-bottom: 20px;
-    text-align: center;
+  .sidebar li {
+    margin: 1rem 0;
   }
   
-  nav.sidebar a {
-    text-decoration: none;
+  .sidebar a {
     color: #ccc;
+    text-decoration: none;
+    font-size: 16px;
+  }
+  
+  .sidebar a:hover,
+  .sidebar .active {
+    color: #007acc;
+    font-weight: bold;
+  }
+  
+  .tab {
     display: block;
-    font-size: 18px;
-    padding: 10px;
-    transition: background-color 0.3s, color 0.3s;
+    padding: 1rem;
+    background-color: #252526;
+    border-top: 1px solid #333;
+    border-bottom: 1px solid #333;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
   }
   
-  nav.sidebar a:hover,
-  nav.sidebar a.active {
-    background-color: #007acc;
-    color: #ffffff;
+  .tab:hover,
+  .tab.active {
+    background-color: #2c2c2c;
+    color: #fff;
   }
   
-  .content {
-    margin-left: 240px;
-    padding: 40px;
-    max-width: 900px;
-  }
-  
-  section {
-    margin-bottom: 60px;
-  }
-  
-  section h3 {
-    font-size: 22px;
-    color: #00b7ff;
-    margin-bottom: 15px;
-  }
-  
-  footer.footer {
-    margin-left: 240px;
-    padding: 20px 40px;
-    font-size: 14px;
-    color: #999;
+  .tab-content {
+    display: none;
     background-color: #1e1e1e;
-    border-top: 1px solid #444;
+    padding: 2rem;
+    margin-left: 220px;
+    border-top: 2px solid #007acc;
   }
   
-  footer.footer a {
+  header {
+    text-align: center;
+    padding: 2rem;
+    font-size: 20px;
+    background-color: #1e1e1e;
+    color: #fff;
+  }
+  
+  header h1 {
+    font-size: 32px;
+    margin-bottom: 0.2em;
+  }
+  
+  header p {
+    font-size: 16px;
+    color: #aaa;
+  }
+  
+  .login-box {
+    display: none;
+    position: absolute;
+    right: 1rem;
+    top: 3.5rem;
+    background-color: #2c2c2c;
+    padding: 1rem;
+    border: 1px solid #007acc;
+    border-radius: 8px;
+    z-index: 999;
+  }
+  
+  #login-toggle {
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    color: #007acc;
+    cursor: pointer;
+  }
+  
+  footer {
+    margin-left: 220px;
+    padding: 1.5rem;
+    font-size: 14px;
+    background-color: #1e1e1e;
+    border-top: 1px solid #333;
+    color: #888;
+  }
+  
+  footer p {
+    margin: 0.3rem 0;
+  }
+  
+  footer a {
     color: #007acc;
     text-decoration: none;
-  }
-  
-  footer.footer a:hover {
-    text-decoration: underline;
-  }
-  
-  .login-button {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    background-color: #007acc;
-    color: white;
-    border: none;
-    padding: 10px 16px;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 14px;
-    z-index: 1000;
-  }
-  
-  .login-form {
-    position: fixed;
-    top: 60px;
-    right: 20px;
-    width: 240px;
-    background-color: #2c2c2c;
-    padding: 20px;
-    border: 1px solid #444;
-    border-radius: 4px;
-    display: none;
-    z-index: 1001;
-  }
-  
-  .login-form input {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 12px;
-    border: 1px solid #666;
-    background-color: #1e1e1e;
-    color: #f0f0f0;
-  }
-  
-  .login-form button {
-    width: 100%;
-    padding: 10px;
-    background-color: #007acc;
-    border: none;
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
-  }
-  
-  .tab-section {
-    display: none;
-    background-color: #2c2c2c;
-    border-left: 4px solid #007acc;
-    padding: 20px;
-    margin: 20px 0;
   }
   
