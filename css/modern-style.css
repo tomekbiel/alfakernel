@@ -190,3 +190,21 @@ body.home-bg {
     font-size: 12px;
     text-align: center;
 }
+/* Poprawki dla zakładek */
+.tab-content {
+    background-color: inherit; /* Dziedziczy tło z body */
+    padding: 20px;
+    border-radius: 5px;
+}
+
+#projects {
+    background-color: var(--bg-section);
+}
+
+#research {
+    background-color: var(--bg-research);
+}
+
+#data {
+    background-color: var(--bg-data);
+}
