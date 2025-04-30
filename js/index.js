@@ -50,3 +50,12 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelector('.header').addEventListener('click', handleBackClick);
     document.querySelector('.footer').addEventListener('click', handleBackClick);
 });
+// 🔐 Login toggle
+document.addEventListener("DOMContentLoaded", function () {
+    const loginBtn = document.getElementById("login-btn");
+    const loginForm = document.getElementById("login-form");
+
+    loginBtn.addEventListener("click", () => {
+        loginForm.classList.toggle("hidden");
+    });
+});
