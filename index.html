@@ -12,17 +12,22 @@
 <body class="home-bg">
     
     <header class="header">
-        <!-- Lewa część nagłówka -->
+
+        <!-- Lewa część: inicjały lub logo -->
         <div class="header-left">
-          <div class="initials">TB</div>
+          <div class="initials">TB</div> <!-- Możesz tu kiedyś wrzucić <img src="logo.png"> -->
+        </div>
+      
+        <!-- Środkowa część: tytuł i podtytuł -->
+        <div class="header-center">
           <div class="site-title">
             <h1>AlfaKernel</h1>
             <p class="subtitle">The Core of Quantitative Finance</p>
           </div>
         </div>
       
-        <!-- Prawa część nagłówka: logowanie -->
-        <div class="login-container">
+        <!-- Prawa część: logowanie -->
+        <div class="header-right login-container">
           <button id="login-btn">🔒 Sign In</button>
           <div id="login-form" class="login-form hidden">
             <input type="email" placeholder="Email" />
@@ -30,7 +35,7 @@
             <button>Log In</button>
           </div>
         </div>
-      </header>
+      
       
 
     <!-- Menu boczne -->
