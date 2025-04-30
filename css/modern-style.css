@@ -33,107 +33,90 @@ body.projects-bg { background-color: var(--bg-section); }
 body.research-bg { background-color: var(--bg-research); }
 body.data-bg { background-color: var(--bg-data); }
 
-/* === Nagłówek === */
+/* === Styl ogólny nagłówka === */
 .header {
-    background-color: var(--bg-main);
+    display: flex;                         /* Układ poziomy */
+    justify-content: space-between;       /* Rozdziel elementy lewo-środek-prawo */
+    align-items: center;                  /* Wyrównanie w pionie */
+    background-color: var(--bg-main);     /* Tło nagłówka */
     padding: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     border-bottom: 1px solid var(--border);
     position: sticky;
     top: 0;
     z-index: 100;
-}
-
-
-.header-left {
+  }
+  
+  /* === Lewa część: inicjały lub logo === */
+  .header-left {
+    flex: 1;                               /* 1/3 szerokości nagłówka */
     display: flex;
     align-items: center;
-    justify-content: flex-start;
-    gap: 15px;
-    text-align: left;
-}
-
-
-/* Inicjały TB */
-.initials {
+  }
+  
+  .initials {
     font-family: 'MonteCarlo', cursive;
     font-size: 28px;
     color: var(--accent);
-    margin-right: 20px;
-}
-
-/* Tytuł i podtytuł */
-.site-title h1 {
+    padding-left: 10px;
+  }
+  
+  /* === Środek: tytuł i podtytuł === */
+  .header-center {
+    flex: 2;                               /* 2/3 szerokości */
+    text-align: center;
+  }
+  
+  .site-title h1 {
     font-size: 32px;
     font-weight: bold;
     color: white;
-}
-
-.site-title .subtitle {
+    margin: 0;
+  }
+  
+  .site-title .subtitle {
     font-size: 18px;
     color: var(--text-muted);
-}
-
-/* === Logowanie === */
-.login-container {
-    position: relative;
+    margin: 0;
+  }
+  
+  /* === Prawa część: logowanie === */
+  .header-right {
+    flex: 1;                               /* 1/3 szerokości */
     display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-}
-
-#login-btn {
+    justify-content: flex-end;
+    align-items: center;
+  }
+  
+  /* Przycisk logowania */
+  #login-btn {
     background-color: var(--accent);
     color: white;
     border: none;
-    padding: 8px 12px;
-    border-radius: 5px;
+    padding: 8px 14px;
     cursor: pointer;
-    font-size: 14px;
-}
-
-#login-btn:hover {
-    background-color: #005b9f;
-}
-
-.login-form {
-    position: absolute;
-    top: 40px;
-    right: 0;
-    background-color: var(--bg-section);
+    border-radius: 5px;
+  }
+  
+  /* Formularz logowania */
+  .login-form {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--bg-dark);
     border: 1px solid var(--border);
     padding: 10px;
     border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.5);
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    width: 200px;
-    z-index: 999;
-}
-
-.login-form input {
-    padding: 6px;
-    border: 1px solid var(--border);
-    background-color: var(--bg-main);
-    color: var(--text-light);
-}
-
-.login-form button {
-    padding: 6px;
-    background-color: var(--accent);
-    border: none;
-    color: white;
-    cursor: pointer;
-    border-radius: 3px;
-}
-
-.hidden {
+    margin-top: 10px;
+    position: absolute;
+    right: 20px;
+    top: 70px;
+    z-index: 200;
+  }
+  
+  /* Ukryty formularz (JS go pokazuje) */
+  .hidden {
     display: none;
-}
-
+  }
+  
 /* === Sidebar === */
 .sidebar {
     position: fixed;
