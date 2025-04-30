@@ -1,25 +1,20 @@
 // === Tab Switching ===
 function switchTab(tabId) {
-    // Hide all sections
+    // Ukryj wszystkie sekcje
     document.querySelectorAll('.tab-content').forEach(tab => {
         tab.classList.remove('active');
     });
     
-    // Remove active state from all tabs
-    document.querySelectorAll('.tab').forEach(tab => {
-        tab.classList.remove('active');
-    });
-    
-    // Show selected section and tab
+    // Pokaż wybraną sekcję
     const activeTab = document.getElementById(tabId);
-    const activeBtn = document.querySelector(`.tab[data-tab="${tabId}"]`);
-    
-    if (activeTab && activeBtn) {
+    if (activeTab) {
         activeTab.classList.add('active');
-        activeBtn.classList.add('active');
-        
-        // Change background
-        document.body.className = tabId === 'home' ? 'home-bg' : tabId + '-bg';
+        document.body.className = tabId + '-bg';
+    }
+    
+    // Dla home ustaw czarne tło
+    if (tabId === 'home') {
+        document.body.className = 'home-bg';
     }
 }
 
