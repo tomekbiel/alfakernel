@@ -174,13 +174,14 @@ body.data-bg { background-color: var(--bg-data); }
 
 .footer-row {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    gap: 30px;
     flex-wrap: wrap;
     padding: 5px 0;
 }
 
 .footer-col {
-    flex: 1;
+    flex: 0 0 auto;
     min-width: 120px;
     text-align: center;
     font-size: 14px;
