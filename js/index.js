@@ -1,35 +1,39 @@
-// === Tab Switching ===
+// === Obsługa przełączania zakładek ===
 function switchTab(tabId) {
     // Ukryj wszystkie sekcje
     document.querySelectorAll('.tab-content').forEach(tab => {
         tab.classList.remove('active');
     });
     
-    // Pokaż wybraną sekcję
+    // Usuń aktywność z przycisków bocznych
+    document.querySelectorAll('.tab').forEach(tab => {
+        tab.classList.remove('active');
+    });
+    
+    // Aktywuj właściwą sekcję i zakładkę
     const activeTab = document.getElementById(tabId);
-    if (activeTab) {
+    const activeBtn = document.querySelector(`.tab[data-tab="${tabId}"]`);
+    
+    if (activeTab && activeBtn) {
         activeTab.classList.add('active');
+        activeBtn.classList.add('active');
+        
+        // Zmiana tła strony
         document.body.className = tabId + '-bg';
     }
-    
-    // Dla home ustaw czarne tło
-    if (tabId === 'home') {
-        document.body.className = 'home-bg';
-    }
 }
 
-// === Back Button ===
+// === Obsługa przycisku powrotu ===
 function handleBackClick() {
     switchTab('home');
-    document.body.className = 'home-bg';
 }
 
-// === Initialization ===
+// === Inicjalizacja ===
 document.addEventListener('DOMContentLoaded', () => {
-    // Set home as default
+    // Domyślnie ustaw stronę główną
     switchTab('home');
     
-    // Tab click listeners
+    // Nasłuchiwanie kliknięć zakładek bocznych
     document.querySelectorAll('.tab').forEach(tab => {
         tab.addEventListener('click', () => {
             const tabId = tab.getAttribute('data-tab');
@@ -37,11 +41,12 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
     
-    // Back button listeners
+    // Nasłuchiwanie przycisków powrotu
     document.querySelectorAll('.back-btn').forEach(btn => {
         btn.addEventListener('click', handleBackClick);
     });
     
-    // Header click to return home
+    // Nasłuchiwanie kliknięcia w header/footer
     document.querySelector('.header').addEventListener('click', handleBackClick);
+    document.querySelector('.footer').addEventListener('click', handleBackClick);
 });
