@@ -46,7 +46,6 @@ document.addEventListener('DOMContentLoaded', () => {
         btn.addEventListener('click', handleBackClick);
     });
     
-    // Nasłuchiwanie kliknięcia w header/footer
+    // Nasłuchiwanie kliknięcia w header
     document.querySelector('.header').addEventListener('click', handleBackClick);
-    document.querySelector('.footer').addEventListener('click', handleBackClick);
 });
