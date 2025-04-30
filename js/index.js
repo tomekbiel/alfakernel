@@ -1,16 +1,16 @@
-// === Obsługa przełączania zakładek ===
+// === Tab Switching ===
 function switchTab(tabId) {
-    // Ukryj wszystkie sekcje
+    // Hide all sections
     document.querySelectorAll('.tab-content').forEach(tab => {
         tab.classList.remove('active');
     });
     
-    // Usuń aktywność z przycisków bocznych
+    // Remove active state from all tabs
     document.querySelectorAll('.tab').forEach(tab => {
         tab.classList.remove('active');
     });
     
-    // Aktywuj właściwą sekcję i zakładkę
+    // Show selected section and tab
     const activeTab = document.getElementById(tabId);
     const activeBtn = document.querySelector(`.tab[data-tab="${tabId}"]`);
     
@@ -18,22 +18,23 @@ function switchTab(tabId) {
         activeTab.classList.add('active');
         activeBtn.classList.add('active');
         
-        // Zmiana tła strony
-        document.body.className = tabId + '-bg';
+        // Change background
+        document.body.className = tabId === 'home' ? 'home-bg' : tabId + '-bg';
     }
 }
 
-// === Obsługa przycisku powrotu ===
+// === Back Button ===
 function handleBackClick() {
     switchTab('home');
+    document.body.className = 'home-bg';
 }
 
-// === Inicjalizacja ===
+// === Initialization ===
 document.addEventListener('DOMContentLoaded', () => {
-    // Domyślnie ustaw stronę główną
+    // Set home as default
     switchTab('home');
     
-    // Nasłuchiwanie kliknięć zakładek bocznych
+    // Tab click listeners
     document.querySelectorAll('.tab').forEach(tab => {
         tab.addEventListener('click', () => {
             const tabId = tab.getAttribute('data-tab');
@@ -41,11 +42,11 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
     
-    // Nasłuchiwanie przycisków powrotu
+    // Back button listeners
     document.querySelectorAll('.back-btn').forEach(btn => {
         btn.addEventListener('click', handleBackClick);
     });
     
-    // Nasłuchiwanie kliknięcia w header
+    // Header click to return home
     document.querySelector('.header').addEventListener('click', handleBackClick);
 });
