@@ -175,6 +175,7 @@ body.data-bg { background-color: var(--bg-data); }
 .footer-row {
     display: flex;
     justify-content: center;
+    align-items: center;
     gap: 30px;
     flex-wrap: wrap;
     padding: 5px 0;
