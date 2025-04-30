@@ -158,8 +158,8 @@ body.data-bg { background-color: var(--bg-data); }
 .footer {
     position: fixed;
     bottom: 0;
-    width: 80%;
-    left: 10%;
+    width: 100%;
+    left: 0%;
     padding: 15px;
     background-color: var(--bg-main);
     color: var(--text-muted);
