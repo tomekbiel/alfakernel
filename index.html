@@ -10,16 +10,28 @@
 </head>
 
 <body class="home-bg">
-    <!-- Nagłówek -->
+    
     <header class="header">
+        <!-- Lewa część nagłówka -->
         <div class="header-left">
-            <div class="initials">TB</div>
-            <div class="site-title">
-                <h1>AlfaKernel</h1>
-                <p class="subtitle">The Core of Quantitative Finance</p>
-            </div>
+          <div class="initials">TB</div>
+          <div class="site-title">
+            <h1>AlfaKernel</h1>
+            <p class="subtitle">The Core of Quantitative Finance</p>
+          </div>
         </div>
-    </header>
+      
+        <!-- Prawa część nagłówka: logowanie -->
+        <div class="login-container">
+          <button id="login-btn">🔒 Sign In</button>
+          <div id="login-form" class="login-form hidden">
+            <input type="email" placeholder="Email" />
+            <input type="password" placeholder="Password" />
+            <button>Log In</button>
+          </div>
+        </div>
+      </header>
+      
 
     <!-- Menu boczne -->
     <aside class="sidebar">
