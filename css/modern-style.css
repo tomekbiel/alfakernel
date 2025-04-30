@@ -46,13 +46,15 @@ body.data-bg { background-color: var(--bg-data); }
     z-index: 100;
 }
 
+
 .header-left {
     display: flex;
     align-items: center;
-    width: 100%;
-    justify-content: center;
-    text-align: center;
+    justify-content: flex-start;
+    gap: 15px;
+    text-align: left;
 }
+
 
 /* Inicjały TB */
 .initials {
