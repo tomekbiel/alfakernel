@@ -34,18 +34,28 @@ body.research-bg { background-color: var(--bg-research); }
 body.data-bg { background-color: var(--bg-data); }
 
 /* === Styl ogólny nagłówka === */
+
 .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     background-color: var(--bg-main);
-    padding: 20px;
+    height: 100px; /* Zwiększona wysokość */
     border-bottom: 1px solid var(--border);
-    position: sticky;
+    position: fixed; /* Zawsze widoczny */
     top: 0;
+    left: 0;
+    width: 100%;
     z-index: 100;
-  }
-  
+    padding: 0 20px; /* Dodano wewnętrzne odstępy */
+}
+.site-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Wyśrodkowanie napisu */
+    justify-content: center;
+}
+ 
   /* Lewa część: logo/inicjały */
   .header-left {
     flex: 1;
@@ -67,17 +77,17 @@ body.data-bg { background-color: var(--bg-data); }
   }
   
   .site-title h1 {
-    font-size: 32px;
+    font-size: 36px;/* Większy rozmiar czcionki */
     font-weight: bold;
     color: white;
     margin: 0;
   }
   
   .site-title .subtitle {
-    font-size: 18px;
+    font-size: 20px; /* Większy rozmiar podtytułu */
     color: var(--text-muted);
-    margin: 0;
-  }
+    margin: 5px 0 0; /* Dodano odstęp między tytułem a podtytułem */
+ }
   
   /* Prawa część: logowanie */
   .header-right {
@@ -132,14 +142,15 @@ body.data-bg { background-color: var(--bg-data); }
   .hidden {
     display: none;
   }
-  
+ 
 /* === Sidebar === */
+
 .sidebar {
     position: fixed;
-    top: 80px;
+    top: 100px; /* Dopasowane do wysokości nagłówka */
     left: 0;
     width: 160px;
-    height: calc(100vh - 80px);
+    height: calc(100vh - 140px); /* Wysokość widoku minus header (60px) i footer (40px) */
     display: flex;
     flex-direction: column;
     border-right: 1px solid var(--border);
@@ -148,6 +159,7 @@ body.data-bg { background-color: var(--bg-data); }
         var(--bg-section) 33%, 
         var(--bg-research) 66%, 
         var(--bg-data) 100%);
+    overflow-y: auto; /* Dodano przewijanie */
 }
 
 .tab {
@@ -170,13 +182,15 @@ body.data-bg { background-color: var(--bg-data); }
 }
 
 /* === Zawartość główna === */
+
 .main-content {
-    margin-left: 160px;
+    margin-left: 160px; /* Dopasowanie do szerokości menu bocznego */
+    margin-top: 60px; /* Dopasowanie do wysokości nagłówka */
+    margin-bottom: 40px; /* Dopasowanie do wysokości stopki */
     padding: 40px;
     flex-grow: 1;
     position: relative;
 }
-
 .tab-content {
     display: none;
     animation: fadeIn 0.3s ease-in-out;
@@ -218,11 +232,13 @@ body.data-bg { background-color: var(--bg-data); }
     bottom: 0;
     left: 0;
     width: 100%;
-    padding: 15px 0;
+    height: 40px; /* Stała wysokość */
     background-color: var(--bg-main);
     color: var(--text-muted);
     border-top: 1px solid var(--border);
-    z-index: 1000; /* Zwiększony aby był nad menu */
+    z-index: 1000;
+    text-align: center;
+    padding: 10px 0;
 }
 
 .footer a {
