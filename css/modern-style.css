@@ -290,23 +290,29 @@ body.data-bg { background-color: var(--bg-data); }
 }
 /* Styl dla przycisków z ikonami */
 .back-btn, .nav-link {
+    position: relative;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     width: 50px; /* Rozmiar kółka */
     height: 50px; /* Rozmiar kółka */
-    background-color: #003366; /* Granatowe tło */
-    color: white; /* Kolor ikon */
+    background-color: #003366; /* Niebieskie kółko */
     border: none;
     border-radius: 50%; /* Kształt kółka */
-    text-decoration: none;
-    font-size: 20px; /* Rozmiar ikon */
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    overflow: hidden;
+    color: black; /* Kolor strzałki */
+    font-size: 20px; /* Rozmiar ikony */
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Efekt hover */
 .back-btn:hover, .nav-link:hover {
-    background-color: #0055aa; /* Jaśniejszy granatowy po najechaniu */
+    background-color: #0055aa; /* Jaśniejszy niebieski po najechaniu */
+    color: black; /* Strzałka pozostaje czarna */
 }
 
+/* Ikony Font Awesome */
+.back-btn i, .nav-link i {
+    pointer-events: none; /* Wyłączenie interakcji z ikoną */
+}
