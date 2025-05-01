@@ -185,7 +185,6 @@ body.data-bg { background-color: var(--bg-data); }
 
 .main-content {
     margin-left: 160px; /* Dopasowanie do szerokości menu bocznego */
-    margin-top: 60px; /* Dopasowanie do wysokości nagłówka */
     margin-bottom: 40px; /* Dopasowanie do wysokości stopki */
     padding: 40px;
     flex-grow: 1;
@@ -316,32 +315,7 @@ body.data-bg { background-color: var(--bg-data); }
 .back-btn i, .nav-link i {
     pointer-events: none; /* Wyłączenie interakcji z ikoną */
 }
-/* Styl dla nagłówka na urządzeniach mobilnych */
-@media (max-width: 768px) {
-    .header {
-        flex-direction: column; /* Ustaw elementy w kolumnie */
-        height: auto; /* Automatyczna wysokość */
-        padding: 20px; /* Więcej miejsca wewnętrznego */
-        text-align: center; /* Wyśrodkowanie tekstu */
-    }
 
-    .header-left, .header-right {
-        margin-bottom: 10px; /* Odstęp między sekcjami */
-    }
-
-    .site-title h1 {
-        font-size: 28px; /* Zmniejsz rozmiar czcionki */
-    }
-
-    .site-title .subtitle {
-        font-size: 16px; /* Zmniejsz rozmiar podtytułu */
-    }
-
-    #login-btn {
-        padding: 10px 20px; /* Większy przycisk dla łatwiejszego klikania */
-        font-size: 16px; /* Większy tekst */
-    }
-}
 /* Większy odstęp nad sekcjami */
 .tab-content {
     margin-top: 40px; /* Większy odstęp od góry */
@@ -352,19 +326,51 @@ body.data-bg { background-color: var(--bg-data); }
         margin-top: 60px; /* Jeszcze większy odstęp na urządzeniach mobilnych */
     }
 }
-/* Styl dla stopki na urządzeniach mobilnych */
+
+/* Styl dla nagłówka na urządzeniach mobilnych */
 @media (max-width: 768px) {
-    .footer-links {
-        flex-direction: column; /* Ustaw linki jeden pod drugim */
-        gap: 10px; /* Odstęp między linkami */
-    }
-
-    .footer {
-        position: static; /* Usuń fixed, aby footer był na dole strony */
+    .header {
+        flex-direction: column; /* Ustaw elementy w kolumnie */
+        height: auto; /* Automatyczna wysokość */
         padding: 20px; /* Więcej miejsca wewnętrznego */
+        text-align: center; /* Wyśrodkowanie tekstu */
     }
 
-    .footer-bottom {
-        margin-top: 10px; /* Odstęp nad napisem */
+    .site-title {
+        margin-bottom: 20px; /* Odstęp pod tytułem */
     }
+
+    .header-left, .header-right {
+        display: inline-flex; /* Wyświetl logo i przycisk w jednej linii */
+        align-items: center;
+        justify-content: center;
+        gap: 20px; /* Odstęp między logo a przyciskiem */
+    }
+}
+/* Dopasowanie marginesu głównej zawartości */
+.main-content {
+    margin-top: 100px; /* Dopasowanie do wysokości nagłówka */
+}
+
+@media (max-width: 768px) {
+    .main-content {
+        margin-top: 120px; /* Większy margines na urządzeniach mobilnych */
+    }
+}
+/* Styl dla stopki */
+.footer {
+    position: relative; /* Usuń fixed, aby footer był na dole strony */
+    width: 100%; /* Upewnij się, że tło obejmuje całą szerokość */
+    background-color: var(--bg-main); /* Czarny kolor tła */
+    padding: 20px; /* Więcej miejsca wewnętrznego */
+    text-align: center;
+}
+
+.footer-links {
+    flex-direction: column; /* Linki jeden pod drugim */
+    gap: 10px; /* Odstęp między linkami */
+}
+
+.footer-bottom {
+    margin-top: 10px; /* Odstęp nad napisem */
 }
