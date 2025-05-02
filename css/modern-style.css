@@ -296,7 +296,7 @@ main {
     /* Sidebar mobilny: pełna wysokość i przewijanie */
     .sidebar {
       width: 160px;
-      position: relative;
+      position: fixed;
       top: 100px;
       left: 0;
       bottom: 0;
@@ -305,7 +305,7 @@ main {
   
     /* Główna treść */
     .main-content {
-      position: relative;
+      position: fixed;
       margin-left: 160px;
       margin-top: 100px;
       padding: 20px 10px;
