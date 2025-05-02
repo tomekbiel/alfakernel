@@ -296,7 +296,7 @@ main {
     /* Sidebar mobilny: pełna wysokość i przewijanie */
     .sidebar {
       width: 160px;
-      position: relative;
+      position: fixed;
       top: 80px;
       left: 0;
       bottom: 0;
@@ -312,7 +312,7 @@ main {
   
     /* Nagłówek mobilny — mniejszy */
     .header {
-      position: relative;  
+      position: fixed;  
       flex-direction: column;
       height: auto;
       padding: 10px;
