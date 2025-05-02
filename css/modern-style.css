@@ -305,6 +305,7 @@ main {
   
     /* Główna treść */
     .main-content {
+      position: fixed;
       margin-left: 160px;
       margin-top: 80px;
       padding: 20px 10px;
