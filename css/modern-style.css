@@ -295,8 +295,29 @@ main {
 @media (max-width: 768px) {
     /* Kontener strony */
     .container {
-        flex-direction: column; /* Ustaw elementy w kolumnie */
-        padding: 0 10px; /* Dodaj odstępy po bokach */
+        display: flex; /* Ustaw elementy w wierszu */
+        flex-direction: row; /* Sidebar obok main */
+        padding: 0; /* Usuń dodatkowe odstępy */
+        gap: 10px; /* Odstęp między sidebar a main */
+    }
+
+    /* Sidebar */
+    .sidebar {
+        width: 30%; /* Sidebar zajmuje 30% szerokości */
+        height: auto; /* Automatyczna wysokość */
+        position: relative; /* Usuń fixed, aby menu przewijało się razem z treścią */
+        overflow-y: auto; /* Dodaj przewijanie, jeśli zawartość jest za długa */
+        background-color: var(--bg-section); /* Kolor tła sidebar */
+        border-right: 1px solid var(--border); /* Dodaj linię oddzielającą */
+    }
+
+    /* Główna treść */
+    .main-content {
+        width: 70%; /* Main zajmuje 70% szerokości */
+        margin: 0; /* Usuń marginesy */
+        padding: 20px; /* Dodaj odstępy wewnętrzne */
+        position: relative; /* Usuń fixed, aby treść mogła się przewijać */
+        background-color: var(--bg-main); /* Kolor tła main */
     }
 
     /* Nagłówek */
@@ -339,29 +360,6 @@ main {
 
     .site-title .subtitle {
         font-size: 14px; /* Zmniejsz rozmiar podtytułu */
-    }
-
-    /* Sidebar */
-    .sidebar {
-        position: relative; /* Usuń fixed, aby menu przewijało się razem z treścią */
-        width: 100%; /* Pełna szerokość na urządzeniach mobilnych */
-        margin-top: 10px; /* Dodaj odstęp od nagłówka */
-        height: auto; /* Automatyczna wysokość */
-        overflow-y: visible; /* Usuń wymuszone przewijanie */
-        z-index: 500; /* Upewnij się, że sidebar jest widoczny */
-    }
-
-    .tab {
-        text-align: center; /* Wyśrodkuj tekst w menu */
-        padding: 10px; /* Zmniejsz odstępy */
-    }
-
-    /* Główna treść */
-    .main-content {
-        position: relative; /* Usuń fixed, aby treść mogła się przewijać */
-        margin-left: 0; /* Usuń margines boczny */
-        margin-top: 20px; /* Dodaj odstęp od sidebar */
-        padding: 20px 10px; /* Dodaj odstępy wewnętrzne */
     }
 
     /* Stopka */
