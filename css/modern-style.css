@@ -297,7 +297,7 @@ main {
     .sidebar {
       width: 160px;
       position: fixed;
-      top: 100px;
+      top: 80px;
       left: 0;
       bottom: 0;
       overflow-y: auto;
@@ -306,7 +306,7 @@ main {
     /* Główna treść */
     .main-content {
       margin-left: 160px;
-      margin-top: 100px;
+      margin-top: 80px;
       padding: 20px 10px;
     }
   
@@ -317,6 +317,7 @@ main {
       padding: 10px;
       gap: 10px;
       text-align: center;
+      z-index: 100; /* Zmiana z 200 na 100 */
     }
   
     .site-title h1 {
