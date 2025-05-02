@@ -312,7 +312,6 @@ main {
   
     /* Nagłówek mobilny — mniejszy */
     .header {
-      position: fixed;  
       flex-direction: column;
       height: auto;
       padding: 10px;
