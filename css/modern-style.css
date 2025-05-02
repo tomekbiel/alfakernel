@@ -293,76 +293,91 @@ main {
 
 /* === Mobile === */
 @media (max-width: 768px) {
-    /* Sidebar mobilny: pełna wysokość i przewijanie */
-    .sidebar {
-      width: 160px;
-      position: fixed;
-      top: 100px;
-      left: 0;
-      bottom: 0;
-      overflow-y: auto;
+    /* Kontener strony */
+    .container {
+        flex-direction: column; /* Ustaw elementy w kolumnie */
+        padding: 0 10px; /* Dodaj odstępy po bokach */
     }
-  
+
+    /* Nagłówek */
+    .header {
+        flex-direction: column; /* Ustaw elementy w kolumnie */
+        align-items: center; /* Wyśrodkuj elementy */
+        padding: 10px 0;
+        gap: 10px; /* Odstęp między elementami */
+        height: auto; /* Automatyczna wysokość */
+    }
+
+    .header-top {
+        display: flex; /* Ustaw elementy w wierszu */
+        justify-content: space-between; /* Logo z lewej, przycisk z prawej */
+        align-items: center;
+        width: 100%;
+    }
+
+    .header-left {
+        text-align: left; /* Wyrównanie logo do lewej */
+        flex: 1;
+    }
+
+    .header-right {
+        text-align: right; /* Wyrównanie przycisku do prawej */
+        flex: 1;
+    }
+
+    .header-center {
+        order: 1; /* Tytuł i podtytuł poniżej logo i przycisku */
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    .site-title h1 {
+        font-size: 24px; /* Zmniejsz rozmiar tytułu */
+    }
+
+    .site-title .subtitle {
+        font-size: 14px; /* Zmniejsz rozmiar podtytułu */
+    }
+
+    /* Sidebar */
+    .sidebar {
+        width: 100%; /* Pełna szerokość na urządzeniach mobilnych */
+        position: relative; /* Usuń fixed, aby menu przewijało się razem z treścią */
+        margin-top: 10px; /* Dodaj odstęp od góry */
+        height: auto; /* Automatyczna wysokość */
+        overflow-y: visible; /* Usuń wymuszone przewijanie */
+    }
+
+    .tab {
+        text-align: center; /* Wyśrodkuj tekst w menu */
+        padding: 10px; /* Zmniejsz odstępy */
+    }
+
     /* Główna treść */
     .main-content {
-      position: fixed;
-      margin-left: 160px;
-      margin-top: 100px;
-      padding: 20px 10px;
-      overflow-y: auto;
+        margin-left: 0; /* Usuń margines boczny */
+        margin-top: 20px; /* Dodaj odstęp od nagłówka */
+        padding: 20px 10px; /* Dodaj odstępy wewnętrzne */
+        position: relative; /* Usuń fixed, aby treść mogła się przewijać */
     }
-  
-    /* Nagłówek mobilny — mniejszy */
-    .header {
-      flex-direction: column;
-      height: auto;
-      padding: 10px;
-      gap: 10px;
-      text-align: center;
-      z-index: 100; /* Zmiana z 200 na 100 */
-    }
-  
-    .site-title h1 {
-      font-size: 24px;
-    }
-  
-    .site-title .subtitle {
-      font-size: 14px;
-    }
-  
-   .header-top {
-     display: flex;
-     justify-content: space-between;
-     align-items: center;
-     width: 100%;
-   }
 
-   .header-left,
-   .header-right {
-     width: 50%;
-     display: flex;
-     justify-content: center;
-     align-items: center;
-     padding: 5px 0;
-   }
-
-   .header-center {
-     order: 1;
-     width: 100%;
-     margin-top: 10px;
-   }
-	
-  
-    /* Stopka mobilna — mniejsza */
+    /* Stopka */
     .footer {
-      padding: 10px;
-      font-size: 12px;
+        padding: 10px; /* Zmniejsz odstępy */
+        font-size: 12px; /* Zmniejsz rozmiar tekstu */
+        text-align: center;
+        margin-top: 20px; /* Dodaj odstęp od treści */
     }
-  
+
     .footer-links {
-      flex-direction: column;
-      align-items: center;
-      gap: 8px;
+        flex-direction: column; /* Linki jeden pod drugim */
+        align-items: center;
+        gap: 10px; /* Odstęp między linkami */
     }
-  }
-  
+
+    .footer-bottom {
+        margin-top: 10px; /* Dodaj odstęp nad napisem */
+    }
+}
+
+
