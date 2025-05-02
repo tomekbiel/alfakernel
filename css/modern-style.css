@@ -292,33 +292,39 @@ main {
 }
 
 /* === Mobile === */
-
 @media (max-width: 768px) {
-    /* Sidebar: zachowuje szerokość, umożliwia przewijanie */
+    /* Sidebar mobilny: pełna wysokość i przewijanie */
     .sidebar {
       width: 160px;
-      height: calc(100vh - 100px);
+      position: fixed;
+      top: 100px;
+      left: 0;
+      bottom: 0;
       overflow-y: auto;
     }
   
-    /* Główna treść: dopasowana do sidebaru */
+    /* Główna treść */
     .main-content {
       margin-left: 160px;
-      padding-top: 120px;
-      padding-left: 10px;
-      padding-right: 10px;
+      margin-top: 100px;
+      padding: 20px 10px;
     }
   
-    /* Nagłówek */
+    /* Nagłówek mobilny — mniejszy */
     .header {
       flex-direction: column;
       height: auto;
-      padding: 20px;
+      padding: 10px;
+      gap: 10px;
       text-align: center;
     }
   
-    .site-title {
-      margin-bottom: 20px;
+    .site-title h1 {
+      font-size: 24px;
+    }
+  
+    .site-title .subtitle {
+      font-size: 14px;
     }
   
     .header-left,
@@ -326,18 +332,19 @@ main {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 20px;
+      gap: 15px;
     }
   
-    /* Stopka */
+    /* Stopka mobilna — mniejsza */
     .footer {
-      padding-left: 0;
+      padding: 10px;
+      font-size: 12px;
     }
   
     .footer-links {
       flex-direction: column;
       align-items: center;
-      gap: 10px;
+      gap: 8px;
     }
   }
   
