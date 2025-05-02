@@ -329,3 +329,48 @@ main {
         padding-left: 0;
     }
 }
+@media (max-width: 768px) {
+    /* Węższe boczne menu */
+    .sidebar {
+      width: 100px;
+    }
+  
+    /* Dopasowanie treści do węższego menu */
+    .main-content {
+      margin-left: 100px;
+      padding-top: 120px;
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+  
+    /* Zabezpieczenie headera – zachowanie jak dotąd */
+    .header {
+      flex-direction: column;
+      height: auto;
+      padding: 20px;
+      text-align: center;
+    }
+  
+    .site-title {
+      margin-bottom: 20px;
+    }
+  
+    .header-left,
+    .header-right {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+    }
+  
+    .footer {
+      padding-left: 0;
+    }
+  
+    .footer-links {
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+  }
+  
