@@ -306,6 +306,8 @@ main {
         padding: 10px 0;
         gap: 10px; /* Odstęp między elementami */
         height: auto; /* Automatyczna wysokość */
+        position: relative; /* Usuń fixed, aby nagłówek nie nachodził na inne elementy */
+        z-index: 1000; /* Upewnij się, że nagłówek jest na wierzchu */
     }
 
     .header-top {
