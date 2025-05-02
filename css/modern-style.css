@@ -301,12 +301,12 @@ main {
 
     /* Nagłówek */
     .header {
+        position: relative; /* Usuń fixed, aby nagłówek nie nachodził na inne elementy */
         flex-direction: column; /* Ustaw elementy w kolumnie */
         align-items: center; /* Wyśrodkuj elementy */
         padding: 10px 0;
         gap: 10px; /* Odstęp między elementami */
         height: auto; /* Automatyczna wysokość */
-        position: relative; /* Usuń fixed, aby nagłówek nie nachodził na inne elementy */
         z-index: 1000; /* Upewnij się, że nagłówek jest na wierzchu */
     }
 
@@ -343,11 +343,12 @@ main {
 
     /* Sidebar */
     .sidebar {
-        width: 100%; /* Pełna szerokość na urządzeniach mobilnych */
         position: relative; /* Usuń fixed, aby menu przewijało się razem z treścią */
-        margin-top: 10px; /* Dodaj odstęp od góry */
+        width: 100%; /* Pełna szerokość na urządzeniach mobilnych */
+        margin-top: 10px; /* Dodaj odstęp od nagłówka */
         height: auto; /* Automatyczna wysokość */
         overflow-y: visible; /* Usuń wymuszone przewijanie */
+        z-index: 500; /* Upewnij się, że sidebar jest widoczny */
     }
 
     .tab {
@@ -357,10 +358,10 @@ main {
 
     /* Główna treść */
     .main-content {
-        margin-left: 0; /* Usuń margines boczny */
-        margin-top: 20px; /* Dodaj odstęp od nagłówka */
-        padding: 20px 10px; /* Dodaj odstępy wewnętrzne */
         position: relative; /* Usuń fixed, aby treść mogła się przewijać */
+        margin-left: 0; /* Usuń margines boczny */
+        margin-top: 20px; /* Dodaj odstęp od sidebar */
+        padding: 20px 10px; /* Dodaj odstępy wewnętrzne */
     }
 
     /* Stopka */
