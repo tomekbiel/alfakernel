@@ -260,8 +260,17 @@ body.data-bg .main-content {
     justify-content: center;
     gap: 30px;
     margin-bottom: 10px;
-    flex-direction: column;
+    flex-direction: row; /* domyślnie linki w jednej linii */
 }
+
+@media (max-width: 768px) {
+    .footer-links {
+        flex-direction: column;     /* na telefonach jeden pod drugim */
+        align-items: center;
+        gap: 10px;
+    }
+}
+
 
 .footer-links a {
     color: var(--accent);
