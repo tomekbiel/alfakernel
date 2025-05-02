@@ -263,15 +263,6 @@ body.data-bg .main-content {
     flex-direction: row; /* domyślnie linki w jednej linii */
 }
 
-@media (max-width: 768px) {
-    .footer-links {
-        flex-direction: column;     /* na telefonach jeden pod drugim */
-        align-items: center;
-        gap: 10px;
-    }
-}
-
-
 .footer-links a {
     color: var(--accent);
     text-decoration: none;
@@ -301,49 +292,24 @@ main {
 }
 
 /* === Mobile === */
+
 @media (max-width: 768px) {
-    .header {
-        flex-direction: column;
-        height: auto;
-        padding: 20px;
-        text-align: center;
-    }
-
-    .site-title {
-        margin-bottom: 20px;
-    }
-
-    .header-left,
-    .header-right {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        gap: 20px;
-    }
-
-    .main-content {
-        margin-top: 120px;
-    }
-
-    .footer {
-        padding-left: 0;
-    }
-}
-@media (max-width: 768px) {
-    /* Węższe boczne menu */
+    /* Sidebar: zachowuje szerokość, umożliwia przewijanie */
     .sidebar {
-      width: 100px;
+      width: 160px;
+      height: calc(100vh - 100px);
+      overflow-y: auto;
     }
   
-    /* Dopasowanie treści do węższego menu */
+    /* Główna treść: dopasowana do sidebaru */
     .main-content {
-      margin-left: 100px;
+      margin-left: 160px;
       padding-top: 120px;
       padding-left: 10px;
       padding-right: 10px;
     }
   
-    /* Zabezpieczenie headera – zachowanie jak dotąd */
+    /* Nagłówek */
     .header {
       flex-direction: column;
       height: auto;
@@ -363,6 +329,7 @@ main {
       gap: 20px;
     }
   
+    /* Stopka */
     .footer {
       padding-left: 0;
     }
