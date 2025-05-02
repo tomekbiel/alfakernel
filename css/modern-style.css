@@ -327,13 +327,28 @@ main {
       font-size: 14px;
     }
   
-    .header-left,
-    .header-right {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 15px;
-    }
+   .header-top {
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     width: 100%;
+   }
+
+   .header-left,
+   .header-right {
+     width: 50%;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     padding: 5px 0;
+   }
+
+   .header-center {
+     order: 1;
+     width: 100%;
+     margin-top: 10px;
+   }
+	
   
     /* Stopka mobilna — mniejsza */
     .footer {
