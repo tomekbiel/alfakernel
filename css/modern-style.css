@@ -22,96 +22,91 @@ body {
     font-family: 'Roboto Mono', monospace;
     background-color: var(--bg-main);
     color: var(--text-light);
-    display: flex;
-    flex-direction: column;
     min-height: 100vh;
     transition: background-color 0.3s ease;
 }
 
+/* === Tła kontekstowe === */
 body.home-bg { background-color: var(--bg-main); }
 body.projects-bg { background-color: var(--bg-section); }
 body.research-bg { background-color: var(--bg-research); }
 body.data-bg { background-color: var(--bg-data); }
 
 /* === Styl ogólny nagłówka === */
-
 .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     background-color: var(--bg-main);
-    height: 100px; /* Zwiększona wysokość */
+    height: 100px;
     border-bottom: 1px solid var(--border);
-    position: fixed; /* Zawsze widoczny */
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     z-index: 100;
-    padding: 0 20px; /* Dodano wewnętrzne odstępy */
+    padding: 0 20px;
 }
+
 .site-title {
     display: flex;
     flex-direction: column;
-    align-items: center; /* Wyśrodkowanie napisu */
+    align-items: center;
     justify-content: center;
 }
- 
-  /* Lewa część: logo/inicjały */
-  .header-left {
+
+.header-left {
     flex: 1;
     display: flex;
     align-items: center;
-  }
-  
-  .initials {
+}
+
+.initials {
     font-family: 'MonteCarlo', cursive;
     font-size: 28px;
     color: var(--accent);
     padding-left: 10px;
-  }
-  
-  /* Środkowa część: tytuł */
-  .header-center {
+}
+
+.header-center {
     flex: 2;
     text-align: center;
-  }
-  
-  .site-title h1 {
-    font-size: 36px;/* Większy rozmiar czcionki */
+}
+
+.site-title h1 {
+    font-size: 36px;
     font-weight: bold;
     color: white;
     margin: 0;
-  }
-  
-  .site-title .subtitle {
-    font-size: 20px; /* Większy rozmiar podtytułu */
+}
+
+.site-title .subtitle {
+    font-size: 20px;
     color: var(--text-muted);
-    margin: 5px 0 0; /* Dodano odstęp między tytułem a podtytułem */
- }
-  
-  /* Prawa część: logowanie */
-  .header-right {
+    margin: 5px 0 0;
+}
+
+.header-right {
     flex: 1;
     display: flex;
     justify-content: flex-end;
     align-items: center;
     position: relative;
-  }
-  
-  #login-btn {
+}
+
+#login-btn {
     background-color: var(--accent);
     color: white;
     border: none;
     padding: 8px 14px;
     cursor: pointer;
     border-radius: 5px;
-  }
-  
-  /* Formularz logowania */
-  .login-form {
+}
+
+.login-form {
     display: flex;
     flex-direction: column;
-    background-color: var(--bg-dark);
+    background-color: var(--bg-section);
     border: 1px solid var(--border);
     padding: 10px;
     border-radius: 5px;
@@ -120,37 +115,36 @@ body.data-bg { background-color: var(--bg-data); }
     right: 0;
     z-index: 200;
     width: 200px;
-  }
-  
-  .login-form input {
+}
+
+.login-form input {
     margin-bottom: 10px;
     padding: 6px;
     border: 1px solid var(--border);
     background-color: var(--bg-main);
     color: var(--text-light);
-  }
-  
-  .login-form button {
+}
+
+.login-form button {
     padding: 6px;
     background-color: var(--accent);
     border: none;
     color: white;
     cursor: pointer;
     border-radius: 3px;
-  }
-  
-  .hidden {
-    display: none;
-  }
- 
-/* === Sidebar === */
+}
 
+.hidden {
+    display: none;
+}
+
+/* === Sidebar === */
 .sidebar {
     position: fixed;
-    top: 100px; /* Dopasowane do wysokości nagłówka */
+    top: 100px;
     left: 0;
     width: 160px;
-    height: calc(100vh - 140px); /* Wysokość widoku minus header (60px) i footer (40px) */
+    height: calc(100vh - 100px);
     display: flex;
     flex-direction: column;
     border-right: 1px solid var(--border);
@@ -159,7 +153,7 @@ body.data-bg { background-color: var(--bg-data); }
         var(--bg-section) 33%, 
         var(--bg-research) 66%, 
         var(--bg-data) 100%);
-    overflow-y: auto; /* Dodano przewijanie */
+    overflow-y: auto;
 }
 
 .tab {
@@ -181,15 +175,29 @@ body.data-bg { background-color: var(--bg-data); }
     border-left: 3px solid var(--accent);
 }
 
-/* === Zawartość główna === */
-
+/* === Główna zawartość === */
 .main-content {
-    margin-left: 160px; /* Dopasowanie do szerokości menu bocznego */
-    margin-bottom: 40px; /* Dopasowanie do wysokości stopki */
+    margin-left: 160px;
+    margin-bottom: 40px;
+    margin-top: 100px;
     padding: 40px;
     flex-grow: 1;
     position: relative;
+    transition: background-color 0.3s ease;
 }
+body.home-bg .main-content {
+    background-color: var(--bg-main);
+}
+body.projects-bg .main-content {
+    background-color: var(--bg-section);
+}
+body.research-bg .main-content {
+    background-color: var(--bg-research);
+}
+body.data-bg .main-content {
+    background-color: var(--bg-data);
+}
+
 .tab-content {
     display: none;
     animation: fadeIn 0.3s ease-in-out;
@@ -220,57 +228,39 @@ body.data-bg { background-color: var(--bg-data); }
     text-decoration: underline;
 }
 
-/* Animacja */
+/* === Animacja === */
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
 }
-/* === Stopka - ZOPTYMALIZOWANA WERSJA === */
+
+/* === Stopka === */
 .footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
+    position: relative;
     width: 100%;
-    height: 40px; /* Stała wysokość */
+    padding: 20px;
     background-color: var(--bg-main);
     color: var(--text-muted);
     border-top: 1px solid var(--border);
+    text-align: center;
     z-index: 1000;
-    text-align: center;
-    padding: 10px 0;
+    padding-left: 160px; /* przesunięcie treści spod menu */
 }
 
-.footer a {
-    color: var(--accent);
-    text-decoration: none;
-    transition: opacity 0.2s;
-}
-
-.footer a:hover {
-    opacity: 0.8;
-    text-decoration: underline;
-}
-
-.copyright {
-    width: 100%;
-    text-align: center;
-    font-size: 12px;
-    margin-top: 10px;
-    padding: 5px 0;
-}
 .footer.full-width {
     display: flex;
     flex-direction: column;
-    align-items: center;  /* Wyśrodkowanie całej zawartości poziomo */
+    align-items: center;
     text-align: center;
 }
 
 .footer-links {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;  /* Linki obok siebie na środku */
+    justify-content: center;
     gap: 30px;
     margin-bottom: 10px;
+    flex-direction: column;
 }
 
 .footer-links a {
@@ -286,91 +276,47 @@ body.data-bg { background-color: var(--bg-data); }
 .footer-bottom {
     font-size: 12px;
     color: var(--text-muted);
-}
-/* Styl dla przycisków z ikonami */
-.back-btn, .nav-link {
-    position: relative;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 50px; /* Rozmiar kółka */
-    height: 50px; /* Rozmiar kółka */
-    background-color: #003366; /* Niebieskie kółko */
-    border: none;
-    border-radius: 50%; /* Kształt kółka */
-    cursor: pointer;
-    overflow: hidden;
-    color: black; /* Kolor strzałki */
-    font-size: 20px; /* Rozmiar ikony */
-    transition: background-color 0.3s ease, color 0.3s ease;
+    margin-top: 10px;
 }
 
-/* Efekt hover */
-.back-btn:hover, .nav-link:hover {
-    background-color: #0055aa; /* Jaśniejszy niebieski po najechaniu */
-    color: black; /* Strzałka pozostaje czarna */
+/* === Kontener strony === */
+.container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
-/* Ikony Font Awesome */
-.back-btn i, .nav-link i {
-    pointer-events: none; /* Wyłączenie interakcji z ikoną */
+main {
+    flex-grow: 1;
+    background-color: var(--bg-main);
 }
 
-/* Większy odstęp nad sekcjami */
-.tab-content {
-    margin-top: 40px; /* Większy odstęp od góry */
-}
-
-@media (max-width: 768px) {
-    .tab-content {
-        margin-top: 60px; /* Jeszcze większy odstęp na urządzeniach mobilnych */
-    }
-}
-
-/* Styl dla nagłówka na urządzeniach mobilnych */
+/* === Mobile === */
 @media (max-width: 768px) {
     .header {
-        flex-direction: column; /* Ustaw elementy w kolumnie */
-        height: auto; /* Automatyczna wysokość */
-        padding: 20px; /* Więcej miejsca wewnętrznego */
-        text-align: center; /* Wyśrodkowanie tekstu */
+        flex-direction: column;
+        height: auto;
+        padding: 20px;
+        text-align: center;
     }
 
     .site-title {
-        margin-bottom: 20px; /* Odstęp pod tytułem */
+        margin-bottom: 20px;
     }
 
-    .header-left, .header-right {
-        display: inline-flex; /* Wyświetl logo i przycisk w jednej linii */
+    .header-left,
+    .header-right {
+        display: inline-flex;
         align-items: center;
         justify-content: center;
-        gap: 20px; /* Odstęp między logo a przyciskiem */
+        gap: 20px;
     }
-}
-/* Dopasowanie marginesu głównej zawartości */
-.main-content {
-    margin-top: 100px; /* Dopasowanie do wysokości nagłówka */
-}
 
-@media (max-width: 768px) {
     .main-content {
-        margin-top: 120px; /* Większy margines na urządzeniach mobilnych */
+        margin-top: 120px;
     }
-}
-/* Styl dla stopki */
-.footer {
-    position: relative; /* Usuń fixed, aby footer był na dole strony */
-    width: 100%; /* Upewnij się, że tło obejmuje całą szerokość */
-    background-color: var(--bg-main); /* Czarny kolor tła */
-    padding: 20px; /* Więcej miejsca wewnętrznego */
-    text-align: center;
-}
 
-.footer-links {
-    flex-direction: column; /* Linki jeden pod drugim */
-    gap: 10px; /* Odstęp między linkami */
-}
-
-.footer-bottom {
-    margin-top: 10px; /* Odstęp nad napisem */
+    .footer {
+        padding-left: 0;
+    }
 }

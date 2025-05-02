@@ -11,108 +11,109 @@
 </head>
 
 <body class="home-bg">
-    
-    <header class="header">
+    <div class="container">
 
-        <!-- Lewa część: inicjały lub logo -->
-        <div class="header-left">
-          <div class="initials">TB</div> <!-- W przyszłości można tu wrzucić <img src="logo.png" alt="Logo"> -->
-        </div>
-      
-        <!-- Środkowa część: tytuł i podtytuł -->
-        <div class="header-center">
-          <div class="site-title">
-            <h1>AlfaKernel</h1>
-            <p class="subtitle">The Core of Quantitative Finance</p>
-          </div>
-        </div>
-      
-        <!-- Prawa część: logowanie -->
-        <div class="header-right login-container">
-          <button id="login-btn">🔒 Sign In</button>
-          <div id="login-form" class="login-form hidden">
-            <input type="email" placeholder="Email" />
-            <input type="password" placeholder="Password" />
-            <button>Log In</button>
-          </div>
-        </div>
-      
-      </header>
-      
-    <!-- Menu boczne -->
-    <aside class="sidebar">
-        <div class="tab" data-tab="home">Home</div>
-        <div class="tab" data-tab="projects">Projects</div>
-        <div class="tab" data-tab="research">Research Lab</div>
-        <div class="tab" data-tab="data">Market Data</div>
-    </aside>
-
-    <!-- Główna zawartość -->
-    <main class="main-content">
-        <!-- Sekcja Home -->
-        <section id="home" class="tab-content active">
-            <h2>Welcome to AlfaKernel</h2>
-            <p>This site presents a comprehensive journey through advanced financial research, data science, algorithmic trading systems, and quantitative market analysis.</p>
-            <p>Explore live data, backtesting results, trading algorithm prototypes, Python and R research, and much more.</p>
-            <h3>Mission Statement</h3>
-            <p>To integrate market data, statistical models, and financial analytics into actionable tools and educational resources, bridging research and trading realities.</p>
-        </section>
-    
-        <!-- Sekcja Projects -->
-        <section id="projects" class="tab-content">
-            <h3>Projects Overview</h3>
-            <p>Explore algorithmic strategies, trading engines, and quant research. Built in Python and R. Designed for performance, insight, and clarity.</p>
-            <div class="section-footer">
-                <button class="back-btn">
-                    <i class="fa-solid fa-arrow-left"></i>
-                </button>
-                <a href="projects.html" class="nav-link">
-                    <i class="fa-solid fa-arrow-right"></i>
-                </a>
+        <!-- Nagłówek -->
+        <header class="header">
+            <!-- Lewa część: inicjały lub logo -->
+            <div class="header-left">
+                <div class="initials">TB</div>
             </div>
-        </section>
-    
-        <!-- Sekcja Research Lab -->
-        <section id="research" class="tab-content">
-            <h3>Research Lab</h3>
-            <p>Investigate statistical learning, forecasting, signal detection, optimization and AI with live and historical market datasets.</p>
-            <div class="section-footer">
-                <button class="back-btn">
-                    <i class="fa-solid fa-arrow-left"></i>
-                </button>
-                <a href="research-lab.html" class="nav-link">
-                    <i class="fa-solid fa-arrow-right"></i>
-                </a>
-            </div>
-        </section>
-    
-        <!-- Sekcja Market Data Center -->
-        <section id="data" class="tab-content">
-            <h3>Market Data Center</h3>
-            <p>Access structured financial data for modeling, analytics, and dashboard integrations. Including high-frequency trading (HFT) streams and macroeconomic series.</p>
-            <div class="section-footer">
-                <button class="back-btn">
-                    <i class="fa-solid fa-arrow-left"></i>
-                </button>
-                <a href="data.html" class="nav-link">
-                    <i class="fa-solid fa-arrow-right"></i>
-                </a>
-            </div>
-        </section>
-    </main>
 
-    <!-- 🔻 Stopka uproszczona i pełnoszerokościowa -->
-    <footer class="footer full-width">
-      <div class="footer-links">
-        <a href="mailto:tomekbiel.office@gmail.com">tomekbiel.office@gmail.com</a>
-        <a href="https://www.linkedin.com/in/tomasz-b-1321a5166/" target="_blank">LinkedIn</a>
-        <a href="https://github.com/tomekbiel/MT4_Trading_System" target="_blank">GitHub</a>
-        <a href="about.html">About</a>
-      </div>
-      <div class="footer-bottom">
-        &copy; 2025 AlfaKernel | All rights reserved | Author: Tomasz Biel
-      </div>
-    </footer>
+            <!-- Środkowa część: tytuł i podtytuł -->
+            <div class="header-center">
+                <div class="site-title">
+                    <h1>AlfaKernel</h1>
+                    <p class="subtitle">The Core of Quantitative Finance</p>
+                </div>
+            </div>
 
+            <!-- Prawa część: logowanie -->
+            <div class="header-right login-container">
+                <button id="login-btn">🔒 Sign In</button>
+                <div id="login-form" class="login-form hidden">
+                    <input type="email" placeholder="Email" />
+                    <input type="password" placeholder="Password" />
+                    <button>Log In</button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Menu boczne -->
+        <aside class="sidebar">
+            <div class="tab" data-tab="home">Home</div>
+            <div class="tab" data-tab="projects">Projects</div>
+            <div class="tab" data-tab="research">Research Lab</div>
+            <div class="tab" data-tab="data">Market Data</div>
+        </aside>
+
+        <!-- Główna zawartość -->
+        <main class="main-content">
+            <!-- Sekcja Home -->
+            <section id="home" class="tab-content active">
+                <h2>Welcome to AlfaKernel</h2>
+                <p>This site presents a comprehensive journey through advanced financial research, data science, algorithmic trading systems, and quantitative market analysis.</p>
+                <p>Explore live data, backtesting results, trading algorithm prototypes, Python and R research, and much more.</p>
+                <h3>Mission Statement</h3>
+                <p>To integrate market data, statistical models, and financial analytics into actionable tools and educational resources, bridging research and trading realities.</p>
+            </section>
+
+            <!-- Sekcja Projects -->
+            <section id="projects" class="tab-content">
+                <h3>Projects Overview</h3>
+                <p>Explore algorithmic strategies, trading engines, and quant research. Built in Python and R. Designed for performance, insight, and clarity.</p>
+                <div class="section-footer">
+                    <button class="back-btn">
+                        <i class="fa-solid fa-arrow-left"></i>
+                    </button>
+                    <a href="projects.html" class="nav-link">
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+            </section>
+
+            <!-- Sekcja Research Lab -->
+            <section id="research" class="tab-content">
+                <h3>Research Lab</h3>
+                <p>Investigate statistical learning, forecasting, signal detection, optimization and AI with live and historical market datasets.</p>
+                <div class="section-footer">
+                    <button class="back-btn">
+                        <i class="fa-solid fa-arrow-left"></i>
+                    </button>
+                    <a href="research-lab.html" class="nav-link">
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+            </section>
+
+            <!-- Sekcja Market Data Center -->
+            <section id="data" class="tab-content">
+                <h3>Market Data Center</h3>
+                <p>Access structured financial data for modeling, analytics, and dashboard integrations. Including high-frequency trading (HFT) streams and macroeconomic series.</p>
+                <div class="section-footer">
+                    <button class="back-btn">
+                        <i class="fa-solid fa-arrow-left"></i>
+                    </button>
+                    <a href="data.html" class="nav-link">
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+            </section>
+        </main>
+
+        <!-- Stopka -->
+        <footer class="footer full-width">
+            <div class="footer-links">
+                <a href="mailto:tomekbiel.office@gmail.com">tomekbiel.office@gmail.com</a>
+                <a href="https://www.linkedin.com/in/tomasz-b-1321a5166/" target="_blank">LinkedIn</a>
+                <a href="https://github.com/tomekbiel/MT4_Trading_System" target="_blank">GitHub</a>
+                <a href="about.html">About</a>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2025 AlfaKernel | All rights reserved | Author: Tomasz Biel
+            </div>
+        </footer>
+
+    </div>
 </body>
 </html>
