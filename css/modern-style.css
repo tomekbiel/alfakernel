@@ -337,7 +337,8 @@ main {
     }
 
     .sidebar {
-        flex: 1;  
+        flex: 1; 
+        position: static;
     }
 
     .main-content {
