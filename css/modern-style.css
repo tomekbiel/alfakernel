@@ -333,8 +333,7 @@ main {
         display: flex; /* Ustaw układ w wierszu */
         flex-direction: row; /* Sidebar i main-content obok siebie */
         align-items: flex-start; /* Ustaw elementy na górze */
-        /* Kontener zajmuje całą szerokość */
-         /* Odstęp między sidebar a main-content */
+        flex-wrap: nowrap; 
     }
 
     .sidebar {
@@ -344,6 +343,7 @@ main {
 
     .main-content {
         flex: 2;
+        
     }
     .main-content,
     .sidebar {
