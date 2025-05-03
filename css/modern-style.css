@@ -337,10 +337,11 @@ main {
     }
 
     .sidebar {
-        
+        flex: 1;  
     }
 
     .main-content {
+        flex: 2;
 
     }
 
