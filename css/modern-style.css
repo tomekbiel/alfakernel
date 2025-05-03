@@ -332,6 +332,7 @@ main {
     .content-wrapper {
         display: flex; /* Ustaw układ w wierszu */
         flex-direction: row; /* Sidebar i main-content obok siebie */
+        align-items: flex-start; /* Ustaw elementy na górze */
         /* Kontener zajmuje całą szerokość */
          /* Odstęp między sidebar a main-content */
     }
@@ -343,7 +344,12 @@ main {
 
     .main-content {
         flex: 2;
-
+    }
+    .main-content,
+    .sidebar {
+        box-sizing: border-box; /* Uwzględnij padding i border w szerokości */
+        margin: 0; /* Usuń marginesy */
+        padding: 10px; /* Dodaj odstępy wewnętrzne */
     }
 
    
