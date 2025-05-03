@@ -337,21 +337,11 @@ main {
     }
 
     .sidebar {
-        flex-grow:flex; /* Sidebar zajmuje 30% szerokości */
-        box-sizing: border-box; /* Uwzględnij padding i border w szerokości */
-        display: flex; /* Ustaw układ wewnętrzny sidebar */
-        flex-direction: column; /* Zawartość sidebar w kolumnie */
-        overflow-y: auto; /* Dodaj przewijanie w pionie */
-        background-color: var(--bg-section); /* Kolor tła sidebar */
-        border-right: 1px solid var(--border); /* Dodaj linię oddzielającą */
+        
     }
 
     .main-content {
-        width: 70%; /* Main zajmuje 70% szerokości */
-        box-sizing: border-box; /* Uwzględnij padding i border w szerokości */
-        margin: 0; /* Usuń marginesy */
-        padding: 20px; /* Dodaj odstępy wewnętrzne */
-        background-color: var(--bg-main); /* Kolor tła main */
+
     }
 
    
