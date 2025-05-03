@@ -310,17 +310,34 @@ main {
         height: auto; /* Automatyczna wysokość */
         z-index: 1000; /* Upewnij się, że nagłówek jest na wierzchu */
     }
+     /* Stopka */
+     .footer {
+        padding: 10px; /* Zmniejsz odstępy */
+        font-size: 12px; /* Zmniejsz rozmiar tekstu */
+        text-align: center;
+        margin-top: 20px; /* Dodaj odstęp od treści */
+    }
+
+    .footer-links {
+        flex-direction: column; /* Linki jeden pod drugim */
+        align-items: center;
+        gap: 10px; /* Odstęp między linkami */
+    }
+
+    .footer-bottom {
+        margin-top: 10px; /* Dodaj odstęp nad napisem */
+    }
 
     /* Kontener dla sidebar i main-content */
     .content-wrapper {
         display: flex; /* Ustaw układ w wierszu */
         flex-direction: row; /* Sidebar i main-content obok siebie */
-        width: 100%; /* Kontener zajmuje całą szerokość */
-        gap: 10px; /* Odstęp między sidebar a main-content */
+        /* Kontener zajmuje całą szerokość */
+         /* Odstęp między sidebar a main-content */
     }
 
     .sidebar {
-        width: 30%; /* Sidebar zajmuje 30% szerokości */
+        flex-grow:flex; /* Sidebar zajmuje 30% szerokości */
         box-sizing: border-box; /* Uwzględnij padding i border w szerokości */
         display: flex; /* Ustaw układ wewnętrzny sidebar */
         flex-direction: column; /* Zawartość sidebar w kolumnie */
@@ -337,23 +354,7 @@ main {
         background-color: var(--bg-main); /* Kolor tła main */
     }
 
-    /* Stopka */
-    .footer {
-        padding: 10px; /* Zmniejsz odstępy */
-        font-size: 12px; /* Zmniejsz rozmiar tekstu */
-        text-align: center;
-        margin-top: 20px; /* Dodaj odstęp od treści */
-    }
-
-    .footer-links {
-        flex-direction: column; /* Linki jeden pod drugim */
-        align-items: center;
-        gap: 10px; /* Odstęp między linkami */
-    }
-
-    .footer-bottom {
-        margin-top: 10px; /* Dodaj odstęp nad napisem */
-    }
+   
 }
 
 
