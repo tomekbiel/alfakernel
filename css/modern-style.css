@@ -339,10 +339,14 @@ main {
     .sidebar {
         flex: 1; 
         position: static;
+        max-width: 30%;
+        box-sizing: border-box;
     }
 
     .main-content {
         flex: 2;
+        min-width: 70%;
+        box-sizing: border-box;
         
     }
     .main-content,
