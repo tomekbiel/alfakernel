@@ -296,8 +296,7 @@ main {
     /* Kontener strony */
     .container {
         display: flex;
-        flex-direction: column; /* Ustaw elementy w kolumnie */
-        padding: 0; /* Usuń dodatkowe odstępy */
+        flex-direction: column; /* Nagłówek i stopka w kolumnie */
         gap: 10px; /* Odstęp między sekcjami */
     }
 
@@ -312,33 +311,30 @@ main {
         z-index: 1000; /* Upewnij się, że nagłówek jest na wierzchu */
     }
 
-    /* Sekcja sidebar + main-content */
-    .sidebar,
-    .main-content {
-        display: flex;
-        flex-direction: column; /* Ustaw elementy w kolumnie */
-        flex-wrap: nowrap; /* Zapobiegaj wrapowaniu */
+    /* Kontener dla sidebar i main-content */
+    .content-wrapper {
+        display: flex; /* Ustaw układ w wierszu */
+        flex-direction: row; /* Sidebar i main-content obok siebie */
+        width: 100%; /* Kontener zajmuje całą szerokość */
+        gap: 10px; /* Odstęp między sidebar a main-content */
     }
 
     .sidebar {
         width: 30%; /* Sidebar zajmuje 30% szerokości */
-        height: auto; /* Automatyczna wysokość */
-        position: relative; /* Usuń fixed, aby menu przewijało się razem z treścią */
-        overflow-y: auto; /* Dodaj przewijanie, jeśli zawartość jest za długa */
+        box-sizing: border-box; /* Uwzględnij padding i border w szerokości */
+        display: flex; /* Ustaw układ wewnętrzny sidebar */
+        flex-direction: column; /* Zawartość sidebar w kolumnie */
+        overflow-y: auto; /* Dodaj przewijanie w pionie */
         background-color: var(--bg-section); /* Kolor tła sidebar */
         border-right: 1px solid var(--border); /* Dodaj linię oddzielającą */
     }
 
-    /* Główna treść */
     .main-content {
         width: 70%; /* Main zajmuje 70% szerokości */
+        box-sizing: border-box; /* Uwzględnij padding i border w szerokości */
         margin: 0; /* Usuń marginesy */
         padding: 20px; /* Dodaj odstępy wewnętrzne */
-        position: relative; /* Usuń fixed, aby treść mogła się przewijać */
         background-color: var(--bg-main); /* Kolor tła main */
-        position: relative;
-        z-index: 1; /* Ustaw z-index, aby main-content nie nachodził na inne elementy */
-        overflow: hidden; /* Ukryj nadmiar treści */
     }
 
     /* Stopka */
@@ -360,27 +356,7 @@ main {
     }
 }
 
-@media (max-width: 768px) {
-    .container {
-        display: flex;
-        flex-direction: column; /* Nagłówek i stopka w kolumnie */
-    }
 
-    .sidebar,
-    .main-content {
-        display: flex;
-        flex-direction: row; /* Sidebar i main-content w wierszu */
-        width: 100%; /* Oba elementy razem zajmują 100% szerokości */
-    }
 
-    .sidebar {
-        width: 30%; /* Sidebar zajmuje 30% szerokości */
-        margin-right: 10px; /* Dodaj odstęp między sidebar a main-content */
-    }
-
-    .main-content {
-        width: calc(70% - 10px); /* Main zajmuje pozostałą szerokość */
-    }
-}
 
 
