@@ -295,13 +295,30 @@ main {
 @media (max-width: 768px) {
     /* Kontener strony */
     .container {
-        display: flex; /* Ustaw elementy w wierszu */
-        flex-direction: row; /* Sidebar obok main */
+        display: flex;
+        flex-direction: column; /* Ustaw elementy w kolumnie */
         padding: 0; /* Usuń dodatkowe odstępy */
-        gap: 10px; /* Odstęp między sidebar a main */
+        gap: 10px; /* Odstęp między sekcjami */
     }
 
-    /* Sidebar */
+    /* Nagłówek */
+    .header {
+        position: relative; /* Usuń fixed, aby nagłówek nie nachodził na inne elementy */
+        flex-direction: column; /* Ustaw elementy w kolumnie */
+        align-items: center; /* Wyśrodkuj elementy */
+        padding: 10px 0;
+        gap: 10px; /* Odstęp między elementami */
+        height: auto; /* Automatyczna wysokość */
+        z-index: 1000; /* Upewnij się, że nagłówek jest na wierzchu */
+    }
+
+    /* Sekcja sidebar + main-content */
+    .sidebar,
+    .main-content {
+        display: flex;
+        flex-direction: column; /* Ustaw elementy w kolumnie */
+    }
+
     .sidebar {
         width: 30%; /* Sidebar zajmuje 30% szerokości */
         height: auto; /* Automatyczna wysokość */
@@ -318,48 +335,6 @@ main {
         padding: 20px; /* Dodaj odstępy wewnętrzne */
         position: relative; /* Usuń fixed, aby treść mogła się przewijać */
         background-color: var(--bg-main); /* Kolor tła main */
-    }
-
-    /* Nagłówek */
-    .header {
-        position: relative; /* Usuń fixed, aby nagłówek nie nachodził na inne elementy */
-        flex-direction: column; /* Ustaw elementy w kolumnie */
-        align-items: center; /* Wyśrodkuj elementy */
-        padding: 10px 0;
-        gap: 10px; /* Odstęp między elementami */
-        height: auto; /* Automatyczna wysokość */
-        z-index: 1000; /* Upewnij się, że nagłówek jest na wierzchu */
-    }
-
-    .header-top {
-        display: flex; /* Ustaw elementy w wierszu */
-        justify-content: space-between; /* Logo z lewej, przycisk z prawej */
-        align-items: center;
-        width: 100%;
-    }
-
-    .header-left {
-        text-align: left; /* Wyrównanie logo do lewej */
-        flex: 1;
-    }
-
-    .header-right {
-        text-align: right; /* Wyrównanie przycisku do prawej */
-        flex: 1;
-    }
-
-    .header-center {
-        order: 1; /* Tytuł i podtytuł poniżej logo i przycisku */
-        text-align: center;
-        margin-top: 10px;
-    }
-
-    .site-title h1 {
-        font-size: 24px; /* Zmniejsz rozmiar tytułu */
-    }
-
-    .site-title .subtitle {
-        font-size: 14px; /* Zmniejsz rozmiar podtytułu */
     }
 
     /* Stopka */
