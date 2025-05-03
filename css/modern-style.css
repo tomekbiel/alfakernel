@@ -317,6 +317,7 @@ main {
     .main-content {
         display: flex;
         flex-direction: column; /* Ustaw elementy w kolumnie */
+        flex-wrap: nowrap; /* Zapobiegaj wrapowaniu */
     }
 
     .sidebar {
@@ -335,6 +336,9 @@ main {
         padding: 20px; /* Dodaj odstępy wewnętrzne */
         position: relative; /* Usuń fixed, aby treść mogła się przewijać */
         background-color: var(--bg-main); /* Kolor tła main */
+        position: relative;
+        z-index: 1; /* Ustaw z-index, aby main-content nie nachodził na inne elementy */
+        overflow: hidden; /* Ukryj nadmiar treści */
     }
 
     /* Stopka */
@@ -353,6 +357,29 @@ main {
 
     .footer-bottom {
         margin-top: 10px; /* Dodaj odstęp nad napisem */
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        display: flex;
+        flex-direction: column; /* Nagłówek i stopka w kolumnie */
+    }
+
+    .sidebar,
+    .main-content {
+        display: flex;
+        flex-direction: row; /* Sidebar i main-content w wierszu */
+        width: 100%; /* Oba elementy razem zajmują 100% szerokości */
+    }
+
+    .sidebar {
+        width: 30%; /* Sidebar zajmuje 30% szerokości */
+        margin-right: 10px; /* Dodaj odstęp między sidebar a main-content */
+    }
+
+    .main-content {
+        width: calc(70% - 10px); /* Main zajmuje pozostałą szerokość */
     }
 }
 
