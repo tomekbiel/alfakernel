@@ -1,56 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Research Lab | Fintech & Data Science</title>
-  <link rel="stylesheet" href="../css/style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>AlfaKernel | Research Lab</title>
+    <link rel="stylesheet" href="css/modern-style.css">
+    <script defer src="js/index.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=MonteCarlo&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 </head>
-<body>
 
-<header>
-  <nav class="navbar">
-    <div class="logo">TB</div>
-    <ul class="nav-links">
-      <li><a href="../index.html">Home</a></li>
-      <li><a href="projects.html">Projects</a></li>
-      <li><a href="market-data.html">Market Data</a></li>
-      <li><a href="research-lab.html" class="active">Research Lab</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-  </nav>
-</header>
+<body class="research-bg">
+    <div class="container">
 
-<main>
-  <section class="hero">
-    <h1>Research Lab</h1>
-    <p>A place for advanced market research, machine learning, and data science experiments.</p>
-  </section>
+        <!-- Nagłówek (identyczny jak w index.html) -->
+        <header class="header">
+            <div class="header-left">
+                <div class="initials">TB</div>
+            </div>
 
-  <section class="content">
-    <h2>Ongoing Research</h2>
-    <p>Exploring financial time series forecasting using ARIMA, GARCH, Prophet, and XGBoost models. Research on market anomalies, volatility clustering, and predictive analytics.</p>
+            <div class="header-center">
+                <div class="site-title">
+                    <h1>AlfaKernel</h1>
+                    <p class="subtitle">The Core of Quantitative Finance</p>
+                </div>
+            </div>
 
-    <h2>R and Python Synergy</h2>
-    <p>Integration of R and Python scripts for more powerful analyses, using Shiny apps, Jupyter notebooks, and cloud environments (Colab, AWS).</p>
+            <div class="header-right login-container">
+                <button id="login-btn">🔒 Sign In</button>
+                <div id="login-form" class="login-form hidden">
+                    <input type="email" placeholder="Email" />
+                    <input type="password" placeholder="Password" />
+                    <button>Log In</button>
+                </div>
+            </div>
+        </header>
 
-    <h2>Big Data and Real-Time Systems</h2>
-    <p>Developing capabilities for high-frequency data ingestion, cleaning, and real-time predictive modeling using MongoDB, Kafka, and streaming pipelines.</p>
+        <!-- Menu boczne -->
+        <aside class="sidebar">
+            <div class="tab" data-tab="home">Home</div>
+            <div class="tab" data-tab="ongoing-research">Ongoing Research</div>
+            <div class="tab" data-tab="r-python-synergy">R & Python Synergy</div>
+            <div class="tab" data-tab="big-data">Big Data Systems</div>
+            <div class="tab" data-tab="innovation">Innovation Roadmap</div>
+        </aside>
 
-    <h2>Innovation Roadmap</h2>
-    <ul>
-      <li>Real-time anomaly detection systems</li>
-      <li>Automated trade alert generation</li>
-      <li>Data-driven decision support tools</li>
-      <li>Visualization of complex market behaviors</li>
-    </ul>
-  </section>
-</main>
+        <!-- Główna zawartość -->
+        <main class="main-content">
+            <!-- Sekcja domyślna -->
+            <section id="default-content" class="tab-content active">
+                <h2>Research Lab</h2>
+                <p>A place for advanced market research, machine learning, and data science experiments.</p>
+            </section>
 
-<footer>
-  <p>© 2025 Tomasz Biel | All rights reserved.</p>
-</footer>
+            <!-- Sekcja Ongoing Research -->
+            <section id="ongoing-research" class="tab-content">
+                <h3>Ongoing Research</h3>
+                <p>Exploring financial time series forecasting using ARIMA, GARCH, Prophet, and XGBoost models. Research on market anomalies, volatility clustering, and predictive analytics.</p>
+                <div class="section-footer">
+                    <a href="ongoing-research.html" class="nav-link">
+                        View Details <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+            </section>
 
+            <!-- Sekcja R & Python Synergy -->
+            <section id="r-python-synergy" class="tab-content">
+                <h3>R & Python Synergy</h3>
+                <p>Integration of R and Python scripts for more powerful analyses, using Shiny apps, Jupyter notebooks, and cloud environments (Colab, AWS).</p>
+                <div class="section-footer">
+                    <a href="r-python-synergy.html" class="nav-link">
+                        View Details <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+            </section>
+
+            <!-- Sekcja Big Data Systems -->
+            <section id="big-data" class="tab-content">
+                <h3>Big Data & Real-Time Systems</h3>
+                <p>Developing capabilities for high-frequency data ingestion, cleaning, and real-time predictive modeling using MongoDB, Kafka, and streaming pipelines.</p>
+                <div class="section-footer">
+                    <a href="big-data-systems.html" class="nav-link">
+                        View Details <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+            </section>
+
+            <!-- Sekcja Innovation Roadmap -->
+            <section id="innovation" class="tab-content">
+                <h3>Innovation Roadmap</h3>
+                <ul>
+                    <li>Real-time anomaly detection systems</li>
+                    <li>Automated trade alert generation</li>
+                    <li>Data-driven decision support tools</li>
+                    <li>Visualization of complex market behaviors</li>
+                </ul>
+                <div class="section-footer">
+                    <a href="innovation-roadmap.html" class="nav-link">
+                        View Details <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+            </section>
+        </main>
+
+    </div>
 </body>
 </html>

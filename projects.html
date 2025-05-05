@@ -1,62 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Projects</title>
-  <link rel="stylesheet" href="css/modern-style.css" />
-  <!-- Załaduj czcionkę MonteCarlo -->
-  <link href="https://fonts.googleapis.com/css2?family=MonteCarlo&display=swap" rel="stylesheet">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>AlfaKernel | Projects</title>
+    <link rel="stylesheet" href="css/modern-style.css">
+    <script defer src="js/index.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=MonteCarlo&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 </head>
-<body class="home-bg projects">
-  <div class="container">
 
-    <!-- Sidebar -->
-    <nav class="sidebar">
-      <ul>
-        <li><a href="index.html" class="sidebar-btn">Home</a></li>
-        <li><button class="sidebar-btn" data-section="algorithmic-trading">Algorithmic Trading Systems</button></li>
-        <li><button class="sidebar-btn" data-section="data-preparation">Data Preparation</button></li>
-        <li><button class="sidebar-btn" data-section="data-analysis-python">Data Analysis in Python</button></li>
-        <li><button class="sidebar-btn" data-section="data-analysis-r">Data Analysis in R</button></li>
-        <li><button class="sidebar-btn" data-section="integration-tools">Integration Tools</button></li>
-      </ul>
-    </nav>
+<body class="projects-bg">
+    <div class="container">
 
-    <!-- Main Content -->
-    <main class="main-content">
-      <header class="header">
-        <!-- Lewa część: inicjały -->
-        <div class="header-left">
-          <div class="initials">TB</div>
-        </div>
+        <!-- Nagłówek (identyczny jak w index.html) -->
+        <header class="header">
+            <div class="header-left">
+                <div class="initials">TB</div>
+            </div>
 
-        <!-- Środkowa część: tytuł i podtytuł -->
-        <div class="header-center">
-          <div class="site-title">
-            <h1>Projects</h1>
-            <p class="subtitle">Explore My Work</p>
-          </div>
-        </div>
+            <div class="header-center">
+                <div class="site-title">
+                    <h1>AlfaKernel</h1>
+                    <p class="subtitle">The Core of Quantitative Finance</p>
+                </div>
+            </div>
 
-        <!-- Prawa część: logowanie -->
-        <div class="header-right login-container">
-          <button id="login-btn">🔒 Sign In</button>
-          <div id="login-form" class="login-form hidden">
-            <input type="email" placeholder="Email" />
-            <input type="password" placeholder="Password" />
-            <button>Log In</button>
-          </div>
-        </div>
-      </header>
+            <div class="header-right login-container">
+                <button id="login-btn">🔒 Sign In</button>
+                <div id="login-form" class="login-form hidden">
+                    <input type="email" placeholder="Email" />
+                    <input type="password" placeholder="Password" />
+                    <button>Log In</button>
+                </div>
+            </div>
+        </header>
 
-      <!-- Dynamic Section -->
-      <section id="dynamic-content">
-        <p>Select a section from the sidebar to view details.</p>
-      </section>
-    </main>
+        <!-- Menu boczne (dostosowane do projects) -->
+        <aside class="sidebar">
+            <div class="tab" data-tab="home">Home</div>
+            <div class="tab" data-tab="algorithmic-trading">Algorithmic Trading Systems</div>
+            <div class="tab" data-tab="data-preparation">Data Preparation</div>
+            <div class="tab" data-tab="data-analysis-python">Data Analysis in Python</div>
+            <div class="tab" data-tab="data-analysis-r">Data Analysis in R</div>
+            <div class="tab" data-tab="integration-tools">Integration Tools</div>
+        </aside>
 
-  </div>
-  <script src="js/index.js"></script>
+        <!-- Główna zawartość -->
+        <main class="main-content">
+            <!-- Sekcja domyślna (będzie ukrywana po wybraniu zakładki) -->
+            <section id="default-content" class="tab-content active">
+                <h2>Projects Overview</h2>
+                <p>Select a category from the sidebar to view detailed information about specific projects.</p>
+            </section>
+
+            <!-- Sekcja Algorithmic Trading Systems -->
+            <section id="algorithmic-trading" class="tab-content">
+                <h3>Algorithmic Trading Systems</h3>
+                <p>Advanced trading algorithms and execution systems developed for various market conditions.</p>
+                <div class="section-footer">
+                    <a href="algorithmic-trading.html" class="nav-link">
+                        View Details <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+            </section>
+
+            <!-- Sekcja Data Preparation -->
+            <section id="data-preparation" class="tab-content">
+                <h3>Data Preparation</h3>
+                <p>Tools and pipelines for cleaning, normalizing and preparing financial data for analysis.</p>
+                <div class="section-footer">
+                    <a href="data-preparation.html" class="nav-link">
+                        View Details <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+            </section>
+
+            <!-- Sekcja Data Analysis in Python -->
+            <section id="data-analysis-python" class="tab-content">
+                <h3>Data Analysis in Python</h3>
+                <p>Quantitative research and analytics using Python's scientific stack.</p>
+                <div class="section-footer">
+                    <a href="data-analysis-python.html" class="nav-link">
+                        View Details <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+            </section>
+
+            <!-- Sekcja Data Analysis in R -->
+            <section id="data-analysis-r" class="tab-content">
+                <h3>Data Analysis in R</h3>
+                <p>Statistical modeling and time series analysis using R.</p>
+                <div class="section-footer">
+                    <a href="data-analysis-r.html" class="nav-link">
+                        View Details <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+            </section>
+
+            <!-- Sekcja Integration Tools -->
+            <section id="integration-tools" class="tab-content">
+                <h3>Integration Tools</h3>
+                <p>APIs and connectors for market data feeds and trading platforms.</p>
+                <div class="section-footer">
+                    <a href="integration-tools.html" class="nav-link">
+                        View Details <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+            </section>
+        </main>
+
+    </div>
 </body>
 </html>
