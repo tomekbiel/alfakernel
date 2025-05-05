@@ -1,46 +1,148 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>About | Fintech Research Hub</title>
-  <link rel="stylesheet" href="../css/style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>AlfaKernel | About</title>
+    <link rel="stylesheet" href="css/modern-style.css">
+    <script defer src="js/index.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=MonteCarlo&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 </head>
-<body>
 
-  <nav class="sidebar">
-    <h1>TB</h1>
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="projects.html">Projects</a></li>
-      <li><a href="market-data.html">Market Data</a></li>
-      <li><a href="research-lab.html">Research Lab</a></li>
-      <li><a href="about.html" class="active">About</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-  </nav>
+<body class="home-bg">
+    <div class="container">
+        <header class="header">
+            <div class="header-left">
+                <div class="initials">TB</div>
+            </div>
+            <div class="header-center">
+                <div class="site-title">
+                    <h1>AlfaKernel</h1>
+                    <p class="subtitle">The Core of Quantitative Finance</p>
+                </div>
+            </div>
+            <div class="header-right login-container">
+                <button id="login-btn">🔒 Sign In</button>
+                <div id="login-form" class="login-form hidden">
+                    <input type="email" placeholder="Email" />
+                    <input type="password" placeholder="Password" />
+                    <button>Log In</button>
+                </div>
+            </div>
+        </header>
 
-  <main class="content">
-    <section>
-      <h2>About the Project</h2>
-      <p>This platform combines fintech, data science, and automated trading systems. It reflects a long-term vision to integrate Python, R, MT4, and XTB APIs for efficient market analysis, strategy backtesting, and real-time decision making.</p>
-    </section>
+        <aside class="sidebar">
+            <div class="tab" data-tab="home">Home</div>
+            <div class="tab" data-tab="about-project">About Project</div>
+            <div class="tab" data-tab="vision">Vision</div>
+            <div class="tab" data-tab="technologies">Technologies</div>
+            <div class="tab" data-tab="mission">Mission</div>
+        </aside>
 
-    <section>
-      <h2>Vision</h2>
-      <p>Building a modular and scalable research and trading ecosystem, using high-frequency financial data, statistical models, machine learning, and cloud deployment in the future.</p>
-    </section>
+        <main class="main-content">
+            <!-- About Project -->
+            <section id="about-project" class="tab-content active">
+                <h2>About the Project</h2>
+                <div class="about-content">
+                    <p>AlfaKernel represents a synthesis of quantitative finance, data science, and trading technology. The platform serves as both a research environment and execution framework, bridging academic methodologies with market realities.</p>
+                    
+                    <p>At its core, the project focuses on developing robust analytical pipelines - from raw data ingestion through signal generation to strategy execution. While initially centered on financial markets, the architecture is designed to accommodate diverse data domains including alternative data streams and behavioral analytics.</p>
+                    
+                    <p>The system evolves through iterative research cycles: hypothesis formulation, backtesting on historical data, and live market validation. This disciplined approach ensures strategies are grounded in statistical rigor while remaining adaptable to changing market regimes.</p>
+                </div>
+            </section>
 
-    <section>
-      <h2>Technologies</h2>
-      <p>Python, R, MongoDB, JSON, Anaconda, MetaTrader 4, XTB API, Power BI, Jupyter, Colab, Shiny, Plotly, and others will power the system.</p>
-    </section>
+            <!-- Vision -->
+            <section id="vision" class="tab-content">
+                <h2>Vision</h2>
+                <div class="vision-content">
+                    <p>The long-term vision encompasses three interconnected pillars:</p>
+                    
+                    <div class="vision-pillars">
+                        <div class="pillar">
+                            <i class="fas fa-project-diagram"></i>
+                            <h3>Integrated Platform</h3>
+                            <p>A unified environment combining research, data management, and execution</p>
+                        </div>
+                        
+                        <div class="pillar">
+                            <i class="fas fa-brain"></i>
+                            <h3>Adaptive Intelligence</h3>
+                            <p>Systems that learn from market patterns and researcher feedback</p>
+                        </div>
+                        
+                        <div class="pillar">
+                            <i class="fas fa-share-alt"></i>
+                            <h3>Knowledge Ecosystem</h3>
+                            <p>Shared methodologies and reproducible research standards</p>
+                        </div>
+                    </div>
+                    
+                    <p>Future development will focus on expanding into cloud-native architecture, real-time analytics, and incorporating novel data sources like satellite imagery and IoT networks.</p>
+                </div>
+            </section>
 
-    <section>
-      <h2>Mission</h2>
-      <p>Combining academic rigor with practical market applications to build a sustainable fintech research hub and future trading automation systems.</p>
-    </section>
+            <!-- Technologies -->
+            <section id="technologies" class="tab-content">
+                <h2>Technologies</h2>
+                <div class="tech-content">
+                    <p>The technology stack reflects the hybrid nature of quantitative research:</p>
+                    
+                    <div class="tech-stack">
+                        <div class="tech-group">
+                            <h3><i class="fas fa-laptop-code"></i> Core Languages</h3>
+                            <p>Python for data processing and machine learning, R for statistical modeling, and C++ for performance-critical components.</p>
+                        </div>
+                        
+                        <div class="tech-group">
+                            <h3><i class="fas fa-database"></i> Data Infrastructure</h3>
+                            <p>MongoDB for flexible data storage, PostgreSQL for structured datasets, and Kafka for real-time data pipelines.</p>
+                        </div>
+                        
+                        <div class="tech-group">
+                            <h3><i class="fas fa-chart-line"></i> Analytics & Visualization</h3>
+                            <p>Combining Python's Plotly/Dash, R's Shiny, and Power BI for interactive exploration of complex datasets.</p>
+                        </div>
+                        
+                        <div class="tech-group">
+                            <h3><i class="fas fa-network-wired"></i> Execution Environment</h3>
+                            <p>MetaTrader 4 for historical testing, XTB API for live execution, and proprietary risk management layers.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-  </main>
-
+            <!-- Mission -->
+            <section id="mission" class="tab-content">
+                <h2>Mission</h2>
+                <div class="mission-content">
+                    <p>AlfaKernel operates at the intersection of three fundamental principles:</p>
+                    
+                    <div class="mission-principles">
+                        <div class="principle">
+                            <i class="fas fa-atom"></i>
+                            <h3>Scientific Rigor</h3>
+                            <p>Employing robust statistical methods and validation frameworks to ensure research quality.</p>
+                        </div>
+                        
+                        <div class="principle">
+                            <i class="fas fa-lightbulb"></i>
+                            <h3>Practical Innovation</h3>
+                            <p>Translating theoretical models into executable strategies with clear economic value.</p>
+                        </div>
+                        
+                        <div class="principle">
+                            <i class="fas fa-book-open"></i>
+                            <h3>Transparent Knowledge</h3>
+                            <p>Documenting processes and sharing methodologies to advance quantitative finance practice.</p>
+                        </div>
+                    </div>
+                    
+                    <p>This mission drives the development of tools that are not only powerful but also understandable and reproducible by the research community.</p>
+                </div>
+            </section>
+        </main>
+    </div>
 </body>
 </html>
