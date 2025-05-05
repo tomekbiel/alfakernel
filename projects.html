@@ -4,53 +4,74 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Projects</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="css/modern-style.css" />
+  <!-- Załaduj czcionkę MonteCarlo -->
+  <link href="https://fonts.googleapis.com/css2?family=MonteCarlo&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="home-bg projects">
+  <div class="container">
 
-  <nav class="sidebar">
-    <h2>Menu</h2>
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="projects.html">Projects</a></li>
-      <li><a href="research-lab.html">Research Lab</a></li>
-      <li><a href="market-data.html">Market Data</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-  </nav>
+    <!-- Sidebar -->
+    <nav class="sidebar">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="projects.html" class="active">Algorithmic Trading Systems</a></li>
+        <li><a href="projects.html">Data Preparation</a></li>
+        <li><a href="projects.html">Data Analysis in Python</a></li>
+        <li><a href="projects.html">Data Analysis in R</a></li>
+        <li><a href="projects.html">Integration Tools</a></li>
+      </ul>
+    </nav>
 
-  <main class="main-content">
-    <div class="header">
-      <h1>Projects</h1>
-    </div>
+    <!-- Main Content -->
+    <main class="main-content">
+      <header class="header">
+        <!-- Lewa część: inicjały -->
+        <div class="header-left">
+          <div class="initials">TB</div>
+        </div>
 
-    <section>
-      <h2><span class="section-icon">📊</span>Data Analysis in Python</h2>
-      <p>Implementation of predictive models such as Prophet, ARIMA, GARCH, and statistical analyses using libraries like Pandas, NumPy, and SciPy.</p>
-    </section>
+        <!-- Środkowa część: tytuł i podtytuł -->
+        <div class="header-center">
+          <div class="site-title">
+            <h1>Projects</h1>
+            <p class="subtitle">Explore My Work</p>
+          </div>
+        </div>
 
-    <section>
-      <h2><span class="section-icon">📈</span>Data Analysis in R</h2>
-      <p>Projects utilizing R packages for data analysis, including linear regression models, random forests, clustering, and Shiny applications.</p>
-    </section>
+        <!-- Prawa część: logowanie -->
+        <div class="header-right login-container">
+          <button id="login-btn">🔒 Sign In</button>
+          <div id="login-form" class="login-form hidden">
+            <input type="email" placeholder="Email" />
+            <input type="password" placeholder="Password" />
+            <button>Log In</button>
+          </div>
+        </div>
+      </header>
 
-    <section>
-      <h2><span class="section-icon">🤖</span>Algorithmic Trading Systems</h2>
-      <p>Development and testing of trading algorithms, integration with XTB and MT4 APIs, and analysis of high-frequency data (HFD).</p>
-    </section>
+      <!-- Sections -->
+      <section>
+        <p>Implementation of predictive models such as Prophet, ARIMA, GARCH, and statistical analyses using libraries like Pandas, NumPy, and SciPy.</p>
+      </section>
 
-    <section>
-      <h2><span class="section-icon">🧹</span>Data Preparation</h2>
-      <p>Processes for cleaning and transforming data, including normalization and integration from various sources.</p>
-    </section>
+      <section>
+        <p>Projects utilizing R packages for data analysis, including linear regression models, random forests, clustering, and Shiny applications.</p>
+      </section>
 
-    <section>
-      <h2><span class="section-icon">🔗</span>Integrations and Tools</h2>
-      <p>Projects combining technologies such as Python, R, MongoDB, Power BI, Jupyter, Colab, and other analytical tools.</p>
-    </section>
+      <section>
+        <p>Development and testing of trading algorithms, integration with XTB and MT4 APIs, and analysis of high-frequency data (HFD).</p>
+      </section>
 
-  </main>
+      <section>
+        <p>Processes for cleaning and transforming data, including normalization and integration from various sources.</p>
+      </section>
 
+      <section>
+        <p>Projects combining technologies such as Python, R, MongoDB, Power BI, Jupyter, Colab, and other analytical tools.</p>
+      </section>
+    </main>
+
+  </div>
 </body>
 </html>
