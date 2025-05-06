@@ -1,46 +1,134 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Contact | Fintech Research Hub</title>
-  <link rel="stylesheet" href="../css/style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>AlfaKernel | Contact</title>
+    <link rel="stylesheet" href="css/modern-style.css">
+    <script defer src="js/index.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=MonteCarlo&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 </head>
-<body>
 
-  <nav class="sidebar">
-    <h1>TB</h1>
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="projects.html">Projects</a></li>
-      <li><a href="market-data.html">Market Data</a></li>
-      <li><a href="research-lab.html">Research Lab</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="contact.html" class="active">Contact</a></li>
-    </ul>
-  </nav>
+<body class="home-bg">
+    <div class="container">
+        <header class="header">
+            <div class="header-left">
+                <div class="initials">TB</div>
+            </div>
+            <div class="header-center">
+                <div class="site-title">
+                    <h1>AlfaKernel</h1>
+                    <p class="subtitle">The Core of Quantitative Finance</p>
+                </div>
+            </div>
+            <div class="header-right login-container">
+                <button id="login-btn">🔒 Sign In</button>
+                <div id="login-form" class="login-form hidden">
+                    <input type="email" placeholder="Email" />
+                    <input type="password" placeholder="Password" />
+                    <button>Log In</button>
+                </div>
+            </div>
+        </header>
 
-  <main class="content">
-    <section>
-      <h2>Contact Information</h2>
-      <p>If you are interested in collaboration, fintech projects, or research partnerships, feel free to reach out!</p>
-    </section>
+        <aside class="sidebar">
+            <div class="tab" data-tab="home">Home</div>
+            <div class="tab" data-tab="contact-info">Contact Info</div>
+            <div class="tab" data-tab="collaboration">Collaboration</div>
+            <div class="tab" data-tab="support">Support</div>
+        </aside>
 
-    <section>
-      <h3>Email</h3>
-      <p><a href="mailto:tomaszbieldata@gmail.com">tomaszbieldata@gmail.com</a></p>
-    </section>
+        <main class="main-content">
+            <!-- Contact Info -->
+            <section id="contact-info" class="tab-content active">
+                <h2>Contact Information</h2>
+                <div class="contact-content">
+                    <p>For inquiries regarding research collaboration, data access, or project discussions:</p>
+                    
+                    <div class="contact-methods">
+                        <div class="contact-card">
+                            <i class="fas fa-envelope"></i>
+                            <h3>Email</h3>
+                            <a href="mailto:tomaszbieldata@gmail.com">tomaszbieldata@gmail.com</a>
+                        </div>
+                        
+                        <div class="contact-card">
+                            <i class="fab fa-github"></i>
+                            <h3>GitHub</h3>
+                            <a href="https://github.com/tomekbiel" target="_blank">github.com/tomekbiel</a>
+                        </div>
+                        
+                        <div class="contact-card">
+                            <i class="fab fa-linkedin"></i>
+                            <h3>LinkedIn</h3>
+                            <a href="https://www.linkedin.com/in/tomasz-b-1321a5166/" target="_blank">linkedin.com/in/tomasz-b</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-    <section>
-      <h3>GitHub</h3>
-      <p><a href="https://github.com/tomekbiel" target="_blank">github.com/tomekbiel</a></p>
-    </section>
+            <!-- Collaboration -->
+            <section id="collaboration" class="tab-content">
+                <h2>Collaboration Opportunities</h2>
+                <div class="collab-content">
+                    <p>Open to partnerships in following areas:</p>
+                    
+                    <ul class="collab-list">
+                        <li>
+                            <i class="fas fa-chart-line"></i>
+                            <span>Quantitative research projects</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-database"></i>
+                            <span>Data infrastructure development</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-robot"></i>
+                            <span>Algorithmic trading systems</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-graduation-cap"></i>
+                            <span>Educational initiatives</span>
+                        </li>
+                    </ul>
+                    
+                    <div class="note">
+                        <i class="fas fa-lightbulb"></i>
+                        <p>For formal collaboration proposals, please use email contact with detailed description.</p>
+                    </div>
+                </div>
+            </section>
 
-    <section>
-      <h3>LinkedIn</h3>
-      <p><a href="https://www.linkedin.com/in/tomasz-b-1321a5166/" target="_blank">linkedin.com/in/tomasz-b-1321a5166</a></p>
-    </section>
-
-  </main>
-
+            <!-- Support -->
+            <section id="support" class="tab-content">
+                <h2>Project Support</h2>
+                <div class="support-content">
+                    <p>Ways to support AlfaKernel development:</p>
+                    
+                    <div class="support-options">
+                        <div class="option-card">
+                            <i class="fas fa-code-branch"></i>
+                            <h3>Open Source</h3>
+                            <p>Contribute to GitHub repositories</p>
+                        </div>
+                        
+                        <div class="option-card">
+                            <i class="fas fa-bug"></i>
+                            <h3>Testing</h3>
+                            <p>Report issues and suggest improvements</p>
+                        </div>
+                        
+                        <div class="option-card coming-soon">
+                            <i class="fas fa-coins"></i>
+                            <h3>Monetization</h3>
+                            <p>Future premium features and services</p>
+                            <span class="badge">Coming Soon</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
 </body>
 </html>
