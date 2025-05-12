@@ -329,8 +329,15 @@ main {
     /* Główna zawartość - prawa kolumna */
     .main-content {
         flex: 1;
-        padding: 20px;
+        padding: 10px; /* Zmniejszony padding */
+        margin-top: 0; /* Usunięcie marginesu górnego */
+        padding-top: 0; /* Usunięcie paddingu u góry */
         overflow-y: visible;
+    }
+
+    /* Pierwszy element w main-content */
+    .main-content > *:first-child {
+        margin-top: 0; /* Usunięcie marginesu górnego pierwszego elementu */
     }
 
     /* Stopka */
@@ -352,7 +359,8 @@ main {
         width: 120px;
     }
     .main-content {
-        padding: 15px;
+        padding: 8px; /* Jeszcze mniejszy padding dla bardzo małych ekranów */
+        padding-top: 0; /* Brak paddingu u góry */
     }
 }
 
