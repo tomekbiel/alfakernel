@@ -1,50 +1,128 @@
 /* === MARKET DATA SECTION STYLES === */
 
 #data-section {
-  padding: 20px;
-  background-color: var(--bg-main);
-  color: var(--text-light);
-  margin-top: 120px;
+    padding: 30px;
+    background-color: var(--bg-section);
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+
+#data-section h2 {
+    color: var(--accent);
+    margin-bottom: 25px;
+    font-size: 28px;
+    border-bottom: 2px solid var(--border);
+    padding-bottom: 10px;
+}
+
+.data-controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: flex-end;
+    margin-bottom: 25px;
+}
+
+.control-group {
+    flex: 1;
+    min-width: 200px;
 }
 
 #data-section label {
-  margin-right: 10px;
-  font-weight: bold;
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--text-light);
 }
 
-#data-section select,
-#data-section button {
-  margin: 10px;
-  padding: 6px 12px;
-  font-size: 14px;
-  background-color: var(--bg-section);
-  color: var(--text-light);
-  border: 1px solid var(--border);
-  border-radius: 4px;
+.data-select {
+    width: 100%;
+    padding: 12px 15px;
+    font-size: 16px;
+    background-color: var(--bg-main);
+    color: var(--text-light);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.data-select:focus {
+    border-color: var(--accent);
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(0, 122, 204, 0.2);
+}
+
+.data-button {
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: 600;
+    background-color: var(--accent);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    height: 44px;
+}
+
+.data-button:hover {
+    background-color: #006bb3;
 }
 
 #data-meta {
-  margin-top: 15px;
-  font-size: 14px;
-  color: var(--text-muted);
+    margin: 25px 0;
+    padding: 15px;
+    background-color: var(--bg-main);
+    border-radius: 6px;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+#data-meta strong {
+    font-size: 16px;
+}
+
+#data-preview {
+    margin-top: 20px;
 }
 
 #data-preview table {
-  margin-top: 20px;
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 13px;
-}
-
-#data-preview th,
-#data-preview td {
-  border: 1px solid var(--border);
-  padding: 8px;
-  text-align: center;
-  background-color: var(--bg-section);
-  color: var(--text-light);
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 #data-preview th {
-  background-color: var(--bg-research);
+    background-color: var(--accent);
+    color: white;
+    padding: 12px 15px;
+    text-align: left;
+}
+
+#data-preview td {
+    padding: 10px 15px;
+    border-bottom: 1px solid var(--border);
+    background-color: var(--bg-section);
+}
+
+#data-preview tr:hover td {
+    background-color: rgba(0, 122, 204, 0.1);
+}
+
+/* Responsywność */
+@media (max-width: 768px) {
+    .data-controls {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .control-group {
+        width: 100%;
+    }
+    
+    .data-button {
+        width: 100%;
+    }
 }

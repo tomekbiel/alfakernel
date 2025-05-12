@@ -49,197 +49,41 @@
 
         <!-- Główna zawartość -->
         <main class="main-content">
-            <!-- Sekcja domyślna -->
-            <section id="default-content" class="tab-content active">
-                <h2>Market Data Center</h2>
-                <p>Comprehensive financial datasets for quantitative research, including structured time-series and high-frequency data.</p>
-                <div class="data-highlights">
-                    <div class="highlight-card">
-                        <i class="fas fa-clock"></i>
-                        <h3>Multiple Timeframes</h3>
-                        <p>From 1-minute to monthly bars</p>
-                    </div>
-                    <div class="highlight-card">
-                        <i class="fas fa-bolt"></i>
-                        <h3>HFD Available</h3>
-                        <p>Tick-by-tick market data</p>
-                    </div>
-                    <div class="highlight-card">
-                        <i class="fas fa-database"></i>
-                        <h3>Dual Access</h3>
-                        <p>CSV files and MongoDB collections</p>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Sekcja Data Description -->
-            <section id="data-description" class="tab-content">
-                <h3>Data Description</h3>
-                <div class="data-description-grid">
-                    <div class="description-section">
-                        <h4>Data Sources</h4>
-                        <ul>
-                            <li>MetaTrader 4 historical data</li>
-                            <li>XTB API live streams</li>
-                            <li>Custom Python collection scripts</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="description-section">
-                        <h4>Data Processing</h4>
-                        <ul>
-                            <li>Automated quality checks</li>
-                            <li>Normalization procedures</li>
-                            <li>Outlier detection</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="description-section">
-                        <h4>Update Frequency</h4>
-                        <ul>
-                            <li>Daily for EOD data</li>
-                            <li>Real-time for HFD</li>
-                            <li>Weekly for cleaned datasets</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="description-section">
-                        <h4>Available Formats</h4>
-                        <ul>
-                            <li>CSV (GitHub repository)</li>
-                            <li>JSON (MongoDB collections)</li>
-                            <li>Parquet (planned)</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <div class="section-footer">
-                    <a href="data-documentation.html" class="nav-link">
-                        Full Documentation <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
-            </section>
-
             <!-- Sekcja Timeframe Data (z selektorami) -->
             <section id="timeframe-data" class="tab-content">
-                <h3>Timeframe Data</h3>
-                <p>Structured historical data with multiple timeframes for each symbol:</p>
-                
-                <div class="market-data-controls">
-                    <label for="symbol-select">Choose Symbol:</label>
-                    <select id="symbol-select"></select>
+                <div id="data-section">
+                    <h2>Market Data Center</h2>
 
-                    <label for="timeframe-select">Choose Timeframe:</label>
-                    <select id="timeframe-select">
-                        <option value="M1">1 Minute (M1)</option>
-                        <option value="M5">5 Minutes (M5)</option>
-                        <option value="M15">15 Minutes (M15)</option>
-                        <option value="H1">1 Hour (H1)</option>
-                        <option value="H4">4 Hours (H4)</option>
-                        <option value="D1">Daily (D1)</option>
-                        <option value="W1">Weekly (W1)</option>
-                        <option value="MN1">Monthly (MN1)</option>
-                    </select>
+                    <div class="data-controls">
+                        <div class="control-group">
+                            <label for="symbol-select">Choose Symbol:</label>
+                            <select id="symbol-select" class="data-select"></select>
+                        </div>
 
-                    <button id="load-data-btn">Load Data</button>
+                        <div class="control-group">
+                            <label for="timeframe-select">Choose Timeframe:</label>
+                            <select id="timeframe-select" class="data-select">
+                                <option value="M1">1 Minute (M1)</option>
+                                <option value="M5">5 Minutes (M5)</option>
+                                <option value="M15">15 Minutes (M15)</option>
+                                <option value="H1">1 Hour (H1)</option>
+                                <option value="H4">4 Hours (H4)</option>
+                                <option value="D1">Daily (D1)</option>
+                                <option value="W1">Weekly (W1)</option>
+                                <option value="MN1">Monthly (MN1)</option>
+                            </select>
+                        </div>
+
+                        <button id="load-data-btn" class="data-button">Load Data</button>
+                    </div>
+
+                    <div id="data-meta"></div>
+                    <div id="data-preview"></div>
                 </div>
-                
-                <div id="data-meta" style="margin-top:20px;"></div>
-                <div id="data-preview" style="overflow-x:auto;"></div>
                 
                 <div class="section-footer">
                     <a href="timeframe-datasets.html" class="nav-link">
                         View All Timeframes <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
-            </section>
-
-            <!-- Sekcja HFD (Raw) -->
-            <section id="hfd-data" class="tab-content">
-                <h3>High-Frequency Data (Raw)</h3>
-                <p>Unprocessed tick-by-tick market data with millisecond precision:</p>
-                
-                <div class="hfd-description">
-                    <h4>Characteristics:</h4>
-                    <ul>
-                        <li>Includes all market events (ticks, quotes, trades)</li>
-                        <li>Millisecond timestamps</li>
-                        <li>Bid/Ask prices and volumes</li>
-                        <li>May contain outliers and missing values</li>
-                    </ul>
-                    
-                    <h4>Available Symbols:</h4>
-                    <div class="hfd-symbols" id="hfd-raw-container">
-                        <!-- Dynamicznie generowane symbole HFD -->
-                    </div>
-                </div>
-                
-                <div class="section-footer">
-                    <a href="hfd-documentation.html" class="nav-link">
-                        HFD Processing Guide <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
-            </section>
-
-            <!-- Sekcja HFD (Cleaned) -->
-            <section id="hfd-cleaned" class="tab-content">
-                <h3>High-Frequency Data (Cleaned)</h3>
-                <p>Processed and validated HFD ready for analysis:</p>
-                
-                <div class="cleaning-steps">
-                    <h4>Cleaning Process:</h4>
-                    <ol>
-                        <li>Outlier removal using statistical methods</li>
-                        <li>Time alignment and normalization</li>
-                        <li>Missing data imputation</li>
-                        <li>Volume validation</li>
-                    </ol>
-                    
-                    <h4>Available Datasets:</h4>
-                    <div class="hfd-symbols" id="hfd-cleaned-container">
-                        <!-- Dynamicznie generowane symbole HFD cleaned -->
-                    </div>
-                </div>
-                
-                <div class="section-footer">
-                    <a href="https://www.kaggle.com/yourusername" target="_blank" class="nav-link">
-                        Also Available on Kaggle <i class="fas fa-external-link-alt"></i>
-                    </a>
-                </div>
-            </section>
-
-            <!-- Sekcja MongoDB Data -->
-            <section id="mongodb-data" class="tab-content">
-                <h3>MongoDB Collections</h3>
-                <p>Access structured data through MongoDB Atlas with full query capabilities:</p>
-                
-                <div class="mongodb-description">
-                    <h4>Collection Types:</h4>
-                    <ul>
-                        <li><strong>Timeframe Data:</strong> OHLCV bars with metadata</li>
-                        <li><strong>HFD Raw:</strong> Original tick data</li>
-                        <li><strong>HFD Aggregated:</strong> Pre-calculated metrics</li>
-                        <li><strong>Derived Indicators:</strong> Technical indicators</li>
-                    </ul>
-                    
-                    <h4>Access Methods:</h4>
-                    <div class="access-methods">
-                        <div class="method-card">
-                            <i class="fas fa-code"></i>
-                            <h5>Python Driver</h5>
-                            <code>pymongo.MongoClient("your_connection_string")</code>
-                        </div>
-                        <div class="method-card">
-                            <i class="fas fa-cloud"></i>
-                            <h5>Atlas Interface</h5>
-                            <p>Web-based query interface</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="section-footer">
-                    <a href="mongodb-docs.html" class="nav-link">
-                        MongoDB API Documentation <i class="fas fa-arrow-right"></i>
                     </a>
                 </div>
             </section>
