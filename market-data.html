@@ -49,7 +49,7 @@
 
         <!-- Główna zawartość -->
         <main class="main-content">
-            <!-- Sekcja Timeframe Data (pozostawiona bez zmian) -->
+            <!-- Sekcja Timeframe Data -->
             <section id="timeframe-data" class="tab-content">
                 <div id="data-section">
                     <h2>Market Data Center</h2>
@@ -74,7 +74,12 @@
                             </select>
                         </div>
 
-                        <button id="load-data-btn" class="data-button">Load Data</button>
+                        <div class="button-group">
+                            <button id="load-data-btn" class="data-button">Preview Data</button>
+                            <button id="download-data-btn" class="data-button secondary">
+                                <i class="fas fa-download"></i> Download CSV
+                            </button>
+                        </div>
                     </div>
 
                     <div id="data-meta"></div>
