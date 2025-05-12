@@ -293,70 +293,67 @@ main {
 
 /* === Mobile === */
 @media (max-width: 768px) {
-    /* Kontener strony */
-    .container {
-        display: flex;
-        flex-direction: column; /* Nagłówek i stopka w kolumnie */
-        gap: 10px; /* Odstęp między sekcjami */
-    }
-
-    /* Nagłówek */
+    /* Header - naturalny flow */
     .header {
-        position: relative; /* Usuń fixed, aby nagłówek nie nachodził na inne elementy */
-        flex-direction: column; /* Ustaw elementy w kolumnie */
-        align-items: center; /* Wyśrodkuj elementy */
-        padding: 10px 0;
-        gap: 10px; /* Odstęp między elementami */
-        height: auto; /* Automatyczna wysokość */
-        z-index: 1000; /* Upewnij się, że nagłówek jest na wierzchu */
+        position: relative;
+        height: auto;
+        flex-direction: column;
+        padding: 10px;
     }
-     /* Stopka */
-     .footer {
-        padding: 10px; /* Zmniejsz odstępy */
-        font-size: 12px; /* Zmniejsz rozmiar tekstu */
+
+    .header-left, 
+    .header-center, 
+    .header-right {
+        flex: none;
+        width: 100%;
+        justify-content: center;
         text-align: center;
-        margin-top: 20px; /* Dodaj odstęp od treści */
     }
 
-    .footer-links {
-        flex-direction: column; /* Linki jeden pod drugim */
-        align-items: center;
-        gap: 10px; /* Odstęp między linkami */
-    }
-
-    .footer-bottom {
-        margin-top: 10px; /* Dodaj odstęp nad napisem */
-    }
-
-    /* Kontener dla sidebar i main-content */
+    /* Kontener dla sidebar + main */
     .content-wrapper {
-        display: flex; /* Ustaw układ w wierszu */
-        flex-direction: row; /* Sidebar i main-content obok siebie */
-        align-items: flex-start; /* Ustaw elementy na górze */
-        flex-wrap: nowrap; 
+        display: flex;
+        width: 100%;
+        min-height: calc(100vh - 100px - 60px); /* Odjęcie wysokości header i footer */
     }
 
+    /* Sidebar - lewa kolumna */
     .sidebar {
-        flex: 1; 
-        position: static;
-        max-width: 30%;
-        box-sizing: border-box;
+        position: relative;
+        width: 160px;
+        height: auto;
+        border-right: 1px solid var(--border);
+        overflow-y: visible;
     }
 
+    /* Główna zawartość - prawa kolumna */
     .main-content {
-        flex: 2;
-        min-width: 70%;
-        box-sizing: border-box;
-        
-    }
-    .main-content,
-    .sidebar {
-        box-sizing: border-box; /* Uwzględnij padding i border w szerokości */
-        margin: 0; /* Usuń marginesy */
-        padding: 10px; /* Dodaj odstępy wewnętrzne */
+        flex: 1;
+        padding: 20px;
+        overflow-y: visible;
     }
 
-   
+    /* Stopka */
+    .footer {
+        position: relative;
+        width: 100%;
+    }
+
+    /* Lepsze dostosowanie do małych ekranów */
+    .tab {
+        padding: 12px 8px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Węższy sidebar na małych ekranach */
+    .sidebar {
+        width: 120px;
+    }
+    .main-content {
+        padding: 15px;
+    }
 }
 
 
