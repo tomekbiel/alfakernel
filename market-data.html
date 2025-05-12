@@ -5,17 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>AlfaKernel | Market Data Center</title>
     <link rel="stylesheet" href="css/modern-style.css">
-    <link rel="stylesheet" href="css/market-data.css"> <!-- Dodano odnośnik do market-data.css -->
+    <link rel="stylesheet" href="css/market-data.css">
     <script defer src="js/index.js"></script>
-    <script defer src="js/market-data.js"></script> <!-- Dodano odnośnik do market-data.js -->
+    <script defer src="js/market-data.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=MonteCarlo&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 </head>
 
 <body class="data-bg">
     <div class="container">
-
-        <!-- Nagłówek (identyczny jak w index.html) -->
+        <!-- Nagłówek -->
         <header class="header">
             <div class="header-left">
                 <div class="initials">TB</div>
@@ -50,26 +49,6 @@
 
         <!-- Główna zawartość -->
         <main class="main-content">
-            <!-- Nowa sekcja Market Data -->
-            <section id="data-section">
-                <h2>Market Data Center</h2>
-
-                <label for="symbol-select">Choose Symbol:</label>
-                <select id="symbol-select"></select>
-
-                <label for="timeframe-select">Choose Timeframe:</label>
-                <select id="timeframe-select">
-                    <option value="M1">M1</option>
-                    <option value="H1">H1</option>
-                    <option value="D1">D1</option>
-                </select>
-
-                <button id="load-data-btn">Load Data</button>
-
-                <div id="data-meta" style="margin-top:20px;"></div>
-                <div id="data-preview" style="overflow-x:auto;"></div>
-            </section>
-
             <!-- Sekcja domyślna -->
             <section id="default-content" class="tab-content active">
                 <h2>Market Data Center</h2>
@@ -141,12 +120,16 @@
                 </div>
             </section>
 
-            <!-- Sekcja Timeframe Data -->
+            <!-- Sekcja Timeframe Data (z selektorami) -->
             <section id="timeframe-data" class="tab-content">
                 <h3>Timeframe Data</h3>
                 <p>Structured historical data with multiple timeframes for each symbol:</p>
                 
-                <div class="timeframe-selector">
+                <div class="market-data-controls">
+                    <label for="symbol-select">Choose Symbol:</label>
+                    <select id="symbol-select"></select>
+
+                    <label for="timeframe-select">Choose Timeframe:</label>
                     <select id="timeframe-select">
                         <option value="M1">1 Minute (M1)</option>
                         <option value="M5">5 Minutes (M5)</option>
@@ -157,24 +140,12 @@
                         <option value="W1">Weekly (W1)</option>
                         <option value="MN1">Monthly (MN1)</option>
                     </select>
+
+                    <button id="load-data-btn">Load Data</button>
                 </div>
                 
-                <div class="symbols-grid" id="symbols-container">
-                    <!-- Dynamicznie generowane symbole będą tutaj -->
-                    <!-- Przykładowa struktura dla każdego symbolu:
-                    <div class="symbol-card">
-                        <h4>US.100 (NASDAQ)</h4>
-                        <div class="symbol-actions">
-                            <a href="#" class="download-btn" download>
-                                <i class="fas fa-download"></i> CSV
-                            </a>
-                            <a href="#" class="mongodb-link">
-                                <i class="fas fa-database"></i> MongoDB
-                            </a>
-                        </div>
-                    </div>
-                    -->
-                </div>
+                <div id="data-meta" style="margin-top:20px;"></div>
+                <div id="data-preview" style="overflow-x:auto;"></div>
                 
                 <div class="section-footer">
                     <a href="timeframe-datasets.html" class="nav-link">
