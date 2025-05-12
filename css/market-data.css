@@ -1,0 +1,50 @@
+/* === MARKET DATA SECTION STYLES === */
+
+#data-section {
+  padding: 20px;
+  background-color: var(--bg-main);
+  color: var(--text-light);
+  margin-top: 120px;
+}
+
+#data-section label {
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+#data-section select,
+#data-section button {
+  margin: 10px;
+  padding: 6px 12px;
+  font-size: 14px;
+  background-color: var(--bg-section);
+  color: var(--text-light);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+}
+
+#data-meta {
+  margin-top: 15px;
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+#data-preview table {
+  margin-top: 20px;
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+#data-preview th,
+#data-preview td {
+  border: 1px solid var(--border);
+  padding: 8px;
+  text-align: center;
+  background-color: var(--bg-section);
+  color: var(--text-light);
+}
+
+#data-preview th {
+  background-color: var(--bg-research);
+}
