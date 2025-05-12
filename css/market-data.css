@@ -111,6 +111,45 @@
     background-color: rgba(0, 122, 204, 0.1);
 }
 
+/* Dodane style */
+
+.button-group {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.data-button {
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: 600;
+    background-color: var(--accent);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.data-button.secondary {
+    background-color: var(--bg-section);
+    border: 1px solid var(--accent);
+    color: var(--accent);
+}
+
+.data-button:hover {
+    background-color: #006bb3;
+}
+
+.data-button.secondary:hover {
+    background-color: rgba(0, 122, 204, 0.1);
+}
+
 /* Responsywność */
 @media (max-width: 768px) {
     .data-controls {
@@ -123,6 +162,11 @@
     }
     
     .data-button {
+        width: 100%;
+    }
+
+    .button-group {
+        flex-direction: column;
         width: 100%;
     }
 }
