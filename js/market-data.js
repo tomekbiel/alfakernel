@@ -41,11 +41,12 @@ document.addEventListener("DOMContentLoaded", () => {
       // Sort files by date (newest first)
       csvFiles.sort((a, b) => new Date(b.name) - new Date(a.name));
       
+      const match = csvFiles[0].name.match(/\d{4}-\d{2}-\d{2}_\d{2}-\d{2}-\d{2}/);
       return {
         rawUrl: csvFiles[0].download_url,
         githubUrl: `https://github.com/tomekbiel/MT4_Trading_System/blob/master/data/historical/${folderSymbol}/${timeframe}/${csvFiles[0].name}`,
         filename: csvFiles[0].name,
-        lastUpdated: csvFiles[0].name.match(/\d{4}-\d{2}-\d{2}_\d{2}-\d{2}-\d{2}/)[0].replace(/_/g, ' ')
+        lastUpdated: match ? match[0].replace(/_/g, ' ') : 'Unknown'
       };
     } catch (error) {
       console.error("Error fetching file list:", error);
