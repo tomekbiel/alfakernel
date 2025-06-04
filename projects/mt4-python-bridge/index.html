@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MT4–Python Bridge | AlfaKernel</title>
+  <link rel="stylesheet" href="../../css/modern-style.css" />
+</head>
+<body>
+  <header>
+    <h1>MT4–Python Bridge</h1>
+    <nav>
+      <ul>
+        <li><a href="../../projects.html">← Projects</a></li>
+        <li><a href="install-guide.html">Installation</a></li>
+        <li><a href="system.html">System</a></li>
+        <li><a href="market-data.html">Market Data</a></li>
+        <li><a href="analysis.html">Analysis</a></li>
+        <li><a href="legal.html">Legal</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section>
+      <h2>Project Overview</h2>
+      <p>
+        <strong>MT4–Python Bridge</strong> is a working communication system between MetaTrader 4 and Python using ZeroMQ for direct data exchange. This bridge enables:
+      </p>
+      <ul>
+        <li>Automated downloading of historical and live data from MT4</li>
+        <li>Saving data to structured CSV files ready for time series analysis</li>
+        <li>Preparation of datasets for further modeling (e.g. ARIMA, LSTM, ML)</li>
+        <li>Building complete trading or analysis systems</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Communication Diagram</h2>
+      <img src="images/bridge_diagram.png" alt="MT4–Python communication diagram" style="max-width: 100%; height: auto; margin-top: 1em;" />
+      <p class="caption">System architecture: MT4–Python Bridge communication model.</p>
+    </section>
+
+    <section>
+      <h2>Quick Start</h2>
+      <ol>
+        <li>Install MetaTrader 4 and prepare the environment using the <a href="install-guide.html">installation guide</a></li>
+        <li>Download and launch <code>dwx_server_alfa</code> on the MT4 side</li>
+        <li>Set up the Python environment and run the bridge scripts</li>
+        <li>Go to <a href="market-data.html">Market Data</a> to fetch or browse datasets</li>
+      </ol>
+    </section>
+
+    <section>
+      <h2>Source Code</h2>
+      <p>
+        All components of the Python–MT4 bridge, including communication classes, data fetching, file handlers, and analysis tools are publicly available on GitHub:
+      </p>
+      <p>
+        <a href="https://github.com/your-username/your-repo" target="_blank" class="button github">View on GitHub</a>
+      </p>
+    </section>
+
+    <section>
+      <h2>Project Pages</h2>
+      <ul>
+        <li><a href="install-guide.html">📦 Installation & Setup</a></li>
+        <li><a href="system.html">⚙️ Python System Structure</a></li>
+        <li><a href="market-data.html">📊 Market Data – CSV</a></li>
+        <li><a href="analysis.html">📈 Sample Analyses</a></li>
+        <li><a href="legal.html">📄 Licenses & Legal</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 AlfaKernel. All rights reserved.</p>
+  </footer>
+</body>
+</html>
