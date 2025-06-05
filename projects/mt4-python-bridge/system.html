@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>System Overview | MT4–Python Bridge</title>
+  <link rel="stylesheet" href="../../css/modern-style.css" />
+  <style>
+    .code-preview {
+      display: none;
+      white-space: pre-wrap;
+      background: #1e1e1e;
+      color: #d4d4d4;
+      padding: 1rem;
+      border-radius: 0.5rem;
+      margin-top: 1rem;
+      overflow-x: auto;
+      font-family: monospace;
+      font-size: 0.9rem;
+      max-height: 600px;
+    }
+    .file-button {
+      margin-bottom: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>System Overview</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">← MT4–Python Bridge</a></li>
+        <li><a href="install-guide.html">Installation</a></li>
+        <li><a href="market-data.html">Market Data</a></li>
+        <li><a href="analysis.html">Analysis</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section>
+      <h2>Architecture</h2>
+      <p>
+        The bridge connects <strong>MetaTrader 4</strong> (via a custom Expert Advisor using ZeroMQ) to a 
+        <strong>Python backend</strong> that handles data retrieval, analysis, and automation.
+      </p>
+      <ul>
+        <li>📡 <strong>MT4 Expert</strong> listens on ports 5555–5557 (REQ/REP, PUSH/PULL, PUB/SUB)</li>
+        <li>🐍 <strong>Python</strong> includes modular handlers for:
+          <ul>
+            <li><code>base_connector.py</code> – Core messaging logic</li>
+            <li><code>market_data_handler.py</code> – Live data via SUB</li>
+            <li><code>historical_data_handler.py</code> – History fetch via COMMAND</li>
+            <li><code>trade_handler.py</code> – Send trade commands</li>
+          </ul>
+        </li>
+        <li>📂 <strong>Scripts</strong> automate common tasks like:
+          <ul>
+            <li><code>fetch_single.py</code> – Download historical data</li>
+            <li><code>run_mt4.py</code> – Test connector and strategy interface</li>
+          </ul>
+        </li>
+      </ul>
+      <img src="images/bridge_diagram.png" alt="Bridge Architecture Diagram" style="width:100%; max-width:600px; margin-top:1rem;" />
+    </section>
+
+    <section>
+      <h2>Code Preview</h2>
+      <p>Click to load and preview Python modules directly from GitHub:</p>
+
+      <div class="file-button">
+        <button onclick="loadCode('base_connector', 'mt4_connector/base_connector.py')">
+          📄 base_connector.py
+        </button>
+      </div>
+      <div class="file-button">
+        <button onclick="loadCode('market_data_handler', 'mt4_connector/market_data_handler.py')">
+          📄 market_data_handler.py
+        </button>
+      </div>
+      <div class="file-button">
+        <button onclick="loadCode('fetch_single', 'scripts/fetch_single.py')">
+          📄 fetch_single.py
+        </button>
+      </div>
+      <div class="file-button">
+        <button onclick="loadCode('run_mt4', 'run_mt4.py')">
+          📄 run_mt4.py
+        </button>
+      </div>
+
+      <div id="code_container">
+        <div id="base_connector" class="code-preview"></div>
+        <div id="market_data_handler" class="code-preview"></div>
+        <div id="fetch_single" class="code-preview"></div>
+        <div id="run_mt4" class="code-preview"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 AlfaKernel. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function loadCode(id, path) {
+      const container = document.getElementById(id);
+      if (container.innerText.trim() !== '') {
+        container.style.display = container.style.display === 'none' ? 'block' : 'none';
+        return;
+      }
+      fetch(`https://raw.githubusercontent.com/tomekbiel/MT4_Trading_System/master/${path}`)
+        .then(res => res.ok ? res.text() : Promise.reject(res))
+        .then(code => {
+          container.innerText = code;
+          container.style.display = 'block';
+        })
+        .catch(() => {
+          container.innerText = '⚠️ Error loading file.';
+          container.style.display = 'block';
+        });
+    }
+  </script>
+</body>
+</html>
