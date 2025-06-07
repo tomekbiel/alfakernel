@@ -39,11 +39,11 @@
         <!-- Menu boczne (dostosowane do projects) -->
         <aside class="sidebar">
             <a href="index.html" class="tab" data-tab="home">Home</a>
+            <div class="tab" data-tab="integration-tools">Integration Tools</div>
             <div class="tab" data-tab="algorithmic-trading">Algorithmic Trading Systems</div>
             <div class="tab" data-tab="data-preparation">Data Preparation</div>
             <div class="tab" data-tab="data-analysis-python">Data Analysis in Python</div>
             <div class="tab" data-tab="data-analysis-r">Data Analysis in R</div>
-            <div class="tab" data-tab="integration-tools">Integration Tools</div>
         </aside>
 
         <!-- Główna zawartość -->
@@ -101,7 +101,53 @@
             <!-- Sekcja Integration Tools -->
             <section id="integration-tools" class="tab-content">
                 <h3>Integration Tools</h3>
-                <p>APIs and connectors for market data feeds and trading platforms.</p>
+                <p>
+                    This section gathers tools and bridges enabling direct integration between trading platforms and programming environments. 
+                    Here you will find solutions for connecting MetaTrader 4, XTB, and potentially other brokers or platforms with Python or other languages.
+                    These tools are designed to automate data exchange, enable algorithmic trading, and facilitate advanced analytics by bridging trading software with custom code.
+                </p>
+
+                <div class="integration-cards" style="display: flex; flex-wrap: wrap; gap: 2em; margin: 2em 0;">
+                    <!-- MT4–Python Bridge Card -->
+                    <div class="integration-card" style="flex: 1 1 320px; min-width: 300px; background: #f7f8fa; border-radius: 12px; box-shadow: 0 2px 8px #0001; padding: 2em; display: flex; flex-direction: column; justify-content: space-between; color: #222;">
+                        <h4 style="margin-top:0; color: #222;">MT4–Python Bridge</h4>
+                        <p style="color: #333;">
+                            A robust ZeroMQ-based bridge for seamless, real-time communication between MetaTrader 4 and Python.<br>
+                            Stream tick data, send trading commands, and automate strategies directly from Python scripts.
+                        </p>
+                        <div style="margin-top:auto; text-align:right;">
+                            <a href="projects/mt4-python-bridge/index.html" class="nav-link" style="font-weight:bold;">
+                                Learn more <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- XTB API Python Bridge Card -->
+                    <div class="integration-card" style="flex: 1 1 320px; min-width: 300px; background: #f7f8fa; border-radius: 12px; box-shadow: 0 2px 8px #0001; padding: 2em; display: flex; flex-direction: column; justify-content: space-between; color: #222;">
+                        <h4 style="margin-top:0; color: #222;">XTB API Python Bridge</h4>
+                        <p style="color: #333;">
+                            Integration with the XTB trading platform via Python API.<br>
+                            Enables automated trading, data retrieval, and account management from Python.
+                        </p>
+                        <div style="margin-top:auto; text-align:right;">
+                            <a href="projects/xtb-api-python-bridge/index.html" class="nav-link" style="font-weight:bold;">
+                                Learn more <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <ul>
+                    <li>
+                        <strong>MT4–Python Bridge</strong> – A robust ZeroMQ-based bridge for seamless, real-time communication between MetaTrader 4 and Python. 
+                        It allows you to stream tick data, send trading commands, and automate strategies directly from Python scripts. 
+                        <a href="projects/mt4-python-bridge/index.html">Learn more</a>
+                    </li>
+                    <li>
+                        <strong>XTB API Python Bridge</strong> – Integration with the XTB trading platform via Python API, enabling automated trading, data retrieval, and account management from Python.
+                        <a href="projects/xtb-api-python-bridge/index.html">Learn more</a>
+                    </li>
+                    <!-- Kolejne narzędzia integracyjne mogą pojawić się tutaj, np. dla innych platform lub języków -->
+                </ul>
                 <div class="section-footer">
                     <a href="integration-tools.html" class="nav-link">
                         View Details <i class="fa-solid fa-arrow-right"></i>

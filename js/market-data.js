@@ -187,4 +187,36 @@ document.addEventListener("DOMContentLoaded", () => {
       metaDiv.innerHTML = `<div class="error">Error: ${error.message}</div>`;
     }
   });
+
+  // Funkcja do pobierania CSV
+  document.getElementById('download-data-btn').onclick = function () {
+    const symbol = document.getElementById('symbol-select').value;
+    const tf = document.getElementById('timeframe-select').value;
+    // Zakładamy, że pliki CSV są w folderze /csv/ o nazwie SYMBOL_TF.csv
+    const url = `csv/${symbol}_${tf}.csv`;
+    // Tworzymy ukryty link do pobrania
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `${symbol}_${tf}.csv`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+  };
+
+  // Funkcja do wyświetlania podglądu od końca (najświeższe dane na górze)
+  function showPreviewTable(data) {
+    // data to tablica obiektów lub tablica tablic (wiersze)
+    // Odwracamy kolejność
+    const reversed = data.slice().reverse();
+    // ...tworzenie tabeli na podstawie reversed...
+    // Przykład:
+    let html = '<table class="preview-table"><tbody>';
+    reversed.forEach(row => {
+        html += '<tr>' + row.map(cell => `<td>${cell}</td>`).join('') + '</tr>';
+    });
+    html += '</tbody></table>';
+    document.getElementById('data-preview').innerHTML = html;
+  }
+
+  // ...w miejscu gdzie wywołujesz podgląd, użyj showPreviewTable(data)...
 });
