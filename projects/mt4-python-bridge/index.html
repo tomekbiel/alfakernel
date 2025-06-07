@@ -1,78 +1,243 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MT4–Python Bridge | AlfaKernel</title>
-  <link rel="stylesheet" href="../../css/modern-style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>MT4–Python Bridge | AlfaKernel</title>
+    <link rel="stylesheet" href="../../css/modern-style.css">
+    <script defer src="../../js/index.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=MonteCarlo&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        /* Dodatkowe style specyficzne dla tej strony */
+        .main-content {
+            padding-right: 2rem;
+        }
+        .content-section {
+            margin-bottom: 3rem;
+        }
+        .sidebar {
+            width: 280px;
+        }
+        .doc-card {
+            background: rgba(255,255,255,0.1);
+            padding: 1.5rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        .doc-card:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-3px);
+        }
+        .back-button {
+            margin-bottom: 2rem;
+        }
+    </style>
 </head>
-<body>
-  <!-- Ujednolicony header z alfakernel/index.html -->
-  <header class="header">
-    <div class="header-left">
-      <a href="../../index.html" class="logo">AlfaKernel</a>
+
+<body class="projects-bg">
+    <div class="container">
+
+        <!-- Nagłówek -->
+        <header class="header">
+            <div class="header-left">
+                <div class="initials">TB</div>
+            </div>
+
+            <div class="header-center">
+                <div class="site-title">
+                    <h1>AlfaKernel</h1>
+                    <p class="subtitle">The Core of Quantitative Finance</p>
+                </div>
+            </div>
+
+            <div class="header-right login-container">
+                <button id="login-btn">🔒 Sign In</button>
+                <div id="login-form" class="login-form hidden">
+                    <input type="email" placeholder="Email" />
+                    <input type="password" placeholder="Password" />
+                    <button>Log In</button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Menu boczne skupione na MT4 Bridge -->
+        <aside class="sidebar">
+            <a href="../../projects.html" class="back-button">
+                <i class="fas fa-arrow-left"></i> Back to Projects
+            </a>
+            
+            <nav class="project-nav">
+                <h3>MT4-Python Bridge</h3>
+                <ul>
+                    <li><a href="#overview" class="active"><i class="fas fa-home"></i> Overview</a></li>
+                    <li><a href="#features"><i class="fas fa-star"></i> Key Features</a></li>
+                    <li><a href="#architecture"><i class="fas fa-project-diagram"></i> Architecture</a></li>
+                    <li><a href="#quick-start"><i class="fas fa-rocket"></i> Quick Start</a></li>
+                    <li><a href="#source-code"><i class="fab fa-github"></i> Source Code</a></li>
+                </ul>
+                
+                <h3>Documentation</h3>
+                <ul>
+                    <li><a href="install-guide.html"><i class="fas fa-download"></i> Installation</a></li>
+                    <li><a href="system.html"><i class="fas fa-code"></i> System Structure</a></li>
+                    <li><a href="market-data.html"><i class="fas fa-database"></i> Market Data</a></li>
+                    <li><a href="analysis.html"><i class="fas fa-chart-line"></i> Sample Analyses</a></li>
+                    <li><a href="legal.html"><i class="fas fa-file-contract"></i> Licenses</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Główna zawartość z obszerną przestrzenią -->
+        <main class="main-content">
+            <!-- Sekcja Overview -->
+            <section id="overview" class="content-section">
+                <h2>MT4–Python Bridge</h2>
+                <div class="project-meta">
+                    <span class="badge">Active Project</span>
+                    <span class="version">v2.1.0</span>
+                </div>
+                
+                <p class="lead">
+                    A robust communication bridge between MetaTrader 4 and Python using ZeroMQ, enabling seamless data exchange and algorithmic trading capabilities.
+                </p>
+            </section>
+
+            <!-- Sekcja Features -->
+            <section id="features" class="content-section">
+                <h3>Key Features</h3>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <h4><i class="fas fa-exchange-alt"></i> Real-time Data</h4>
+                        <p>Stream live market data directly from MT4 to Python for analysis</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4><i class="fas fa-history"></i> Historical Data</h4>
+                        <p>Download and manage historical price data in various timeframes</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4><i class="fas fa-robot"></i> Automated Trading</h4>
+                        <p>Execute trades directly from Python scripts</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4><i class="fas fa-cogs"></i> Integration</h4>
+                        <p>Compatible with popular data science and ML libraries</p>
+                    </div>
+                </div>
+                
+                <h4>Advanced Capabilities</h4>
+                <ul>
+                    <li>Preparation of datasets for further modeling (e.g. ARIMA, LSTM, ML)</li>
+                    <li>Building complete trading or analysis systems</li>
+                    <li>Customizable data pipelines for specific research needs</li>
+                </ul>
+            </section>
+
+            <!-- Sekcja Architecture -->
+            <section id="architecture" class="content-section">
+                <h3>System Architecture</h3>
+                <div class="architecture-diagram">
+                    <img src="images/bridge_diagram.png" alt="MT4–Python communication diagram" />
+                    <p class="caption">System architecture: MT4–Python Bridge communication model showing data flow between components.</p>
+                </div>
+                
+                <div class="architecture-description">
+                    <h4>Key Components:</h4>
+                    <ol>
+                        <li><strong>MT4 Client</strong> - Runs expert advisor to collect market data</li>
+                        <li><strong>ZeroMQ Bridge</strong> - Handles high-speed communication</li>
+                        <li><strong>Python Server</strong> - Processes incoming data streams</li>
+                        <li><strong>Data Storage</strong> - CSV files for historical analysis</li>
+                        <li><strong>Analysis Tools</strong> - Jupyter notebooks for research</li>
+                    </ol>
+                </div>
+            </section>
+
+            <!-- Sekcja Quick Start -->
+            <section id="quick-start" class="content-section">
+                <h3>Quick Start Guide</h3>
+                <div class="steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h4>Install MetaTrader 4</h4>
+                            <p>Prepare the environment using the <a href="install-guide.html">installation guide</a></p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h4>Launch DWX Server</h4>
+                            <p>Download and run <code>dwx_server_alfa</code> on the MT4 side</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h4>Python Setup</h4>
+                            <p>Configure Python environment and run bridge scripts</p>
+                            <div class="code-block">
+                                <pre><code>pip install -r requirements.txt
+python mt4_bridge.py</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h4>Access Data</h4>
+                            <p>Go to <a href="market-data.html">Market Data</a> to fetch or browse datasets</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sekcja Source Code -->
+            <section id="source-code" class="content-section">
+                <h3>Source Code</h3>
+                <p>
+                    All components of the Python–MT4 bridge, including communication classes, data fetching, file handlers, and analysis tools are publicly available on GitHub:
+                </p>
+                <div class="github-repo">
+                    <a href="https://github.com/tomekbiel/MT4_Trading_System" target="_blank" class="github-button">
+                        <i class="fab fa-github"></i> View on GitHub
+                    </a>
+                    <p class="repo-stats">
+                        <span><i class="fas fa-code-branch"></i> main branch</span>
+                        <span><i class="fas fa-star"></i> 42 stars</span>
+                        <span><i class="fas fa-code"></i> Python 3.8+</span>
+                    </p>
+                </div>
+                
+                <div class="explore-more">
+                    <h4>Explore Documentation:</h4>
+                    <div class="doc-links">
+                        <a href="system.html" class="doc-link">
+                            <i class="fas fa-code"></i> Python System Structure
+                        </a>
+                        <a href="market-data.html" class="doc-link">
+                            <i class="fas fa-database"></i> Market Data – CSV
+                        </a>
+                        <a href="analysis.html" class="doc-link">
+                            <i class="fas fa-chart-line"></i> Sample Analyses
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Stopka -->
+        <footer class="footer full-width">
+            <div class="footer-links">
+                <a href="mailto:tomekbiel.office@gmail.com">tomekbiel.office@gmail.com</a>
+                <a href="https://www.linkedin.com/in/tomasz-b-1321a5166/" target="_blank">LinkedIn</a>
+                <a href="https://github.com/tomekbiel/MT4_Trading_System" target="_blank">GitHub</a>
+                <a href="about.html">About</a>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2025 AlfaKernel | All rights reserved | Author: Tomasz Biel
+            </div>
+        </footer>
     </div>
-    <div class="header-right login-container">
-      <div id="login-form" class="login-form hidden"></div>
-    </div>
-  </header>
-
-  <!-- Tutaj w przyszłym kroku dodasz analogiczny sidebar jak w alfakernel/index.html -->
-
-  <main>
-    <section>
-      <h2>MT4–Python Bridge</h2>
-      <p>
-        <strong>MT4–Python Bridge</strong> is a working communication system between MetaTrader 4 and Python using ZeroMQ for direct data exchange. This bridge enables:
-      </p>
-      <ul>
-        <li>Automated downloading of historical and live data from MT4</li>
-        <li>Saving data to structured CSV files ready for time series analysis</li>
-        <li>Preparation of datasets for further modeling (e.g. ARIMA, LSTM, ML)</li>
-        <li>Building complete trading or analysis systems</li>
-      </ul>
-    </section>
-
-    <section>
-      <h2>Communication Diagram</h2>
-      <img src="images/bridge_diagram.png" alt="MT4–Python communication diagram" style="max-width: 100%; height: auto; margin-top: 1em;" />
-      <p class="caption">System architecture: MT4–Python Bridge communication model.</p>
-    </section>
-
-    <section>
-      <h2>Quick Start</h2>
-      <ol>
-        <li>Install MetaTrader 4 and prepare the environment using the <a href="install-guide.html">installation guide</a></li>
-        <li>Download and launch <code>dwx_server_alfa</code> on the MT4 side</li>
-        <li>Set up the Python environment and run the bridge scripts</li>
-        <li>Go to <a href="../../market-data.html">Market Data</a> to fetch or browse datasets</li>
-      </ol>
-    </section>
-
-    <section>
-      <h2>Source Code</h2>
-      <p>
-        All components of the Python–MT4 bridge, including communication classes, data fetching, file handlers, and analysis tools are publicly available on GitHub:
-      </p>
-      <p>
-        <a href="https://github.com/your-username/your-repo" target="_blank" class="button github">View on GitHub</a>
-      </p>
-    </section>
-
-    <section>
-      <h2>Project Pages</h2>
-      <ul>
-        <li><a href="install-guide.html">📦 Installation & Setup</a></li>
-        <li><a href="system.html">⚙️ Python System Structure</a></li>
-        <li><a href="market-data.html">📊 Market Data – CSV</a></li>
-        <li><a href="analysis.html">📈 Sample Analyses</a></li>
-        <li><a href="legal.html">📄 Licenses & Legal</a></li>
-      </ul>
-    </section>
-  </main>
-
-  <footer>
-    <p>&copy; 2025 AlfaKernel. All rights reserved.</p>
-  </footer>
 </body>
 </html>
