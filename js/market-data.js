@@ -1,12 +1,12 @@
 document.addEventListener("DOMContentLoaded", () => {
   const symbols = [
-    "US.100+", "OIL.WTI+", "VIX+", "EURUSD+", "MEXComp+", "GOLDs+", "SILVERs+", "AUS200+",
-    "BRAComp+", "CHNComp+", "CZKCASH+", "DE.30+", "EU.50+", "FRA.40+", "HKComp+", "ITA.40+",
-    "KOSP200+", "NED25+", "SPA.35+", "SUI20+", "UK.100+", "US.30+", "COTTONs+", "US2000+",
+    "US.100+", "OIL.WTI+", "VIX+", "EURUSD+", "MEXComp+", "GOLDs+", "SILVERs+",
+    "BRAComp+", "CZKCASH+", "DE.30+", "EU.50+", "FRA.40+", "ITA.40+",
+    "NED25+", "SPA.35+", "SUI20+", "UK.100+", "US.30+", "COTTONs+", "US2000+",
     "W.20+", "WHEAT+", "COCOA+", "COFFEE+", "COPPER+", "CORN+", "EMISS+", "NICKEL+", "OILs+",
     "NATGAS+", "PLATINUM+", "SOYBEAN+", "SUGARs+", "ZINC+", "BUND10Y+", "SCHATZ2Y+", "USDIDX+",
     "AUT20+", "PALLADIUM+", "DE40+", "AUDUSD+", "EURCHF+", "EURGBP+", "EURJPY+", "GBPUSD+",
-    "NZDUSD+", "USDCAD+", "USDCHF+", "USDJPY+"
+    "NZDUSD+", "USDCAD+", "USDCHF+", "USDJPY+", "US.500+"
   ];
 
   const symbolSelect = document.getElementById("symbol-select");
@@ -24,29 +24,40 @@ document.addEventListener("DOMContentLoaded", () => {
     symbolSelect.appendChild(option);
   });
 
-  // Function to fetch the latest CSV file URL
+  // Function to fetch the latest CSV file URL and last commit date
   const getLatestFileUrl = async (symbol, timeframe) => {
     const folderSymbol = encodeURIComponent(symbol);
     const apiUrl = `https://api.github.com/repos/tomekbiel/MT4_Trading_System/contents/data/historical/${folderSymbol}/${timeframe}`;
-    
     try {
       const response = await fetch(apiUrl);
       if (!response.ok) throw new Error("Could not fetch file list");
-      
       const files = await response.json();
       const csvFiles = files.filter(file => file.name.endsWith('.csv'));
-      
       if (csvFiles.length === 0) throw new Error("No CSV files found");
-      
-      // Sort files by date (newest first)
-      csvFiles.sort((a, b) => new Date(b.name) - new Date(a.name));
-      
-      const match = csvFiles[0].name.match(/\d{4}-\d{2}-\d{2}_\d{2}-\d{2}-\d{2}/);
+
+      // We take the first file (or you can sort if needed)
+      const file = csvFiles[0];
+
+      // Get last commit date for this file
+      let lastUpdated = 'Unknown';
+      try {
+        const commitsApi = `https://api.github.com/repos/tomekbiel/MT4_Trading_System/commits?path=data/historical/${folderSymbol}/${timeframe}/${file.name}&per_page=1`;
+        const commitsRes = await fetch(commitsApi);
+        if (commitsRes.ok) {
+          const commits = await commitsRes.json();
+          if (commits.length > 0) {
+            lastUpdated = new Date(commits[0].commit.committer.date).toLocaleString() + ' UTC';
+          }
+        }
+      } catch (e) {
+        // leave as Unknown
+      }
+
       return {
-        rawUrl: csvFiles[0].download_url,
-        githubUrl: `https://github.com/tomekbiel/MT4_Trading_System/blob/master/data/historical/${folderSymbol}/${timeframe}/${csvFiles[0].name}`,
-        filename: csvFiles[0].name,
-        lastUpdated: match ? match[0].replace(/_/g, ' ') : 'Unknown'
+        rawUrl: file.download_url,
+        githubUrl: `https://github.com/tomekbiel/MT4_Trading_System/blob/master/data/historical/${folderSymbol}/${timeframe}/${file.name}`,
+        filename: file.name,
+        lastUpdated
       };
     } catch (error) {
       console.error("Error fetching file list:", error);
@@ -54,22 +65,24 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
-  // Function to parse CSV and extract metadata
+  // Parse CSV and extract metadata, show last 20 rows (newest first)
   const parseCSV = (csv) => {
     const lines = csv.trim().split("\n");
     const headers = lines[0].split(",");
     const rows = lines.slice(1).map(line => line.split(","));
-    
+    // Show last 20 rows, newest first
+    const previewRows = rows.slice(-20).reverse();
+
     // Extract metadata
     const timestamps = rows.map(r => r[0]);
     const fromDate = timestamps[0];
     const toDate = timestamps[timestamps.length - 1];
-    const naCount = rows.reduce((count, row) => 
+    const naCount = rows.reduce((count, row) =>
       count + row.filter(cell => cell.trim() === 'NA').length, 0);
-    
+
     return {
       headers,
-      rows: rows.slice(0, 20), // Display only the first 20 rows
+      rows: previewRows,
       meta: {
         fromDate,
         toDate,
@@ -87,21 +100,17 @@ document.addEventListener("DOMContentLoaded", () => {
     };
   };
 
-  // Load data
+  // Load data and show preview
   loadBtn.addEventListener("click", async () => {
     const symbol = symbolSelect.value;
     const tf = timeframeSelect.value;
-    
     try {
       const { rawUrl, filename, lastUpdated } = await getLatestFileUrl(symbol, tf);
-      
       const response = await fetch(rawUrl);
       if (!response.ok) throw new Error("Could not fetch CSV data");
-      
       const csv = await response.text();
       const { headers, rows, meta } = parseCSV(csv);
-      
-      // Display metadata
+
       metaDiv.innerHTML = `
         <div class="meta-container">
           <div class="meta-item">
@@ -117,26 +126,25 @@ document.addEventListener("DOMContentLoaded", () => {
             <strong>Columns:</strong> ${headers.join(', ')}
           </div>
           <div class="meta-item">
-            <strong>Data Quality:</strong> ${meta.naCount > 0 ? 
+            <strong>Data Quality:</strong> ${meta.naCount > 0 ?
               `Contains ${meta.naCount} NA values` : 'No NA values detected'}
           </div>
           <div class="meta-item">
             <strong>Source:</strong> MetaTrader 4 (XTB Demo Server)
           </div>
           <div class="meta-item">
-            <strong>Last Updated:</strong> ${lastUpdated} UTC
+            <strong>Last Updated:</strong> ${lastUpdated}
           </div>
           <div class="meta-item">
             <strong>Filename:</strong> ${filename}
           </div>
         </div>
       `;
-      
-      // Display data preview
+
+      // Display preview table
       let table = "<table><thead><tr>";
       headers.forEach(h => table += `<th>${h}</th>`);
       table += "</tr></thead><tbody>";
-      
       rows.forEach(r => {
         table += "<tr>";
         r.forEach((cell, i) => {
@@ -145,32 +153,36 @@ document.addEventListener("DOMContentLoaded", () => {
         });
         table += "</tr>";
       });
-      
       table += "</tbody></table>";
       previewDiv.innerHTML = table;
-      
+
     } catch (error) {
       metaDiv.innerHTML = `<div class="error">Error: ${error.message}</div>`;
       previewDiv.innerHTML = "";
     }
   });
 
-  // Download data
+  // Download CSV from GitHub
   downloadBtn.addEventListener("click", async () => {
     const symbol = symbolSelect.value;
     const tf = timeframeSelect.value;
-    
     try {
       const { rawUrl, filename } = await getLatestFileUrl(symbol, tf);
-      
-      // Create a temporary link for download
+
+      // Pobierz plik jako blob
+      const response = await fetch(rawUrl);
+      if (!response.ok) throw new Error("Could not fetch CSV data");
+      const blob = await response.blob();
+
+      // Utwórz tymczasowy link do pobrania blob
+      const url = window.URL.createObjectURL(blob);
       const a = document.createElement('a');
-      a.href = rawUrl;
+      a.href = url;
       a.download = filename;
       document.body.appendChild(a);
       a.click();
       document.body.removeChild(a);
-      
+      window.URL.revokeObjectURL(url);
     } catch (error) {
       metaDiv.innerHTML = `<div class="error">Error: ${error.message}</div>`;
     }

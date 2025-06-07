@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AlfaKernel | All Timeframes & Symbols</title>
+  <link rel="stylesheet" href="css/modern-style.css">
+  <link rel="stylesheet" href="css/market-data.css">
+  <style>
+    .symbol-table td, .symbol-table th { text-align: center; }
+    .csv-link { cursor: pointer; color: var(--accent); text-decoration: underline; }
+    .csv-link:hover { color: #005fa3; }
+    .desc-box {
+      background: var(--bg-main, #f5f7fa);
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin-bottom: 24px;
+      font-size: 1.08em;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+    }
+  </style>
+</head>
+<body class="data-bg">
+  <div class="container">
+    <header class="header">
+      <div class="site-title">
+        <h1>All Timeframes & Symbols</h1>
+        <p class="subtitle">Quick reference for available datasets</p>
+      </div>
+    </header>
+    <main>
+      <div class="desc-box">
+        <strong>Download CSV:</strong> Click on any timeframe next to a symbol to download historical data directly from the AlfaKernel GitHub repository.<br>
+        All files are in <b>CSV</b> format and ready for quantitative analysis or research.
+      </div>
+
+      <!-- Forex -->
+      <section>
+        <h2>Forex</h2>
+        <table class="symbol-table">
+          <thead>
+            <tr>
+              <th>Symbol</th>
+              <th>M1</th>
+              <th>M5</th>
+              <th>M15</th>
+              <th>H1</th>
+              <th>H4</th>
+              <th>D1</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>EURUSD+</td>
+              <td><span class="csv-link" data-symbol="EURUSD+" data-tf="M1">CSV</span></td>
+              <td><span class="csv-link" data-symbol="EURUSD+" data-tf="M5">CSV</span></td>
+              <td><span class="csv-link" data-symbol="EURUSD+" data-tf="M15">CSV</span></td>
+              <td><span class="csv-link" data-symbol="EURUSD+" data-tf="H1">CSV</span></td>
+              <td><span class="csv-link" data-symbol="EURUSD+" data-tf="H4">CSV</span></td>
+              <td><span class="csv-link" data-symbol="EURUSD+" data-tf="D1">CSV</span></td>
+            </tr>
+            <tr><td>GBPUSD+</td>
+              <td><span class="csv-link" data-symbol="GBPUSD+" data-tf="M1">CSV</span></td>
+              <td><span class="csv-link" data-symbol="GBPUSD+" data-tf="M5">CSV</span></td>
+              <td><span class="csv-link" data-symbol="GBPUSD+" data-tf="M15">CSV</span></td>
+              <td><span class="csv-link" data-symbol="GBPUSD+" data-tf="H1">CSV</span></td>
+              <td><span class="csv-link" data-symbol="GBPUSD+" data-tf="H4">CSV</span></td>
+              <td><span class="csv-link" data-symbol="GBPUSD+" data-tf="D1">CSV</span></td>
+            </tr>
+            <tr><td>USDJPY+</td>
+              <td><span class="csv-link" data-symbol="USDJPY+" data-tf="M1">CSV</span></td>
+              <td><span class="csv-link" data-symbol="USDJPY+" data-tf="M5">CSV</span></td>
+              <td><span class="csv-link" data-symbol="USDJPY+" data-tf="M15">CSV</span></td>
+              <td><span class="csv-link" data-symbol="USDJPY+" data-tf="H1">CSV</span></td>
+              <td><span class="csv-link" data-symbol="USDJPY+" data-tf="H4">CSV</span></td>
+              <td><span class="csv-link" data-symbol="USDJPY+" data-tf="D1">CSV</span></td>
+            </tr>
+            <tr><td>EURCHF+</td>
+              <td><span class="csv-link" data-symbol="EURCHF+" data-tf="M1">CSV</span></td>
+              <td><span class="csv-link" data-symbol="EURCHF+" data-tf="M5">CSV</span></td>
+              <td><span class="csv-link" data-symbol="EURCHF+" data-tf="M15">CSV</span></td>
+              <td><span class="csv-link" data-symbol="EURCHF+" data-tf="H1">CSV</span></td>
+              <td><span class="csv-link" data-symbol="EURCHF+" data-tf="H4">CSV</span></td>
+              <td><span class="csv-link" data-symbol="EURCHF+" data-tf="D1">CSV</span></td>
+            </tr>
+            <tr><td>EURGBP+</td>
+              <td><span class="csv-link" data-symbol="EURGBP+" data-tf="M1">CSV</span></td>
+              <td><span class="csv-link" data-symbol="EURGBP+" data-tf="M5">CSV</span></td>
+              <td><span class="csv-link" data-symbol="EURGBP+" data-tf="M15">CSV</span></td>
+              <td><span class="csv-link" data-symbol="EURGBP+" data-tf="H1">CSV</span></td>
+              <td><span class="csv-link" data-symbol="EURGBP+" data-tf="H4">CSV</span></td>
+              <td><span class="csv-link" data-symbol="EURGBP+" data-tf="D1">CSV</span></td>
+            </tr>
+            <tr><td>EURJPY+</td>
+              <td><span class="csv-link" data-symbol="EURJPY+" data-tf="M1">CSV</span></td>
+              <td><span class="csv-link" data-symbol="EURJPY+" data-tf="M5">CSV</span></td>
+              <td><span class="csv-link" data-symbol="EURJPY+" data-tf="M15">CSV</span></td>
+              <td><span class="csv-link" data-symbol="EURJPY+" data-tf="H1">CSV</span></td>
+              <td><span class="csv-link" data-symbol="EURJPY+" data-tf="H4">CSV</span></td>
+              <td><span class="csv-link" data-symbol="EURJPY+" data-tf="D1">CSV</span></td>
+            </tr>
+            <tr><td>USDCHF+</td>
+              <td><span class="csv-link" data-symbol="USDCHF+" data-tf="M1">CSV</span></td>
+              <td><span class="csv-link" data-symbol="USDCHF+" data-tf="M5">CSV</span></td>
+              <td><span class="csv-link" data-symbol="USDCHF+" data-tf="M15">CSV</span></td>
+              <td><span class="csv-link" data-symbol="USDCHF+" data-tf="H1">CSV</span></td>
+              <td><span class="csv-link" data-symbol="USDCHF+" data-tf="H4">CSV</span></td>
+              <td><span class="csv-link" data-symbol="USDCHF+" data-tf="D1">CSV</span></td>
+            </tr>
+            <tr><td>USDCAD+</td>
+              <td><span class="csv-link" data-symbol="USDCAD+" data-tf="M1">CSV</span></td>
+              <td><span class="csv-link" data-symbol="USDCAD+" data-tf="M5">CSV</span></td>
+              <td><span class="csv-link" data-symbol="USDCAD+" data-tf="M15">CSV</span></td>
+              <td><span class="csv-link" data-symbol="USDCAD+" data-tf="H1">CSV</span></td>
+              <td><span class="csv-link" data-symbol="USDCAD+" data-tf="H4">CSV</span></td>
+              <td><span class="csv-link" data-symbol="USDCAD+" data-tf="D1">CSV</span></td>
+            </tr>
+            <tr><td>AUDUSD+</td>
+              <td><span class="csv-link" data-symbol="AUDUSD+" data-tf="M1">CSV</span></td>
+              <td><span class="csv-link" data-symbol="AUDUSD+" data-tf="M5">CSV</span></td>
+              <td><span class="csv-link" data-symbol="AUDUSD+" data-tf="M15">CSV</span></td>
+              <td><span class="csv-link" data-symbol="AUDUSD+" data-tf="H1">CSV</span></td>
+              <td><span class="csv-link" data-symbol="AUDUSD+" data-tf="H4">CSV</span></td>
+              <td><span class="csv-link" data-symbol="AUDUSD+" data-tf="D1">CSV</span></td>
+            </tr>
+            <tr><td>NZDUSD+</td>
+              <td><span class="csv-link" data-symbol="NZDUSD+" data-tf="M1">CSV</span></td>
+              <td><span class="csv-link" data-symbol="NZDUSD+" data-tf="M5">CSV</span></td>
+              <td><span class="csv-link" data-symbol="NZDUSD+" data-tf="M15">CSV</span></td>
+              <td><span class="csv-link" data-symbol="NZDUSD+" data-tf="H1">CSV</span></td>
+              <td><span class="csv-link" data-symbol="NZDUSD+" data-tf="H4">CSV</span></td>
+              <td><span class="csv-link" data-symbol="NZDUSD+" data-tf="D1">CSV</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- Indices -->
+      <section>
+        <h2>Indices</h2>
+        <table class="symbol-table">
+          <thead>
+            <tr>
+              <th>Symbol</th>
+              <th>M1</th>
+              <th>M5</th>
+              <th>M15</th>
+              <th>H1</th>
+              <th>H4</th>
+              <th>D1</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>US.100+</td>
+              <td><span class="csv-link" data-symbol="US.100+" data-tf="M1">CSV</span></td>
+              <td><span class="csv-link" data-symbol="US.100+" data-tf="M5">CSV</span></td>
+              <td><span class="csv-link" data-symbol="US.100+" data-tf="M15">CSV</span></td>
+              <td><span class="csv-link" data-symbol="US.100+" data-tf="H1">CSV</span></td>
+              <td><span class="csv-link" data-symbol="US.100+" data-tf="H4">CSV</span></td>
+              <td><span class="csv-link" data-symbol="US.100+" data-tf="D1">CSV</span></td>
+            </tr>
+            <tr><td>US.30+</td>
+              <td><span class="csv-link" data-symbol="US.30+" data-tf="M1">CSV</span></td>
+              <td><span class="csv-link" data-symbol="US.30+" data-tf="M5">CSV</span></td>
+              <td><span class="csv-link" data-symbol="US.30+" data-tf="M15">CSV</span></td>
+              <td><span class="csv-link" data-symbol="US.30+" data-tf="H1">CSV</span></td>
+              <td><span class="csv-link" data-symbol="US.30+" data-tf="H4">CSV</span></td>
+              <td><span class="csv-link" data-symbol="US.30+" data-tf="D1">CSV</span></td>
+            </tr>
+            <tr><td>US.500+</td>
+              <td><span class="csv-link" data-symbol="US.500+" data-tf="M1">CSV</span></td>
+              <td><span class="csv-link" data-symbol="US.500+" data-tf="M5">CSV</span></td>
+              <td><span class="csv-link" data-symbol="US.500+" data-tf="M15">CSV</span></td>
+              <td><span class="csv-link" data-symbol="US.500+" data-tf="H1">CSV</span></td>
+              <td><span class="csv-link" data-symbol="US.500+" data-tf="H4">CSV</span></td>
+              <td><span class="csv-link" data-symbol="US.500+" data-tf="D1">CSV</span></td>
+            </tr>
+            <tr><td>DE.30+</td>
+              <td><span class="csv-link" data-symbol="DE.30+" data-tf="M1">CSV</span></td>
+              <td><span class="csv-link" data-symbol="DE.30+" data-tf="M5">CSV</span></td>
+              <td><span class="csv-link" data-symbol="DE.30+" data-tf="M15">CSV</span></td>
+              <td><span class="csv-link" data-symbol="DE.30+" data-tf="H1">CSV</span></td>
+              <td><span class="csv-link" data-symbol="DE.30+" data-tf="H4">CSV</span></td>
+              <td><span class="csv-link" data-symbol="DE.30+" data-tf="D1">CSV</span></td>
+            </tr>
+            <tr><td>DE40+</td>
+              <td><span class="csv-link" data-symbol="DE40+" data-tf="M1">CSV</span></td>
+              <td><span class="csv-link" data-symbol="DE40+" data-tf="M5">CSV</span></td>
+              <td><span class="csv-link" data-symbol="DE40+" data-tf="M15">CSV</span></td>
+              <td><span class="csv-link" data-symbol="DE40+" data-tf="H1">CSV</span></td>
+              <td><span class="csv-link" data-symbol="DE40+" data-tf="H4">CSV</span></td>
+              <td><span class="csv-link" data-symbol="DE40+" data-tf="D1">CSV</span></td>
+            </tr>
+            <tr><td>EU.50+</td>
+              <td><span class="csv-link" data-symbol="EU.50+" data-tf="M1">CSV</span></td>
+              <td><span class="csv-link" data-symbol="EU.50+" data-tf="M5">CSV</span></td>
+              <td><span class="csv-link" data-symbol="EU.50+" data-tf="M15">CSV</span></td>
+              <td><span class="csv-link" data-symbol="EU.50+" data-tf="H1">CSV</span></td>
+              <td><span class="csv-link" data-symbol="EU.50+" data-tf="H4">CSV</span></td>
+              <td><span class="csv-link" data-symbol="EU.50+" data-tf="D1">CSV</span></td>
+            </tr>
+            <tr><td>FRA.40+</td>
+              <td><span class="csv-link" data-symbol="FRA.40+" data-tf="M1">CSV</span></td>
+              <td><span class="csv-link" data-symbol="FRA.40+" data-tf="M5">CSV</span></td>
+              <td><span class="csv-link" data-symbol="FRA.40+" data-tf="M15">CSV</span></td>
+              <td><span class="csv-link" data-symbol="FRA.40+" data-tf="H1">CSV</span></td>
+              <td><span class="csv-link" data-symbol="FRA.40+" data-tf="H4">CSV</span></td>
+              <td><span class="csv-link" data-symbol="FRA.40+" data-tf="D1">CSV</span></td>
+            </tr>
+            <tr><td>ITA.40+</td>
+              <td><span class="csv-link" data-symbol="ITA.40+" data-tf="M1">CSV</span></td>
+              <td><span class="csv-link" data-symbol="ITA.40+" data-tf="M5">CSV</span></td>
+              <td><span class="csv-link" data-symbol="ITA.40+" data-tf="M15">CSV</span></td>
+              <td><span class="csv-link" data-symbol="ITA.40+" data-tf="H1">CSV</span></td>
+              <td><span class="csv-link" data-symbol="ITA.40+" data-tf="H4">CSV</span></td>
+              <td><span class="csv-link" data-symbol="ITA.40+" data-tf="D1">CSV</span></td>
+            </tr>
+            <tr><td>NED25+</td>
+              <td><span class="csv-link" data-symbol="NED25+" data-tf="M1">CSV</span></td>
+              <td><span class="csv-link" data-symbol="NED25+" data-tf="M5">CSV</span></td>
+              <td><span class="csv-link" data-symbol="NED25+" data-tf="M15">CSV</span></td>
+              <td><span class="csv-link" data-symbol="NED25+" data-tf="H1">CSV</span></td>
+              <td><span class="csv-link" data-symbol="NED25+" data-tf="H4">CSV</span></td>
+              <td><span class="csv-link" data-symbol="NED25+" data-tf="D1">CSV</span></td>
+            </tr>
+            <tr><td>SPA.35+</td>
+              <td><span class="csv-link" data-symbol="SPA.35+" data-tf="M1">CSV</span></td>
+              <td><span class="csv-link" data-symbol="SPA.35+" data-tf="M5">CSV</span></td>
+              <td><span class="csv-link" data-symbol="SPA.35+" data-tf="M15">CSV</span></td>
+              <td><span class="csv-link" data-symbol="SPA.35+" data-tf="H1">CSV</span></td>
+              <td><span class="csv-link" data-symbol="SPA.35+" data-tf="H4">CSV</span></td>
+              <td><span class="csv-link" data-symbol="SPA.35+" data-tf="D1">CSV</span></td>
+            </tr>
+            <tr><td>SUI20+</td>
+              <td><span class="csv-link" data-symbol="SUI20+" data-tf="M1">CSV</span></td>
+              <td><span class="csv-link" data-symbol="SUI20+" data-tf="M5">CSV</span></td>
+              <td><span class="csv-link" data-symbol="SUI20+" data-tf="M15">CSV</span></td>
+              <td><span class="csv-link" data-symbol="SUI20+" data-tf="H1">CSV</span></td>
+              <td><span class="csv-link" data-symbol="SUI20+" data-tf="H4">CSV</span></td>
+              <td><span class="csv-link" data-symbol="SUI20+" data-tf="D1">CSV</span></td>
+            </tr>
+            <tr><td>AUT20+</td>
+              <td><span class="csv-link" data-symbol="AUT20+" data-tf="M1">CSV</span></td>
+              <td><span class="csv-link" data-symbol="AUT20+" data-tf="M5">CSV</span></td>
+              <td><span class="csv-link" data-symbol="AUT20+" data-tf="M15">CSV</span></td>
+              <td><span class="csv-link" data-symbol="AUT20+" data-tf="H1">CSV</span></td>
+              <td><span class="csv-link" data-symbol="AUT20+" data-tf="H4">CSV</span></td>
+              <td><span class="csv-link" data-symbol="AUT20+" data-tf="D1">CSV</span></td>
+            </tr>
+            <tr><td>BRAComp+</td>
+              <td><span class="csv-link" data-symbol="BRAComp+" data-tf="M1">CSV</span></td>
+              <td><span class="csv-link" data-symbol="BRAComp+" data-tf="M5">CSV</span></td>
+              <td><span class="csv-link" data-symbol="BRAComp+" data-tf="M15">CSV</span></td>
+              <td><span class="csv-link" data-symbol="BRAComp+" data-tf="H1">CSV</span></td>
+              <td><span class="csv-link" data-symbol="BRAComp+" data-tf="H4">CSV</span></td>
+              <td><span class="csv-link" data-symbol="BRAComp+" data-tf="D1">CSV</span></td>
+            </tr>
+            <tr><td>MEXComp+</td>
+              <td><span class="csv-link" data-symbol="MEXComp+" data-tf="M1">CSV</span></td>
+              <td><span class="csv-link" data-symbol="MEXComp+" data-tf="M5">CSV</span></td>
+              <td><span class="csv-link" data-symbol="MEXComp+" data-tf="M15">CSV</span></td>
+              <td><span class="csv-link" data-symbol="MEXComp+" data-tf="H1">CSV</span></td>
+              <td><span class="csv-link" data-symbol="MEXComp+" data-tf="H4">CSV</span></td>
+              <td><span class="csv-link" data-symbol="MEXComp+" data-tf="D1">CSV</span></td>
+            </tr>
+            <tr><td>US2000+</td>
+              <td><span class="csv-link" data-symbol="US2000+" data-tf="M1">CSV</span></td>
+              <td><span class="csv-link" data-symbol="US2000+" data-tf="M5">CSV</span></td>
+              <td><span class="csv-link" data-symbol="US2000+" data-tf="M15">CSV</span></td>
+              <td><span class="csv-link" data-symbol="US2000+" data-tf="H1">CSV</span></td>
+              <td><span class="csv-link" data-symbol="US2000+" data-tf="H4">CSV</span></td>
+              <td><span class="csv-link" data-symbol="US2000+" data-tf="D1">CSV</span></td>
+            </tr>
+            <tr><td>W.20+</td>
+              <td><span class="csv-link" data-symbol="W.20+" data-tf="M1">CSV</span></td>
+              <td><span class="csv-link" data-symbol="W.20+" data-tf="M5">CSV</span></td>
+              <td><span class="csv-link" data-symbol="W.20+" data-tf="M15">CSV</span></td>
+              <td><span class="csv-link" data-symbol="W.20+" data-tf="H1">CSV</span></td>
+              <td><span class="csv-link" data-symbol="W.20+" data-tf="H4">CSV</span></td>
+              <td><span class="csv-link" data-symbol="W.20+" data-tf="D1">CSV</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- Commodities -->
+      <section>
+        <h2>Commodities</h2>
+        <table class="symbol-table">
+          <thead>
+            <tr>
+              <th>Symbol</th>
+              <th>M1</th>
+              <th>M5</th>
+              <th>M15</th>
+              <th>H1</th>
+              <th>H4</th>
+              <th>D1</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- OIL.WTI+, OILs+, NATGAS+ -->
+            <tr><td>OIL.WTI+</td>
+              <td><span class="csv-link" data-symbol="OIL.WTI+" data-tf="M1">CSV</span></td>
+              <td><span class="csv-link" data-symbol="OIL.WTI+" data-tf="M5">CSV</span></td>
+              <td><span class="csv-link" data-symbol="OIL.WTI+" data-tf="M15">CSV</span></td>
+              <td><span class="csv-link" data-symbol="OIL.WTI+" data-tf="H1">CSV</span></td>
+              <td><span class="csv-link" data-symbol="OIL.WTI+" data-tf="H4">CSV</span></td>
+              <td><span class="csv-link" data-symbol="OIL.WTI+" data-tf="D1">CSV</span></td>
+            </tr>
+            <tr><td>OILs+</td>
+              <td><span class="csv-link" data-symbol="OILs+" data-tf="M1">CSV</span></td>
+              <td><span class="csv-link" data-symbol="OILs+" data-tf="M5">CSV</span></td>
+              <td><span class="csv-link" data-symbol="OILs+" data-tf="M15">CSV</span></td>
+              <td><span class="csv-link" data-symbol="OILs+" data-tf="H1">CSV</span></td>
+              <td><span class="csv-link" data-symbol="OILs+" data-tf="H4">CSV</span></td>
+              <td><span class="csv-link" data-symbol="OILs+" data-tf="D1">CSV</span></td>
+            </tr>
+            <tr><td>NATGAS+</td>
+              <td><span class="csv-link" data-symbol="NATGAS+" data-tf="M1">CSV</span></td>
+              <td><span class="csv-link" data-symbol="NATGAS+" data-tf="M5">CSV</span></td>
+              <td><span class="csv-link" data-symbol="NATGAS+" data-tf="M15">CSV</span></td>
+              <td><span class="csv-link" data-symbol="NATGAS+" data-tf="H1">CSV</span></td>
+              <td><span class="csv-link" data-symbol="NATGAS+" data-tf="H4">CSV</span></td>
+              <td><span class="csv-link" data-symbol="NATGAS+" data-tf="D1">CSV</span></td>
+            </tr>
+            <!-- Metale -->
+            <tr><td>GOLDs+</td>
+              <td><span class="csv-link" data-symbol="GOLDs+" data-tf="M1">CSV</span></td>
+              <td><span class="csv-link" data-symbol="GOLDs+" data-tf="M5">CSV</span></td>
+              <td><span class="csv-link" data-symbol="GOLDs+" data-tf="M15">CSV</span></td>
+              <td><span class="csv-link" data-symbol="GOLDs+" data-tf="H1">CSV</span></td>
+              <td><span class="csv-link" data-symbol="GOLDs+" data-tf="H4">CSV</span></td>
+              <td><span class="csv-link" data-symbol="GOLDs+" data-tf="D1">CSV</span></td>
+            </tr>
+            <tr><td>SILVERs+</td>
+              <td><span class="csv-link" data-symbol="SILVERs+" data-tf="M1">CSV</span></td>
+              <td><span class="csv-link" data-symbol="SILVERs+" data-tf="M5">CSV</span></td>
+              <td><span class="csv-link" data-symbol="SILVERs+" data-tf="M15">CSV</span></td>
+              <td><span class="csv-link" data-symbol="SILVERs+" data-tf="H1">CSV</span></td>
+              <td><span class="csv-link" data-symbol="SILVERs+" data-tf="H4">CSV</span></td>
+              <td><span class="csv-link" data-symbol="SILVERs+" data-tf="D1">CSV</span></td>
+            </tr>
+            <tr><td>COPPER+</td>
+              <td><span class="csv-link" data-symbol="COPPER+" data-tf="M1">CSV</span></td>
+              <td><span class="csv-link" data-symbol="COPPER+" data-tf="M5">CSV</span></td>
+              <td><span class="csv-link" data-symbol="COPPER+" data-tf="M15">CSV</span></td>
+              <td><span class="csv-link" data-symbol="COPPER+" data-tf="H1">CSV</span></td>
+              <td><span class="csv-link" data-symbol="COPPER+" data-tf="H4">CSV</span></td>
+              <td><span class="csv-link" data-symbol="COPPER+" data-tf="D1">CSV</span></td>
+            </tr>
+            <tr><td>PLATINUM+</td>
+              <td><span class="csv-link" data-symbol="PLATINUM+" data-tf="M1">CSV</span></td>
+              <td><span class="csv-link" data-symbol="PLATINUM+" data-tf="M5">CSV</span></td>
+              <td><span class="csv-link" data-symbol="PLATINUM+" data-tf="M15">CSV</span></td>
+              <td><span class="csv-link" data-symbol="PLATINUM+" data-tf="H1">CSV</span></td>
+              <td><span class="csv-link" data-symbol="PLATINUM+" data-tf="H4">CSV</span></td>
+              <td><span class="csv-link" data-symbol="PLATINUM+" data-tf="D1">CSV</span></td>
+            </tr>
+            <tr><td>PALLADIUM+</td>
+              <td><span class="csv-link" data-symbol="PALLADIUM+" data-tf="M1">CSV</span></td>
+              <td><span class="csv-link" data-symbol="PALLADIUM+" data-tf="M5">CSV</span></td>
+              <td><span class="csv-link" data-symbol="PALLADIUM+" data-tf="M15">CSV</span></td>
+              <td><span class="csv-link" data-symbol="PALLADIUM+" data-tf="H1">CSV</span></td>
+              <td><span class="csv-link" data-symbol="PALLADIUM+" data-tf="H4">CSV</span></td>
+              <td><span class="csv-link" data-symbol="PALLADIUM+" data-tf="D1">CSV</span></td>
+            </tr>
+            <tr><td>NICKEL+</td>
+              <td><span class="csv-link" data-symbol="NICKEL+" data-tf="M1">CSV</span></td>
+              <td><span class="csv-link" data-symbol="NICKEL+" data-tf="M5">CSV</span></td>
+              <td><span class="csv-link" data-symbol="NICKEL+" data-tf="M15">CSV</span></td>
+              <td><span class="csv-link" data-symbol="NICKEL+" data-tf="H1">CSV</span></td>
+              <td><span class="csv-link" data-symbol="NICKEL+" data-tf="H4">CSV</span></td>
+              <td><span class="csv-link" data-symbol="NICKEL+" data-tf="D1">CSV</span></td>
+            </tr>
+            <tr><td>ZINC+</td>
+              <td><span class="csv-link" data-symbol="ZINC+" data-tf="M1">CSV</span></td>
+              <td><span class="csv-link" data-symbol="ZINC+" data-tf="M5">CSV</span></td>
+              <td><span class="csv-link" data-symbol="ZINC+" data-tf="M15">CSV</span></td>
+              <td><span class="csv-link" data-symbol="ZINC+" data-tf="H1">CSV</span></td>
+              <td><span class="csv-link" data-symbol="ZINC+" data-tf="H4">CSV</span></td>
+              <td><span class="csv-link" data-symbol="ZINC+" data-tf="D1">CSV</span></td>
+            </tr>
+            <!-- Pozostałe surowce -->
+            <tr><td>COTTONs+</td>
+              <td><span class="csv-link" data-symbol="COTTONs+" data-tf="M1">CSV</span></td>
+              <td><span class="csv-link" data-symbol="COTTONs+" data-tf="M5">CSV</span></td>
+              <td><span class="csv-link" data-symbol="COTTONs+" data-tf="M15">CSV</span></td>
+              <td><span class="csv-link" data-symbol="COTTONs+" data-tf="H1">CSV</span></td>
+              <td><span class="csv-link" data-symbol="COTTONs+" data-tf="H4">CSV</span></td>
+              <td><span class="csv-link" data-symbol="COTTONs+" data-tf="D1">CSV</span></td>
+            </tr>
+            <tr><td>COCOA+</td>
+              <td><span class="csv-link" data-symbol="COCOA+" data-tf="M1">CSV</span></td>
+              <td><span class="csv-link" data-symbol="COCOA+" data-tf="M5">CSV</span></td>
+              <td><span class="csv-link" data-symbol="COCOA+" data-tf="M15">CSV</span></td>
+              <td><span class="csv-link" data-symbol="COCOA+" data-tf="H1">CSV</span></td>
+              <td><span class="csv-link" data-symbol="COCOA+" data-tf="H4">CSV</span></td>
+              <td><span class="csv-link" data-symbol="COCOA+" data-tf="D1">CSV</span></td>
+            </tr>
+            <tr><td>COFFEE+</td>
+              <td><span class="csv-link" data-symbol="COFFEE+" data-tf="M1">CSV</span></td>
+              <td><span class="csv-link" data-symbol="COFFEE+" data-tf="M5">CSV</span></td>
+              <td><span class="csv-link" data-symbol="COFFEE+" data-tf="M15">CSV</span></td>
+              <td><span class="csv-link" data-symbol="COFFEE+" data-tf="H1">CSV</span></td>
+              <td><span class="csv-link" data-symbol="COFFEE+" data-tf="H4">CSV</span></td>
+              <td><span class="csv-link" data-symbol="COFFEE+" data-tf="D1">CSV</span></td>
+            </tr>
+            <tr><td>CORN+</td>
+              <td><span class="csv-link" data-symbol="CORN+" data-tf="M1">CSV</span></td>
+              <td><span class="csv-link" data-symbol="CORN+" data-tf="M5">CSV</span></td>
+              <td><span class="csv-link" data-symbol="CORN+" data-tf="M15">CSV</span></td>
+              <td><span class="csv-link" data-symbol="CORN+" data-tf="H1">CSV</span></td>
+              <td><span class="csv-link" data-symbol="CORN+" data-tf="H4">CSV</span></td>
+              <td><span class="csv-link" data-symbol="CORN+" data-tf="D1">CSV</span></td>
+            </tr>
+            <tr><td>SOYBEAN+</td>
+              <td><span class="csv-link" data-symbol="SOYBEAN+" data-tf="M1">CSV</span></td>
+              <td><span class="csv-link" data-symbol="SOYBEAN+" data-tf="M5">CSV</span></td>
+              <td><span class="csv-link" data-symbol="SOYBEAN+" data-tf="M15">CSV</span></td>
+              <td><span class="csv-link" data-symbol="SOYBEAN+" data-tf="H1">CSV</span></td>
+              <td><span class="csv-link" data-symbol="SOYBEAN+" data-tf="H4">CSV</span></td>
+              <td><span class="csv-link" data-symbol="SOYBEAN+" data-tf="D1">CSV</span></td>
+            </tr>
+            <tr><td>SUGARs+</td>
+              <td><span class="csv-link" data-symbol="SUGARs+" data-tf="M1">CSV</span></td>
+              <td><span class="csv-link" data-symbol="SUGARs+" data-tf="M5">CSV</span></td>
+              <td><span class="csv-link" data-symbol="SUGARs+" data-tf="M15">CSV</span></td>
+              <td><span class="csv-link" data-symbol="SUGARs+" data-tf="H1">CSV</span></td>
+              <td><span class="csv-link" data-symbol="SUGARs+" data-tf="H4">CSV</span></td>
+              <td><span class="csv-link" data-symbol="SUGARs+" data-tf="D1">CSV</span></td>
+            </tr>
+            <tr><td>WHEAT+</td>
+              <td><span class="csv-link" data-symbol="WHEAT+" data-tf="M1">CSV</span></td>
+              <td><span class="csv-link" data-symbol="WHEAT+" data-tf="M5">CSV</span></td>
+              <td><span class="csv-link" data-symbol="WHEAT+" data-tf="M15">CSV</span></td>
+              <td><span class="csv-link" data-symbol="WHEAT+" data-tf="H1">CSV</span></td>
+              <td><span class="csv-link" data-symbol="WHEAT+" data-tf="H4">CSV</span></td>
+              <td><span class="csv-link" data-symbol="WHEAT+" data-tf="D1">CSV</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- Other -->
+      <section>
+        <h2>Other / Bonds / Misc</h2>
+        <table class="symbol-table">
+          <thead>
+            <tr>
+              <th>Symbol</th>
+              <th>M1</th>
+              <th>M5</th>
+              <th>M15</th>
+              <th>H1</th>
+              <th>H4</th>
+              <th>D1</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>BUND10Y+</td>
+              <td><span class="csv-link" data-symbol="BUND10Y+" data-tf="M1">CSV</span></td>
+              <td><span class="csv-link" data-symbol="BUND10Y+" data-tf="M5">CSV</span></td>
+              <td><span class="csv-link" data-symbol="BUND10Y+" data-tf="M15">CSV</span></td>
+              <td><span class="csv-link" data-symbol="BUND10Y+" data-tf="H1">CSV</span></td>
+              <td><span class="csv-link" data-symbol="BUND10Y+" data-tf="H4">CSV</span></td>
+              <td><span class="csv-link" data-symbol="BUND10Y+" data-tf="D1">CSV</span></td>
+            </tr>
+            <tr><td>SCHATZ2Y+</td>
+              <td><span class="csv-link" data-symbol="SCHATZ2Y+" data-tf="M1">CSV</span></td>
+              <td><span class="csv-link" data-symbol="SCHATZ2Y+" data-tf="M5">CSV</span></td>
+              <td><span class="csv-link" data-symbol="SCHATZ2Y+" data-tf="M15">CSV</span></td>
+              <td><span class="csv-link" data-symbol="SCHATZ2Y+" data-tf="H1">CSV</span></td>
+              <td><span class="csv-link" data-symbol="SCHATZ2Y+" data-tf="H4">CSV</span></td>
+              <td><span class="csv-link" data-symbol="SCHATZ2Y+" data-tf="D1">CSV</span></td>
+            </tr>
+            <tr><td>USDIDX+</td>
+              <td><span class="csv-link" data-symbol="USDIDX+" data-tf="M1">CSV</span></td>
+              <td><span class="csv-link" data-symbol="USDIDX+" data-tf="M5">CSV</span></td>
+              <td><span class="csv-link" data-symbol="USDIDX+" data-tf="M15">CSV</span></td>
+              <td><span class="csv-link" data-symbol="USDIDX+" data-tf="H1">CSV</span></td>
+              <td><span class="csv-link" data-symbol="USDIDX+" data-tf="H4">CSV</span></td>
+              <td><span class="csv-link" data-symbol="USDIDX+" data-tf="D1">CSV</span></td>
+            </tr>
+            <tr><td>VIX+</td>
+              <td><span class="csv-link" data-symbol="VIX+" data-tf="M1">CSV</span></td>
+              <td><span class="csv-link" data-symbol="VIX+" data-tf="M5">CSV</span></td>
+              <td><span class="csv-link" data-symbol="VIX+" data-tf="M15">CSV</span></td>
+              <td><span class="csv-link" data-symbol="VIX+" data-tf="H1">CSV</span></td>
+              <td><span class="csv-link" data-symbol="VIX+" data-tf="H4">CSV</span></td>
+              <td><span class="csv-link" data-symbol="VIX+" data-tf="D1">CSV</span></td>
+            </tr>
+            <tr><td>CZKCASH+</td>
+              <td><span class="csv-link" data-symbol="CZKCASH+" data-tf="M1">CSV</span></td>
+              <td><span class="csv-link" data-symbol="CZKCASH+" data-tf="M5">CSV</span></td>
+              <td><span class="csv-link" data-symbol="CZKCASH+" data-tf="M15">CSV</span></td>
+              <td><span class="csv-link" data-symbol="CZKCASH+" data-tf="H1">CSV</span></td>
+              <td><span class="csv-link" data-symbol="CZKCASH+" data-tf="H4">CSV</span></td>
+              <td><span class="csv-link" data-symbol="CZKCASH+" data-tf="D1">CSV</span></td>
+            </tr>
+            <tr><td>EMISS+</td>
+              <td><span class="csv-link" data-symbol="EMISS+" data-tf="M1">CSV</span></td>
+              <td><span class="csv-link" data-symbol="EMISS+" data-tf="M5">CSV</span></td>
+              <td><span class="csv-link" data-symbol="EMISS+" data-tf="M15">CSV</span></td>
+              <td><span class="csv-link" data-symbol="EMISS+" data-tf="H1">CSV</span></td>
+              <td><span class="csv-link" data-symbol="EMISS+" data-tf="H4">CSV</span></td>
+              <td><span class="csv-link" data-symbol="EMISS+" data-tf="D1">CSV</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </main>
+    <footer>
+      <p>&copy; 2025 AlfaKernel. All rights reserved.</p>
+    </footer>
+  </div>
+  <script>
+    // Pobieranie CSV po kliknięciu
+    document.querySelectorAll('.csv-link').forEach(link => {
+      link.addEventListener('click', async function() {
+        const symbol = encodeURIComponent(this.dataset.symbol);
+        const tf = this.dataset.tf;
+        const filename = `${this.dataset.symbol}_${tf}.csv`;
+        const rawUrl = `https://raw.githubusercontent.com/tomekbiel/MT4_Trading_System/master/data/historical/${symbol}/${tf}/${filename}`;
+        try {
+          const response = await fetch(rawUrl);
+          if (!response.ok) throw new Error("Could not fetch CSV data");
+          const blob = await response.blob();
+          const url = window.URL.createObjectURL(blob);
+          const a = document.createElement('a');
+          a.href = url;
+          a.download = filename;
+          document.body.appendChild(a);
+          a.click();
+          document.body.removeChild(a);
+          window.URL.revokeObjectURL(url);
+        } catch (error) {
+          alert("Error downloading file: " + error.message);
+        }
+      });
+    });
+  </script>
+</body>
+</html>
