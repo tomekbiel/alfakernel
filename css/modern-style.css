@@ -364,6 +364,15 @@ main {
     }
 }
 
+.logo {
+    font-family: 'MonteCarlo', cursive;
+    font-size: 2.2rem;
+    color: #fff;
+    letter-spacing: 2px;
+    text-decoration: none;
+    display: inline-block;
+}
+
 
 
 
