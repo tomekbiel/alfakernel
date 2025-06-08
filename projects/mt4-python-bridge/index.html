@@ -8,63 +8,50 @@
     <script defer src="../../js/index.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=MonteCarlo&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-
 </head>
-
 <body class="projects-bg">
     <div class="container">
 
-        <!-- Nagłówek -->
+        <!-- Header identyczny jak w alfakernel/index.html -->
         <header class="header">
-            <div class="header-left">
-                <div class="initials">TB</div>
+            <div class="header-left initials">
+                <span>TB</span>
             </div>
-
             <div class="header-center">
-                <div class="site-title">
-                    <h1>AlfaKernel</h1>
-                    <p class="subtitle">The Core of Quantitative Finance</p>
+                <a href="../../index.html" class="logo" style="font-family: 'MonteCarlo', cursive; font-size:2.2rem; color:#fff; letter-spacing:2px;">
+                    AlfaKernel
+                </a>
+                <div class="subtitle" style="font-size:1.1rem; color:#fff; font-weight:300; letter-spacing:1px;">
+                    The Core of Quantitative Finance
                 </div>
             </div>
-
             <div class="header-right login-container">
-                <button id="login-btn">🔒 Sign In</button>
-                <div id="login-form" class="login-form hidden">
-                    <input type="email" placeholder="Email" />
-                    <input type="password" placeholder="Password" />
-                    <button>Log In</button>
-                </div>
+                <button id="login-btn" class="login-btn">Log in</button>
+                <div id="login-form" class="login-form hidden"></div>
             </div>
         </header>
 
-        <!-- Menu boczne skupione na MT4 Bridge -->
         <aside class="sidebar">
-            <a href="../../projects.html" class="back-button">
+            <a href="../../projects.html" class="tab back-button">
                 <i class="fas fa-arrow-left"></i> Back to Projects
             </a>
-            
-            <nav class="project-nav">
-                <h3>MT4-Python Bridge</h3>
-                <ul>
-                    <li><a href="#overview" class="active"><i class="fas fa-home"></i> Overview</a></li>
-                    <li><a href="#features"><i class="fas fa-star"></i> Key Features</a></li>
-                    <li><a href="#architecture"><i class="fas fa-project-diagram"></i> Architecture</a></li>
-                    <li><a href="#quick-start"><i class="fas fa-rocket"></i> Quick Start</a></li>
-                    <li><a href="#source-code"><i class="fab fa-github"></i> Source Code</a></li>
-                </ul>
-                
-                <h3>Documentation</h3>
-                <ul>
-                    <li><a href="install-guide.html"><i class="fas fa-download"></i> Installation</a></li>
-                    <li><a href="system.html"><i class="fas fa-code"></i> System Structure</a></li>
-                    <li><a href="market-data.html"><i class="fas fa-database"></i> Market Data</a></li>
-                    <li><a href="analysis.html"><i class="fas fa-chart-line"></i> Sample Analyses</a></li>
-                    <li><a href="legal.html"><i class="fas fa-file-contract"></i> Licenses</a></li>
-                </ul>
-            </nav>
+            <div class="tab" data-tab="install-guide">
+                <a href="install-guide.html"><i class="fas fa-download"></i> Installation</a>
+            </div>
+            <div class="tab" data-tab="system">
+                <a href="system.html"><i class="fas fa-code"></i> System Structure</a>
+            </div>
+            <div class="tab" data-tab="market-data">
+                <a href="market-data.html"><i class="fas fa-database"></i> Market Data</a>
+            </div>
+            <div class="tab" data-tab="analysis">
+                <a href="analysis.html"><i class="fas fa-chart-line"></i> Sample Analyses</a>
+            </div>
+            <div class="tab" data-tab="legal">
+                <a href="legal.html"><i class="fas fa-file-contract"></i> Licenses</a>
+            </div>
         </aside>
 
-        <!-- Główna zawartość z obszerną przestrzenią -->
         <main class="main-content">
             <!-- Sekcja Overview -->
             <section id="overview" class="content-section">
@@ -73,7 +60,6 @@
                     <span class="badge">Active Project</span>
                     <span class="version">v2.1.0</span>
                 </div>
-                
                 <p class="lead">
                     A robust communication bridge between MetaTrader 4 and Python using ZeroMQ, enabling seamless data exchange and algorithmic trading capabilities.
                 </p>
@@ -100,7 +86,6 @@
                         <p>Compatible with popular data science and ML libraries</p>
                     </div>
                 </div>
-                
                 <h4>Advanced Capabilities</h4>
                 <ul>
                     <li>Preparation of datasets for further modeling (e.g. ARIMA, LSTM, ML)</li>
@@ -116,7 +101,6 @@
                     <img src="images/bridge_diagram.png" alt="MT4–Python communication diagram" />
                     <p class="caption">System architecture: MT4–Python Bridge communication model showing data flow between components.</p>
                 </div>
-                
                 <div class="architecture-description">
                     <h4>Key Components:</h4>
                     <ol>
@@ -184,25 +168,9 @@ python mt4_bridge.py</code></pre>
                         <span><i class="fas fa-code"></i> Python 3.8+</span>
                     </p>
                 </div>
-                
-                <div class="explore-more">
-                    <h4>Explore Documentation:</h4>
-                    <div class="doc-links">
-                        <a href="system.html" class="doc-link">
-                            <i class="fas fa-code"></i> Python System Structure
-                        </a>
-                        <a href="market-data.html" class="doc-link">
-                            <i class="fas fa-database"></i> Market Data – CSV
-                        </a>
-                        <a href="analysis.html" class="doc-link">
-                            <i class="fas fa-chart-line"></i> Sample Analyses
-                        </a>
-                    </div>
-                </div>
             </section>
         </main>
 
-        <!-- Stopka -->
         <footer class="footer full-width">
             <div class="footer-links">
                 <a href="mailto:tomekbiel.office@gmail.com">tomekbiel.office@gmail.com</a>
