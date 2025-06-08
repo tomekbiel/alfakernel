@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>MT4–Python Bridge | AlfaKernel</title>
     <link rel="stylesheet" href="../../css/modern-style.css">
-    <script defer src="../../js/index.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=MonteCarlo&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <script defer src="../../js/index.js"></script>
 </head>
 <body class="projects-bg">
     <div class="container">
@@ -18,15 +18,11 @@
                 <span>TB</span>
             </div>
             <div class="header-center">
-                <a href="../../index.html" class="logo" style="font-family: 'MonteCarlo', cursive; font-size:2.2rem; color:#fff; letter-spacing:2px;">
-                    AlfaKernel
-                </a>
-                <div class="subtitle" style="font-size:1.1rem; color:#fff; font-weight:300; letter-spacing:1px;">
-                    The Core of Quantitative Finance
-                </div>
+                <a href="../../index.html" class="logo">AlfaKernel</a>
+                <div class="subtitle">The Core of Quantitative Finance</div>
             </div>
             <div class="header-right login-container">
-                <button id="login-btn" class="login-btn">Log in</button>
+                <button id="login-btn" class="login-btn">Sign in</button>
                 <div id="login-form" class="login-form hidden"></div>
             </div>
         </header>
@@ -35,26 +31,29 @@
             <a href="../../projects.html" class="tab back-button">
                 <i class="fas fa-arrow-left"></i> Back to Projects
             </a>
+            <div class="tab" data-tab="overview">
+                <i class="fas fa-home"></i> MT4–Python Bridge
+            </div>
             <div class="tab" data-tab="install-guide">
-                <a href="install-guide.html"><i class="fas fa-download"></i> Installation</a>
+                <i class="fas fa-download"></i> Installation
             </div>
             <div class="tab" data-tab="system">
-                <a href="system.html"><i class="fas fa-code"></i> System Structure</a>
+                <i class="fas fa-code"></i> System Structure
             </div>
             <div class="tab" data-tab="market-data">
-                <a href="market-data.html"><i class="fas fa-database"></i> Market Data</a>
+                <i class="fas fa-database"></i> Market Data
             </div>
             <div class="tab" data-tab="analysis">
-                <a href="analysis.html"><i class="fas fa-chart-line"></i> Sample Analyses</a>
+                <i class="fas fa-chart-line"></i> Sample Analyses
             </div>
             <div class="tab" data-tab="legal">
-                <a href="legal.html"><i class="fas fa-file-contract"></i> Licenses</a>
+                <i class="fas fa-file-contract"></i> Licenses
             </div>
         </aside>
 
         <main class="main-content">
-            <!-- Sekcja Overview -->
-            <section id="overview" class="content-section">
+            <!-- MT4–Python Bridge Overview -->
+            <section id="overview" class="tab-content active">
                 <h2>MT4–Python Bridge</h2>
                 <div class="project-meta">
                     <span class="badge">Active Project</span>
@@ -63,111 +62,145 @@
                 <p class="lead">
                     A robust communication bridge between MetaTrader 4 and Python using ZeroMQ, enabling seamless data exchange and algorithmic trading capabilities.
                 </p>
-            </section>
-
-            <!-- Sekcja Features -->
-            <section id="features" class="content-section">
-                <h3>Key Features</h3>
-                <div class="features-grid">
-                    <div class="feature-card">
-                        <h4><i class="fas fa-exchange-alt"></i> Real-time Data</h4>
-                        <p>Stream live market data directly from MT4 to Python for analysis</p>
-                    </div>
-                    <div class="feature-card">
-                        <h4><i class="fas fa-history"></i> Historical Data</h4>
-                        <p>Download and manage historical price data in various timeframes</p>
-                    </div>
-                    <div class="feature-card">
-                        <h4><i class="fas fa-robot"></i> Automated Trading</h4>
-                        <p>Execute trades directly from Python scripts</p>
-                    </div>
-                    <div class="feature-card">
-                        <h4><i class="fas fa-cogs"></i> Integration</h4>
-                        <p>Compatible with popular data science and ML libraries</p>
-                    </div>
-                </div>
-                <h4>Advanced Capabilities</h4>
-                <ul>
-                    <li>Preparation of datasets for further modeling (e.g. ARIMA, LSTM, ML)</li>
-                    <li>Building complete trading or analysis systems</li>
-                    <li>Customizable data pipelines for specific research needs</li>
-                </ul>
-            </section>
-
-            <!-- Sekcja Architecture -->
-            <section id="architecture" class="content-section">
-                <h3>System Architecture</h3>
-                <div class="architecture-diagram">
-                    <img src="images/bridge_diagram.png" alt="MT4–Python communication diagram" />
-                    <p class="caption">System architecture: MT4–Python Bridge communication model showing data flow between components.</p>
-                </div>
-                <div class="architecture-description">
-                    <h4>Key Components:</h4>
-                    <ol>
-                        <li><strong>MT4 Client</strong> - Runs expert advisor to collect market data</li>
-                        <li><strong>ZeroMQ Bridge</strong> - Handles high-speed communication</li>
-                        <li><strong>Python Server</strong> - Processes incoming data streams</li>
-                        <li><strong>Data Storage</strong> - CSV files for historical analysis</li>
-                        <li><strong>Analysis Tools</strong> - Jupyter notebooks for research</li>
-                    </ol>
-                </div>
-            </section>
-
-            <!-- Sekcja Quick Start -->
-            <section id="quick-start" class="content-section">
-                <h3>Quick Start Guide</h3>
-                <div class="steps">
-                    <div class="step">
-                        <div class="step-number">1</div>
-                        <div class="step-content">
-                            <h4>Install MetaTrader 4</h4>
-                            <p>Prepare the environment using the <a href="install-guide.html">installation guide</a></p>
+                <section id="features" class="content-section">
+                    <h3>Key Features</h3>
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <h4><i class="fas fa-exchange-alt"></i> Real-time Data</h4>
+                            <p>Stream live market data directly from MT4 to Python for analysis</p>
+                        </div>
+                        <div class="feature-card">
+                            <h4><i class="fas fa-history"></i> Historical Data</h4>
+                            <p>Download and manage historical price data in various timeframes</p>
+                        </div>
+                        <div class="feature-card">
+                            <h4><i class="fas fa-robot"></i> Automated Trading</h4>
+                            <p>Execute trades directly from Python scripts</p>
+                        </div>
+                        <div class="feature-card">
+                            <h4><i class="fas fa-cogs"></i> Integration</h4>
+                            <p>Compatible with popular data science and ML libraries</p>
                         </div>
                     </div>
-                    <div class="step">
-                        <div class="step-number">2</div>
-                        <div class="step-content">
-                            <h4>Launch DWX Server</h4>
-                            <p>Download and run <code>dwx_server_alfa</code> on the MT4 side</p>
-                        </div>
+                    <h4>Advanced Capabilities</h4>
+                    <ul>
+                        <li>Preparation of datasets for further modeling (e.g. ARIMA, LSTM, ML)</li>
+                        <li>Building complete trading or analysis systems</li>
+                        <li>Customizable data pipelines for specific research needs</li>
+                    </ul>
+                </section>
+                <section id="architecture" class="content-section">
+                    <h3>System Architecture</h3>
+                    <div class="architecture-diagram">
+                        <img src="images/bridge_diagram.png" alt="MT4–Python communication diagram" />
+                        <p class="caption">System architecture: MT4–Python Bridge communication model showing data flow between components.</p>
                     </div>
-                    <div class="step">
-                        <div class="step-number">3</div>
-                        <div class="step-content">
-                            <h4>Python Setup</h4>
-                            <p>Configure Python environment and run bridge scripts</p>
-                            <div class="code-block">
-                                <pre><code>pip install -r requirements.txt
+                    <div class="architecture-description">
+                        <h4>Key Components:</h4>
+                        <ol>
+                            <li><strong>MT4 Client</strong> - Runs expert advisor to collect market data</li>
+                            <li><strong>ZeroMQ Bridge</strong> - Handles high-speed communication</li>
+                            <li><strong>Python Server</strong> - Processes incoming data streams</li>
+                            <li><strong>Data Storage</strong> - CSV files for historical analysis</li>
+                            <li><strong>Analysis Tools</strong> - Jupyter notebooks for research</li>
+                        </ol>
+                    </div>
+                </section>
+                <section id="quick-start" class="content-section">
+                    <h3>Quick Start Guide</h3>
+                    <div class="steps">
+                        <div class="step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h4>Install MetaTrader 4</h4>
+                                <p>Prepare the environment using the <span class="tab-link" data-tab="install-guide" style="color:var(--accent);cursor:pointer;">installation guide</span></p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h4>Launch DWX Server</h4>
+                                <p>Download and run <code>dwx_server_alfa</code> on the MT4 side</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h4>Python Setup</h4>
+                                <p>Configure Python environment and run bridge scripts</p>
+                                <div class="code-block">
+                                    <pre><code>pip install -r requirements.txt
 python mt4_bridge.py</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">4</div>
+                            <div class="step-content">
+                                <h4>Access Data</h4>
+                                <p>Go to <span class="tab-link" data-tab="market-data" style="color:var(--accent);cursor:pointer;">Market Data</span> to fetch or browse datasets</p>
                             </div>
                         </div>
                     </div>
-                    <div class="step">
-                        <div class="step-number">4</div>
-                        <div class="step-content">
-                            <h4>Access Data</h4>
-                            <p>Go to <a href="market-data.html">Market Data</a> to fetch or browse datasets</p>
-                        </div>
+                </section>
+                <section id="source-code" class="content-section">
+                    <h3>Source Code</h3>
+                    <p>
+                        All components of the Python–MT4 bridge, including communication classes, data fetching, file handlers, and analysis tools are publicly available on GitHub:
+                    </p>
+                    <div class="github-repo">
+                        <a href="https://github.com/tomekbiel/MT4_Trading_System" target="_blank" class="github-button">
+                            <i class="fab fa-github"></i> View on GitHub
+                        </a>
+                        <p class="repo-stats">
+                            <span><i class="fas fa-code-branch"></i> main branch</span>
+                            <span><i class="fas fa-star"></i> 42 stars</span>
+                            <span><i class="fas fa-code"></i> Python 3.8+</span>
+                        </p>
                     </div>
-                </div>
+                </section>
             </section>
 
-            <!-- Sekcja Source Code -->
-            <section id="source-code" class="content-section">
-                <h3>Source Code</h3>
-                <p>
-                    All components of the Python–MT4 bridge, including communication classes, data fetching, file handlers, and analysis tools are publicly available on GitHub:
-                </p>
-                <div class="github-repo">
-                    <a href="https://github.com/tomekbiel/MT4_Trading_System" target="_blank" class="github-button">
-                        <i class="fab fa-github"></i> View on GitHub
-                    </a>
-                    <p class="repo-stats">
-                        <span><i class="fas fa-code-branch"></i> main branch</span>
-                        <span><i class="fas fa-star"></i> 42 stars</span>
-                        <span><i class="fas fa-code"></i> Python 3.8+</span>
-                    </p>
-                </div>
+            <!-- Installation Tab -->
+            <section id="install-guide" class="tab-content">
+                <h2>Installation</h2>
+                <!-- Tutaj wklej zawartość z install-guide.html -->
+                <p><strong>Step 1:</strong> Download the latest release from GitHub.</p>
+                <p><strong>Step 2:</strong> Unpack and copy the files to your MT4 directory.</p>
+                <p><strong>Step 3:</strong> Follow the configuration instructions in the README.</p>
+                <!-- Dodaj więcej szczegółów według potrzeb -->
+            </section>
+
+            <!-- System Structure Tab -->
+            <section id="system" class="tab-content">
+                <h2>System Structure</h2>
+                <!-- Tutaj wklej zawartość z system.html -->
+                <p>Diagram and description of the Python and MT4 components, communication flow, and file structure.</p>
+                <!-- Dodaj szczegóły według potrzeb -->
+            </section>
+
+            <!-- Market Data Tab -->
+            <section id="market-data" class="tab-content">
+                <h2>Market Data</h2>
+                <!-- Tutaj wklej zawartość z market-data.html -->
+                <p>Browse and download historical and live market data collected via the bridge.</p>
+                <!-- Dodaj szczegóły według potrzeb -->
+            </section>
+
+            <!-- Sample Analyses Tab -->
+            <section id="analysis" class="tab-content">
+                <h2>Sample Analyses</h2>
+                <!-- Tutaj wklej zawartość z analysis.html -->
+                <p>Examples of quantitative research, trading strategies, and data visualizations using the exported datasets.</p>
+                <!-- Dodaj szczegóły według potrzeb -->
+            </section>
+
+            <!-- Licenses Tab -->
+            <section id="legal" class="tab-content">
+                <h2>Licenses</h2>
+                <!-- Tutaj wklej zawartość z legal.html -->
+                <p>All code and documentation are released under the MIT License unless otherwise stated.</p>
+                <!-- Dodaj szczegóły według potrzeb -->
             </section>
         </main>
 
@@ -183,5 +216,35 @@ python mt4_bridge.py</code></pre>
             </div>
         </footer>
     </div>
+    <script>
+        // Tab switching logic
+        document.addEventListener('DOMContentLoaded', function () {
+            const tabs = document.querySelectorAll('.sidebar .tab');
+            const contents = document.querySelectorAll('.tab-content');
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    tabs.forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                    const tabName = this.getAttribute('data-tab');
+                    contents.forEach(c => c.classList.remove('active'));
+                    document.getElementById(tabName).classList.add('active');
+                });
+            });
+            // Set default tab
+            document.querySelector('.sidebar .tab[data-tab="overview"]').classList.add('active');
+            document.getElementById('overview').classList.add('active');
+            // Obsługa kliknięć w linki w treści, które mają przełączać zakładki
+            document.querySelectorAll('.tab-link').forEach(function (el) {
+                el.addEventListener('click', function () {
+                    const tab = this.getAttribute('data-tab');
+                    tabs.forEach(t => t.classList.remove('active'));
+                    document.querySelector('.sidebar .tab[data-tab="' + tab + '"]').classList.add('active');
+                    contents.forEach(c => c.classList.remove('active'));
+                    document.getElementById(tab).classList.add('active');
+                });
+            });
+        });
+    </script>
 </body>
 </html>
