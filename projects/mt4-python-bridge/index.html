@@ -164,19 +164,33 @@ python mt4_bridge.py</code></pre>
             <!-- Installation Tab -->
             <section id="install-guide" class="tab-content">
                 <h2>Installation</h2>
-                <!-- Tutaj wklej zawartość z install-guide.html -->
-                <p><strong>Step 1:</strong> Download the latest release from GitHub.</p>
-                <p><strong>Step 2:</strong> Unpack and copy the files to your MT4 directory.</p>
-                <p><strong>Step 3:</strong> Follow the configuration instructions in the README.</p>
-                <!-- Dodaj więcej szczegółów według potrzeb -->
+                <!-- ZAWARTOŚĆ install-guide.html -->
+                <ol class="install-steps">
+                    <li><strong>Download:</strong> Get the latest release from <a href="https://github.com/tomekbiel/MT4_Trading_System" target="_blank">GitHub</a>.</li>
+                    <li><strong>MT4 Setup:</strong> Copy <code>dwx_server_alfa.mq4</code> to your MetaTrader 4 <code>MQL4/Experts</code> folder and compile.</li>
+                    <li><strong>Python Setup:</strong> Install requirements:
+                        <pre><code>pip install -r requirements.txt</code></pre>
+                    </li>
+                    <li><strong>Run Bridge:</strong> Start <code>dwx_server_alfa</code> in MT4 and run <code>mt4_bridge.py</code> in Python.</li>
+                    <li><strong>Configuration:</strong> Adjust <code>config.py</code> and MT4 expert settings as needed.</li>
+                </ol>
+                <p>For detailed instructions, see the README on GitHub.</p>
             </section>
 
             <!-- System Structure Tab -->
             <section id="system" class="tab-content">
                 <h2>System Structure</h2>
-                <!-- Tutaj wklej zawartość z system.html -->
-                <p>Diagram and description of the Python and MT4 components, communication flow, and file structure.</p>
-                <!-- Dodaj szczegóły według potrzeb -->
+                <!-- ZAWARTOŚĆ system.html -->
+                <div class="system-structure">
+                    <img src="images/bridge_diagram.png" alt="System Structure Diagram" style="max-width: 100%; margin-bottom: 1em;">
+                    <ul>
+                        <li><strong>MT4 Expert Advisor</strong> – collects and sends market data/events via ZeroMQ</li>
+                        <li><strong>ZeroMQ Bridge</strong> – fast, asynchronous message transport</li>
+                        <li><strong>Python Scripts</strong> – receive, process, and store data (CSV, DB, etc.)</li>
+                        <li><strong>Analysis/ML Layer</strong> – Jupyter notebooks, scripts, or apps for research and automation</li>
+                    </ul>
+                    <p>All communication is event-driven and can be extended for custom workflows.</p>
+                </div>
             </section>
 
             <!-- Market Data Tab -->
@@ -198,9 +212,26 @@ python mt4_bridge.py</code></pre>
             <!-- Licenses Tab -->
             <section id="legal" class="tab-content">
                 <h2>Licenses</h2>
-                <!-- Tutaj wklej zawartość z legal.html -->
-                <p>All code and documentation are released under the MIT License unless otherwise stated.</p>
-                <!-- Dodaj szczegóły według potrzeb -->
+                <!-- ZAWARTOŚĆ legal.html -->
+                <p>
+                    This project is licensed under the MIT License.<br>
+                    <a href="https://opensource.org/licenses/MIT" target="_blank">View MIT License</a>
+                </p>
+                <pre style="font-size: 0.95em; background: #222; color: #eee; padding: 1em; border-radius: 6px;">
+MIT License
+
+Copyright (c) 2023 Tomasz Biel
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+[... pełna treść licencji MIT ...]
+                </pre>
+                <p>Some third-party components may be licensed separately. See the repository for details.</p>
             </section>
         </main>
 
