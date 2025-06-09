@@ -373,6 +373,54 @@ main {
     display: inline-block;
 }
 
+.tools-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 28px;
+    margin: 32px 0 0 0;
+}
+.tool-card {
+    background: var(--bg-section, #232b36);
+    border-radius: 16px;
+    box-shadow: 0 2px 12px #0002;
+    padding: 28px 24px 22px 24px;
+    min-width: 220px;
+    max-width: 320px;
+    flex: 1 1 220px;
+    text-align: center;
+    color: #fff;
+    text-decoration: none;
+    transition: box-shadow 0.2s, transform 0.2s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.tool-card:hover, .tool-card:focus {
+    box-shadow: 0 6px 24px #0004;
+    transform: translateY(-4px) scale(1.03);
+    text-decoration: none;
+}
+.tool-icon {
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    margin-bottom: 18px;
+    color: #fff;
+}
+.tool-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+.tool-desc {
+    font-size: 1rem;
+    color: #cfd8dc;
+}
+
 
 
 
