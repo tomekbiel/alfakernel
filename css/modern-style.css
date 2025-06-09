@@ -373,33 +373,38 @@ main {
     display: inline-block;
 }
 
+/* Karty narzędzi w stylu Integration Tools z projects.html */
 .tools-grid {
     display: flex;
     flex-wrap: wrap;
-    gap: 28px;
-    margin: 32px 0 0 0;
+    gap: 2em;
+    margin: 2em 0;
 }
+
 .tool-card {
-    background: var(--bg-section, #232b36);
-    border-radius: 16px;
-    box-shadow: 0 2px 12px #0002;
-    padding: 28px 24px 22px 24px;
-    min-width: 220px;
-    max-width: 320px;
-    flex: 1 1 220px;
+    background: #f7f8fa;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px #0001;
+    padding: 2em;
+    min-width: 260px;
+    max-width: 340px;
+    flex: 1 1 320px;
     text-align: center;
-    color: #fff;
+    color: #222;
     text-decoration: none;
     transition: box-shadow 0.2s, transform 0.2s;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: flex-start;
 }
+
 .tool-card:hover, .tool-card:focus {
-    box-shadow: 0 6px 24px #0004;
+    box-shadow: 0 6px 24px #0002;
     transform: translateY(-4px) scale(1.03);
     text-decoration: none;
 }
+
 .tool-icon {
     width: 54px;
     height: 54px;
@@ -411,14 +416,29 @@ main {
     margin-bottom: 18px;
     color: #fff;
 }
+
 .tool-title {
     font-size: 1.25rem;
-    font-weight: 600;
+    font-weight: 700;
     margin-bottom: 8px;
+    color: #222;
 }
+
 .tool-desc {
     font-size: 1rem;
-    color: #cfd8dc;
+    color: #444;
+}
+
+/* Kolory ikon dla różnych narzędzi */
+.tool-icon.r {
+    background: #4e79a7;
+}
+.tool-icon.shiny {
+    background: #59a14f;
+}
+.tool-icon.python {
+    background: #f7c873;
+    color: #306998; /* python blue */
 }
 
 

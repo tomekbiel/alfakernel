@@ -5,24 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>System Overview | MT4–Python Bridge</title>
   <link rel="stylesheet" href="../../css/modern-style.css" />
-  <style>
-    .code-preview {
-      display: none;
-      white-space: pre-wrap;
-      background: #1e1e1e;
-      color: #d4d4d4;
-      padding: 1rem;
-      border-radius: 0.5rem;
-      margin-top: 1rem;
-      overflow-x: auto;
-      font-family: monospace;
-      font-size: 0.9rem;
-      max-height: 600px;
-    }
-    .file-button {
-      margin-bottom: 0.5rem;
-    }
-  </style>
+  
 </head>
 <body>
   <header>
@@ -38,61 +21,77 @@
   </header>
 
   <main>
-    <section>
-      <h2>Architecture</h2>
+    <section class="desc-section">
+      <h2>How the MT4–Python Bridge Works</h2>
       <p>
-        The bridge connects <strong>MetaTrader 4</strong> (via a custom Expert Advisor using ZeroMQ) to a 
-        <strong>Python backend</strong> that handles data retrieval, analysis, and automation.
+        The MT4–Python Bridge enables robust, real-time communication between MetaTrader 4 (MT4) and Python. 
+        The system is built around a modular architecture using ZeroMQ sockets for fast, asynchronous messaging.
       </p>
       <ul>
-        <li>📡 <strong>MT4 Expert</strong> listens on ports 5555–5557 (REQ/REP, PUSH/PULL, PUB/SUB)</li>
-        <li>🐍 <strong>Python</strong> includes modular handlers for:
-          <ul>
-            <li><code>base_connector.py</code> – Core messaging logic</li>
-            <li><code>market_data_handler.py</code> – Live data via SUB</li>
-            <li><code>historical_data_handler.py</code> – History fetch via COMMAND</li>
-            <li><code>trade_handler.py</code> – Send trade commands</li>
-          </ul>
+        <li>
+          <strong>MT4 Side:</strong> A custom Expert Advisor (EA) written in MQL4 sends and receives data/events via ZeroMQ sockets.
         </li>
-        <li>📂 <strong>Scripts</strong> automate common tasks like:
+        <li>
+          <strong>Python Side:</strong> The <code>mt4_connector</code> package contains core classes for messaging, data handling, and trading commands.
+        </li>
+        <li>
+          <strong>Inheritance & Modularity:</strong> All handlers (market data, trading, historical) inherit from <code>BaseConnector</code>, which manages the ZeroMQ connection and message parsing.
+        </li>
+        <li>
+          <strong>Entry Point:</strong> Scripts in <code>scripts/</code> (e.g. <code>run_mt4.py</code>, <code>fetch_single.py</code>) instantiate and use these handlers for specific tasks.
+        </li>
+        <li>
+          <strong>Data Flow:</strong> 
           <ul>
-            <li><code>fetch_single.py</code> – Download historical data</li>
-            <li><code>run_mt4.py</code> – Test connector and strategy interface</li>
+            <li>Market data is streamed live via PUB/SUB sockets.</li>
+            <li>Historical data is fetched on demand via COMMAND/RESPONSE.</li>
+            <li>Trade commands are sent from Python to MT4 via PUSH/REP.</li>
           </ul>
         </li>
       </ul>
-      <img src="images/bridge_diagram.png" alt="Bridge Architecture Diagram" style="width:100%; max-width:600px; margin-top:1rem;" />
+      <p>
+        <strong>Common issues:</strong> Connection problems may occur due to port conflicts, firewall settings, or mismatched ZeroMQ versions. 
+        Always check logs and ensure both MT4 and Python are running compatible bridge scripts.
+      </p>
     </section>
 
     <section>
-      <h2>Code Preview</h2>
-      <p>Click to load and preview Python modules directly from GitHub:</p>
-
-      <div class="file-button">
-        <button onclick="loadCode('base_connector', 'mt4_connector/base_connector.py')">
-          📄 base_connector.py
-        </button>
+      <h2>Python Module Preview</h2>
+      <p>Click a file below to load and preview its code directly from the GitHub repository:</p>
+      <div class="file-list">
+        <div class="file-button">
+          <button onclick="loadCode('init_py', 'mt4_connector/__init__.py')">📄 mt4_connector/__init__.py</button>
+        </div>
+        <div class="file-button">
+          <button onclick="loadCode('base_connector', 'mt4_connector/base_connector.py')">📄 mt4_connector/base_connector.py</button>
+        </div>
+        <div class="file-button">
+          <button onclick="loadCode('command_sender', 'mt4_connector/command_sender.py')">📄 mt4_connector/command_sender.py</button>
+        </div>
+        <div class="file-button">
+          <button onclick="loadCode('market_data_handler', 'mt4_connector/market_data_handler.py')">📄 mt4_connector/market_data_handler.py</button>
+        </div>
+        <div class="file-button">
+          <button onclick="loadCode('trade_defaults', 'mt4_connector/trade_defaults.py')">📄 mt4_connector/trade_defaults.py</button>
+        </div>
+        <div class="file-button">
+          <button onclick="loadCode('fetch_single', 'scripts/historical/fetch_single.py')">📄 scripts/historical/fetch_single.py</button>
+        </div>
+        <div class="file-button">
+          <button onclick="loadCode('fetch_launcher', 'scripts/historical/fetch_launcher.py')">📄 scripts/historical/fetch_launcher.py</button>
+        </div>
+        <div class="file-button">
+          <button onclick="loadCode('run_mt4', 'scripts/run_mt4.py')">📄 scripts/run_mt4.py</button>
+        </div>
       </div>
-      <div class="file-button">
-        <button onclick="loadCode('market_data_handler', 'mt4_connector/market_data_handler.py')">
-          📄 market_data_handler.py
-        </button>
-      </div>
-      <div class="file-button">
-        <button onclick="loadCode('fetch_single', 'scripts/fetch_single.py')">
-          📄 fetch_single.py
-        </button>
-      </div>
-      <div class="file-button">
-        <button onclick="loadCode('run_mt4', 'run_mt4.py')">
-          📄 run_mt4.py
-        </button>
-      </div>
-
       <div id="code_container">
+        <div id="init_py" class="code-preview"></div>
         <div id="base_connector" class="code-preview"></div>
+        <div id="command_sender" class="code-preview"></div>
         <div id="market_data_handler" class="code-preview"></div>
+        <div id="trade_defaults" class="code-preview"></div>
         <div id="fetch_single" class="code-preview"></div>
+        <div id="fetch_launcher" class="code-preview"></div>
         <div id="run_mt4" class="code-preview"></div>
       </div>
     </section>
@@ -105,6 +104,11 @@
   <script>
     function loadCode(id, path) {
       const container = document.getElementById(id);
+      // Hide all other previews
+      document.querySelectorAll('.code-preview').forEach(div => {
+        if (div !== container) div.style.display = 'none';
+      });
+      // Toggle or load the selected file
       if (container.innerText.trim() !== '') {
         container.style.display = container.style.display === 'none' ? 'block' : 'none';
         return;
