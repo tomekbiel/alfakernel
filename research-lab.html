@@ -38,9 +38,23 @@
 
         <!-- Menu boczne -->
         <aside class="sidebar">
-            <a href="index.html" class="tab" data-tab="home">Home</a>
-            <div class="tab" data-tab="ongoing-research">Ongoing Research</div>
-            <div class="tab" data-tab="r-python-synergy">R & Python Synergy</div>
+            <div class="tab" data-tab="home">
+                <a href="index.html" style="display:flex;align-items:center;color:inherit;text-decoration:none;">
+                    <i class="fas fa-home"></i> <span style="margin-left:8px;">Home</span>
+                </a>
+            </div>
+            <div class="tab" data-tab="r-data-analysis">
+                <i class="fas fa-chart-bar"></i> R data analysis
+            </div>
+            <div class="tab" data-tab="python-data-analysis">
+                <i class="fab fa-python"></i> Python data analysis
+            </div>
+            <div class="tab" data-tab="r-python-synergy">
+                <i class="fas fa-project-diagram"></i> R & Python Synergy
+            </div>
+            <div class="tab" data-tab="ongoing-research">
+                <i class="fas fa-flask"></i> Ongoing Research
+            </div>
             <div class="tab" data-tab="big-data">Big Data Systems</div>
             <div class="tab" data-tab="innovation">Innovation Roadmap</div>
         </aside>
@@ -53,15 +67,18 @@
                 <p>A place for advanced market research, machine learning, and data science experiments.</p>
             </section>
 
-            <!-- Sekcja Ongoing Research -->
-            <section id="ongoing-research" class="tab-content">
-                <h3>Ongoing Research</h3>
-                <p>Exploring financial time series forecasting using ARIMA, GARCH, Prophet, and XGBoost models. Research on market anomalies, volatility clustering, and predictive analytics.</p>
-                <div class="section-footer">
-                    <a href="ongoing-research.html" class="nav-link">
-                        View Details <i class="fa-solid fa-arrow-right"></i>
-                    </a>
-                </div>
+            <!-- Sekcja R data analysis -->
+            <section id="r-data-analysis" class="tab-content">
+                <h2>R data analysis</h2>
+                <p>Here you will find interactive R Shiny apps and data analysis projects created in R.</p>
+                <!-- Możesz dodać linki, opisy lub iframe z aplikacjami Shiny -->
+            </section>
+
+            <!-- Sekcja Python data analysis -->
+            <section id="python-data-analysis" class="tab-content">
+                <h2>Python data analysis</h2>
+                <p>Here you will find interactive Python dashboards and data analysis projects created in Python (e.g. Dash, Streamlit, Jupyter).</p>
+                <!-- Możesz dodać linki, opisy lub iframe z aplikacjami Python -->
             </section>
 
             <!-- Sekcja R & Python Synergy -->
@@ -70,6 +87,17 @@
                 <p>Integration of R and Python scripts for more powerful analyses, using Shiny apps, Jupyter notebooks, and cloud environments (Colab, AWS).</p>
                 <div class="section-footer">
                     <a href="r-python-synergy.html" class="nav-link">
+                        View Details <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+            </section>
+
+            <!-- Sekcja Ongoing Research -->
+            <section id="ongoing-research" class="tab-content">
+                <h3>Ongoing Research</h3>
+                <p>Exploring financial time series forecasting using ARIMA, GARCH, Prophet, and XGBoost models. Research on market anomalies, volatility clustering, and predictive analytics.</p>
+                <div class="section-footer">
+                    <a href="ongoing-research.html" class="nav-link">
                         View Details <i class="fa-solid fa-arrow-right"></i>
                     </a>
                 </div>
