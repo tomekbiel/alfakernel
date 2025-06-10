@@ -35,7 +35,42 @@
 
         <!-- Sidebar -->
         <aside class="sidebar">
-            <!-- Tutaj wkleję listę 12 pozycji po Twojej wiadomości -->
+            <div class="tab" data-tab="anova">
+                Analysis of Variance (ANOVA)
+            </div>
+            <div class="tab" data-tab="multiple-regression">
+                Multiple Regression
+            </div>
+            <div class="tab" data-tab="nonparametric-regression">
+                Nonparametric Regression Methods
+            </div>
+            <div class="tab" data-tab="discriminant-analysis">
+                Discriminant Analysis
+            </div>
+            <div class="tab" data-tab="cart-basic">
+                Classification and Regression Trees (CART - Basic)
+            </div>
+            <div class="tab" data-tab="cart-multimodel">
+                CART - Multi-Model Approach
+            </div>
+            <div class="tab" data-tab="conjoint-analysis">
+                Conjoint Analysis
+            </div>
+            <div class="tab" data-tab="factor-analysis">
+                Factor Analysis (FA)
+            </div>
+            <div class="tab" data-tab="mds">
+                Multidimensional Scaling (MDS)
+            </div>
+            <div class="tab" data-tab="correspondence-analysis">
+                Correspondence Analysis (CA)
+            </div>
+            <div class="tab" data-tab="clustering">
+                Cluster Analysis (Clustering)
+            </div>
+            <div class="tab" data-tab="clustering-model">
+                Cluster Analysis - Model-Based Approach
+            </div>
         </aside>
 
         <!-- Main content -->
@@ -43,10 +78,58 @@
             <section id="default-content" class="tab-content active">
                 <h2>R Data Analysis</h2>
                 <p>
-                    This section will contain a collection of R scripts, reports, and interactive analyses.<br>
+                    This section contains a collection of R scripts, reports, and interactive analyses.<br>
                     Select a topic from the sidebar to view details.
                 </p>
-                <!-- Tutaj będą pojawiać się kolejne analizy -->
+            </section>
+
+            <section id="anova" class="tab-content">
+                <h3>Analysis of Variance (ANOVA)</h3>
+                <p>Testing the significance of differences between means in two or more groups. Examines if a grouping variable affects an outcome variable.</p>
+            </section>
+            <section id="multiple-regression" class="tab-content">
+                <h3>Multiple Regression</h3>
+                <p>Modeling the relationship between one dependent (outcome) variable and two or more independent (explanatory) variables. Prediction and assessment of predictor influence strength.</p>
+            </section>
+            <section id="nonparametric-regression" class="tab-content">
+                <h3>Nonparametric Regression Methods</h3>
+                <p>Regression techniques that do not require the assumption of normally distributed data. Robust to violations of classical regression assumptions.</p>
+            </section>
+            <section id="discriminant-analysis" class="tab-content">
+                <h3>Discriminant Analysis</h3>
+                <p>Classifying observations into predefined groups based on multiple explanatory variables. Finding combinations of variables that best separate the groups.</p>
+            </section>
+            <section id="cart-basic" class="tab-content">
+                <h3>Classification and Regression Trees (CART - Basic)</h3>
+                <p>Building interpretable tree-based models for prediction (classification or regression) through recursive partitioning of data.</p>
+            </section>
+            <section id="cart-multimodel" class="tab-content">
+                <h3>Classification and Regression Trees - Multi-Model Approach</h3>
+                <p>Ensembles of trees (e.g., Random Forests, Boosting) that improve prediction accuracy and stability compared to a single tree.</p>
+            </section>
+            <section id="conjoint-analysis" class="tab-content">
+                <h3>Conjoint Analysis</h3>
+                <p>Studying consumer preferences. Estimating the relative importance (utility) people assign to different attributes of a product/service based on their stated choices.</p>
+            </section>
+            <section id="factor-analysis" class="tab-content">
+                <h3>Factor Analysis (FA)</h3>
+                <p>Data dimensionality reduction. Identifying underlying, unobservable "factors" that explain correlations among many observed variables.</p>
+            </section>
+            <section id="mds" class="tab-content">
+                <h3>Multidimensional Scaling (MDS)</h3>
+                <p>Visualization of similarity or dissimilarity between objects in a lower-dimensional space (usually 2D or 3D).</p>
+            </section>
+            <section id="correspondence-analysis" class="tab-content">
+                <h3>Correspondence Analysis (CA)</h3>
+                <p>Visualization and exploration of associations between categorical variables in a two-way contingency table. Analogous to PCA for qualitative data.</p>
+            </section>
+            <section id="clustering" class="tab-content">
+                <h3>Cluster Analysis (Clustering)</h3>
+                <p>Discovering natural groups ("clusters") within data based on similarity between observations. No prior group labels are known.</p>
+            </section>
+            <section id="clustering-model" class="tab-content">
+                <h3>Cluster Analysis - Model-Based Approach</h3>
+                <p>Clustering methods based on statistical distributional assumptions of the data (e.g., Gaussian Mixture Models - GMM). Determining the optimal number of clusters.</p>
             </section>
         </main>
 
