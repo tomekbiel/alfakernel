@@ -22,12 +22,26 @@
 </head>
 <body class="data-bg">
   <div class="container">
-    <header class="header">
-      <div class="site-title">
-        <h1>All Timeframes & Symbols</h1>
-        <p class="subtitle">Quick reference for available datasets</p>
-      </div>
-    </header>
+    <!-- Header -->
+<header class="header">
+    <div class="header-left initials">
+        <span>TB</span>
+    </div>
+    <div class="header-center">
+        <a href="../../index.html" class="logo">AlfaKernel</a>
+        <div class="subtitle">The Core of Quantitative Finance</div>
+    </div>
+    <div class="header-right login-container">
+        <button id="login-btn" class="login-btn">
+            <i class="fas fa-lock"></i> Sign in
+        </button>
+        <div id="login-form" class="login-form hidden">
+            <input type="email" placeholder="Email" />
+            <input type="password" placeholder="Password" />
+            <button type="submit" class="login-btn">Log In</button>
+        </div>
+    </div>
+</header>
     <main>
       <div class="desc-box">
         <strong>Download CSV:</strong> Click on any timeframe next to a symbol to download historical data directly from the AlfaKernel GitHub repository.<br>
