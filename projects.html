@@ -14,27 +14,26 @@
     <div class="container">
 
         <!-- Nagłówek (identyczny jak w index.html) -->
-        <header class="header">
-            <div class="header-left">
-                <div class="initials">TB</div>
-            </div>
-
-            <div class="header-center">
-                <div class="site-title">
-                    <h1>AlfaKernel</h1>
-                    <p class="subtitle">The Core of Quantitative Finance</p>
-                </div>
-            </div>
-
-            <div class="header-right login-container">
-                <button id="login-btn">🔒 Sign In</button>
-                <div id="login-form" class="login-form hidden">
-                    <input type="email" placeholder="Email" />
-                    <input type="password" placeholder="Password" />
-                    <button>Log In</button>
-                </div>
-            </div>
-        </header>
+        <!-- Header -->
+<header class="header">
+    <div class="header-left initials">
+        <span>TB</span>
+    </div>
+    <div class="header-center">
+        <a href="../../index.html" class="logo">AlfaKernel</a>
+        <div class="subtitle">The Core of Quantitative Finance</div>
+    </div>
+    <div class="header-right login-container">
+        <button id="login-btn" class="login-btn">
+            <i class="fas fa-lock"></i> Sign in
+        </button>
+        <div id="login-form" class="login-form hidden">
+            <input type="email" placeholder="Email" />
+            <input type="password" placeholder="Password" />
+            <button type="submit" class="login-btn">Log In</button>
+        </div>
+    </div>
+</header>
 
         <!-- Menu boczne (dostosowane do projects) -->
         <aside class="sidebar">

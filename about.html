@@ -5,32 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>AlfaKernel | About</title>
     <link rel="stylesheet" href="css/modern-style.css">
-    <script defer src="js/index.js"></script>
+    <script defer src="../../js/index.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=MonteCarlo&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 </head>
 
 <body class="home-bg">
     <div class="container">
-        <header class="header">
-            <div class="header-left">
-                <div class="initials">TB</div>
-            </div>
-            <div class="header-center">
-                <div class="site-title">
-                    <h1>AlfaKernel</h1>
-                    <p class="subtitle">The Core of Quantitative Finance</p>
-                </div>
-            </div>
-            <div class="header-right login-container">
-                <button id="login-btn">🔒 Sign In</button>
-                <div id="login-form" class="login-form hidden">
-                    <input type="email" placeholder="Email" />
-                    <input type="password" placeholder="Password" />
-                    <button>Log In</button>
-                </div>
-            </div>
-        </header>
+        <!-- Header -->
+<header class="header">
+    <div class="header-left initials">
+        <span>TB</span>
+    </div>
+    <div class="header-center">
+        <a href="../../index.html" class="logo">AlfaKernel</a>
+        <div class="subtitle">The Core of Quantitative Finance</div>
+    </div>
+    <div class="header-right login-container">
+        <button id="login-btn" class="login-btn">
+            <i class="fas fa-lock"></i> Sign in
+        </button>
+        <div id="login-form" class="login-form hidden">
+            <input type="email" placeholder="Email" />
+            <input type="password" placeholder="Password" />
+            <button type="submit" class="login-btn">Log In</button>
+        </div>
+    </div>
+</header>
 
         <aside class="sidebar">
             <a href="index.html" class="tab" data-tab="home">Home</a>

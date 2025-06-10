@@ -7,17 +7,30 @@
     <link rel="stylesheet" href="../../css/modern-style.css">
     <link href="https://fonts.googleapis.com/css2?family=MonteCarlo&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <script defer src="../../js/index.js"></script>
 </head>
 <body class="research-bg">
     <div class="container">
-        <header class="header">
-            <div class="header-center">
-                <div class="site-title">
-                    <h1>AlfaKernel</h1>
-                    <p class="subtitle">The Core of Quantitative Finance</p>
-                </div>
-            </div>
-        </header>
+        <!-- Header -->
+<header class="header">
+    <div class="header-left initials">
+        <span>TB</span>
+    </div>
+    <div class="header-center">
+        <a href="../../index.html" class="logo">AlfaKernel</a>
+        <div class="subtitle">The Core of Quantitative Finance</div>
+    </div>
+    <div class="header-right login-container">
+        <button id="login-btn" class="login-btn">
+            <i class="fas fa-lock"></i> Sign in
+        </button>
+        <div id="login-form" class="login-form hidden">
+            <input type="email" placeholder="Email" />
+            <input type="password" placeholder="Password" />
+            <button type="submit" class="login-btn">Log In</button>
+        </div>
+    </div>
+</header>
         <main class="main-content">
             <section class="shiny-app-details">
                 <h2>Economic Indicators Explorer (R Shiny)</h2>
