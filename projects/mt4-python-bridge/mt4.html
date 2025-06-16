@@ -3,186 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MT4 Trading System - Documentation</title>
-    <style>
-        :root {
-            --primary: #2c3e50;
-            --secondary: #3498db;
-            --accent: #e74c3c;
-            --light: #ecf0f1;
-            --dark: #2c3e50;
-            --success: #2ecc71;
-            --warning: #f39c12;
-            --code-bg: #282c34;
-            --code-text: #abb2bf;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-        }
-        
-        body {
-            background-color: #f5f7fa;
-            color: #333;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        
-        header {
-            text-align: center;
-            margin-bottom: 40px;
-            padding: 20px 0;
-            border-bottom: 2px solid var(--light);
-        }
-        
-        h1 {
-            color: var(--primary);
-            margin-bottom: 10px;
-        }
-        
-        h2, h3, h4 {
-            color: var(--primary);
-            margin: 30px 0 15px;
-        }
-        
-        p {
-            margin-bottom: 15px;
-        }
-        
-        pre {
-            background-color: var(--code-bg);
-            color: var(--code-text);
-            padding: 15px;
-            border-radius: 5px;
-            overflow-x: auto;
-            margin: 15px 0;
-            font-family: 'Courier New', Courier, monospace;
-        }
-        
-        code {
-            font-family: 'Courier New', Courier, monospace;
-            background-color: #f0f0f0;
-            padding: 2px 5px;
-            border-radius: 3px;
-            font-size: 0.9em;
-        }
-        
-        pre code {
-            background-color: transparent;
-            padding: 0;
-        }
-        
-        .architecture {
-            text-align: center;
-            margin: 30px 0;
-            font-family: monospace;
-            white-space: pre;
-            overflow-x: auto;
-            background-color: white;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        
-        .file-structure {
-            background-color: white;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            margin: 20px 0;
-            font-family: monospace;
-            white-space: pre;
-        }
-        
-        .feature-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px;
-            margin: 20px 0;
-        }
-        
-        .feature-card {
-            background-color: white;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            border-top: 3px solid var(--secondary);
-        }
-        
-        .feature-card h4 {
-            color: var(--secondary);
-            margin-top: 0;
-        }
-        
-        .note {
-            background-color: #fff8e1;
-            border-left: 4px solid #ffc107;
-            padding: 15px;
-            margin: 20px 0;
-            border-radius: 0 5px 5px 0;
-        }
-        
-        .btn {
-            display: inline-block;
-            background-color: var(--secondary);
-            color: white;
-            padding: 10px 20px;
-            text-decoration: none;
-            border-radius: 5px;
-            margin: 10px 0;
-            transition: background-color 0.3s;
-        }
-        
-        .btn:hover {
-            background-color: #2980b9;
-        }
-        
-        footer {
-            text-align: center;
-            margin-top: 50px;
-            padding: 20px 0;
-            border-top: 1px solid var(--light);
-            color: #7f8c8d;
-        }
-        
-        @media (max-width: 768px) {
-            .feature-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+    <title>MT4 Trading System | AlfaKernel</title>
+    <link rel="stylesheet" href="../../css/modern-style.css">
+    <link href="https://fonts.googleapis.com/css2?family=MonteCarlo&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <script defer src="../../js/index.js"></script>
 </head>
-<body>
-    <header>
-        <h1>MT4 Trading System</h1>
-        <p>Advanced Algorithmic Trading Platform</p>
-        <a href="https://github.com/yourusername/MT4_Trading_System" class="btn">View on GitHub</a>
-    </header>
+<body class="projects-bg">
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-left initials">
+                <span>TB</span>
+            </div>
+            <div class="header-center">
+                <a href="../../index.html" class="logo">AlfaKernel</a>
+                <div class="subtitle">The Core of Quantitative Finance</div>
+            </div>
+            <div class="header-right login-container">
+                <button id="login-btn" class="login-btn">
+                    <i class="fas fa-lock"></i> Sign in
+                </button>
+                <div id="login-form" class="login-form hidden">
+                    <input type="email" placeholder="Email" />
+                    <input type="password" placeholder="Password" />
+                    <button type="submit" class="login-btn">Log In</button>
+                </div>
+            </div>
+        </header>
 
-    <section id="overview">
-        <h2>System Overview</h2>
-        <p>The MT4 Trading System is a sophisticated trading infrastructure that connects Python's analytical capabilities with MetaTrader 4's execution environment. This bridge allows for advanced algorithmic trading strategies, data analysis, and automated trade execution.</p>
-    </section>
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="tab" data-tab="overview">Overview</div>
+            <div class="tab" data-tab="architecture">Architecture</div>
+            <div class="tab" data-tab="structure">Project Structure</div>
+            <div class="tab" data-tab="components">Key Components</div>
+            <div class="tab" data-tab="features">Key Features</div>
+            <div class="tab" data-tab="workflow">Example Workflow</div>
+            <div class="tab" data-tab="getting-started">Getting Started</div>
+        </aside>
 
-    <section id="architecture">
-        <h2>Core Architecture</h2>
-        <div class="architecture">
+        <!-- Main Content -->
+        <main class="main-content">
+            <section id="overview" class="tab-content active">
+                <h2>System Overview</h2>
+                <p>The MT4 Trading System is a sophisticated trading infrastructure that connects Python's analytical capabilities with MetaTrader 4's execution environment. This bridge allows for advanced algorithmic trading strategies, data analysis, and automated trade execution.</p>
+                <a href="https://github.com/tomekbiel/MT4_Trading_System" class="btn" target="_blank">
+                    <i class="fab fa-github"></i> View on GitHub
+                </a>
+            </section>
+
+            <section id="architecture" class="tab-content">
+                <h2>Core Architecture</h2>
+                <pre class="architecture">
 +-------------------+       +-------------------+       +------------------+
 |                   |       |                   |       |                  |
-|    Python         |&lt;----->|  MT4 (MQL4/EA)   |&lt;----->|  Broker MT4      |
+|    Python         |<----->|  MT4 (MQL4/EA)   |<----->|  Broker MT4      |
 |   Application     |  TCP  |  Expert Advisor  |  API  |  Terminal        |
 +-------------------+       +-------------------+       +------------------+
-        </div>
-    </section>
+                </pre>
+            </section>
 
-    <section id="project-structure">
-        <h2>Project Structure</h2>
-        <div class="file-structure">
+            <section id="structure" class="tab-content">
+                <h2>Project Structure</h2>
+                <pre class="file-structure">
 MT4_Trading_System/
 ├── config/                  # Configuration files
 │   └── symbols.json         # List of supported trading symbols
@@ -200,38 +84,33 @@ MT4_Trading_System/
 │   └── trades/              # Trade management
 └── tools/                   # Analytical tools
     └── arima_analyzer/      # ARIMA time series analysis
-        </div>
-    </section>
+                </pre>
+            </section>
 
-    <section id="key-components">
-        <h2>Key Components</h2>
-        
-        <h3>1. MT4 Connector (mt4_connector/)</h3>
-        <p>The core bridge between Python and MT4, handling all communication:</p>
-        
-        <h4>Base Functionality (base_connector.py):</h4>
-        <ul>
-            <li>TCP/IP communication with MT4 Expert Advisor</li>
-            <li>Message serialization/deserialization</li>
-            <li>Connection management and error handling</li>
-        </ul>
-        
-        <h4>Trade Execution (command_sender.py):</h4>
-        <ul>
-            <li>Open/close/modify trades</li>
-            <li>Position management</li>
-            <li>Order status tracking</li>
-        </ul>
-        
-        <h4>Data Handling:</h4>
-        <ul>
-            <li><code>historical_data_handler.py</code>: Fetch and process historical price data</li>
-            <li><code>market_data_handler.py</code>: Real-time market data streaming</li>
-        </ul>
-        
-        <h3>2. Trading Strategies</h3>
-        <p>Example strategy implementation:</p>
-        <pre><code>def moving_average_cross(symbol, timeframe='M15', short_period=9, long_period=21):
+            <section id="components" class="tab-content">
+                <h2>Key Components</h2>
+                <h3>1. MT4 Connector (mt4_connector/)</h3>
+                <p>The core bridge between Python and MT4, handling all communication:</p>
+                <h4>Base Functionality (base_connector.py):</h4>
+                <ul>
+                    <li>TCP/IP communication with MT4 Expert Advisor</li>
+                    <li>Message serialization/deserialization</li>
+                    <li>Connection management and error handling</li>
+                </ul>
+                <h4>Trade Execution (command_sender.py):</h4>
+                <ul>
+                    <li>Open/close/modify trades</li>
+                    <li>Position management</li>
+                    <li>Order status tracking</li>
+                </ul>
+                <h4>Data Handling:</h4>
+                <ul>
+                    <li><code>historical_data_handler.py</code>: Fetch and process historical price data</li>
+                    <li><code>market_data_handler.py</code>: Real-time market data streaming</li>
+                </ul>
+                <h3>2. Trading Strategies</h3>
+                <p>Example strategy implementation:</p>
+                <pre><code>def moving_average_cross(symbol, timeframe='M15', short_period=9, long_period=21):
     """
     Simple moving average crossover strategy.
     Returns: 'BUY', 'SELL', or None
@@ -251,38 +130,36 @@ MT4_Trading_System/
          data['SMA_short'].iloc[-2] >= data['SMA_long'].iloc[-2]:
         return 'SELL'
     return None</code></pre>
-        
-        <h3>3. Data Processing (scripts/historical/)</h3>
-        <ul>
-            <li><strong>Data Collection</strong>:
+                <h3>3. Data Processing (scripts/historical/)</h3>
                 <ul>
-                    <li><code>fetch_launcher.py</code>: Main script for downloading historical data</li>
-                    <li><code>fetch_single.py</code>: Single-symbol data fetcher</li>
+                    <li><strong>Data Collection</strong>:
+                        <ul>
+                            <li><code>fetch_launcher.py</code>: Main script for downloading historical data</li>
+                            <li><code>fetch_single.py</code>: Single-symbol data fetcher</li>
+                        </ul>
+                    </li>
+                    <li><strong>Data Cleaning</strong>:
+                        <ul>
+                            <li><code>clean_historical_data.py</code>: Cleans and standardizes timestamp formats</li>
+                            <li><code>merge_csv_by_time.py</code>: Merges multiple CSV files chronologically</li>
+                        </ul>
+                    </li>
+                    <li><strong>Data Analysis</strong>:
+                        <ul>
+                            <li><code>process_historical_data.py</code>: Processes and analyzes historical data</li>
+                            <li><code>print_last_timestamps.py</code>: Utility for checking data freshness</li>
+                        </ul>
+                    </li>
                 </ul>
-            </li>
-            <li><strong>Data Cleaning</strong>:
+                <h3>4. Advanced Analytics (tools/arima_analyzer/)</h3>
+                <p>Time series analysis module featuring:</p>
                 <ul>
-                    <li><code>clean_historical_data.py</code>: Cleans and standardizes timestamp formats</li>
-                    <li><code>merge_csv_by_time.py</code>: Merges multiple CSV files chronologically</li>
+                    <li>ARIMA/SARIMA modeling</li>
+                    <li>Seasonality detection and analysis</li>
+                    <li>Statistical testing</li>
+                    <li>Forecasting capabilities</li>
                 </ul>
-            </li>
-            <li><strong>Data Analysis</strong>:
-                <ul>
-                    <li><code>process_historical_data.py</code>: Processes and analyzes historical data</li>
-                    <li><code>print_last_timestamps.py</code>: Utility for checking data freshness</li>
-                </ul>
-            </li>
-        </ul>
-        
-        <h3>4. Advanced Analytics (tools/arima_analyzer/)</h3>
-        <p>Time series analysis module featuring:</p>
-        <ul>
-            <li>ARIMA/SARIMA modeling</li>
-            <li>Seasonality detection and analysis</li>
-            <li>Statistical testing</li>
-            <li>Forecasting capabilities</li>
-        </ul>
-        <pre><code># Example ARIMA analysis
+                <pre><code># Example ARIMA analysis
 from tools.arima_analyzer import run_analysis
 
 results = run_analysis(
@@ -292,60 +169,58 @@ results = run_analysis(
     end_date='2023-12-31',
     seasonal=True
 )</code></pre>
-    </section>
+            </section>
 
-    <section id="key-features">
-        <h2>Key Features</h2>
-        <div class="feature-grid">
-            <div class="feature-card">
-                <h4>Automated Trading</h4>
-                <ul>
-                    <li>Strategy backtesting</li>
-                    <li>Paper trading simulation</li>
-                    <li>Live trading execution</li>
-                </ul>
-            </div>
-            <div class="feature-card">
-                <h4>Data Management</h4>
-                <ul>
-                    <li>Historical data collection</li>
-                    <li>Real-time market data</li>
-                    <li>Data cleaning tools</li>
-                </ul>
-            </div>
-            <div class="feature-card">
-                <h4>Risk Management</h4>
-                <ul>
-                    <li>Position sizing</li>
-                    <li>Stop-loss management</li>
-                    <li>Risk/reward calculation</li>
-                </ul>
-            </div>
-            <div class="feature-card">
-                <h4>Performance Analysis</h4>
-                <ul>
-                    <li>Trade statistics</li>
-                    <li>Equity curve analysis</li>
-                    <li>Risk metrics</li>
-                </ul>
-            </div>
-        </div>
-    </section>
+            <section id="features" class="tab-content">
+                <h2>Key Features</h2>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <h4>Automated Trading</h4>
+                        <ul>
+                            <li>Strategy backtesting</li>
+                            <li>Paper trading simulation</li>
+                            <li>Live trading execution</li>
+                        </ul>
+                    </div>
+                    <div class="feature-card">
+                        <h4>Data Management</h4>
+                        <ul>
+                            <li>Historical data collection</li>
+                            <li>Real-time market data</li>
+                            <li>Data cleaning tools</li>
+                        </ul>
+                    </div>
+                    <div class="feature-card">
+                        <h4>Risk Management</h4>
+                        <ul>
+                            <li>Position sizing</li>
+                            <li>Stop-loss management</li>
+                            <li>Risk/reward calculation</li>
+                        </ul>
+                    </div>
+                    <div class="feature-card">
+                        <h4>Performance Analysis</h4>
+                        <ul>
+                            <li>Trade statistics</li>
+                            <li>Equity curve analysis</li>
+                            <li>Risk metrics</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
 
-    <section id="example-workflow">
-        <h2>Example Workflow</h2>
-        
-        <h3>1. Data Collection</h3>
-        <pre><code># Fetch historical data
+            <section id="workflow" class="tab-content">
+                <h2>Example Workflow</h2>
+                <h3>1. Data Collection</h3>
+                <pre><code># Fetch historical data
 connector.get_historical_data(
     symbol='EURUSD',
     timeframe='M15',
     start_date='2023-01-01',
     end_date='2023-12-31'
 )</code></pre>
-        
-        <h3>2. Strategy Development</h3>
-        <pre><code># Define and test strategy
+                <h3>2. Strategy Development</h3>
+                <pre><code# Define and test strategy
 def my_strategy(data):
     # Technical indicators
     data['RSI'] = ta.rsi(data['close'], length=14)
@@ -356,9 +231,8 @@ def my_strategy(data):
     sell_signal = (data['RSI'] > 70) & (data['close'] > data['BB_upper'])
     
     return buy_signal, sell_signal</code></pre>
-        
-        <h3>3. Trade Execution</h3>
-        <pre><code># Execute trade
+                <h3>3. Trade Execution</h3>
+                <pre><code# Execute trade
 trade = {
     'symbol': 'EURUSD',
     'cmd': 'BUY',
@@ -368,29 +242,56 @@ trade = {
     'comment': 'Bollinger Bands Strategy'
 }
 connector.send_order(trade)</code></pre>
-    </section>
+            </section>
 
-    <section id="getting-started">
-        <h2>Getting Started</h2>
-        
-        <h3>1. Installation</h3>
-        <pre><code>git clone https://github.com/yourusername/MT4_Trading_System.git
-cd MT4_Trading_System
-pip install -r requirements.txt</code></pre>
-        
-        <h3>2. Basic Usage</h3>
-        <pre><code>from mt4_connector import MT4CommandSender
+            <section id="getting-started" class="tab-content">
+                <h2>Getting Started</h2>
+                <h3>1. Installation</h3>
+                <ul>
+                    <li>
+                        <strong>Download:</strong>
+                        Get the latest release from 
+                        <a href="https://github.com/tomekbiel/MT4_Trading_System" target="_blank">GitHub</a>.
+                    </li>
+                    <li>
+                        <strong>MT4 Setup:</strong>
+                        Download <a href="files/DWX_ZeroMQ_Server_v2.0.1_RC8.ex4" download>DWX_ZeroMQ_Server_v2.0.1_RC8.ex4</a>
+                        and copy it to your MetaTrader 4 <code>MQL4/Experts</code> folder, then compile.
+                    </li>
+                    <li>
+                        <strong>Python Setup:</strong>
+                        Install requirements:<br>
+                        <code>pip install -r requirements.txt</code>
+                    </li>
+                    <li>
+                        <strong>Run Bridge:</strong>
+                        Start the Expert Advisor in MT4 and run <code>mt4_bridge.py</code> in Python.
+                    </li>
+                    <li>
+                        <strong>Configuration:</strong>
+                        Adjust <code>config.py</code> and MT4 expert settings as needed.
+                    </li>
+                    <li>
+                        For detailed instructions, see the 
+                        <a href="https://github.com/tomekbiel/MT4_Trading_System#readme" target="_blank">README on GitHub</a>.
+                    </li>
+                </ul>
+                <h3>2. Basic Usage</h3>
+                <pre><code>from mt4_connector import MT4CommandSender
 
 # Initialize connection
 connector = MT4CommandSender(host="127.0.0.1", port=8888)
 
 # Start trading
 # ...</code></pre>
-    </section>
+            </section>
+        </main>
 
-    <footer>
-        <p>MT4 Trading System &copy; 2023 | All Rights Reserved</p>
-        <p>Documentation generated on June 14, 2025</p>
-    </footer>
+        <footer class="footer full-width">
+            <div class="footer-bottom">
+                &copy; 2025 AlfaKernel | All rights reserved | Author: Tomasz Biel
+            </div>
+        </footer>
+    </div>
 </body>
 </html>
