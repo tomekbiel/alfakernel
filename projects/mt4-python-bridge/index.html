@@ -1,9 +1,10 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>MT4–Python Bridge | AlfaKernel</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MT4 Trading System | AlfaKernel</title>
     <link rel="stylesheet" href="../../css/modern-style.css">
     <link href="https://fonts.googleapis.com/css2?family=MonteCarlo&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
@@ -11,358 +12,300 @@
 </head>
 <body class="projects-bg">
     <div class="container">
-
-        <!-- Header identyczny jak w alfakernel/index.html -->
+        <!-- Header -->
         <header class="header">
             <div class="header-left initials">
                 <span>TB</span>
             </div>
             <div class="header-center">
-                <a href="/alfakernel/index.html" class="logo">AlfaKernel</a>
+                <a href="../../index.html" class="logo">AlfaKernel</a>
                 <div class="subtitle">The Core of Quantitative Finance</div>
             </div>
             <div class="header-right login-container">
-                <button id="login-btn" class="login-btn">Sign in</button>
-                <div id="login-form" class="login-form hidden"></div>
+                <button id="login-btn" class="login-btn">
+                    <i class="fas fa-lock"></i> Sign in
+                </button>
+                <div id="login-form" class="login-form hidden">
+                    <input type="email" placeholder="Email" />
+                    <input type="password" placeholder="Password" />
+                    <button type="submit" class="login-btn">Log In</button>
+                </div>
             </div>
         </header>
 
+        <!-- Sidebar -->
         <aside class="sidebar">
-            <a href="../../projects.html" class="tab back-button">
-                <i class="fas fa-arrow-left"></i> Back to Projects
-            </a>
-            <div class="tab" data-tab="overview">
-                <i class="fas fa-home"></i> MT4–Python Bridge
-            </div>
-            <div class="tab" data-tab="install-guide">
-                <i class="fas fa-download"></i> Installation
-            </div>
-            <div class="tab" data-tab="system">
-                <i class="fas fa-code"></i> System Structure
-            </div>
-            <div class="tab" data-tab="market-data">
-                <i class="fas fa-database"></i> Market Data
-            </div>
-            <div class="tab" data-tab="analysis">
-                <i class="fas fa-chart-line"></i> Sample Analyses
-            </div>
-            <div class="tab" data-tab="legal">
-                <i class="fas fa-file-contract"></i> Licenses
-            </div>
+            <div class="tab" data-tab="overview">Overview</div>
+            <div class="tab" data-tab="architecture">Architecture</div>
+            <div class="tab" data-tab="structure">Project Structure</div>
+            <div class="tab" data-tab="components">Key Components</div>
+            <div class="tab" data-tab="features">Key Features</div>
+            <div class="tab" data-tab="workflow">Example Workflow</div>
+            <div class="tab" data-tab="getting-started">Getting Started</div>
         </aside>
 
+        <!-- Main Content -->
         <main class="main-content">
-            <!-- MT4–Python Bridge Overview -->
             <section id="overview" class="tab-content active">
-                <h2>MT4–Python Bridge</h2>
-                <div class="project-meta">
-                    <span class="badge">Active Project</span>
-                    <span class="version">v2.1.0</span>
-                </div>
-                <p class="lead">
-                    A robust communication bridge between MetaTrader 4 and Python using ZeroMQ, enabling seamless data exchange and algorithmic trading capabilities.
-                </p>
-                <section id="features" class="content-section">
-                    <h3>Key Features</h3>
-                    <div class="features-grid">
-                        <div class="feature-card">
-                            <h4><i class="fas fa-exchange-alt"></i> Real-time Data</h4>
-                            <p>Stream live market data directly from MT4 to Python for analysis</p>
-                        </div>
-                        <div class="feature-card">
-                            <h4><i class="fas fa-history"></i> Historical Data</h4>
-                            <p>Download and manage historical price data in various timeframes</p>
-                        </div>
-                        <div class="feature-card">
-                            <h4><i class="fas fa-robot"></i> Automated Trading</h4>
-                            <p>Execute trades directly from Python scripts</p>
-                        </div>
-                        <div class="feature-card">
-                            <h4><i class="fas fa-cogs"></i> Integration</h4>
-                            <p>Compatible with popular data science and ML libraries</p>
-                        </div>
-                    </div>
-                    <h4>Advanced Capabilities</h4>
-                    <ul>
-                        <li>Preparation of datasets for further modeling (e.g. ARIMA, LSTM, ML)</li>
-                        <li>Building complete trading or analysis systems</li>
-                        <li>Customizable data pipelines for specific research needs</li>
-                    </ul>
-                </section>
-                <section id="architecture" class="content-section">
-                    <h3>System Architecture</h3>
-                    <div class="architecture-diagram">
-                        <img src="images/bridge_diagram.png" alt="MT4–Python communication diagram" />
-                        <p class="caption">System architecture: MT4–Python Bridge communication model showing data flow between components.</p>
-                    </div>
-                    <div class="architecture-description">
-                        <h4>Key Components:</h4>
-                        <ol>
-                            <li><strong>MT4 Client</strong> - Runs expert advisor to collect market data</li>
-                            <li><strong>ZeroMQ Bridge</strong> - Handles high-speed communication</li>
-                            <li><strong>Python Server</strong> - Processes incoming data streams</li>
-                            <li><strong>Data Storage</strong> - CSV files for historical analysis</li>
-                            <li><strong>Analysis Tools</strong> - Jupyter notebooks for research</li>
-                        </ol>
-                    </div>
-                </section>
-                <section id="quick-start" class="content-section">
-                    <h3>Quick Start Guide</h3>
-                    <div class="steps">
-                        <div class="step">
-                            <div class="step-number">1</div>
-                            <div class="step-content">
-                                <h4>Install MetaTrader 4</h4>
-                                <p>Prepare the environment using the <span class="tab-link" data-tab="install-guide" style="color:var(--accent);cursor:pointer;">installation guide</span></p>
-                            </div>
-                        </div>
-                        <div class="step">
-                            <div class="step-number">2</div>
-                            <div class="step-content">
-                                <h4>Launch DWX Server</h4>
-                                <p>Download and run <code>dwx_server_alfa</code> on the MT4 side</p>
-                            </div>
-                        </div>
-                        <div class="step">
-                            <div class="step-number">3</div>
-                            <div class="step-content">
-                                <h4>Python Setup</h4>
-                                <p>Configure Python environment and run bridge scripts</p>
-                                <div class="code-block">
-                                    <pre><code>pip install -r requirements.txt
-python mt4_bridge.py</code></pre>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="step">
-                            <div class="step-number">4</div>
-                            <div class="step-content">
-                                <h4>Access Data</h4>
-                                <p>Go to <span class="tab-link" data-tab="market-data" style="color:var(--accent);cursor:pointer;">Market Data</span> to fetch or browse datasets</p>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                <section id="source-code" class="content-section">
-                    <h3>Source Code</h3>
-                    <p>
-                        All components of the Python–MT4 bridge, including communication classes, data fetching, file handlers, and analysis tools are publicly available on GitHub:
-                    </p>
-                    <div class="github-repo">
-                        <a href="https://github.com/tomekbiel/MT4_Trading_System" target="_blank" class="github-button">
-                            <i class="fab fa-github"></i> View on GitHub
-                        </a>
-                        <p class="repo-stats">
-                            <span><i class="fas fa-code-branch"></i> main branch</span>
-                            <span><i class="fas fa-star"></i> 42 stars</span>
-                            <span><i class="fas fa-code"></i> Python 3.8+</span>
-                        </p>
-                    </div>
-                </section>
-            </section>
-
-            <!-- Installation Tab -->
-            <section id="install-guide" class="tab-content">
-                <h2>Installation</h2>
-                <!-- ZAWARTOŚĆ install-guide.html -->
-                <ol class="install-steps">
-                    <li><strong>Download:</strong> Get the latest release from <a href="https://github.com/tomekbiel/MT4_Trading_System" target="_blank">GitHub</a>.</li>
-                    <li><strong>MT4 Setup:</strong> Copy <code>dwx_server_alfa.mq4</code> to your MetaTrader 4 <code>MQL4/Experts</code> folder and compile.</li>
-                    <li><strong>Python Setup:</strong> Install requirements:
-                        <pre><code>pip install -r requirements.txt</code></pre>
-                    </li>
-                    <li><strong>Run Bridge:</strong> Start <code>dwx_server_alfa</code> in MT4 and run <code>mt4_bridge.py</code> in Python.</li>
-                    <li><strong>Configuration:</strong> Adjust <code>config.py</code> and MT4 expert settings as needed.</li>
-                </ol>
-                <p>For detailed instructions, see the README on GitHub.</p>
-            </section>
-
-            <!-- System Structure Tab -->
-            <section id="system" class="tab-content">
                 <h2>System Overview</h2>
-                <section class="desc-section">
-      <h2>How the MT4–Python Bridge Works</h2>
-      <p>
-        The MT4–Python Bridge enables robust, real-time communication between MetaTrader 4 (MT4) and Python. 
-        The system is built around a modular architecture using ZeroMQ sockets for fast, asynchronous messaging.
-      </p>
-      <ul>
-        <li>
-          <strong>MT4 Side:</strong> A custom Expert Advisor (EA) written in MQL4 sends and receives data/events via ZeroMQ sockets.
-        </li>
-        <li>
-          <strong>Python Side:</strong> The <code>mt4_connector</code> package contains core classes for messaging, data handling, and trading commands.
-        </li>
-        <li>
-          <strong>Inheritance & Modularity:</strong> All handlers (market data, trading, historical) inherit from <code>BaseConnector</code>, which manages the ZeroMQ connection and message parsing.
-        </li>
-        <li>
-          <strong>Entry Point:</strong> Scripts in <code>scripts/</code> (e.g. <code>run_mt4.py</code>, <code>fetch_single.py</code>) instantiate and use these handlers for specific tasks.
-        </li>
-        <li>
-          <strong>Data Flow:</strong> 
-          <ul>
-            <li>Market data is streamed live via PUB/SUB sockets.</li>
-            <li>Historical data is fetched on demand via COMMAND/RESPONSE.</li>
-            <li>Trade commands are sent from Python to MT4 via PUSH/REP.</li>
-          </ul>
-        </li>
-      </ul>
-      <p>
-        <strong>Common issues:</strong> Connection problems may occur due to port conflicts, firewall settings, or mismatched ZeroMQ versions. 
-        Always check logs and ensure both MT4 and Python are running compatible bridge scripts.
-      </p>
-    </section>
-
-    <section>
-      <h2>Python Module Preview</h2>
-      <p>Click a file below to load and preview its code directly from the GitHub repository:</p>
-      <div class="file-list">
-        <div class="file-button">
-          <button onclick="loadCode('init_py', 'mt4_connector/__init__.py')">📄 mt4_connector/__init__.py</button>
-        </div>
-        <div class="file-button">
-          <button onclick="loadCode('base_connector', 'mt4_connector/base_connector.py')">📄 mt4_connector/base_connector.py</button>
-        </div>
-        <div class="file-button">
-          <button onclick="loadCode('command_sender', 'mt4_connector/command_sender.py')">📄 mt4_connector/command_sender.py</button>
-        </div>
-        <div class="file-button">
-          <button onclick="loadCode('market_data_handler', 'mt4_connector/market_data_handler.py')">📄 mt4_connector/market_data_handler.py</button>
-        </div>
-        <div class="file-button">
-          <button onclick="loadCode('trade_defaults', 'mt4_connector/trade_defaults.py')">📄 mt4_connector/trade_defaults.py</button>
-        </div>
-        <div class="file-button">
-          <button onclick="loadCode('fetch_single', 'scripts/historical/fetch_single.py')">📄 scripts/historical/fetch_single.py</button>
-        </div>
-        <div class="file-button">
-          <button onclick="loadCode('fetch_launcher', 'scripts/historical/fetch_launcher.py')">📄 scripts/historical/fetch_launcher.py</button>
-        </div>
-        <div class="file-button">
-          <button onclick="loadCode('run_mt4', 'scripts/run_mt4.py')">📄 scripts/run_mt4.py</button>
-        </div>
-      </div>
-      <div id="code_container">
-        <div id="init_py" class="code-preview"></div>
-        <div id="base_connector" class="code-preview"></div>
-        <div id="command_sender" class="code-preview"></div>
-        <div id="market_data_handler" class="code-preview"></div>
-        <div id="trade_defaults" class="code-preview"></div>
-        <div id="fetch_single" class="code-preview"></div>
-        <div id="fetch_launcher" class="code-preview"></div>
-        <div id="run_mt4" class="code-preview"></div>
-      </div>
-    </section>
-    <script>
-      function loadCode(id, path) {
-        const container = document.getElementById(id);
-        // Hide all other previews
-        document.querySelectorAll('.code-preview').forEach(div => {
-          if (div !== container) div.style.display = 'none';
-        });
-        // Toggle or load the selected file
-        if (container.innerText.trim() !== '') {
-          container.style.display = container.style.display === 'none' ? 'block' : 'none';
-          return;
-        }
-        fetch(`https://raw.githubusercontent.com/tomekbiel/MT4_Trading_System/master/${path}`)
-          .then(res => res.ok ? res.text() : Promise.reject(res))
-          .then(code => {
-            container.innerText = code;
-            container.style.display = 'block';
-          })
-          .catch(() => {
-            container.innerText = '⚠️ Error loading file.';
-            container.style.display = 'block';
-          });
-      }
-    </script>
+                <p>The MT4 Trading System is a sophisticated trading infrastructure that connects Python's analytical capabilities with MetaTrader 4's execution environment. This bridge allows for advanced algorithmic trading strategies, data analysis, and automated trade execution.</p>
+                <a href="https://github.com/tomekbiel/MT4_Trading_System" class="btn" target="_blank">
+                    <i class="fab fa-github"></i> View on GitHub
+                </a>
             </section>
 
-            <!-- Market Data Tab -->
-            <section id="market-data" class="tab-content">
-                <h2>Market Data</h2>
-                <!-- Tutaj wklej zawartość z market-data.html -->
-                <p>Browse and download historical and live market data collected via the bridge.</p>
-                <!-- Dodaj szczegóły według potrzeb -->
-            </section>
-
-            <!-- Sample Analyses Tab -->
-            <section id="analysis" class="tab-content">
-                <h2>Sample Analyses</h2>
-                <!-- Tutaj wklej zawartość z analysis.html -->
-                <p>Examples of quantitative research, trading strategies, and data visualizations using the exported datasets.</p>
-                <!-- Dodaj szczegóły według potrzeb -->
-            </section>
-
-            <!-- Licenses Tab -->
-            <section id="legal" class="tab-content">
-                <h2>Licenses</h2>
-                <!-- ZAWARTOŚĆ legal.html -->
-                <p>
-                    This project is licensed under the MIT License.<br>
-                    <a href="https://opensource.org/licenses/MIT" target="_blank">View MIT License</a>
-                </p>
-                <pre style="font-size: 0.95em; background: #222; color: #eee; padding: 1em; border-radius: 6px;">
-MIT License
-
-Copyright (c) 2023 Tomasz Biel
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-[... pełna treść licencji MIT ...]
+            <section id="architecture" class="tab-content">
+                <h2>Core Architecture</h2>
+                <pre class="architecture">
++-------------------+       +-------------------+       +------------------+
+|                   |       |                   |       |                  |
+|    Python         |<----->|  MT4 (MQL4/EA)   |<----->|  Broker MT4      |
+|   Application     |  TCP  |  Expert Advisor  |  API  |  Terminal        |
++-------------------+       +-------------------+       +------------------+
                 </pre>
-                <p>Some third-party components may be licensed separately. See the repository for details.</p>
+            </section>
+
+            <section id="structure" class="tab-content">
+                <h2>Project Structure</h2>
+                <pre class="file-structure">
+MT4_Trading_System/
+├── config/                      # Configuration files
+│   └── (config files)           # Configuration settings and parameters
+│
+├── data/                       # Data storage
+│   └── (data files)             # Market data and analysis results
+│
+├── gui/                        # Graphical User Interface
+│   └── (GUI components)         # Frontend components and layouts
+│
+├── mt4_connector/              # Core MT4 connectivity
+│   ├── __init__.py             # Package initialization
+│   ├── base_connector.py       # Base connection handler
+│   ├── command_sender.py       # Trade execution commands
+│   ├── historical_data_handler.py  # Historical data management
+│   ├── market_data_handler.py  # Real-time market data
+│   └── trade_defaults.py       # Default trade parameters
+│
+├── scripts/                   # Utility scripts
+│   ├── heartbeat/              # System monitoring
+│   ├── historical/             # Historical data processing
+│   ├── live/                   # Live trading scripts
+│   ├── trades/                 # Trade management
+│   └── run_mt4.py              # Main script to run MT4 connector
+│
+├── tests/                     # Test suite
+│   └── (test files)            # Unit and integration tests
+│
+└── tools/                     # Helper tools and utilities
+    └── (utility scripts)       # Various helper functions
+                </pre>
+            </section>
+
+            <section id="components" class="tab-content">
+                <h2>Key Components</h2>
+                <h3>1. MT4 Connector (mt4_connector/)</h3>
+                <p>The core bridge between Python and MT4, handling all communication:</p>
+                <h4>Base Functionality (base_connector.py):</h4>
+                <ul>
+                    <li>TCP/IP communication with MT4 Expert Advisor</li>
+                    <li>Message serialization/deserialization</li>
+                    <li>Connection management and error handling</li>
+                </ul>
+                <h4>Trade Execution (command_sender.py):</h4>
+                <ul>
+                    <li>Open/close/modify trades</li>
+                    <li>Position management</li>
+                    <li>Order status tracking</li>
+                </ul>
+                <h4>Data Handling:</h4>
+                <ul>
+                    <li><code>historical_data_handler.py</code>: Fetch and process historical price data</li>
+                    <li><code>market_data_handler.py</code>: Real-time market data streaming</li>
+                </ul>
+                <h3>2. Trading Strategies</h3>
+                <p>Example strategy implementation:</p>
+                <pre><code>def moving_average_cross(symbol, timeframe='M15', short_period=9, long_period=21):
+    """
+    Simple moving average crossover strategy.
+    Returns: 'BUY', 'SELL', or None
+    """
+    # Get historical data
+    data = connector.get_historical_data(symbol, timeframe, bars=100)
+    
+    # Calculate indicators
+    data['SMA_short'] = data['close'].rolling(window=short_period).mean()
+    data['SMA_long'] = data['close'].rolling(window=long_period).mean()
+    
+    # Generate signals
+    if data['SMA_short'].iloc[-1] > data['SMA_long'].iloc[-1] and \
+       data['SMA_short'].iloc[-2] <= data['SMA_long'].iloc[-2]:
+        return 'BUY'
+    elif data['SMA_short'].iloc[-1] < data['SMA_long'].iloc[-1] and \
+         data['SMA_short'].iloc[-2] >= data['SMA_long'].iloc[-2]:
+        return 'SELL'
+    return None</code></pre>
+                <h3>3. Data Processing (scripts/historical/)</h3>
+                <ul>
+                    <li><strong>Data Collection</strong>:
+                        <ul>
+                            <li><code>fetch_launcher.py</code>: Main script for downloading historical data</li>
+                            <li><code>fetch_single.py</code>: Single-symbol data fetcher</li>
+                        </ul>
+                    </li>
+                    <li><strong>Data Cleaning</strong>:
+                        <ul>
+                            <li><code>clean_historical_data.py</code>: Cleans and standardizes timestamp formats</li>
+                            <li><code>merge_csv_by_time.py</code>: Merges multiple CSV files chronologically</li>
+                        </ul>
+                    </li>
+                    <li><strong>Data Analysis</strong>:
+                        <ul>
+                            <li><code>process_historical_data.py</code>: Processes and analyzes historical data</li>
+                            <li><code>print_last_timestamps.py</code>: Utility for checking data freshness</li>
+                        </ul>
+                    </li>
+                </ul>
+                <h3>4. Advanced Analytics (tools/arima_analyzer/)</h3>
+                <p>Time series analysis module featuring:</p>
+                <ul>
+                    <li>ARIMA/SARIMA modeling</li>
+                    <li>Seasonality detection and analysis</li>
+                    <li>Statistical testing</li>
+                    <li>Forecasting capabilities</li>
+                </ul>
+                <pre><code># Example ARIMA analysis
+from tools.arima_analyzer import run_analysis
+
+results = run_analysis(
+    symbol='US.100+',
+    timeframe='H1',
+    start_date='2023-01-01',
+    end_date='2023-12-31',
+    seasonal=True
+)</code></pre>
+            </section>
+
+            <section id="features" class="tab-content">
+                <h2>Key Features</h2>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <h4>Automated Trading</h4>
+                        <ul>
+                            <li>Strategy backtesting</li>
+                            <li>Paper trading simulation</li>
+                            <li>Live trading execution</li>
+                        </ul>
+                    </div>
+                    <div class="feature-card">
+                        <h4>Data Management</h4>
+                        <ul>
+                            <li>Historical data collection</li>
+                            <li>Real-time market data</li>
+                            <li>Data cleaning tools</li>
+                        </ul>
+                    </div>
+                    <div class="feature-card">
+                        <h4>Risk Management</h4>
+                        <ul>
+                            <li>Position sizing</li>
+                            <li>Stop-loss management</li>
+                            <li>Risk/reward calculation</li>
+                        </ul>
+                    </div>
+                    <div class="feature-card">
+                        <h4>Performance Analysis</h4>
+                        <ul>
+                            <li>Trade statistics</li>
+                            <li>Equity curve analysis</li>
+                            <li>Risk metrics</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section id="workflow" class="tab-content">
+                <h2>Example Workflow</h2>
+                <h3>1. Data Collection</h3>
+                <pre><code># Fetch historical data
+connector.get_historical_data(
+    symbol='EURUSD',
+    timeframe='M15',
+    start_date='2023-01-01',
+    end_date='2023-12-31'
+)</code></pre>
+                <h3>2. Strategy Development</h3>
+                <pre><code# Define and test strategy
+def my_strategy(data):
+    # Technical indicators
+    data['RSI'] = ta.rsi(data['close'], length=14)
+    data['BB_upper'], data['BB_middle'], data['BB_lower'] = ta.bbands(data['close'])
+    
+    # Generate signals
+    buy_signal = (data['RSI'] < 30) & (data['close'] < data['BB_lower'])
+    sell_signal = (data['RSI'] > 70) & (data['close'] > data['BB_upper'])
+    
+    return buy_signal, sell_signal</code></pre>
+                <h3>3. Trade Execution</h3>
+                <pre><code# Execute trade
+trade = {
+    'symbol': 'EURUSD',
+    'cmd': 'BUY',
+    'volume': 0.1,
+    'sl': 1.0800,
+    'tp': 1.1000,
+    'comment': 'Bollinger Bands Strategy'
+}
+connector.send_order(trade)</code></pre>
+            </section>
+
+            <section id="getting-started" class="tab-content">
+                <h2>Getting Started</h2>
+                <h3>1. Installation</h3>
+                <ul>
+                    <li>
+                        <strong>Download:</strong>
+                        Get the latest release from 
+                        <a href="https://github.com/tomekbiel/MT4_Trading_System" target="_blank">GitHub</a>.
+                    </li>
+                    <li>
+                        <strong>MT4 Setup:</strong>
+                        Download <a href="files/DWX_ZeroMQ_Server_v2.0.1_RC8.ex4" download>DWX_ZeroMQ_Server_v2.0.1_RC8.ex4</a>
+                        and copy it to your MetaTrader 4 <code>MQL4/Experts</code> folder, then compile.
+                    </li>
+                    <li>
+                        <strong>Python Setup:</strong>
+                        Install requirements:<br>
+                        <code>pip install -r requirements.txt</code>
+                    </li>
+                    <li>
+                        <strong>Run Bridge:</strong>
+                        Start the Expert Advisor in MT4 and run <code>mt4_bridge.py</code> in Python.
+                    </li>
+                    <li>
+                        <strong>Configuration:</strong>
+                        Adjust <code>config.py</code> and MT4 expert settings as needed.
+                    </li>
+                    <li>
+                        For detailed instructions, see the 
+                        <a href="https://github.com/tomekbiel/MT4_Trading_System#readme" target="_blank">README on GitHub</a>.
+                    </li>
+                </ul>
+                <h3>2. Basic Usage</h3>
+                <pre><code>from mt4_connector import MT4CommandSender
+
+# Initialize connection
+connector = MT4CommandSender(host="127.0.0.1", port=8888)
+
+# Start trading
+# ...</code></pre>
             </section>
         </main>
 
         <footer class="footer full-width">
-            <div class="footer-links">
-                <a href="mailto:tomekbiel.office@gmail.com">tomekbiel.office@gmail.com</a>
-                <a href="https://www.linkedin.com/in/tomasz-b-1321a5166/" target="_blank">LinkedIn</a>
-                <a href="https://github.com/tomekbiel/MT4_Trading_System" target="_blank">GitHub</a>
-                <a href="about.html">About</a>
-            </div>
             <div class="footer-bottom">
                 &copy; 2025 AlfaKernel | All rights reserved | Author: Tomasz Biel
             </div>
         </footer>
     </div>
-    <script>
-        // Tab switching logic
-        document.addEventListener('DOMContentLoaded', function () {
-            const tabs = document.querySelectorAll('.sidebar .tab');
-            const contents = document.querySelectorAll('.tab-content');
-            tabs.forEach(tab => {
-                tab.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    tabs.forEach(t => t.classList.remove('active'));
-                    this.classList.add('active');
-                    const tabName = this.getAttribute('data-tab');
-                    contents.forEach(c => c.classList.remove('active'));
-                    document.getElementById(tabName).classList.add('active');
-                });
-            });
-            // Set default tab
-            document.querySelector('.sidebar .tab[data-tab="overview"]').classList.add('active');
-            document.getElementById('overview').classList.add('active');
-            // Obsługa kliknięć w linki w treści, które mają przełączać zakładki
-            document.querySelectorAll('.tab-link').forEach(function (el) {
-                el.addEventListener('click', function () {
-                    const tab = this.getAttribute('data-tab');
-                    tabs.forEach(t => t.classList.remove('active'));
-                    document.querySelector('.sidebar .tab[data-tab="' + tab + '"]').classList.add('active');
-                    contents.forEach(c => c.classList.remove('active'));
-                    document.getElementById(tab).classList.add('active');
-                });
-            });
-        });
-    </script>
 </body>
 </html>
