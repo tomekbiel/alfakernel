@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -101,88 +100,95 @@ MT4_Trading_System/
                 </pre>
             </section>
 
-            <section id="components" class="tab-content">
+            <section id="components" class="tab-content active">
                 <h2>Key Components</h2>
-                <h3>1. MT4 Connector (mt4_connector/)</h3>
-                <p>The core bridge between Python and MT4, handling all communication:</p>
-                <h4>Base Functionality (base_connector.py):</h4>
-                <ul>
-                    <li>TCP/IP communication with MT4 Expert Advisor</li>
-                    <li>Message serialization/deserialization</li>
-                    <li>Connection management and error handling</li>
-                </ul>
-                <h4>Trade Execution (command_sender.py):</h4>
-                <ul>
-                    <li>Open/close/modify trades</li>
-                    <li>Position management</li>
-                    <li>Order status tracking</li>
-                </ul>
-                <h4>Data Handling:</h4>
-                <ul>
-                    <li><code>historical_data_handler.py</code>: Fetch and process historical price data</li>
-                    <li><code>market_data_handler.py</code>: Real-time market data streaming</li>
-                </ul>
-                <h3>2. Trading Strategies</h3>
-                <p>Example strategy implementation:</p>
-                <pre><code>def moving_average_cross(symbol, timeframe='M15', short_period=9, long_period=21):
-    """
-    Simple moving average crossover strategy.
-    Returns: 'BUY', 'SELL', or None
-    """
-    # Get historical data
-    data = connector.get_historical_data(symbol, timeframe, bars=100)
-    
-    # Calculate indicators
-    data['SMA_short'] = data['close'].rolling(window=short_period).mean()
-    data['SMA_long'] = data['close'].rolling(window=long_period).mean()
-    
-    # Generate signals
-    if data['SMA_short'].iloc[-1] > data['SMA_long'].iloc[-1] and \
-       data['SMA_short'].iloc[-2] <= data['SMA_long'].iloc[-2]:
-        return 'BUY'
-    elif data['SMA_short'].iloc[-1] < data['SMA_long'].iloc[-1] and \
-         data['SMA_short'].iloc[-2] >= data['SMA_long'].iloc[-2]:
-        return 'SELL'
-    return None</code></pre>
-                <h3>3. Data Processing (scripts/historical/)</h3>
-                <ul>
-                    <li><strong>Data Collection</strong>:
-                        <ul>
-                            <li><code>fetch_launcher.py</code>: Main script for downloading historical data</li>
-                            <li><code>fetch_single.py</code>: Single-symbol data fetcher</li>
-                        </ul>
-                    </li>
-                    <li><strong>Data Cleaning</strong>:
-                        <ul>
-                            <li><code>clean_historical_data.py</code>: Cleans and standardizes timestamp formats</li>
-                            <li><code>merge_csv_by_time.py</code>: Merges multiple CSV files chronologically</li>
-                        </ul>
-                    </li>
-                    <li><strong>Data Analysis</strong>:
-                        <ul>
-                            <li><code>process_historical_data.py</code>: Processes and analyzes historical data</li>
-                            <li><code>print_last_timestamps.py</code>: Utility for checking data freshness</li>
-                        </ul>
-                    </li>
-                </ul>
-                <h3>4. Advanced Analytics (tools/arima_analyzer/)</h3>
-                <p>Time series analysis module featuring:</p>
-                <ul>
-                    <li>ARIMA/SARIMA modeling</li>
-                    <li>Seasonality detection and analysis</li>
-                    <li>Statistical testing</li>
-                    <li>Forecasting capabilities</li>
-                </ul>
-                <pre><code># Example ARIMA analysis
-from tools.arima_analyzer import run_analysis
 
-results = run_analysis(
-    symbol='US.100+',
-    timeframe='H1',
-    start_date='2023-01-01',
-    end_date='2023-12-31',
-    seasonal=True
-)</code></pre>
+                <!-- 1. MT4 Connector -->
+                <div class="component-section">
+                    <h3>1. MT4 Connector (<code>mt4_connector/</code>)</h3>
+                    <p>
+                        The core bridge between Python and MT4, handling all communication.<br>
+                        <strong>Click a script name below to view its code and description. Each script is loaded live from 
+                            <a href="https://github.com/tomekbiel/MT4_Trading_System/tree/master/mt4_connector" target="_blank">GitHub</a>.
+                        </strong>
+                    </p>
+                    <div class="tools-grid">
+                        <div class="tool-card python" onclick="loadPyScript('init_py', 'mt4_connector/__init__.py')">
+                            <div class="tool-title">__init__.py</div>
+                            <div class="tool-desc">Package initialization</div>
+                        </div>
+                        <div class="tool-card python" onclick="loadPyScript('base_connector', 'mt4_connector/base_connector.py')">
+                            <div class="tool-title">base_connector.py</div>
+                            <div class="tool-desc">Base connection handler</div>
+                        </div>
+                        <div class="tool-card python" onclick="loadPyScript('command_sender', 'mt4_connector/command_sender.py')">
+                            <div class="tool-title">command_sender.py</div>
+                            <div class="tool-desc">Trade execution commands management</div>
+                        </div>
+                        <div class="tool-card python" onclick="loadPyScript('market_data_handler', 'mt4_connector/market_data_handler.py')">
+                            <div class="tool-title">market_data_handler.py</div>
+                            <div class="tool-desc">Real-time market data</div>
+                        </div>
+                        <div class="tool-card python" onclick="loadPyScript('trade_defaults', 'mt4_connector/trade_defaults.py')">
+                            <div class="tool-title">trade_defaults.py</div>
+                            <div class="tool-desc">Default trade parameters</div>
+                        </div>
+                        <div class="tool-card python" onclick="loadPyScript('heartbeat', 'scripts/heartbeat/send_heartbeat.py')">
+                            <div class="tool-title">send_heartbeat.py</div>
+                            <div class="tool-desc">System monitoring (heartbeat)</div>
+                        </div>
+                    </div>
+                    <div id="py-script-preview" class="code-preview" style="display:none;"></div>
+                </div>
+
+                <!-- 2. Data Processing -->
+                <div class="component-section">
+                    <h3>2. Data Processing (<code>scripts/historical/</code> & <code>live_data.py</code>)</h3>
+                    <p>
+                        Scripts for downloading and processing historical and live data.<br>
+                        <strong>Click a script name below to view its code and description. Each script is loaded live from 
+                            <a href="https://github.com/tomekbiel/MT4_Trading_System/tree/master/scripts/historical" target="_blank">GitHub</a>.
+                        </strong>
+                    </p>
+                    <div class="tools-grid">
+                        <div class="tool-card python" onclick="loadPyScript('fetch_launcher', 'scripts/historical/fetch_launcher.py')">
+                            <div class="tool-title">fetch_launcher.py</div>
+                            <div class="tool-desc">Bulk download of historical data</div>
+                        </div>
+                        <div class="tool-card python" onclick="loadPyScript('fetch_single', 'scripts/historical/fetch_single.py')">
+                            <div class="tool-title">fetch_single.py</div>
+                            <div class="tool-desc">Single-symbol data fetcher</div>
+                        </div>
+                        <div class="tool-card python" onclick="loadPyScript('live_data', 'scripts/live/live_data.py')">
+                            <div class="tool-title">live_data.py</div>
+                            <div class="tool-desc">Live HFD (high-frequency data) download</div>
+                        </div>
+                    </div>
+                    <div class="note" style="margin-top:1em;">
+                        In the repository you will also find scripts for data cleaning and utilities for merging and checking data freshness.<br>
+                        <strong>
+                            You can also display downloaded data 
+                            <a href="../../market-data.html" target="_blank">here</a>.
+                        </strong>
+                    </div>
+                    <div class="note" style="margin-top:1em;">
+                        <b>How to run live data:</b> In MetaTrader 4, edit <code>DWX_ZeroMQ_Server</code> and set <code>publish_data</code> to <code>true</code> in the "Publish Data" section. Then run <code>live_data.py</code> in Python.
+                    </div>
+                    <!-- Miejsce na screenshoty -->
+                    <div id="py-script-preview-2" class="code-preview" style="display:none;"></div>
+                </div>
+
+                <!-- 3. Advanced Analytics -->
+                <div class="component-section">
+                    <h3>3. Advanced Analytics (<code>tools/arima_analyzer/</code>)</h3>
+                    <p>Time series analysis, ARIMA/SARIMA modeling, seasonality detection, and forecasting. (Section under development)</p>
+                </div>
+
+                <!-- 4. Trading Strategies -->
+                <div class="component-section">
+                    <h3>4. Trading Strategies</h3>
+                    <p>Examples and templates for algorithmic trading strategies. (Section under development)</p>
+                </div>
             </section>
 
             <section id="features" class="tab-content">
@@ -309,3 +315,37 @@ connector = MT4CommandSender(host="127.0.0.1", port=8888)
     </div>
 </body>
 </html>
+<script>
+function loadPyScript(target, path) {
+    // Hide all previews
+    document.querySelectorAll('.code-preview').forEach(div => div.style.display = 'none');
+    // Show the right preview
+    let preview = document.getElementById(target === 'fetch_launcher' || target === 'fetch_single' || target === 'live_data' ? 'py-script-preview-2' : 'py-script-preview');
+    preview.style.display = 'block';
+    preview.innerHTML = '<div style="padding:2em;text-align:center;">Loading...</div>';
+    fetch(`https://raw.githubusercontent.com/tomekbiel/MT4_Trading_System/master/${path}`)
+        .then(res => res.ok ? res.text() : Promise.reject(res))
+        .then(code => {
+            preview.innerHTML = `<pre><code class="python">${escapeHtml(code)}</code></pre>`;
+            if (window.hljs) hljs.highlightAll();
+        })
+        .catch(() => {
+            preview.innerHTML = '<div style="color:red;padding:2em;">⚠️ Error loading file.</div>';
+        });
+}
+function escapeHtml(text) {
+    return text.replace(/[&<>"']/g, function(m) {
+        return ({
+            '&': '&amp;',
+            '<': '&lt;',
+            '>': '&gt;',
+            '"': '&quot;',
+            "'": '&#39;'
+        })[m];
+    });
+}
+</script>
+<!-- Dodaj do <head> jeśli chcesz kolorowanie składni Python -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/python.min.js"></script>
