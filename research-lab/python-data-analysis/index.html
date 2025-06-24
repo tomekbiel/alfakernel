@@ -53,6 +53,9 @@
             <div class="tab" data-tab="cart-multimodel">
                 CART - Multi-Model Approach
             </div>
+            <div class="tab" data-tab="random-forest">
+                Random Forest
+            </div>
             <div class="tab" data-tab="conjoint-analysis">
                 Conjoint Analysis
             </div>
@@ -107,29 +110,28 @@
                 <h3>Classification and Regression Trees - Multi-Model Approach</h3>
                 <p>Ensembles of trees (e.g., Random Forests, Boosting) that improve prediction accuracy and stability compared to a single tree.</p>
             </section>
-            <section id="conjoint-analysis" class="tab-content">
-                <h3>Conjoint Analysis</h3>
-                <p>Studying consumer preferences. Estimating the relative importance (utility) people assign to different attributes of a product/service based on their stated choices.</p>
-            </section>
-            <section id="factor-analysis" class="tab-content">
-                <h3>Factor Analysis (FA)</h3>
-                <p>Data dimensionality reduction. Identifying underlying, unobservable "factors" that explain correlations among many observed variables.</p>
-            </section>
-            <section id="mds" class="tab-content">
-                <h3>Multidimensional Scaling (MDS)</h3>
-                <p>Visualization of similarity or dissimilarity between objects in a lower-dimensional space (usually 2D or 3D).</p>
-            </section>
-            <section id="correspondence-analysis" class="tab-content">
-                <h3>Correspondence Analysis (CA)</h3>
-                <p>Visualization and exploration of associations between categorical variables in a two-way contingency table. Analogous to PCA for qualitative data.</p>
-            </section>
-            <section id="clustering" class="tab-content">
-                <h3>Cluster Analysis (Clustering)</h3>
-                <p>Discovering natural groups ("clusters") within data based on similarity between observations. No prior group labels are known.</p>
-            </section>
-            <section id="clustering-model" class="tab-content">
-                <h3>Cluster Analysis - Model-Based Approach</h3>
-                <p>Clustering methods based on statistical distributional assumptions of the data (e.g., Gaussian Mixture Models - GMM). Determining the optimal number of clusters.</p>
+            <section id="random-forest" class="tab-content">
+                <h2>Random Forest</h2>
+                <div class="tools-grid">
+                    <a href="random_forest_example/" class="tool-card">
+                        <div class="tool-icon" style="background:#43a047;">
+                            <i class="fas fa-tree"></i>
+                        </div>
+                        <div class="tool-title">Beverage Quality Classification with Random Forest</div>
+                        <div class="tool-desc">
+                            <ul style="margin:0 0 0 1.2em;padding:0;">
+                                <li><b>Dataset:</b> 4898 beverages, 11 features, binary target (Excellent/Other)</li>
+                                <li><b>Preprocessing:</b> One-hot encoding, standardization, SMOTE balancing</li>
+                                <li><b>Models:</b> Decision Tree, Random Forest (with tuning)</li>
+                                <li><b>Results:</b> Random Forest accuracy up to 0.88</li>
+                                <li><b>Clustering:</b> KMeans, PCA projection</li>
+                            </ul>
+                            <span style="display:block;margin-top:1em;">
+                                <b>See full analysis &amp; code</b> <i class="fas fa-arrow-right"></i>
+                            </span>
+                        </div>
+                    </a>
+                </div>
             </section>
         </main>
 
