@@ -97,32 +97,34 @@
             <!-- Sekcja HFD (Raw) -->
             <section id="hfd-data" class="tab-content">
                 <div class="data-container">
-                    <div id="hfd-section">
-                        <h2>High-Frequency Data (Raw)</h2>
+                    <div class="section-box">
+                        <div id="hfd-section">
+                            <h2>High-Frequency Data (Raw)</h2>
 
-                        <div class="data-controls">
-                            <div class="control-group">
-                                <label for="hfd-symbol-select">Choose Symbol:</label>
-                                <select id="hfd-symbol-select" class="data-select"></select>
+                            <div class="data-controls">
+                                <div class="control-group">
+                                    <label for="hfd-symbol-select">Choose Symbol:</label>
+                                    <select id="hfd-symbol-select" class="data-select"></select>
+                                </div>
+
+                                <div class="control-group">
+                                    <label for="date-select">Available Data:</label>
+                                    <select id="date-select" class="data-select">
+                                        <!-- Dates will be populated dynamically -->
+                                    </select>
+                                </div>
+
+                                <div class="button-group">
+                                    <button id="load-hfd-btn" class="data-button">Preview Data</button>
+                                    <button id="download-hfd-btn" class="data-button secondary">
+                                        <i class="fas fa-download"></i> Download CSV
+                                    </button>
+                                </div>
                             </div>
 
-                            <div class="control-group">
-                                <label for="date-select">Available Data:</label>
-                                <select id="date-select" class="data-select">
-                                    <!-- Dates will be populated dynamically -->
-                                </select>
-                            </div>
-
-                            <div class="button-group">
-                                <button id="load-hfd-btn" class="data-button">Preview Data</button>
-                                <button id="download-hfd-btn" class="data-button secondary">
-                                    <i class="fas fa-download"></i> Download CSV
-                                </button>
-                            </div>
+                            <div id="hfd-meta"></div>
+                            <div id="hfd-preview"></div>
                         </div>
-
-                        <div id="hfd-meta"></div>
-                        <div id="hfd-preview"></div>
                     </div>
                     
                     <div class="hfd-description">
