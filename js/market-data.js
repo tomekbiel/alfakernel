@@ -24,6 +24,19 @@ document.addEventListener("DOMContentLoaded", () => {
     symbolSelect.appendChild(option);
   });
 
+  // Wypełnij wszystkie selektory symboli tą samą listą
+  ['symbol-select', 'hfd-symbol-select', 'hfd-cleaned-symbol-select'].forEach(selectId => {
+    const select = document.getElementById(selectId);
+    if (select) {
+        symbols.forEach(symbol => {
+            const option = document.createElement("option");
+            option.value = symbol;
+            option.textContent = symbol;
+            select.appendChild(option);
+        });
+    }
+});
+
   // Function to fetch the latest CSV file URL and last commit date
   const getLatestFileUrl = async (symbol, timeframe) => {
     const folderSymbol = encodeURIComponent(symbol);
