@@ -313,4 +313,21 @@ document.addEventListener("DOMContentLoaded", () => {
       downloadBtn.onclick = () => window.open(url, "_blank");
     }
   }
+
+  function fillHfdSelects() {
+    ["hfd-symbol-select", "hfd-cleaned-symbol-select"].forEach(selectId => {
+      const select = document.getElementById(selectId);
+      if (select) {
+        select.innerHTML = "";
+        HFD_SYMBOLS.forEach(symbol => {
+          const option = document.createElement("option");
+          option.value = symbol;
+          option.textContent = symbol;
+          select.appendChild(option);
+        });
+      }
+    });
+  }
+
+  fillHfdSelects();
 });
