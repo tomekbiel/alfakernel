@@ -350,4 +350,87 @@ document.addEventListener("DOMContentLoaded", () => {
       const filename = url.split('/').pop();
       forceDownload(url, filename);
   });
+
+  // Funkcja do podglądu HFD (Raw)
+  function previewHfdData(csv, previewDivId = "hfd-preview") {
+    const lines = csv.trim().split("\n");
+    if (lines.length < 2) return;
+    const headers = lines[0].split(",");
+    const rows = lines.slice(1).map(line => line.split(","));
+    // Ostatnie 20 wierszy, najnowsze na górze
+    const previewRows = rows.slice(-20).reverse();
+
+    let table = "<table><thead><tr>";
+    headers.forEach(h => table += `<th>${h}</th>`);
+    table += "</tr></thead><tbody>";
+    previewRows.forEach(r => {
+        table += "<tr>";
+        r.forEach(cell => table += `<td>${cell}</td>`);
+        table += "</tr>";
+    });
+    table += "</tbody></table>";
+
+    document.getElementById(previewDivId).innerHTML = table;
+  }
+
+  // Funkcja do wyświetlania metadanych HFD
+  function showHfdMeta({symbol, folder, filename, csv, lastUpdated, source="MetaTrader 4 (XTB Demo Server)"}) {
+    const lines = csv.trim().split("\n");
+    const headers = lines[0].split(",");
+    const rows = lines.slice(1);
+    const records = rows.length;
+    const columns = headers.join(", ");
+    const firstRow = rows[0] ? rows[0].split(",")[0] : "";
+    const lastRow = rows[rows.length-1] ? rows[rows.length-1].split(",")[0] : "";
+    // Sprawdź brak NA
+    const hasNA = csv.includes("NA") || csv.includes("NaN") || csv.includes("null");
+    const dataQuality = hasNA ? "Missing values detected" : "No NA values detected";
+    // Format daty
+    function fmt(dt) {
+        if (!dt) return "";
+        return dt.replace("T", " ").replace("Z", "");
+    }
+    document.getElementById("hfd-meta").innerHTML = `
+        <div class="data-meta-summary">
+            <strong>Selected Data:</strong> ${symbol} (${folder})
+            <br>
+            <strong>Time Range:</strong> ${firstRow} to ${lastRow}
+            <br>
+            <strong>Records:</strong> ${records} entities
+            <br>
+            <strong>Columns:</strong> ${columns}
+            <br>
+            <strong>Data Quality:</strong> ${dataQuality}
+            <br>
+            <strong>Source:</strong> ${source}
+            <br>
+            <strong>Last Updated:</strong> ${lastUpdated || "Unknown"}
+            <br>
+            <strong>Filename:</strong> ${filename}
+        </div>
+    `;
+}
+
+// Przykład użycia w obsłudze przycisku Preview Data dla HFD (Raw)
+document.getElementById('load-hfd-btn').addEventListener('click', async function() {
+    const symbol = document.getElementById('hfd-symbol-select').value;
+    const dateSelect = document.getElementById('date-select');
+    const selected = dateSelect.selectedIndex;
+    if (selected < 0) return;
+    const folder = dateSelect.options[selected].value;
+    const url = dateSelect.options[selected].dataset.downloadUrl;
+    const filename = url.split('/').pop();
+    try {
+        const response = await fetch(url);
+        if (!response.ok) throw new Error("Could not fetch CSV data");
+        const csv = await response.text();
+        // Jeśli masz info o dacie aktualizacji, pobierz je tutaj (np. z API GitHub)
+        const lastUpdated = "Unknown";
+        showHfdMeta({symbol, folder, filename, csv, lastUpdated});
+        previewHfdData(csv, "hfd-preview");
+    } catch (error) {
+        document.getElementById("hfd-preview").innerHTML = `<div class="error">Error: ${error.message}</div>`;
+        document.getElementById("hfd-meta").innerHTML = "";
+    }
+});
 });
