@@ -232,4 +232,8 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // ...w miejscu gdzie wywołujesz podgląd, użyj showPreviewTable(data)...
+
+  function cleanSymbol(symbol) {
+    return symbol.replace(/\+$/, '');
+}
 });
