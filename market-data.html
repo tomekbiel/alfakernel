@@ -94,47 +94,46 @@
                 </div>
             </section>
 
-            <!-- Sekcja HFD (Raw) -->
+            
+                        <!-- Sekcja HFD (Raw) -->
             <section id="hfd-data" class="tab-content">
                 <div class="data-container">
-                    <div class="section-box">
-                        <div id="hfd-section">
-                            <h2>High-Frequency Data (Raw)</h2>
-
-                            <div class="data-controls">
-                                <div class="control-group">
-                                    <label for="hfd-symbol-select">Choose Symbol:</label>
-                                    <select id="hfd-symbol-select" class="data-select"></select>
-                                </div>
-
-                                <div class="control-group">
-                                    <label for="date-select">Available Data:</label>
-                                    <select id="date-select" class="data-select">
-                                        <!-- Dates will be populated dynamically -->
-                                    </select>
-                                </div>
-
-                                <div class="button-group">
-                                    <button id="load-hfd-btn" class="data-button">Preview Data</button>
-                                    <button id="download-hfd-btn" class="data-button secondary">
-                                        <i class="fas fa-download"></i> Download CSV
-                                    </button>
-                                </div>
+                    <div id="data-section">
+                        <h2>High-Frequency Data (Raw)</h2>
+                        
+                        <div class="data-controls">
+                            <div class="control-group">
+                                <label for="hfd-symbol-select">Choose Symbol:</label>
+                                <select id="hfd-symbol-select" class="data-select"></select>
                             </div>
 
-                            <div id="hfd-meta"></div>
-                            <div id="hfd-preview"></div>
+                            <div class="control-group">
+                                <label for="date-select">Available Data:</label>
+                                <select id="date-select" class="data-select">
+                                    <!-- Dates will be populated dynamically -->
+                                </select>
+                            </div>
+
+                            <div class="button-group">
+                                <button id="load-hfd-btn" class="data-button">Preview Data</button>
+                                <button id="download-hfd-btn" class="data-button secondary">
+                                    <i class="fas fa-download"></i> Download CSV
+                                </button>
+                            </div>
                         </div>
-                    </div>
-                    
-                    <div class="hfd-description">
-                        <h4>Characteristics:</h4>
-                        <ul>
-                            <li>Includes all market events (ticks, quotes, trades)</li>
-                            <li>Millisecond timestamps</li>
-                            <li>Bid/Ask prices and volumes</li>
-                            <li>May contain outliers and missing values</li>
-                        </ul>
+
+                        <div id="hfd-meta"></div>
+                        <div id="hfd-preview"></div>
+                        
+                        <div class="hfd-description">
+                            <h4>Characteristics:</h4>
+                            <ul>
+                                <li>Includes all market events (ticks, quotes, trades)</li>
+                                <li>Millisecond timestamps</li>
+                                <li>Bid/Ask prices and volumes</li>
+                                <li>May contain outliers and missing values</li>
+                            </ul>
+                        </div>
                     </div>
                     
                     <div class="section-footer">
@@ -144,35 +143,63 @@
                     </div>
                 </div>
             </section>
-
-            <!-- Sekcja HFD (Cleaned) -->
-            <section id="hfd-cleaned" class="tab-content">
-                <div class="data-container">
-                    <h3>High-Frequency Data (Cleaned)</h3>
+            
+        <!-- Sekcja HFD (Cleaned) -->
+        <section id="hfd-cleaned" class="tab-content">
+            <div class="data-container">
+                <div id="data-section">
+                    <h2>High-Frequency Data (Cleaned)</h2>
                     <p>Processed and validated HFD ready for analysis:</p>
                     
-                    <div class="cleaning-steps">
-                        <h4>Cleaning Process:</h4>
-                        <ol>
-                            <li>Outlier removal using statistical methods</li>
-                            <li>Time alignment and normalization</li>
-                            <li>Missing data imputation</li>
-                            <li>Volume validation</li>
-                        </ol>
-                        
-                        <h4>Available Datasets:</h4>
-                        <div class="hfd-symbols" id="hfd-cleaned-container">
-                            <!-- Dynamicznie generowane symbole HFD cleaned -->
+                    <div class="data-controls">
+                        <div class="control-group">
+                            <label for="hfd-cleaned-symbol-select">Choose Symbol:</label>
+                            <select id="hfd-cleaned-symbol-select" class="data-select"></select>
+                        </div>
+
+                        <div class="control-group">
+                            <label for="hfd-cleaned-date-select">Available Data:</label>
+                            <select id="hfd-cleaned-date-select" class="data-select">
+                                <!-- Dates will be populated dynamically -->
+                            </select>
+                        </div>
+
+                        <div class="button-group">
+                            <button id="load-hfd-cleaned-btn" class="data-button">Preview Data</button>
+                            <button id="download-hfd-cleaned-btn" class="data-button secondary">
+                                <i class="fas fa-download"></i> Download CSV
+                            </button>
                         </div>
                     </div>
+
+                    <div id="hfd-cleaned-meta"></div>
+                    <div id="hfd-cleaned-preview"></div>
                     
-                    <div class="section-footer">
-                        <a href="https://www.kaggle.com/yourusername" target="_blank" class="nav-link">
-                            Also Available on Kaggle <i class="fas fa-external-link-alt"></i>
-                        </a>
+                    <div class="hfd-description">
+                        <div class="cleaning-steps">
+                            <h4>Cleaning Process:</h4>
+                            <ol>
+                                <li>Outlier removal using statistical methods</li>
+                                <li>Time alignment and normalization</li>
+                                <li>Missing data imputation</li>
+                                <li>Volume validation</li>
+                            </ol>
+                            
+                            <h4>Available Datasets:</h4>
+                            <div class="hfd-symbols" id="hfd-cleaned-container">
+                                <!-- Dynamicznie generowane symbole HFD cleaned -->
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </section>
+                
+                <div class="section-footer">
+                    <a href="https://www.kaggle.com/yourusername" target="_blank" class="nav-link">
+                        Also Available on Kaggle <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
 
             <!-- Sekcja MongoDB Data -->
             <section id="mongodb-data" class="tab-content">
