@@ -361,13 +361,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const previewRows = rows.slice(-20).reverse();
 
     let table = '<table class="preview-table"><thead><tr>';
-    headers.forEach(h => table += `<th>${h}</th>`);
+    headers.forEach((h, i) => table += `<th${i === 0 ? ' class="timestamp-col"' : ''}>${h}</th>`);
     table += "</tr></thead><tbody>";
     previewRows.forEach(r => {
         table += "<tr>";
-        r.forEach(cell => {
+        r.forEach((cell, i) => {
             const isNA = cell.trim() === 'NA' || cell.trim() === 'NaN' || cell.trim() === 'null';
-            table += `<td class="${isNA ? 'na-value' : ''}">${cell}</td>`;
+            table += `<td${i === 0 ? ' class="timestamp-col"' : ''}${isNA ? ' class="na-value"' : ''}>${cell}</td>`;
         });
         table += "</tr>";
     });
