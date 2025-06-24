@@ -231,9 +231,5 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById('data-preview').innerHTML = html;
   }
 
-  // ...w miejscu gdzie wywołujesz podgląd, użyj showPreviewTable(data)...
-
-  function cleanSymbol(symbol) {
-    return symbol.replace(/\+$/, '');
-}
+  
 });
