@@ -360,12 +360,15 @@ document.addEventListener("DOMContentLoaded", () => {
     // Ostatnie 20 wierszy, najnowsze na górze
     const previewRows = rows.slice(-20).reverse();
 
-    let table = "<table><thead><tr>";
+    let table = '<table class="preview-table"><thead><tr>';
     headers.forEach(h => table += `<th>${h}</th>`);
     table += "</tr></thead><tbody>";
     previewRows.forEach(r => {
         table += "<tr>";
-        r.forEach(cell => table += `<td>${cell}</td>`);
+        r.forEach(cell => {
+            const isNA = cell.trim() === 'NA' || cell.trim() === 'NaN' || cell.trim() === 'null';
+            table += `<td class="${isNA ? 'na-value' : ''}">${cell}</td>`;
+        });
         table += "</tr>";
     });
     table += "</tbody></table>";
@@ -382,31 +385,18 @@ document.addEventListener("DOMContentLoaded", () => {
     const columns = headers.join(", ");
     const firstRow = rows[0] ? rows[0].split(",")[0] : "";
     const lastRow = rows[rows.length-1] ? rows[rows.length-1].split(",")[0] : "";
-    // Sprawdź brak NA
     const hasNA = csv.includes("NA") || csv.includes("NaN") || csv.includes("null");
     const dataQuality = hasNA ? "Missing values detected" : "No NA values detected";
-    // Format daty
-    function fmt(dt) {
-        if (!dt) return "";
-        return dt.replace("T", " ").replace("Z", "");
-    }
     document.getElementById("hfd-meta").innerHTML = `
-        <div class="data-meta-summary">
-            <strong>Selected Data:</strong> ${symbol} (${folder})
-            <br>
-            <strong>Time Range:</strong> ${firstRow} to ${lastRow}
-            <br>
-            <strong>Records:</strong> ${records} entities
-            <br>
-            <strong>Columns:</strong> ${columns}
-            <br>
-            <strong>Data Quality:</strong> ${dataQuality}
-            <br>
-            <strong>Source:</strong> ${source}
-            <br>
-            <strong>Last Updated:</strong> ${lastUpdated || "Unknown"}
-            <br>
-            <strong>Filename:</strong> ${filename}
+        <div class="meta-container">
+          <div class="meta-item"><strong>Selected Data:</strong> ${symbol} (${folder})</div>
+          <div class="meta-item"><strong>Time Range:</strong> ${firstRow} to ${lastRow}</div>
+          <div class="meta-item"><strong>Records:</strong> ${records} entities</div>
+          <div class="meta-item"><strong>Columns:</strong> ${columns}</div>
+          <div class="meta-item"><strong>Data Quality:</strong> ${dataQuality}</div>
+          <div class="meta-item"><strong>Source:</strong> ${source}</div>
+          <div class="meta-item"><strong>Last Updated:</strong> ${lastUpdated || "Unknown"}</div>
+          <div class="meta-item"><strong>Filename:</strong> ${filename}</div>
         </div>
     `;
 }
