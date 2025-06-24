@@ -2,51 +2,166 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Beverage Quality Classification with Random Forest</title>
     <link rel="stylesheet" href="../../../css/modern-style.css">
+    <link href="https://fonts.googleapis.com/css2?family=MonteCarlo&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <script defer src="../../../js/index.js"></script>
 </head>
-<body>
+<body class="research-bg">
     <div class="container">
-        <h1>Beverage Quality Classification with Random Forest</h1>
-        <p>
-            This project uses Random Forest and Decision Tree classifiers to predict beverage quality based on physicochemical properties.
-        </p>
-        <ul>
-            <li><b>Dataset:</b> 4898 beverages, 11 features, binary target (Excellent/Other)</li>
-            <li><b>Preprocessing:</b> One-hot encoding, standardization, SMOTE balancing</li>
-            <li><b>Models:</b> Decision Tree, Random Forest (with tuning)</li>
-            <li><b>Results:</b> Random Forest accuracy up to 0.88</li>
-            <li><b>Clustering:</b> KMeans, PCA projection</li>
-        </ul>
-        <h2>Results & Visualizations</h2>
-        <div class="results-gallery">
-            <img src="wyniki/feature_importance.png" alt="Feature Importance" style="max-width:300px;margin:10px;">
-            <img src="wyniki/confusion_matrix.png" alt="Confusion Matrix" style="max-width:300px;margin:10px;">
-            <!-- Dodaj kolejne wykresy jeśli chcesz -->
-        </div>
-        <h2>Resources</h2>
-        <ul>
-            <li>
-                <a href="random_forest_baverages.py" download>
-                    <i class="fas fa-file-code"></i> Download Python script
-                </a>
-            </li>
-            <li>
-                <a href="Beverage.csv" download>
-                    <i class="fas fa-file-csv"></i> Download dataset (CSV)
-                </a>
-            </li>
-            <li>
-                <a href="https://github.com/your-username/your-repo/tree/main/random_forest_example" target="_blank">
-                    <i class="fab fa-github"></i> View on GitHub
-                </a>
-            </li>
-        </ul>
-        <h2>README</h2>
-        <pre style="white-space:pre-wrap;background:#f8f8f8;padding:1em;border-radius:8px;">
-<!-- Tu możesz wkleić skróconą lub pełną treść README.md -->
-        </pre>
+        <!-- Header -->
+        <header class="header">
+            <div class="header-left initials">
+                <span>TB</span>
+            </div>
+            <div class="header-center">
+                <a href="/alfakernel/index.html" class="logo">AlfaKernel</a>
+                <div class="subtitle">The Core of Quantitative Finance</div>
+            </div>
+            <div class="header-right login-container">
+                <button id="login-btn" class="login-btn">
+                    <i class="fas fa-lock"></i> Sign in
+                </button>
+                <div id="login-form" class="login-form hidden">
+                    <input type="email" placeholder="Email" />
+                    <input type="password" placeholder="Password" />
+                    <button type="submit" class="login-btn">Log In</button>
+                </div>
+            </div>
+        </header>
+        <main class="main-content">
+            <section class="shiny-app-details">
+                <h2>Beverage Quality Classification with Random Forest</h2>
+                <p>
+                    This project uses Random Forest and Decision Tree classifiers to predict beverage quality based on physicochemical properties.<br>
+                    <strong>GitHub repo:</strong>
+                    <a href="https://github.com/your-username/your-repo/tree/main/random_forest_example" target="_blank">
+                        your-username/random_forest_example
+                    </a>
+                </p>
+                <pre style="background:#232b36;color:#fff;padding:1em;border-radius:8px;overflow-x:auto;">
+random_forest_example/
+├── random_forest_baverages.py
+├── Beverage.csv
+├── wyniki/
+├── README.md
+└── requirements.txt
+                </pre>
+                <ul style="margin:1em 0 1em 1.2em;padding:0;">
+                    <li><b>Dataset:</b> 4898 beverages, 11 features, binary target (Excellent/Other)</li>
+                    <li><b>Preprocessing:</b> One-hot encoding, standardization, SMOTE balancing</li>
+                    <li><b>Models:</b> Decision Tree, Random Forest (with tuning)</li>
+                    <li><b>Results:</b> Random Forest accuracy up to 0.88</li>
+                    <li><b>Clustering:</b> KMeans, PCA projection</li>
+                </ul>
+                <div style="margin:1.5em 0;">
+                    <strong>Download:</strong>
+                    <a href="random_forest_baverages.py" download style="margin-left:1em;">
+                        <i class="fas fa-file-code"></i> Python script
+                    </a>
+                    <a href="Beverage.csv" download style="margin-left:1em;">
+                        <i class="fas fa-file-csv"></i> Dataset (CSV)
+                    </a>
+                    <a href="requirements.txt" download style="margin-left:1em;">
+                        <i class="fas fa-file-alt"></i> requirements.txt
+                    </a>
+                </div>
+                <h3>Results & Visualizations</h3>
+                <div class="results-gallery" style="display:flex;flex-wrap:wrap;gap:20px;">
+                    <img src="wyniki/feature_importance.png" alt="Feature Importance" style="max-width:320px;max-height:220px;border-radius:8px;">
+                    <img src="wyniki/confusion_matrix.png" alt="Confusion Matrix" style="max-width:320px;max-height:220px;border-radius:8px;">
+                    <!-- Dodaj kolejne wykresy jeśli chcesz -->
+                </div>
+                <h3 style="margin-top:2em;">README</h3>
+                <pre style="background:#232b36;color:#fff;padding:1em;border-radius:8px;overflow-x:auto;max-height:400px;">
+# 🍷 Beverage Quality Classification with Random Forest
+
+This project uses Random Forest and Decision Tree classifiers to predict beverage quality based on physicochemical properties.
+
+## 📂 Dataset
+- `Beverage.csv`: 4898 observations
+- 11 numerical features and 1 categorical target (`quality`)
+- Target converted into binary:
+  - `Excellent` → 1
+  - Others → 0
+
+## ⚙️ Methodology
+1. **Data Preprocessing**:
+   - Conversion of target variable
+   - One-hot encoding of key features (`alcohol`, `volatile acidity`, `sulphates`)
+   - Standardization using `StandardScaler`
+   - Class balancing using **SMOTE**
+
+2. **Modeling**:
+   - **Decision Tree** with `entropy` criterion
+   - **Random Forest** with hyperparameter tuning via `GridSearchCV`
+   - Evaluation using:
+     - Accuracy
+     - Confusion Matrix
+     - Cross-validation
+
+3. **Dimensionality Reduction**:
+   - PCA with 2 components
+   - Explained variance ≈ 1.89%
+
+4. **Clustering**:
+   - KMeans with Elbow method
+   - Optimal clusters: **4**
+   - PCA projection used for visualizing clusters
+
+## 📊 Model Results
+
+| Model            | Accuracy | TP  | TN  | FP  | FN  |
+|------------------|----------|-----|-----|-----|-----|
+| Decision Tree    | 0.715    | 215 | 836 | 319 | 100 |
+| Random Forest    | 0.883    | 211 | 1087|  68 | 104 |
+| Random Forest Tuning | 0.881 | 209 | 1086|  69 | 106 |
+
+> Best hyperparameters: `max_depth=30`, `n_estimators=450`
+
+## 🔍 Feature Importance (Random Forest)
+Top predictors:
+1. [Feature 1]
+2. [Feature 2]
+3. [Feature 3]
+
+## 🚀 Getting Started
+
+### Prerequisites
+- Python 3.8+
+- Required packages (see `requirements.txt`)
+
+### Installation
+1. Clone the repository
+   git clone https://github.com/your-username/python_data_analysis.git
+   cd python_data_analysis/random_forest_example
+
+2. Create and activate a virtual environment:
+   python -m venv venv
+   .\venv\Scripts\activate  # Windows
+   source venv/bin/activate  # macOS/Linux
+
+3. Install dependencies:
+   pip install -r requirements.txt
+
+### Usage
+1. Place your `Beverage.csv` in the project root directory
+2. Run the analysis:
+   python random_forest_baverages.py
+
+## 📂 Project Structure
+random_forest_example/
+├── random_forest_baverages.py  # Main analysis script
+├── requirements.txt           # Python dependencies
+└── README.md                 # This file
+
+## 📝 License
+This project is licensed under the MIT License.
+                </pre>
+            </section>
+        </main>
     </div>
 </body>
 </html>
