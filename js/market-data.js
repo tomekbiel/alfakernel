@@ -330,4 +330,24 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   fillHfdSelects();
+
+  function forceDownload(url, filename) {
+    fetch(url)
+      .then(resp => resp.blob())
+      .then(blob => {
+        const link = document.createElement('a');
+        link.href = window.URL.createObjectURL(blob);
+        link.download = filename;
+        link.click();
+        window.URL.revokeObjectURL(link.href);
+      });
+  }
+
+  // Przykład użycia:
+  document.getElementById('download-hfd-btn').addEventListener('click', function(e) {
+      e.preventDefault();
+      const url = this.href;
+      const filename = url.split('/').pop();
+      forceDownload(url, filename);
+  });
 });
