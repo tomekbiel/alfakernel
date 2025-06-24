@@ -9,6 +9,11 @@ document.addEventListener("DOMContentLoaded", () => {
     "NZDUSD+", "USDCAD+", "USDCHF+", "USDJPY+", "US.500+"
   ];
 
+  const HFD_SYMBOLS = [
+    "US.100+", "EURUSD+", "OIL.WTI+", "OILs+", "GOLDs+", "US.500+",
+    "US.30+", "DE.30+", "JAP225+", "VIX+", "W.20+", "EURPLN+", "USDJPY+"
+  ];
+
   const symbolSelect = document.getElementById("symbol-select");
   const timeframeSelect = document.getElementById("timeframe-select");
   const loadBtn = document.getElementById("load-data-btn");
@@ -231,5 +236,81 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById('data-preview').innerHTML = html;
   }
 
-  
+  // Wypełnij selektor symboli HFD
+  const hfdSymbolSelect = document.getElementById("hfd-symbol-select");
+  HFD_SYMBOLS.forEach(symbol => {
+    const option = document.createElement("option");
+    option.value = symbol;
+    option.textContent = symbol;
+    hfdSymbolSelect.appendChild(option);
+  });
+
+  // Po zmianie symbolu pobierz dostępne foldery/pliki
+  hfdSymbolSelect.addEventListener("change", updateHfdFolders);
+  updateHfdFolders(); // wywołaj na starcie
+
+  async function updateHfdFolders() {
+    const symbol = hfdSymbolSelect.value;
+    const encodedSymbol = encodeURIComponent(symbol);
+    const dateSelect = document.getElementById("date-select");
+    dateSelect.innerHTML = '<option>Loading...</option>';
+
+    // Pobierz listę plików z GitHub API (rekurencyjnie)
+    const apiUrl = "https://api.github.com/repos/tomekbiel/MT4_Trading_System/contents/data/live";
+    let folders = [];
+    let foundFiles = [];
+
+    async function fetchFolder(url, folderName = "") {
+      const res = await fetch(url);
+      const data = await res.json();
+      for (const item of data) {
+        if (item.type === "file" && (item.name === `${symbol}.csv` || item.name === `${symbol.replace('+','%2B')}.csv` || item.name === `${encodedSymbol}.csv`)) {
+          foundFiles.push({
+            folder: folderName || "live",
+            path: item.path,
+            download_url: item.download_url
+          });
+        }
+        if (item.type === "dir") {
+          await fetchFolder(item.url, item.name);
+        }
+      }
+    }
+
+    await fetchFolder(apiUrl);
+
+    // Usuń duplikaty folderów
+    folders = [...new Set(foundFiles.map(f => f.folder))];
+
+    // Wypełnij selektor dat/folderów
+    dateSelect.innerHTML = "";
+    foundFiles.forEach(file => {
+      const opt = document.createElement("option");
+      opt.value = file.folder;
+      opt.textContent = file.folder;
+      opt.dataset.downloadUrl = file.download_url;
+      dateSelect.appendChild(opt);
+    });
+
+    // Ustaw obsługę przycisku pobierania
+    updateHfdDownloadBtn(foundFiles);
+  }
+
+  function updateHfdDownloadBtn(foundFiles) {
+    const dateSelect = document.getElementById("date-select");
+    const downloadBtn = document.getElementById("download-hfd-btn");
+    if (!dateSelect || !downloadBtn) return;
+    dateSelect.addEventListener("change", function() {
+      const selected = dateSelect.selectedIndex;
+      if (selected >= 0) {
+        const url = dateSelect.options[selected].dataset.downloadUrl;
+        downloadBtn.onclick = () => window.open(url, "_blank");
+      }
+    });
+    // Ustaw od razu dla pierwszego wyboru
+    if (dateSelect.options.length > 0) {
+      const url = dateSelect.options[0].dataset.downloadUrl;
+      downloadBtn.onclick = () => window.open(url, "_blank");
+    }
+  }
 });
