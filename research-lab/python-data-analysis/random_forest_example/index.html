@@ -110,92 +110,86 @@ random_forest_example/
                         <figcaption style="text-align:center; margin-top:8px; color:#666;">Clustering Results</figcaption>
                     </figure>
                 </div>
-                <h3 style="margin-top:2em;">README</h3>
-                <pre style="background:#232b36;color:#fff;padding:1em;border-radius:8px;overflow-x:auto;max-height:400px;">
-# 🍷 Beverage Quality Classification with Random Forest
+                <h3 style="margin-top:2em;">Project Report</h3>
+                <div style="max-width: 600px; background: #f8f9fa; border-radius: 8px; padding: 20px; margin: 20px 0; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                    <h4>Analysis Report</h4>
+                    <p>Detailed analysis report with methodology, results, and conclusions.</p>
+                    <a href="https://raw.githubusercontent.com/tomekbiel/python_data_analysis/random_forest_example/Beverage%20Analysis%20Report.pdf" 
+                       class="button" 
+                       style="display: inline-flex; align-items: center; margin-top: 10px;">
+                        <i class="fas fa-file-pdf" style="margin-right: 8px; color: #d73a49;"></i>
+                        <span>View Report (PDF)</span>
+                    </a>
+                </div>
 
-This project uses Random Forest and Decision Tree classifiers to predict beverage quality based on physicochemical properties.
+                <h3 style="margin-top:2em;">Jupyter Notebook</h3>
+                <div style="background: #f8f9fa; border-radius: 8px; padding: 20px; margin: 20px 0; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                    <p>Interactive notebook containing the complete analysis with code, visualizations, and explanations.</p>
+                    <div style="margin: 15px 0;">
+                        <a href="https://colab.research.google.com/github/tomekbiel/python_data_analysis/blob/random_forest_example/random_forest_baverages.ipynb" 
+                           target="_blank" 
+                           class="button" 
+                           style="margin-right: 10px; margin-bottom: 10px;">
+                            <i class="fab fa-google" style="margin-right: 8px;"></i>
+                            Open in Google Colab
+                        </a>
+                        <a href="https://nbviewer.jupyter.org/github/tomekbiel/python_data_analysis/blob/random_forest_example/random_forest_baverages.ipynb" 
+                           target="_blank" 
+                           class="button" 
+                           style="margin-right: 10px; margin-bottom: 10px;">
+                            <i class="fas fa-eye" style="margin-right: 8px;"></i>
+                            View in NBViewer
+                        </a>
+                        <a href="https://raw.githubusercontent.com/tomekbiel/python_data_analysis/random_forest_example/random_forest_baverages.ipynb" 
+                           download 
+                           class="button" 
+                           style="margin-bottom: 10px;">
+                            <i class="fas fa-download" style="margin-right: 8px;"></i>
+                            Download Notebook
+                        </a>
+                    </div>
+                    <div style="margin-top: 20px; padding: 15px; background: #fff; border-radius: 6px; border-left: 4px solid #4285f4;">
+                        <h4 style="margin-top: 0; color: #333;">Notebook Preview</h4>
+                        <p>For the best experience, we recommend opening the notebook in Google Colab or Jupyter Lab.</p>
+                        <img src="https://raw.githubusercontent.com/tomekbiel/python_data_analysis/random_forest_example/wyniki/notebook_preview.png" 
+                             alt="Notebook Preview" 
+                             style="width: 100%; border-radius: 4px; border: 1px solid #e1e4e8; margin-top: 10px;" 
+                             onerror="this.src='https://raw.githubusercontent.com/tomekbiel/python_data_analysis/random_forest_example/wyniki/feature_importance.png'">
+                    </div>
+                </div>
 
-## 📂 Dataset
-- `Beverage.csv`: 4898 observations
-- 11 numerical features and 1 categorical target (`quality`)
-- Target converted into binary:
-  - `Excellent` → 1
-  - Others → 0
+                <h3 style="margin-top:2em;">Project Documentation</h3>
+                <div style="background: #f8f9fa; border-radius: 8px; padding: 20px; margin: 20px 0; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                    <div id="readme-content">
+                        <!-- README content will be loaded here -->
+                        <p>Loading project documentation...</p>
+                    </div>
+                </div>
 
-## ⚙️ Methodology
-1. **Data Preprocessing**:
-   - Conversion of target variable
-   - One-hot encoding of key features (`alcohol`, `volatile acidity`, `sulphates`)
-   - Standardization using `StandardScaler`
-   - Class balancing using **SMOTE**
-
-2. **Modeling**:
-   - **Decision Tree** with `entropy` criterion
-   - **Random Forest** with hyperparameter tuning via `GridSearchCV`
-   - Evaluation using:
-     - Accuracy
-     - Confusion Matrix
-     - Cross-validation
-
-3. **Dimensionality Reduction**:
-   - PCA with 2 components
-   - Explained variance ≈ 1.89%
-
-4. **Clustering**:
-   - KMeans with Elbow method
-   - Optimal clusters: **4**
-   - PCA projection used for visualizing clusters
-
-## 📊 Model Results
-
-| Model            | Accuracy | TP  | TN  | FP  | FN  |
-|------------------|----------|-----|-----|-----|-----|
-| Decision Tree    | 0.715    | 215 | 836 | 319 | 100 |
-| Random Forest    | 0.883    | 211 | 1087|  68 | 104 |
-| Random Forest Tuning | 0.881 | 209 | 1086|  69 | 106 |
-
-> Best hyperparameters: `max_depth=30`, `n_estimators=450`
-
-## 🔍 Feature Importance (Random Forest)
-Top predictors:
-1. [Feature 1]
-2. [Feature 2]
-3. [Feature 3]
-
-## 🚀 Getting Started
-
-### Prerequisites
-- Python 3.8+
-- Required packages (see `requirements.txt`)
-
-### Installation
-1. Clone the repository
-   git clone https://github.com/tomekbiel/python_data_analysis
-   cd python_data_analysis/random_forest_example
-
-2. Create and activate a virtual environment:
-   python -m venv venv
-   .\venv\Scripts\activate  # Windows
-   source venv/bin/activate  # macOS/Linux
-
-3. Install dependencies:
-   pip install -r requirements.txt
-
-### Usage
-1. Place your `Beverage.csv` in the project root directory
-2. Run the analysis:
-   python random_forest_baverages.py
-
-## 📂 Project Structure
-random_forest_example/
-├── random_forest_baverages.py  # Main analysis script
-├── requirements.txt           # Python dependencies
-└── README.md                 # This file
-
-## 📝 License
-This project is licensed under the MIT License.
-                </pre>
+                <script>
+                // Load README content from GitHub
+                fetch('https://raw.githubusercontent.com/tomekbiel/python_data_analysis/random_forest_example/README.md')
+                    .then(response => response.text())
+                    .then(text => {
+                        // Convert markdown to HTML (you might want to use a proper markdown parser in production)
+                        const html = text
+                            .replace(/^# (.*$)/gm, '<h4>$1</h4>')
+                            .replace(/^## (.*$)/gm, '<h5>$1</h5>')
+                            .replace(/^### (.*$)/gm, '<h6>$1</h6>')
+                            .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+                            .replace(/\*(.*?)\*/g, '<em>$1</em>')
+                            .replace(/^\s*\* (.*$)/gm, '<li>$1</li>')
+                            .replace(/`(.*?)`/g, '<code>$1</code>')
+                            .replace(/\n\n/g, '<br><br>');
+                        
+                        document.getElementById('readme-content').innerHTML = html;
+                    })
+                    .catch(error => {
+                        console.error('Error loading README:', error);
+                        document.getElementById('readme-content').innerHTML = 
+                            '<p>Could not load project documentation. Please check the <a href="https://github.com/tomekbiel/python_data_analysis/tree/random_forest_example" target="_blank">GitHub repository</a>.</p>';
+                    });
+                </script>
             </section>
         </main>
     </div>
