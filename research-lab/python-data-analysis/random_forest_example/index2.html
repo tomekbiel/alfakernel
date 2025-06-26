@@ -115,7 +115,7 @@ from imblearn.over_sampling import SMOTE
 from sklearn.ensemble import RandomForestClassifier</code></pre>
 
                     <h3>Data Loading and Preprocessing</h3>
-                    <pre><code class="language-python"># Download the dataset
+                    <pre style="white-space: pre-wrap; word-break: break-word; overflow-x: auto; max-height: none;"><code class="language-python"># Download the dataset
 !wget -O Beverage.csv https://raw.githubusercontent.com/tomekbiel/python_data_analysis/refs/heads/random_forest_example/Beverage.csv
 
 # Load the dataset
@@ -137,7 +137,7 @@ categorical_features = ['alcohol', 'volatile acidity', 'sulphates']
 f_dat = pd.get_dummies(dataset, columns=categorical_features)
 print("\nAfter One-Hot Encoding:")
 print(f_dat.head())</code></pre>
-<pre><code class="language-python">--2025-06-25 10:48:58--  https://raw.githubusercontent.com/tomekbiel/python_data_analysis/refs/heads/random_forest_example/Beverage.csv
+<pre style="white-space: pre-wrap; word-break: break-word; overflow-x: auto; max-height: none;"><code class="language-text">--2025-06-25 10:48:58--  https://raw.githubusercontent.com/tomekbiel/python_data_analysis/refs/heads/random_forest_example/Beverage.csv
 Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.108.133, 185.199.109.133, 185.199.110.133, ...
 Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.108.133|:443... connected.
 HTTP request sent, awaiting response... 200 OK
@@ -206,7 +206,8 @@ After One-Hot Encoding:
 3           False           False  
 4           False           False  
 
-[5 rows x 316 columns]</code></pre>
+[5 rows x 316 columns]
+</code></pre>
 
                     <h3 style="margin-top:2em;">Jupyter Notebook</h3>
                     <p>The complete analysis is available in the interactive Jupyter Notebook containing all code, visualizations, and explanations:</p>
