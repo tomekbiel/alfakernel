@@ -137,7 +137,7 @@ categorical_features = ['alcohol', 'volatile acidity', 'sulphates']
 f_dat = pd.get_dummies(dataset, columns=categorical_features)
 print("\nAfter One-Hot Encoding:")
 print(f_dat.head())</code></pre>
-<pre style="white-space: pre-wrap; word-break: break-word; overflow-x: auto; max-height: none;"><code class="language-text">--2025-06-25 10:48:58--  https://raw.githubusercontent.com/tomekbiel/python_data_analysis/refs/heads/random_forest_example/Beverage.csv
+<pre class="output">--2025-06-25 10:48:58--  https://raw.githubusercontent.com/tomekbiel/python_data_analysis/refs/heads/random_forest_example/Beverage.csv
 Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.108.133, 185.199.109.133, 185.199.110.133, ...
 Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.108.133|:443... connected.
 HTTP request sent, awaiting response... 200 OK
@@ -199,18 +199,50 @@ After One-Hot Encoding:
 3           False           False          False           False   
 4           False           False          False           False   
 
-   sulphates_1.06  sulphates_1.08  
+   sulphates_1.02  sulphates_1.03  
 0           False           False  
 1           False           False  
 2           False           False  
 3           False           False  
 4           False           False  
 
-[5 rows x 316 columns]
-</code></pre>
-<!-- Template 1 -->
-<h3>Data Preparation</h3>
-<pre><code class="language-python"># Prepare features and target
+[5 rows x 316 columns]</pre>
+
+                    <h3>Exploratory Data Analysis</h3>
+                    <pre><code class="language-python"># Basic statistics
+print("\nBasic Statistics:")
+print(dataset.describe())
+
+# Check class distribution
+print("\nClass Distribution:")
+print(dataset['quality'].value_counts())
+
+# Correlation matrix
+corr = dataset.corr()
+plt.figure(figsize=(12, 8))
+sns.heatmap(corr, annot=True, cmap='coolwarm', center=0)
+plt.title('Correlation Matrix')
+plt.tight_layout()
+plt.show()</code></pre>
+                    <pre class="output"># Output will be displayed here</pre>
+
+                    <h3>Feature Engineering</h3>
+                    <pre><code class="language-python"># Create new features
+# Example: Total acidity
+f_dat['total_acidity'] = f_dat['fixed acidity'] + f_dat['volatile acidity'] + f_dat['citric acid']
+
+# Example: Alcohol level category
+alcohol_bins = [0, 9, 11, 13, 20]
+alcohol_labels = ['low', 'medium', 'high', 'very_high']
+f_dat['alcohol_level'] = pd.cut(f_dat['alcohol'], bins=alcohol_bins, labels=alcohol_labels)
+
+# Display new features
+print("\nNew Features:")
+print(f_dat[['total_acidity', 'alcohol_level']].head())</code></pre>
+                    <pre class="output"># Output will be displayed here</pre>
+
+                    <h3>Data Preparation</h3>
+                    <pre><code class="language-python"># Prepare features and target
 X = f_dat.drop('quality', axis=1)
 Y = f_dat['quality']
 
