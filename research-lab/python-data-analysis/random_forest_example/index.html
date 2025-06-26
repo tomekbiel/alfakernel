@@ -46,7 +46,7 @@ random_forest_example/
 ├── random_forest_baverages.py  # Main analysis script
 ├── random_forest_baverages.ipynb  # Jupyter notebook version
 ├── Beverage.csv              # Dataset
-├── wyniki/                   # Output visualizations
+├── plots/                   # Output visualizations
 │   ├── feature_importance.png
 │   ├── confusion_matrix.png
 │   └── clustering_results.png
@@ -165,7 +165,203 @@ random_forest_example/
                         <p>Loading project documentation...</p>
                     </div>
                 </div>
+                
+                <h3 style="margin-top:2em;">Jupyter Notebook Content</h3>
+                <div style="background: #f8f9fa; border-radius: 8px; padding: 20px; margin: 20px 0; box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+                            max-height: 600px; overflow-y: auto;">
+                    <pre style="background: #f5f5f5; padding: 15px; border-radius: 5px; white-space: pre-wrap; font-family: 'Courier New', monospace;">
+# Beverage Quality Prediction with Random Forest
 
+## Setup
+
+```python
+# Install required packages
+!pip install scikit-learn imbalanced-learn seaborn matplotlib numpy pandas
+
+# Import libraries
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
+from sklearn import tree
+from sklearn.model_selection import cross_val_score
+from sklearn.model_selection import GridSearchCV
+from sklearn import metrics
+from sklearn.cluster import KMeans
+from sklearn.decomposition import PCA
+from imblearn.over_sampling import SMOTE
+from sklearn.ensemble import RandomForestClassifier
+```
+
+## Data Loading and Preprocessing
+
+```python
+# Download the dataset
+!wget -O Beverage.csv https://raw.githubusercontent.com/tomekbiel/python_data_analysis/refs/heads/random_forest_example/Beverage.csv
+
+# Load the dataset
+dataset = pd.read_csv("Beverage.csv")
+
+# Convert quality to binary
+def converter(column):
+    if column == 'Excellent':
+        return 1
+    else:
+        return 0
+
+dataset['quality'] = dataset['quality'].apply(converter)
+print("Dataset Info:")
+print(dataset.info())
+
+# One-hot encode categorical features
+categorical_features = ['alcohol', 'volatile acidity', 'sulphates']
+f_dat = pd.get_dummies(dataset, columns=categorical_features)
+print("\nAfter One-Hot Encoding:")
+print(f_dat.head())
+```
+
+## Data Preparation
+
+```python
+# Prepare features and target
+X = f_dat.drop('quality', axis=1)
+Y = f_dat['quality']
+
+# Scale features
+scaler = StandardScaler()
+X_scaled = scaler.fit_transform(X)
+
+# Split data into training and testing sets
+X_train, X_test, Y_train, Y_test = train_test_split(X_scaled, Y, test_size=0.3, random_state=100)
+
+# Handle class imbalance using SMOTE
+print("Number of observations in each class before oversampling (training data):\n", 
+      pd.Series(Y_train).value_counts())
+
+smote = SMOTE(random_state=101)
+X_train, Y_train = smote.fit_resample(X_train, Y_train)
+
+print("Number of observations in each class after oversampling (training data):\n", 
+      pd.Series(Y_train).value_counts())
+```
+
+## Model Training and Evaluation
+
+```python
+# Train Decision Tree Classifier
+drzewo = tree.DecisionTreeClassifier(criterion='entropy', max_depth=5)
+drzewo.fit(X_train, Y_train)
+
+# Feature importance
+featimp = pd.Series(drzewo.feature_importances_, index=list(X)).sort_values(ascending=False)
+print(featimp)
+
+# Make predictions and evaluate
+Y_pred = drzewo.predict(X_test)
+print("Prediction Accuracy: ", metrics.accuracy_score(Y_test, Y_pred))
+
+# Confusion matrix
+conf_mat = metrics.confusion_matrix(Y_test, Y_pred)
+plt.figure(figsize=(8, 6))
+sns.heatmap(conf_mat, annot=True)
+plt.title("Confusion Matrix")
+plt.xlabel("Predicted Class")
+plt.ylabel("Actual Class")
+plt.show()
+
+# Cross-validation
+all_accuracies = cross_val_score(estimator=drzewo, X=X_train, y=Y_train, cv=5)
+print("Cross-validation accuracies:", all_accuracies)
+print("Mean accuracy:", all_accuracies.mean())
+print("Standard deviation:", all_accuracies.std())
+```
+
+## Hyperparameter Tuning
+
+```python
+# Grid search for best parameters
+classifier = tree.DecisionTreeClassifier(criterion='entropy')
+grid_param = {'max_depth': [2, 3, 4, 5, 10, 15, 20, 25, 30, 35]}
+
+gd_sr = GridSearchCV(estimator=classifier, param_grid=grid_param, scoring='accuracy', cv=5)
+gd_sr.fit(X_train, Y_train)
+
+best_parameters = gd_sr.best_params_
+print("Best parameters:", best_parameters)
+print("Best score:", gd_sr.best_score_)
+```
+
+## Random Forest Classifier
+
+```python
+# Train and evaluate Random Forest
+rfc = RandomForestClassifier(n_estimators=400, criterion='entropy', max_features='sqrt', random_state=1)
+rfc.fit(X_train, Y_train)
+
+# Feature importance
+featimp = pd.Series(rfc.feature_importances_, index=list(X)).sort_values(ascending=False)
+print(featimp)
+
+# Make predictions and evaluate
+Y_pred = rfc.predict(X_test)
+print("Prediction Accuracy: ", metrics.accuracy_score(Y_test, Y_pred))
+
+# Confusion matrix
+conf_mat = metrics.confusion_matrix(Y_test, Y_pred)
+plt.figure(figsize=(8, 6))
+sns.heatmap(conf_mat, annot=True)
+plt.title("Confusion Matrix")
+plt.xlabel("Predicted Class")
+plt.ylabel("Actual Class")
+plt.show()
+```
+
+## Dimensionality Reduction with PCA
+
+```python
+# Apply PCA
+pca = PCA(n_components=2)
+pca.fit(X_scaled)
+x_pca = pca.transform(X_scaled)
+print("Explained variance ratio:", pca.explained_variance_ratio_)
+print("Total explained variance:", sum(pca.explained_variance_ratio_))
+
+# Plot PCA results
+plt.figure(figsize=(8, 6))
+plt.scatter(x_pca[:, 0], x_pca[:, 1], c=Y, cmap='plasma')
+plt.xlabel('First Principal Component')
+plt.ylabel('Second Principal Component')
+plt.title('PCA of Beverage Quality Dataset')
+plt.show()
+```
+
+## K-means Clustering
+
+```python
+# Apply K-means clustering
+kmeans = KMeans(n_clusters=4)
+kmeans.fit(X_scaled)
+print("Cluster centers:", kmeans.cluster_centers_)
+
+# Plot clusters
+plt.figure(figsize=(8, 6))
+plt.scatter(x_pca[:, 0], x_pca[:, 1], c=kmeans.labels_, cmap='viridis')
+plt.scatter(kmeans.cluster_centers_[:, 0], kmeans.cluster_centers_[:, 1], 
+            s=300, c='red', marker='*')
+plt.title('K-means Clustering Results')
+plt.xlabel('First Principal Component')
+plt.ylabel('Second Principal Component')
+plt.show()
+```
+                    </pre>
+                </div>
+                
+                <div id="readme-content">
+                    <!-- README content will be loaded here -->
+                    <p>Loading project documentation...</p>
+                </div>
                 <script>
                 // Load README content from GitHub
                 fetch('https://raw.githubusercontent.com/tomekbiel/python_data_analysis/random_forest_example/README.md')
