@@ -208,6 +208,144 @@ After One-Hot Encoding:
 
 [5 rows x 316 columns]
 </code></pre>
+<!-- Template 1 -->
+<h3>Data Preparation</h3>
+<pre><code class="language-python"># Prepare features and target
+X = f_dat.drop('quality', axis=1)
+Y = f_dat['quality']
+
+# Scale the features
+scaler = StandardScaler()
+X_scaled = scaler.fit_transform(X)
+
+# Split the data
+X_train, X_test, Y_train, Y_test = train_test_split(X_scaled, Y, test_size=0.3, random_state=100)
+
+# Handle class imbalance with SMOTE
+print("Before SMOTE:", pd.Series(Y_train).value_counts())
+smote = SMOTE(random_state=101)
+X_train, Y_train = smote.fit_resample(X_train, Y_train)
+print("After SMOTE:", pd.Series(Y_train).value_counts())</code></pre>
+<pre><code class="language-text">Before SMOTE: quality
+0    2683
+1     745
+Name: count, dtype: int64
+After SMOTE: quality
+1    2683
+0    2683
+Name: count, dtype: int64</code></pre>
+
+<!-- Template 2 -->
+<h3>Model Training and Evaluation</h3>
+<pre><code class="language-python"># Train and evaluate Random Forest
+rfc = RandomForestClassifier(n_estimators=400, criterion='entropy', max_features='sqrt', random_state=1)
+rfc.fit(X_train, Y_train)
+
+# Make predictions
+Y_pred = rfc.predict(X_test)
+
+# Evaluate the model
+accuracy = metrics.accuracy_score(Y_test, Y_pred)
+conf_mat = metrics.confusion_matrix(Y_test, Y_pred)
+
+print(f"Accuracy: {accuracy:.4f}")
+print('\nConfusion Matrix:')
+print(conf_mat)
+print('\nClassification Report:')
+print(metrics.classification_report(Y_test, Y_pred))
+
+# Plot confusion matrix
+plt.figure(figsize=(8, 6))
+sns.heatmap(conf_mat, annot=True, fmt='d', cmap='Blues')
+plt.title("Confusion Matrix")
+plt.xlabel("Predicted")
+plt.ylabel("Actual")
+plt.show()</code></pre>
+<pre><code class="language-text">Accuracy: 0.8810
+
+Confusion Matrix:
+[[1086   69]
+ [ 106  209]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.91      0.94      0.93      1155
+           1       0.75      0.66      0.70       315
+
+    accuracy                           0.88      1470
+   macro avg       0.83      0.80      0.82      1470
+weighted avg       0.88      0.88      0.88      1470</code></pre>
+
+<!-- Template 3 -->
+<h3>Feature Importance</h3>
+<pre><code class="language-python"># Get feature importances
+importances = rfc.feature_importances_
+indices = np.argsort(importances)[::-1]
+
+# Plot feature importances
+plt.figure(figsize=(12, 6))
+plt.title("Feature Importances")
+plt.bar(range(X.shape[1]), importances[indices], align='center')
+plt.xticks(range(X.shape[1]), [X.columns[i] for i in indices], rotation=90)
+plt.tight_layout()
+plt.show()</code></pre>
+
+<!-- Template 4 -->
+<h3>Dimensionality Reduction with PCA</h3>
+<pre><code class="language-python"# Apply PCA
+pca = PCA(n_components=2)
+X_pca = pca.fit_transform(X_scaled)
+
+print("Explained variance ratio:", pca.explained_variance_ratio_)
+print("Total explained variance ratio:", sum(pca.explained_variance_ratio_))
+
+# Visualize the first two principal components
+plt.figure(figsize=(10, 8))
+plt.scatter(X_pca[:, 0], X_pca[:, 1], c=Y, cmap='viridis', alpha=0.7)
+plt.xlabel('First Principal Component')
+plt.ylabel('Second Principal Component')
+plt.title('PCA - First Two Principal Components')
+plt.colorbar(label='Quality (0=Not Excellent, 1=Excellent)')
+plt.show()</code></pre>
+<pre><code class="language-text">Explained variance ratio: [0.01092321 0.00802697]
+Total explained variance ratio: 0.018950179766635992</code></pre>
+
+<!-- Template 5 -->
+<h3>Clustering with K-Means</h3>
+<pre><code class="language-python"# Determine optimal number of clusters using Elbow Method
+inertia = []
+for i in range(1, 11):
+    kmeans = KMeans(n_clusters=i, random_state=100)
+    kmeans.fit(X_scaled)
+    inertia.append(kmeans.inertia_)
+
+# Plot Elbow curve
+plt.figure(figsize=(10, 6))
+plt.plot(range(1, 11), inertia, marker='o')
+plt.title('Elbow Method for Optimal k')
+plt.xlabel('Number of Clusters (k)')
+plt.ylabel('Inertia')
+plt.xticks(range(1, 11))
+plt.grid(True)
+plt.show()
+
+# Apply K-Means with optimal k (e.g., 4)
+optimal_k = 4
+kmeans = KMeans(n_clusters=optimal_k, random_state=100)
+cluster_labels = kmeans.fit_predict(X_scaled)
+
+# Visualize clusters using PCA components
+plt.figure(figsize=(10, 8))
+plt.scatter(X_pca[:, 0], X_pca[:, 1], c=cluster_labels, cmap='viridis', alpha=0.7)
+plt.scatter(kmeans.cluster_centers_[:, 0], kmeans.cluster_centers_[:, 1],
+            s=300, c='red', marker='X', label='Centroids')
+plt.xlabel('First Principal Component')
+plt.ylabel('Second Principal Component')
+plt.title(f'K-Means Clustering (k={optimal_k}) on PCA Components')
+plt.legend()
+plt.colorbar(label='Cluster Label')
+plt.show()</code></pre>
 
                     <h3 style="margin-top:2em;">Jupyter Notebook</h3>
                     <p>The complete analysis is available in the interactive Jupyter Notebook containing all code, visualizations, and explanations:</p>
