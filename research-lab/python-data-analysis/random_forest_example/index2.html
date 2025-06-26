@@ -113,6 +113,101 @@ from sklearn.cluster import KMeans
 from sklearn.decomposition import PCA
 from imblearn.over_sampling import SMOTE
 from sklearn.ensemble import RandomForestClassifier</code></pre>
+
+                    <h3>Data Loading and Preprocessing</h3>
+                    <pre><code class="language-python"># Download the dataset
+!wget -O Beverage.csv https://raw.githubusercontent.com/tomekbiel/python_data_analysis/refs/heads/random_forest_example/Beverage.csv
+
+# Load the dataset
+dataset = pd.read_csv("Beverage.csv")
+
+# Convert quality to binary
+def converter(column):
+        if column == 'Excellent':
+          return 1
+        else:
+          return 0
+
+dataset['quality'] = dataset['quality'].apply(converter)
+print("Dataset Info:")
+print(dataset.info())
+
+# One-hot encode categorical features
+categorical_features = ['alcohol', 'volatile acidity', 'sulphates']
+f_dat = pd.get_dummies(dataset, columns=categorical_features)
+print("\nAfter One-Hot Encoding:")
+print(f_dat.head())</code></pre>
+<pre><code class="language-python">--2025-06-25 10:48:58--  https://raw.githubusercontent.com/tomekbiel/python_data_analysis/refs/heads/random_forest_example/Beverage.csv
+Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.108.133, 185.199.109.133, 185.199.110.133, ...
+Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.108.133|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 291534 (285K) [text/plain]
+Saving to: ‘Beverage.csv’
+
+Beverage.csv        100%[===================>] 284.70K  --.-KB/s    in 0.03s   
+
+2025-06-25 10:48:58 (10.7 MB/s) - ‘Beverage.csv’ saved [291534/291534]
+
+Dataset Info:
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 4898 entries, 0 to 4897
+Data columns (total 12 columns):
+ #   Column                Non-Null Count  Dtype  
+---  ------                --------------  -----  
+ 0   fixed acidity         4898 non-null   float64
+ 1   volatile acidity      4898 non-null   float64
+ 2   citric acid           4898 non-null   float64
+ 3   residual sugar        4898 non-null   float64
+ 4   chlorides             4898 non-null   float64
+ 5   free sulfur dioxide   4898 non-null   float64
+ 6   total sulfur dioxide  4898 non-null   float64
+ 7   density               4898 non-null   float64
+ 8   pH                    4898 non-null   float64
+ 9   sulphates             4898 non-null   float64
+ 10  alcohol               4898 non-null   float64
+ 11  quality               4898 non-null   int64  
+dtypes: float64(11), int64(1)
+memory usage: 459.3 KB
+None
+
+After One-Hot Encoding:
+   fixed acidity  citric acid  residual sugar  chlorides  free sulfur dioxide  \
+0            7.0         0.36            20.7      0.045                 45.0   
+1            6.3         0.34             1.6      0.049                 14.0   
+2            8.1         0.40             6.9      0.050                 30.0   
+3            7.2         0.32             8.5      0.058                 47.0   
+4            7.2         0.32             8.5      0.058                 47.0   
+
+   total sulfur dioxide  density    pH  quality  alcohol_8.0  ...  \
+0                 170.0   1.0010  3.00        0        False  ...   
+1                 132.0   0.9940  3.30        0        False  ...   
+2                  97.0   0.9951  3.26        0        False  ...   
+3                 186.0   0.9956  3.19        0        False  ...   
+4                 186.0   0.9956  3.19        0        False  ...   
+
+   sulphates_0.94  sulphates_0.95  sulphates_0.96  sulphates_0.97  \
+0           False           False           False           False   
+1           False           False           False           False   
+2           False           False           False           False   
+3           False           False           False           False   
+4           False           False           False           False   
+
+   sulphates_0.98  sulphates_0.99  sulphates_1.0  sulphates_1.01  \
+0           False           False          False           False   
+1           False           False          False           False   
+2           False           False          False           False   
+3           False           False          False           False   
+4           False           False          False           False   
+
+   sulphates_1.06  sulphates_1.08  
+0           False           False  
+1           False           False  
+2           False           False  
+3           False           False  
+4           False           False  
+
+[5 rows x 316 columns]</code></pre>
+
                     <h3 style="margin-top:2em;">Jupyter Notebook</h3>
                     <p>The complete analysis is available in the interactive Jupyter Notebook containing all code, visualizations, and explanations:</p>
                     <div class="notebook-preview" style="margin-bottom:1.5em;">
