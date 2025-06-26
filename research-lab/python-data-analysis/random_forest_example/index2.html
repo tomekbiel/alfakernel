@@ -7,8 +7,9 @@
     <link rel="stylesheet" href="../../../css/modern-style.css">
     <link href="https://fonts.googleapis.com/css2?family=MonteCarlo&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-    <!-- Highlight.js for code blocks (optional) -->
+    <!-- Code highlighting -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+    <link rel="stylesheet" href="../../../css/code-highlight.css">
 </head>
 <body class="projects-bg">
     <div class="container">
@@ -94,8 +95,24 @@
                         This notebook demonstrates a machine learning approach to predict beverage quality using Random Forest Classifier.
                     </p>
                     <h3>Setup</h3>
-                    <!-- Tutaj możesz wklejać kolejne elementy, np. kod, instrukcje itp. -->
-                    
+                    <pre><code class="language-python"># Install required packages
+!pip install scikit-learn imbalanced-learn seaborn matplotlib numpy pandas
+
+# Import libraries
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
+from sklearn import tree
+from sklearn.model_selection import cross_val_score
+from sklearn.model_selection import GridSearchCV
+from sklearn import metrics
+from sklearn.cluster import KMeans
+from sklearn.decomposition import PCA
+from imblearn.over_sampling import SMOTE
+from sklearn.ensemble import RandomForestClassifier</code></pre>
                     <h3 style="margin-top:2em;">Jupyter Notebook</h3>
                     <p>The complete analysis is available in the interactive Jupyter Notebook containing all code, visualizations, and explanations:</p>
                     <div class="notebook-preview" style="margin-bottom:1.5em;">
@@ -263,14 +280,15 @@
             </div>
         </footer>
     </div>
-    <script src="../../../js/index.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/python.min.js"></script>
+    <script src="../../../js/code-highlight.js"></script>
+    <script src="../../../js/script.js"></script>
     <script>
-        // Sidebar tab navigation
         document.addEventListener("DOMContentLoaded", function() {
             const tabs = document.querySelectorAll('.sidebar .tab');
             const sections = document.querySelectorAll('.tab-content');
+            
             tabs.forEach(tab => {
                 tab.addEventListener('click', function() {
                     tabs.forEach(t => t.classList.remove('active'));

@@ -1,0 +1,44 @@
+/* code-highlight.css */
+/* Dark theme for code blocks */
+.hljs {
+    background: #1e1e1e;
+    color: #d4d4d4;
+    border-radius: 8px;
+    padding: 1em;
+    font-family: 'Courier New', monospace;
+    line-height: 1.5;
+    overflow-x: auto;
+}
+
+/* Python syntax highlighting */
+.hljs-keyword { color: #569cd6; }
+.hljs-built_in { color: #4ec9b0; }
+.hljs-type { color: #4ec9b0; }
+.hljs-literal { color: #569cd6; }
+.hljs-number { color: #b5cea8; }
+.hljs-string { color: #ce9178; }
+.hljs-comment { color: #6a9955; }
+.hljs-title { color: #dcdcaa; }
+.hljs-params { color: #9cdcfe; }
+.hljs-function { color: #dcdcaa; }
+.hljs-meta { color: #9b9b9b; }
+
+/* Make the code block container scrollable */
+pre code {
+    display: block;
+    overflow-x: auto;
+    padding: 1em;
+    max-height: 500px;
+    border-radius: 8px;
+}
+
+/* Optional: Line numbers */
+.line-number {
+    display: inline-block;
+    width: 2em;
+    color: #858585;
+    user-select: none;
+    text-align: right;
+    margin-right: 1em;
+    opacity: 0.7;
+}
