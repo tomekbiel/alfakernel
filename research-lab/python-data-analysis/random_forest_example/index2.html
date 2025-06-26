@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Beverage Quality Classification with Random Forest</title>
+    <link rel="stylesheet" href="../../../css/modern-style.css">
+    <link href="https://fonts.googleapis.com/css2?family=MonteCarlo&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <script defer src="../../../js/index.js"></script>
+</head>
+<body class="research-bg">
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-left initials">
+                <span>TB</span>
+            </div>
+            <div class="header-center">
+                <a href="/alfakernel/index.html" class="logo">AlfaKernel</a>
+                <div class="subtitle">The Core of Quantitative Finance</div>
+            </div>
+            <div class="header-right login-container">
+                <button id="login-btn" class="login-btn">
+                    <i class="fas fa-lock"></i> Sign in
+                </button>
+                <div id="login-form" class="login-form hidden">
+                    <input type="email" placeholder="Email" />
+                    <input type="password" placeholder="Password" />
+                    <button type="submit" class="login-btn">Log In</button>
+                </div>
+            </div>
+        </header>
+        
+        <main class="main-content">
+            <section class="shiny-app-details">
+                <h1>Beverage Quality Prediction with Random Forest</h1>
+                
+                <!-- Project Overview -->
+                <div class="project-overview">
+                    <p>This project demonstrates a machine learning approach to predict beverage quality using Random Forest Classifier and other techniques.</p>
+                    
+                    <div class="project-meta">
+                        <div class="meta-item">
+                            <i class="fas fa-user"></i>
+                            <span>Author: Tomasz Biel</span>
+                        </div>
+                        <div class="meta-item">
+                            <i class="fas fa-id-card"></i>
+                            <span>Student Number: 10520587</span>
+                        </div>
+                        <div class="meta-item">
+                            <i class="fas fa-calendar"></i>
+                            <span>Date: 2025</span>
+                        </div>
+                    </div>
+                    
+                    <div class="quick-links">
+                        <a href="https://github.com/tomekbiel/python_data_analysis/tree/main/random_forest_example" target="_blank" class="button">
+                            <i class="fab fa-github"></i> GitHub Repository
+                        </a>
+                        <a href="https://colab.research.google.com/github/tomekbiel/python_data_analysis/blob/main/random_forest_example/random_forest_baverages.ipynb" target="_blank" class="button">
+                            <i class="fab fa-google"></i> Open in Colab
+                        </a>
+                        <a href="#report" class="button">
+                            <i class="fas fa-file-alt"></i> View Full Report
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Project Structure -->
+                <div class="project-structure">
+                    <h3>Project Structure</h3>
+                    <pre>random_forest_example/
+├── random_forest_baverages.py     # Main analysis script
+├── random_forest_baverages.ipynb  # Jupyter notebook version
+├── Beverage.csv                   # Dataset
+├── plots/                         # Output visualizations
+│   ├── feature_importance.png
+│   ├── confusion_matrix.png
+│   └── clustering_results.png
+├── README.md                      # Project documentation
+└── requirements.txt               # Python dependencies</pre>
+                </div>
+                
+                <!-- Key Highlights -->
+                <div class="highlights">
+                    <h3>Key Highlights</h3>
+                    <ul>
+                        <li><strong>Dataset:</strong> 4898 beverages with 11 physicochemical features</li>
+                        <li><strong>Target:</strong> Binary classification (Excellent/Other)</li>
+                        <li><strong>Techniques:</strong> Random Forest, Decision Tree, PCA, K-Means</li>
+                        <li><strong>Best Accuracy:</strong> 0.881 with Random Forest</li>
+                    </ul>
+                </div>
+                
+                <!-- Results Visualization -->
+                <div class="results-visualization">
+                    <h3>Results & Visualizations</h3>
+                    <div class="gallery">
+                        <figure>
+                            <img src="https://raw.githubusercontent.com/tomekbiel/python_data_analysis/random_forest_example/wyniki/feature_importance.png" alt="Feature Importance">
+                            <figcaption>Feature Importance</figcaption>
+                        </figure>
+                        <figure>
+                            <img src="https://raw.githubusercontent.com/tomekbiel/python_data_analysis/random_forest_example/wyniki/confusion_matrix.png" alt="Confusion Matrix">
+                            <figcaption>Confusion Matrix</figcaption>
+                        </figure>
+                        <figure>
+                            <img src="https://raw.githubusercontent.com/tomekbiel/python_data_analysis/random_forest_example/wyniki/clustering_results.png" alt="Clustering Results">
+                            <figcaption>Clustering Results</figcaption>
+                        </figure>
+                    </div>
+                </div>
+
+                <!-- Jupyter Notebook Section -->
+                <div class="notebook-section">
+                    <h3>Jupyter Notebook Analysis</h3>
+                    <p>The complete analysis is available in the interactive Jupyter Notebook containing all code, visualizations, and explanations:</p>
+                    
+                    <div class="notebook-preview">
+                        <img src="https://raw.githubusercontent.com/tomekbiel/python_data_analysis/random_forest_example/wyniki/notebook_preview.png" 
+                             alt="Notebook Preview" 
+                             onerror="this.src='https://raw.githubusercontent.com/tomekbiel/python_data_analysis/random_forest_example/wyniki/feature_importance.png'">
+                    </div>
+                    
+                    <div class="notebook-actions">
+                        <a href="https://colab.research.google.com/github/tomekbiel/python_data_analysis/blob/main/random_forest_example/random_forest_baverages.ipynb" 
+                           target="_blank" 
+                           class="button primary">
+                            <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Colab">
+                            Open in Google Colab
+                        </a>
+                        
+                        <a href="https://nbviewer.jupyter.org/github/tomekbiel/python_data_analysis/blob/main/random_forest_example/random_forest_baverages.ipynb" 
+                           target="_blank" 
+                           class="button">
+                            <i class="fas fa-eye"></i> View in NBViewer
+                        </a>
+                        
+                        <a href="https://raw.githubusercontent.com/tomekbiel/python_data_analysis/main/random_forest_example/random_forest_baverages.ipynb" 
+                           download 
+                           class="button">
+                            <i class="fas fa-download"></i> Download Notebook
+                        </a>
+                    </div>
+                    
+                    <div class="notebook-content">
+                        <h4>Notebook Highlights</h4>
+                        <ul>
+                            <li>Complete step-by-step analysis</li>
+                            <li>Interactive code cells</li>
+                            <li>Detailed explanations of each step</li>
+                            <li>All visualizations with interpretations</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Technical Report -->
+                <div id="report" class="technical-report">
+                    <h2>Technical Report</h2>
+                    
+                    <!-- 1. Introduction -->
+                    <section>
+                        <h3>1. Introduction</h3>
+                        <p>This study presents a classification analysis of beverage quality using supervised and unsupervised machine learning techniques. The data includes 4898 observations with 11 physicochemical numerical features and one categorical target variable: quality. The aim is to build a predictive model capable of distinguishing high-quality beverages (labelled "Excellent") from others.</p>
+                    </section>
+                    
+                    <!-- 2. Data Preparation -->
+                    <section>
+                        <h3>2. Data Preparation and Preprocessing</h3>
+                        <ul>
+                            <li><strong>Target Transformation:</strong> The quality variable was converted to binary:
+                                <ul>
+                                    <li>Excellent → 1</li>
+                                    <li>All other values → 0</li>
+                                </ul>
+                            </li>
+                            <li><strong>Feature Engineering:</strong> Key variables (alcohol, volatile acidity, sulphates) were one-hot encoded</li>
+                            <li><strong>Scaling:</strong> All features were standardized using StandardScaler</li>
+                            <li><strong>Class Imbalance:</strong> SMOTE was applied to balance the dataset (original: 745 vs. 2683, after: 2683 per class)</li>
+                        </ul>
+                    </section>
+                    
+                    <!-- 3. Supervised Modeling -->
+                    <section>
+                        <h3>3. Supervised Modeling</h3>
+                        
+                        <h4>3.1 Decision Tree Classifier</h4>
+                        <ul>
+                            <li>Criterion: Entropy</li>
+                            <li>Max Depth: 5</li>
+                            <li>Accuracy: 0.715</li>
+                            <li>Confusion Matrix:
+                                <ul>
+                                    <li>TP: 215</li>
+                                    <li>TN: 836</li>
+                                    <li>FP: 319</li>
+                                    <li>FN: 100</li>
+                                </ul>
+                            </li>
+                            <li>Cross-validation Accuracy: Mean = 0.724 (± 0.022)</li>
+                        </ul>
+                        
+                        <h4>3.2 Random Forest Classifier</h4>
+                        <ul>
+                            <li>Initial Model: n_estimators=300, max_features='sqrt', criterion='entropy'</li>
+                            <li>Accuracy: 0.883</li>
+                            <li>Grid Search Optimization:
+                                <ul>
+                                    <li>Best parameters: n_estimators=450, max_depth=30</li>
+                                    <li>Cross-validated score: 0.918</li>
+                                </ul>
+                            </li>
+                            <li>Final accuracy on test data: 0.881</li>
+                            <li>Feature Importance:
+                                <ul>
+                                    <li>density: 0.401</li>
+                                    <li>residual sugar: 0.198</li>
+                                    <li>citric acid: 0.187</li>
+                                    <li>free sulfur dioxide: 0.093</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </section>
+                    
+                    <!-- 4. Unsupervised Learning -->
+                    <section>
+                        <h3>4. Unsupervised Learning: PCA and Clustering</h3>
+                        
+                        <h4>4.1 Principal Component Analysis (PCA)</h4>
+                        <ul>
+                            <li>Two components were extracted</li>
+                            <li>Explained Variance Ratio: 1.89% total (Component 1: 1.09%, Component 2: 0.80%)</li>
+                            <li>PCA visualization showed clustering trends with several outliers</li>
+                        </ul>
+                        
+                        <h4>4.2 KMeans Clustering</h4>
+                        <ul>
+                            <li>Elbow method identified 4 as the optimal number of clusters</li>
+                            <li>Clustering helped visualize sample groupings</li>
+                        </ul>
+                    </section>
+                    
+                    <!-- 5. Recommendations -->
+                    <section>
+                        <h3>5. Recommendations</h3>
+                        <p>Based on the models and their interpretation:</p>
+                        <ul>
+                            <li>High-quality beverages tend to have:
+                                <ul>
+                                    <li>Alcohol content: optimal at ~9.2-9.4</li>
+                                    <li>Low volatile acidity, residual sugar, and sulphates</li>
+                                </ul>
+                            </li>
+                            <li>The most predictive variable is density, followed by indicators of sugar and acidity</li>
+                            <li>Feature importance analysis suggests that after one-hot encoding, numerical distributions lose some predictive power</li>
+                        </ul>
+                    </section>
+                    
+                    <!-- 6. Conclusion -->
+                    <section>
+                        <h3>6. Conclusion</h3>
+                        <p>This project demonstrates the effective use of classification models and dimensionality reduction to predict product quality from chemical properties. Random Forest proved to be the most robust approach, particularly after parameter tuning and class balancing. PCA and KMeans provided valuable support for feature insight and unsupervised validation.</p>
+                        <p>The methods used can be applied to other industrial datasets for quality control, especially where domain knowledge complements machine learning.</p>
+                    </section>
+                </div>
+                
+                <!-- Resources Section -->
+                <div class="resources-section">
+                    <h3>Resources</h3>
+                    <div class="resource-buttons">
+                        <a href="https://raw.githubusercontent.com/tomekbiel/python_data_analysis/refs/heads/random_forest_example/random_forest_baverages.py" download class="button">
+                            <i class="fas fa-file-code"></i> Python Script
+                        </a>
+                        <a href="https://raw.githubusercontent.com/tomekbiel/python_data_analysis/refs/heads/random_forest_example/Beverage.csv" download class="button">
+                            <i class="fas fa-file-csv"></i> Dataset
+                        </a>
+                        <a href="https://raw.githubusercontent.com/tomekbiel/python_data_analysis/refs/heads/random_forest_example/random_forest_baverages.ipynb" download class="button">
+                            <i class="fas fa-book"></i> Jupyter Notebook
+                        </a>
+                        <a href="https://raw.githubusercontent.com/tomekbiel/python_data_analysis/random_forest_example/Beverage%20Analysis%20Report.pdf" class="button">
+                            <i class="fas fa-file-pdf"></i> Full Report (PDF)
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>
