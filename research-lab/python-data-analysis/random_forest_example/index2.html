@@ -223,8 +223,15 @@ plt.figure(figsize=(12, 8))
 sns.heatmap(corr, annot=True, cmap='coolwarm', center=0)
 plt.title('Correlation Matrix')
 plt.tight_layout()
+plt.ylabel("Actual")
 plt.show()</code></pre>
-                    <pre class="output">Basic Statistics:
+                    <div class="plot-container">
+                        <img src="https://raw.githubusercontent.com/tomekbiel/python_data_analysis/random_forest_example/plots/correlation_matrix.png" 
+                             alt="Correlation Matrix" 
+                             class="plot-image">
+                        <p class="plot-caption">Figure 1: Correlation Matrix showing relationships between different features</p>
+                    </div>
+<pre class="output">Basic Statistics:
        fixed acidity  volatile acidity  citric acid  residual sugar  \
 count    4898.000000       4898.000000  4898.000000     4898.000000   
 mean        6.854788          0.278241     0.334192        6.391415   
@@ -260,7 +267,13 @@ quality
 0    3838
 1    1060
 Name: count, dtype: int64</pre>
-                    <img src="plots/correlation_matrix.png" alt="Correlation Matrix" class="plot">
+                    <div class="plot-container">
+                        <img src="https://raw.githubusercontent.com/tomekbiel/python_data_analysis/random_forest_example/plots/correlation_matrix.png" 
+                             alt="Correlation Matrix" 
+                             class="plot-image">
+                        <p class="plot-caption">Figure 1: Correlation Matrix showing relationships between different features</p>
+                    </div>
+
                     <h3>Data Preparation</h3>
                     <pre><code class="language-python"># Prepare features and target
 X = f_dat.drop('quality', axis=1)
@@ -306,11 +319,13 @@ print(conf_mat)
 print('\nClassification Report:')
 print(metrics.classification_report(Y_test, Y_pred))
 
-# Plot confusion matrix
+# Confusion Matrix Visualization
 plt.figure(figsize=(8, 6))
-sns.heatmap(conf_mat, annot=True, fmt='d', cmap='Blues')
-plt.title("Confusion Matrix")
-plt.xlabel("Predicted")
+sns.heatmap(conf_mat, annot=True, fmt='d', cmap='Blues', xticklabels=['Not Excellent', 'Excellent'], yticklabels=['Not Excellent', 'Excellent'])
+plt.title('Confusion Matrix')
+plt.ylabel('True Label')
+plt.xlabel('Predicted Label')
+plt.tight_layout()
 plt.ylabel("Actual")
 plt.show()</code></pre>
 <pre><code class="language-text">Accuracy: 0.8810
@@ -360,12 +375,25 @@ plt.ylabel('Second Principal Component')
 plt.title('PCA - First Two Principal Components')
 plt.colorbar(label='Quality (0=Not Excellent, 1=Excellent)')
 plt.show()</code></pre>
+                    <div class="plot-container">
+                        <img src="https://raw.githubusercontent.com/tomekbiel/python_data_analysis/random_forest_example/plots/pca.png" 
+                             alt="PCA Visualization" 
+                             class="plot-image">
+                        <p class="plot-caption">Figure 2: PCA - First Two Principal Components</p>
+                    </div>
 <pre><code class="language-text">Explained variance ratio: [0.01092321 0.00802697]
 Total explained variance ratio: 0.018950179766635992</code></pre>
 
 <!-- Template 5 -->
-<h3>Clustering with K-Means</h3>
-<pre><code class="language-python"></code># Determine optimal number of clusters using Elbow Method
+                    <div class="plot-container">
+                        <img src="https://raw.githubusercontent.com/tomekbiel/python_data_analysis/random_forest_example/plots/elbow_method.png" 
+                             alt="Elbow Method" 
+                             class="plot-image">
+                        <p class="plot-caption">Figure 3: Elbow Method for determining optimal number of clusters</p>
+                    </div>
+
+                    <h3>Clustering with K-Means</h3>
+<pre><code class="language-python"># Determine optimal number of clusters using Elbow Method
 inertia = []
 for i in range(1, 11):
     kmeans = KMeans(n_clusters=i, random_state=100)
@@ -398,6 +426,18 @@ plt.title(f'K-Means Clustering (k={optimal_k}) on PCA Components')
 plt.legend()
 plt.colorbar(label='Cluster Label')
 plt.show()</code></pre>
+                    <div class="plot-container">
+                        <img src="https://raw.githubusercontent.com/tomekbiel/python_data_analysis/random_forest_example/plots/k_means_clustering.png" 
+                             alt="K-Means Clustering" 
+                             class="plot-image">
+                        <p class="plot-caption">Figure 6: K-Means Clustering (k=4) on PCA Components</p>
+                    </div>
+                    <div class="plot-container">
+                        <img src="https://raw.githubusercontent.com/tomekbiel/python_data_analysis/random_forest_example/plots/feature_importance.png" 
+                             alt="Feature Importance" 
+                             class="plot-image">
+                        <p class="plot-caption">Figure 6: Feature Importance from Random Forest Model</p>
+                    </div>
 
                     <h3 style="margin-top:2em;">Jupyter Notebook</h3>
                     <p>The complete analysis is available in the interactive Jupyter Notebook containing all code, visualizations, and explanations:</p>

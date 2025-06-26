@@ -85,10 +85,44 @@ pre.output {
     opacity: 0.7;
 }
 
+/* Plot containers */
+.plot-container {
+    margin: 2em 0;
+    text-align: center;
+    background: #1e1e1e;
+    border-radius: 8px;
+    padding: 1.5em;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.plot-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+    margin: 0 auto;
+    display: block;
+}
+
+.plot-caption {
+    margin-top: 1em;
+    color: #9b9b9b;
+    font-size: 0.9em;
+    font-style: italic;
+}
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
     pre code {
         font-size: 12px;
         padding: 0.8em;
+    }
+    
+    .plot-container {
+        padding: 1em;
+        margin: 1em 0;
+    }
+    
+    .plot-caption {
+        font-size: 0.8em;
     }
 }
