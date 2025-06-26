@@ -224,23 +224,43 @@ sns.heatmap(corr, annot=True, cmap='coolwarm', center=0)
 plt.title('Correlation Matrix')
 plt.tight_layout()
 plt.show()</code></pre>
-                    <pre class="output"># Output will be displayed here</pre>
+                    <pre class="output">Basic Statistics:
+       fixed acidity  volatile acidity  citric acid  residual sugar  \
+count    4898.000000       4898.000000  4898.000000     4898.000000   
+mean        6.854788          0.278241     0.334192        6.391415   
+std         0.843868          0.100795     0.121020        5.072058   
+min         3.800000          0.080000     0.000000        0.600000   
+25%         6.300000          0.210000     0.270000        1.700000   
+50%         6.800000          0.260000     0.320000        5.200000   
+75%         7.300000          0.320000     0.390000        9.900000   
+max        14.200000          1.100000     1.660000       65.800000   
 
-                    <h3>Feature Engineering</h3>
-                    <pre><code class="language-python"># Create new features
-# Example: Total acidity
-f_dat['total_acidity'] = f_dat['fixed acidity'] + f_dat['volatile acidity'] + f_dat['citric acid']
+         chlorides  free sulfur dioxide  total sulfur dioxide      density  \
+count  4898.000000          4898.000000           4898.000000  4898.000000   
+mean      0.045772            35.308085            138.360657     0.994027   
+std       0.021848            17.007137             42.498065     0.002991   
+min       0.009000             2.000000              9.000000     0.987110   
+25%       0.036000            23.000000            108.000000     0.991723   
+50%       0.043000            34.000000            134.000000     0.993740   
+75%       0.050000            46.000000            167.000000     0.996100   
+max       0.346000           289.000000            440.000000     1.038980   
 
-# Example: Alcohol level category
-alcohol_bins = [0, 9, 11, 13, 20]
-alcohol_labels = ['low', 'medium', 'high', 'very_high']
-f_dat['alcohol_level'] = pd.cut(f_dat['alcohol'], bins=alcohol_bins, labels=alcohol_labels)
+                pH    sulphates      alcohol      quality  
+count  4898.000000  4898.000000  4898.000000  4898.000000  
+mean      3.188267     0.489847    10.514267     0.216415  
+std       0.151001     0.114126     1.230621     0.411842  
+min       2.720000     0.220000     8.000000     0.000000  
+25%       3.090000     0.410000     9.500000     0.000000  
+50%       3.180000     0.470000    10.400000     0.000000  
+75%       3.280000     0.550000    11.400000     0.000000  
+max       3.820000     1.080000    14.200000     1.000000  
 
-# Display new features
-print("\nNew Features:")
-print(f_dat[['total_acidity', 'alcohol_level']].head())</code></pre>
-                    <pre class="output"># Output will be displayed here</pre>
-
+Class Distribution:
+quality
+0    3838
+1    1060
+Name: count, dtype: int64</pre>
+                    <img src="plots/correlation_matrix.png" alt="Correlation Matrix" class="plot">
                     <h3>Data Preparation</h3>
                     <pre><code class="language-python"># Prepare features and target
 X = f_dat.drop('quality', axis=1)
@@ -386,28 +406,25 @@ plt.show()</code></pre>
                              alt="Notebook Preview" 
                              style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);"
                              onerror="this.src='https://raw.githubusercontent.com/tomekbiel/python_data_analysis/random_forest_example/wyniki/feature_importance.png'">
-                    </div>
+                                        </div>
                     <div class="notebook-actions" style="margin-bottom:1.5em; display: flex; flex-wrap: wrap; gap: 12px;">
                         <a href="https://colab.research.google.com/github/tomekbiel/python_data_analysis/blob/main/random_forest_example/random_forest_baverages.ipynb" 
-                           target="_blank" 
-                           class="button primary"
-                           style="display: flex; align-items: center; gap: 8px;">
-                            <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Colab" style="height: 20px; vertical-align: middle;">
-                            Colab
+                        target="_blank" 
+                        class="button primary"
+                        title="Open in Google Colab">
+                            <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Colab" style="height:20px;">
                         </a>
                         <a href="https://nbviewer.jupyter.org/github/tomekbiel/python_data_analysis/blob/main/random_forest_example/random_forest_baverages.ipynb" 
-                           target="_blank" 
-                           class="button"
-                           style="display: flex; align-items: center; gap: 8px;">
-                            <img src="https://raw.githubusercontent.com/jupyter/design/master/logos/nbviewer-logo.svg" alt="NBViewer" style="height: 20px; vertical-align: middle;">
-                            NBViewer
+                        target="_blank" 
+                        class="button"
+                        title="View in NBViewer">
+                            <i class="fas fa-eye" style="font-size:20px;"></i>
                         </a>
                         <a href="https://raw.githubusercontent.com/tomekbiel/python_data_analysis/main/random_forest_example/random_forest_baverages.ipynb" 
-                           download 
-                           class="button"
-                           style="display: flex; align-items: center; gap: 8px;">
-                            <img src="https://raw.githubusercontent.com/jupyter/design/master/logos/jupyter/jupyter.svg" alt="Download Notebook" style="height: 20px; vertical-align: middle;">
-                            Download Notebook
+                        download 
+                        class="button"
+                        title="Download Notebook">
+                            <i class="fas fa-download" style="font-size:20px;"></i>
                         </a>
                     </div>
                     <div class="notebook-content">
